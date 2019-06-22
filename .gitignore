@@ -1,0 +1,62 @@
+secrets.yaml
+# Ignore folders.
+.storage
+.cloud
+.google.token
+.google_maps_location_sharing.cookies
+.HA_VERSION
+.uuid
+.vscode
+deps
+tts
+assets
+appdaemon
+node-red
+custom_components
+tensorflow
+www/community
+www/upcoming-media-card
+# Ignore yaml
+ip_bans.yaml
+known_devices.yaml
+appdaemon.yaml
+google_calendars.yaml
+# Ignore Python
+__pycache__
+__init__.py
+# Ignore Log Files
+home-assistant.log
+access.log
+# Pictures Ignore
+upstairs.svg
+upstairs.png
+downstairs.png
+downstairs.svg
+floor_plan.svg
+floorplan.png
+# Ignore Configs
+harmony_harmony_hub.conf
+plex.conf
+fcm_android_registrations.conf
+webostv.conf
+# Ignore Database
+home-assistant_v2.db
+home-assistant_v2.db-shm
+home-assistant_v2.db-wal
+appdaemon/access.log.1
+appdaemon/access.log.2
+appdaemon/access.log.3
+appdaemon/error.log
+# Ignore JS
+*.js
+
+
+
+
+rsa.pub
+rsa
+ssh.pub
+ssh
+unraid
+unraid.pub
+hassio.code-workspace

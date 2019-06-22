@@ -1,0 +1,333 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Home
+  # Location required to calculate the time the sun rises and sets
+  latitude: !secret hassio_latitude
+  longitude: !secret hassio_longitude
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: 0
+  # metric for Metric, imperial for Imperial
+  unit_system: metric
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: Europe/London
+  # Customization file
+  customize: !include customize.yaml
+  customize_glob: !include customize_glob.yaml
+
+# Enables the frontend
+frontend:
+# Theme Based from @marcelhoffs https://community.home-assistant.io/t/midnight-theme/28598
+  themes: !include themes.yaml
+  javascript_version: latest
+
+# Additional IP Address outside of Docker Container Used for Hassio 
+http:
+  base_url: !secret base_url_ip
+
+websocket_api:
+
+api:
+
+system_health:
+
+default_config:
+
+# Discover some devices automatically
+discovery:
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+# Enables support for tracking state changes over time
+history:
+
+# View all events in a logbook
+logbook:
+  exclude:
+    domains:
+      - sensor
+      - media_player
+
+logger:
+  default: info
+#  logs:
+#    homeassistant.components: debug
+#    homeassistant.components.device_tracker: critical
+#    homeassistant.components.camera: critical
+#    homeassistant.components.media_playter: critical
+#    homeassistant.components.plex.sensor: critical
+#    homeassistant.components.radarr.sensor: critical
+#    homeassistant.components.nzbget.sensor: critical
+#    homeassistant.components.sonarr.sensor: critical
+
+# Track the sun
+sun:
+
+# Database
+recorder:
+  purge_interval: 2
+  purge_keep_days: 5
+
+# Checks for available updates
+updater:
+
+# Enables configuration UI
+config:
+
+# Nabu Casa Cloud Component $5 per month - https://www.nabucasa.com/
+cloud:
+
+# Person component allows to connect device tracker entities to one or more person entities.
+person:
+  - name: !secret person01
+    id: !secret person01_id
+    user_id: !secret person01_user_id
+    device_trackers:
+      - !secret person01_device_tracker01
+      - !secret  person01_device_tracker02
+      - !secret person01_device_tracker03
+  - name: !secret person02
+    id: !secret person02_id
+    device_trackers:
+      - !secret person02_device_tracker01
+
+# Speedtest.net  
+speedtestdotnet:
+  server_id: '3733' #  = Virgin Media Aztec West
+  scan_interval:
+    minutes: 60
+  monitored_conditions:
+    - ping
+    - download
+    - upload
+
+# iFrame Panels > Possible removal from Hassio
+panel_iframe:
+  sonarr:
+    title: Sonarr
+    icon: mdi:television-box
+    url: !secret sonarr_url
+  radarr:
+    title: Radarr
+    icon: mdi:filmstrip
+    url: !secret radarr_url
+  nzbget:
+    title: NZBGet
+    icon: mdi:download
+    url: !secret nzbget_url
+
+# Comunity Updater/Installer/Store
+hacs:
+  token: !secret access_token
+
+# Nest Integration 
+nest:
+  client_id: !secret nest_client_id
+  client_secret: !secret nest_client_secret
+
+# Philips Hue
+hue:
+  bridges:
+    - host: !secret hue_bridge_ip
+
+# TPLink Smart Plug Software Switch
+tplink:
+  switch:
+#    name: Christmas Lights
+    - host: !secret tp_link_host
+
+# IF There, Then That
+ifttt:
+  key: !secret ifttt_api
+
+# Text to speech
+tts:
+  - platform: google_translate
+    service_name: google_say
+
+# Google Hangouts Notify Platform
+notify:
+  - name: noodlemctwoodle
+    platform: hangouts
+    default_conversations:
+      - id: !secret notifier_noodlemctwoodle
+      - name: HA Main
+
+# HANotify Ariela 
+#  - name: android
+#    platform: fcm-android
+
+# Binary Sensors
+binary_sensor:
+# Hue Custom Component
+  - platform: huesensor
+# NodeMCU Door Sensor
+  - platform: mqtt
+    state_topic:  "/doorsensors/bathroom/state"
+    availability_topic: "/doorsensors/status/LWT"
+    name: Bathroom Door
+    payload_on: "1"
+    payload_off: "0"
+    device_class: opening
+# NodeMCU Door Sensor
+  - platform: mqtt
+    state_topic:  "/doorsensors/livingroom/state"
+    availability_topic: "/doorsensors/status/LWT"
+    name: Living Room Door
+    payload_on: "1"
+    payload_off: "0"
+    device_class: opening
+# Unifi Protect Motion to MQTT
+  - platform: mqtt
+    name: Garden Motion
+    state_topic: "/camera/motion/back_gate/#"
+    payload_on: "ON"
+    payload_off: "OFF"
+    device_class: motion
+# Google Ping
+  - platform: ping
+    name: Google DNS Ping
+    host: 8.8.8.8
+    count: 5
+    scan_interval: 600
+# Bayesian Presence Sensor
+  - platform: bayesian
+    prior: 0.75
+    name: "Presence Toby"
+    device_class: 'presence'
+    probability_threshold: 0.95
+    observations:
+      - entity_id: "person.toby"
+        prob_given_true: 0.8
+        platform: 'state'
+        to_state: 'home'
+      - entity_id: "device_tracker.google_pixel_xl_toby"
+        prob_given_true: 0.8
+        platform: 'state'
+        to_state: 'home'
+      - entity_id: "sensor.toby_connected_ap"
+        prob_given_true: 0.8
+        platform: 'state'
+        to_state: 'LIVING_ROOM_WIFI'
+      - entity_id: "sensor.toby_connected_ap"
+        prob_given_true: 0.8
+        platform: 'state'
+        to_state: 'OFFICE_WIFI'
+  - platform: bayesian
+    prior: 0.75
+    name: "Presence Abi"
+    device_class: 'presence'
+    probability_threshold: 0.95
+    observations:
+      - entity_id: "person.abi"
+        prob_given_true: 0.8
+        platform: 'state'
+        to_state: 'home'
+      - entity_id: "device_tracker.google_pixel_abi"
+        prob_given_true: 0.8
+        platform: 'state'
+        to_state: 'home'
+      - entity_id: "sensor.abi_connected_ap"
+        prob_given_true: 0.8
+        platform: 'state'
+        to_state: 'LIVING_ROOM_WIFI'
+      - entity_id: "sensor.abi_connected_ap"
+        prob_given_true: 0.8
+        platform: 'state'
+        to_state: 'OFFICE_WIFI'
+
+# MQTT Lock (SOnOff)
+lock:
+  - platform: mqtt
+    name: Comms Cab
+    state_topic: "stat/officelock/POWER"
+    command_topic: "homeassistant/switch/officelock/cmnd/POWER"
+    payload_lock: "ON"
+    payload_unlock: "OFF"
+    optimistic: false
+
+# Camera Stream
+stream:
+
+# Unifi Camera
+camera:
+  - platform: generic
+    name: Back Garden
+    still_image_url: !secret still_image_url
+    stream_source: !secret rtsp_stream_source
+    verify_ssl: !secret verify_ssl
+
+# Tensor Flow
+image_processing:
+  - platform: tensorflow
+    source:
+      - entity_id: camera.front_door
+      - entity_id: camera.back_garden
+    file_out:
+      - "/config/tensorflow/images/{{ camera_entity.split('.')[1] }}_latest.jpg"
+      - "/config/tensorflow/images/{{ camera_entity.split('.')[1] }}_{{ now().strftime('%Y%m%d_%H%M%S') }}.jpg"
+    model:
+      graph: /config/tensorflow/model/frozen_inference_graph.pb
+      categories:
+        - category: person
+        - car
+        - cat
+        - dog
+#          area:
+#            # Exclude top 10% of image
+#            top: 0.1
+#            # Exclude right 15% of image
+#            right: 0.85
+  - platform: deepstack_face
+    ip_address: localhost
+    port: 5000
+    scan_interval: 20000
+    source:
+      - entity_id: camera.front_door
+        name: Nest Face Detection
+
+# Dark Sky Weather API for LoveLaceUI
+weather:
+  - platform: darksky
+    api_key: !secret dark_sky_api
+
+# Google Calendar Custom Component
+google:
+  client_id: !secret google_calendar_id 
+  client_secret: !secret google_calendar_secret
+
+# Rest API Command = Philips Hue
+rest_command:
+  set_hue_command: #not named sensitivy because the command can be used to set other entities/attributes also
+    url: !secret hue_command
+    method: put
+    payload: '{{ data }}'
+
+# Single File Configs
+script: !include scripts.yaml
+
+## Custom Includes ##
+
+#### /custom_config/notify/ ####
+hangouts: !include custom_config/notify/hangouts.yaml
+#### /custom_config/network/ ####
+device_tracker: !include custom_config/network/device_tracker.yaml
+input_number: !include custom_config/input/number.yaml
+input_select: !include custom_config/input/select.yaml
+#shell_command: !include custom_config/network/shell_commands.yaml
+zone: !include custom_config/network/zones.yaml
+
+## Custom Include Directories ## 
+
+#### /custom_config/automations/ ####
+automation: !include_dir_merge_list custom_config/automations
+#### /custom_config/hue_lights/ ####
+light: !include_dir_merge_list custom_config/hue_lights
+#### /custom_config/media_player/ ####
+media_player: !include_dir_merge_list custom_config/media_player
+#### /custom_config/intents/ ####
+intent_script: !include_dir_merge_list custom_config/intents
+#### /custom_config/sensors/ ####
+sensor: !include_dir_merge_list custom_config/sensors
+#### /custom_config/switch/ ####
+switch: !include_dir_merge_list custom_config/switch

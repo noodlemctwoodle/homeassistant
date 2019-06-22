@@ -1,0 +1,7 @@
+  - platform: google_travel_time
+    name: Phone To Home
+    api_key: !secret google_maps_distance_api
+    origin: device_tracker.google_pixel_xl_toby
+    destination: zone.home 
+    options:
+      units: imperial

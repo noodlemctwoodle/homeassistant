@@ -1,0 +1,244 @@
+# Switch
+switch.downstairs_lights:
+  friendly_name: Downstairs Lights
+  icon: mdi:dip-switch
+switch.kitchen_lights:
+  friendly_name: Kitchen Lights
+  icon: mdi:light-switch
+switch.diningroom_lights:
+  friendly_name: Dining Room Lights
+  icon: mdi:light-switch
+switch.cupboard_lights:
+  friendly_name: Cupboard Lights
+  icon: mdi:light-switch
+switch.backdoor_lights:
+  friendly_name: Back Door Lights
+  icon: mdi:light-switch
+switch.livingroom_lights:
+  friendly_name: Livingroom Lights
+  icon: mdi:light-switch
+switch.hall_lights:
+  friendly_name: Hall Lights
+  icon: mdi:light-switch
+switch.bathroom_lights:
+  friendly_name: Bathroom Lights
+  icon: mdi:light-switch
+switch.upstairs_lights:
+  friendly_name: Upstairs Lights
+  icon: mdi:dip-switch
+switch.bedroom_lights:
+  friendly_name: Bedroom Lights
+  icon: mdi:light-switch
+switch.office_lights:
+  friendly_name: Office Lights
+  icon: mdi:light-switch
+switch.attic_lights:
+  friendly_name: Attic Lights
+  icon: mdi:light-switch
+switch.landing_lights:
+  friendly_name: Landing Lights
+  icon: mdi:light-switch
+switch.craftroom_lights:
+  friendly_name: Craft Room Lights
+  icon: mdi:light-switch
+switch.home_desktop:
+  friendly_name: Desktop
+  icon: mdi:desktop-classic
+switch.home_server:
+  friendly_name: Server
+  icon: mdi:server
+switch.comms_cab_lock:
+  icon: mdi:lock
+switch.christmas_lights:
+  icon: mdi:power-socket-uk
+
+
+# Sensors
+sensor.bedroom_sensor_battery:
+  friendly_name: Bathroom Sensor Battery
+sensor.bedroom_luminance:
+  friendly_name: Bathroom Luminance
+sensor.bedroom_motion:
+  friendly_name: Bathroom Motion
+sensor.bedroom_temperature:
+  friendly_name: Bathroom Temperature
+sensor.hall_battery_level:
+  icon: mdi:battery
+sensor.landing_battery_level:
+  icon: mdi:battery
+sensor.bathroom_battery_level:
+  icon: mdi:battery
+sensor.living_room_battery_level:
+  icon: mdi:battery
+sensor.kitchen_battery_level:
+  icon: mdi:battery
+sensor.office_battery_level:
+  icon: mdi:battery
+sensor.bedroom_battery_level:
+  icon: mdi:battery
+sensor.living_room_switch_battery_level:
+  icon: mdi:battery
+sensor.living_room_remote:
+  icon: mdi:remote
+sensor.toby_presence:
+  icon: mdi:home-automation
+sensor.abi_presence:
+  icon: mdi:home-automation
+sensor.internet_time:
+  hidden: true
+sensor.kitchen_nest_protect_co_status:
+  icon: mdi:skull-crossbones
+sensor.kitchen_nest_protect_smoke_status:
+  icon: mdi:fire
+sensor.kitchen_nest_protect_battery_health:
+  icon: mdi:battery
+sensor.kitchen_nest_protect_color_status:
+  icon: mdi:traffic-light
+binary_sensor.kitchen_nest_protect_online:
+  icon: mdi:smoke-detector
+sensor.upstairs_nest_protect_co_status:
+  icon: mdi:skull-crossbones
+sensor.upstairs_nest_protect_smoke_status:
+  icon: mdi:fire
+sensor.upstairs_nest_protect_battery_health:
+  icon: mdi:battery
+sensor.upstairs_nest_protect_color_status:
+  icon: mdi:traffic-light
+binary_sensor.upstairs_nest_protect_online:
+  icon: mdi:smoke-detector
+sensor.average_room_temp:
+  icon: mdi:thermometer-lines
+sensor.average_room_lux:
+  icon: mdi:brightness-6
+
+# Script
+script.set_hue_sensitivity:
+  action_name: 'Set'
+  icon: mdi:settings
+script.set_hue_threshold:
+  action_name: 'Set'
+  icon: mdi:settings
+
+# Input Select
+input_select.select_hue_sensitivity:
+  templates:
+    icon: >
+      if (state === 'Low') return 'mdi:numeric-0-box-multiple-outline';
+      if (state === 'Medium') return 'mdi:numeric-1-box-multiple-outline';
+      return 'mdi:numeric-2-box-multiple-outline';
+    icon_color: >
+      if (state === 'Low') return 'grey';
+      if (state === 'Medium') return 'blue';
+      return 'red';
+
+# Input Number
+input_number.slide_hue_threshold:
+  templates:
+    icon_color: >
+      if (state > 25000 ) return 'rgb(85, 0, 0)';
+      if (state > 20000) return 'rgb(255, 0, 0)';
+      if (state > 15000) return 'rgb(255, 165, 0)';
+      if (state > 10000) return 'rgb(0, 128, 0)';
+      if (state > 7500) return 'rgb(255, 211, 30)';
+      if (state > 5000) return 'rgb(255, 255, 0)';
+      if (state > 25000) return 'rgb(30, 144, 255)';
+      if (state > 1000) return 'rgb(30, 255, 255)';
+      return 'rgb(47, 0, 0)';
+
+# Input Text
+input_text.tiles_set_hue_scene:
+  custom_ui_state_card: state-card-tiles
+  config:
+    text_uppercase: false
+    columns: 6
+#        column_width: 50px #minmax(75px, 75px)
+    icon_size: 50px
+    row_height: 50px
+    entities:
+      - entity: script.tiles_set_hue_scene
+        label: Arctic
+        data: {option: 'Arctische dageraad'}
+        style_template: >
+          if (entities['input_select.hue_scenes'].state === 'Arctische dageraad') return '--tiles-text-color:black;background-size: contain;background-color: #00d0a0';
+          return '--tiles-text-color: grey;background-size: contain; background-color: #555B65';
+        image: /local/hue_scenes/arctic.png
+
+      - entity: script.tiles_set_hue_scene
+        label: Savanne
+        data: {option: 'Savanne zonsondergang'}
+        style_template: >
+          if (entities['input_select.hue_scenes'].state === 'Savanne zonsondergang') return '--tiles-text-color:black;background-size: contain;background-color: #ff7935';
+          return '--tiles-text-color: grey;background-size: contain; background-color: #555B65';
+        image: /local/hue_scenes/savanna.png
+
+      - entity: script.tiles_set_hue_scene
+        label: Tropisch
+        data: {option: 'Tropische schemering'}
+        style_template: >
+          if (entities['input_select.hue_scenes'].state === 'Tropische schemering') return '--tiles-text-color:black;background-size: contain;background-color: #a03aa3';
+          return '--tiles-text-color: grey;background-size: contain; background-color: #555B65';
+        image: /local/hue_scenes/tropical.png
+
+      - entity: script.tiles_set_hue_scene
+        label: Lente
+        data: {option: 'Lentebloesem'}
+        style_template: >
+          if (entities['input_select.hue_scenes'].state === 'Lentebloesem') return '--tiles-text-color:black;background-size: contain;background-color: #ba496c';
+          return '--tiles-text-color: grey;background-size: contain; background-color: #555B65';
+        image: /local/hue_scenes/spring.png
+
+      - entity: script.tiles_set_hue_scene
+        label: Relax
+        data: {option: 'Ontspannen'}
+        style_template: >
+          if (entities['input_select.hue_scenes'].state === 'Ontspannen') return '--tiles-text-color:black;background-size: contain;background-color: #ffc059';
+          return '--tiles-text-color: grey;background-size: contain; background-color: #555B65';
+        image: /local/hue_scenes/relax.png
+
+      - entity: script.tiles_set_hue_scene
+        label: Lezen
+        data: {option: 'Lezen'}
+        style_template: >
+          if (entities['input_select.hue_scenes'].state === 'Lezen') return '--tiles-text-color:black;background-size: contain;background-color: #fdfb9f';
+          return '--tiles-text-color: grey;background-size: contain; background-color: #555B65';
+        image: /local/hue_scenes/lezen.png
+
+      - entity: script.tiles_set_hue_scene
+        label: Concent
+        data: {option: 'Concentreren'}
+        style_template: >
+          if (entities['input_select.hue_scenes'].state === 'Concentreren') return '--tiles-text-color:black;background-size: contain;background-color: #a2eaf2';
+          return '--tiles-text-color: grey;background-size: contain; background-color: #555B65';
+        image: /local/hue_scenes/concentrate.png
+
+      - entity: script.tiles_set_hue_scene
+        label: Energie
+        data: {option: 'Energie'}
+        style_template: >
+          if (entities['input_select.hue_scenes'].state === 'Energie') return '--tiles-text-color:black;background-size: contain;background-color: #a8dfed';
+          return '--tiles-text-color: grey;background-size: contain; background-color: #555B65';
+        image: /local/hue_scenes/energize.png
+
+      - entity: script.tiles_set_hue_scene
+        label: Helder
+        data: {option: 'Helder'}
+        style_template: >
+          if (entities['input_select.hue_scenes'].state === 'Helder') return '--tiles-text-color:black;background-size: contain;background-color: #fcdb97';
+          return '--tiles-text-color: grey;background-size: contain; background-color: #555B65';
+        image: /local/hue_scenes/clear.png
+
+      - entity: script.tiles_set_hue_scene
+        label: Gedimd
+        data: {option: 'Gedimd'}
+        style_template: >
+          if (entities['input_select.hue_scenes'].state === 'Gedimd') return '--tiles-text-color:black;background-size: contain;background-color: #8c642b';
+          return '--tiles-text-color: grey;background-size: contain; background-color: #555B65';
+        image: /local/hue_scenes/dimmed.png
+
+      - entity: script.tiles_set_hue_scene
+        label: Nacht
+        data: {option: 'Nachtlampje'}
+        style_template: >
+          if (entities['input_select.hue_scenes'].state === 'Nachtlampje') return '--tiles-text-color:black;background-size: contain;background-color: #814346';
+          return '--tiles-text-color: grey;background-size: contain; background-color: #555B65';
+        image: /local/hue_scenes/nightlight.png

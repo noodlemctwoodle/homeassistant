@@ -1,0 +1,43 @@
+- alias: Scan for faces when motion detected front garden
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.front_door_camera_motion_detected
+      to: 'on'
+  action:
+    - service: image_processing.scan
+      data:
+        entity_id: image_processing.tensorflow_front_door
+
+- alias: Scan for faces when motion detected back garden
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.garden_motion
+      to: 'on'
+  action:
+    - service: image_processing.scan
+      data:
+        entity_id: image_processing.tensorflow_back_garden
+
+- alias: Scan for faces when motion detected
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.front_door_camera_motion_detected
+      to: 'on'
+  action:
+    - service: image_processing.detect_face
+      data:
+        entity_id: image_processing.tensorflow_front_door
+
+
+- alias: Deepstack scan for faces when motion detected
+  trigger:
+    - platform: event
+      event_type: image_processing.object_detected
+      event_data:
+        object: person
+  action:
+    - data_template:
+        title: "New object detection"
+        message: "{{ trigger.event.data.object }} with confidence {{ trigger.event.data.confidence }}"
+      service: notify.pushbullet
+

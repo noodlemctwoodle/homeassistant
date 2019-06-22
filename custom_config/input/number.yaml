@@ -1,0 +1,13 @@
+  livingroom_brightness:
+    name: Brightness
+    initial: 254
+    min: 0
+    max: 254
+    step: 10
+  
+  slide_hue_threshold:
+    icon: mdi:altimeter
+    name: Slide Hue threshold
+    min: 0
+    max: 30000 #hue max = 65534 but makes slider max ot of scale, since max is almost identical to 30000
+    step: 2500

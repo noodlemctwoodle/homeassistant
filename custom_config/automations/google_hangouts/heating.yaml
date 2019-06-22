@@ -1,0 +1,48 @@
+# Google Hangouts Notifications
+- alias: Heating on notification
+  trigger:
+    platform: state
+    entity_id: sensor.living_room_thermostat_hvac_state
+    to: heating
+  action:
+    service: hangouts.send_message
+    data_template:
+      target: 
+      - id: !secret notifier_noodlemctwoodle
+      message: 
+        - text: "The heating is on"
+
+- alias: Heating off notification
+  trigger:
+    platform: state
+    entity_id: sensor.living_room_thermostat_hvac_state
+    to: 'off'
+  action:
+    service: hangouts.send_message
+    data_template:
+      target: 
+      - id: !secret notifier_noodlemctwoodle
+      message: 
+        - text: "The heating is off"
+
+# HANotify Notifications
+- alias: Heating on notification (Android)
+  trigger:
+    platform: state
+    entity_id: sensor.living_room_thermostat_hvac_state
+    to: heating
+  action:
+    service: notify.android
+    data:
+      message: "The heating is on"
+
+- alias: Heating off notification (Android)
+  trigger:
+    platform: state
+    entity_id: sensor.living_room_thermostat_hvac_state
+    to: 'off'
+  action:
+    service: notify.android
+    data:
+      message: "The heating is off"
+      

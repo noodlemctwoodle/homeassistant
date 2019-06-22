@@ -1,0 +1,54 @@
+  - platform: template
+    sensors:
+      toby_connected_ap:
+        friendly_name: 'Tobys Phone'
+        value_template: >
+          {% if is_state("device_tracker.google_pixel_xl_toby", "home") %}
+          {% if is_state_attr("device_tracker.google_pixel_xl_toby", "ap_mac", "b4:fb:e4:21:79:1c") %} 
+            OFFICE_WIFI
+          {% elif is_state_attr("device_tracker.google_pixel_xl_toby", "ap_mac", "78:8a:20:4b:09:83") %}
+            LIVING_ROOM_WIFI
+          {% else %}
+            Offline
+          {% endif %}
+          {% else %}
+            Offline
+          {% endif %}
+      abi_connected_ap:
+        friendly_name: 'Abis Phone'
+        value_template: >
+          {% if is_state("device_tracker.google_pixel_abi", "home") %}
+          {% if is_state_attr("device_tracker.google_pixel_abi", "ap_mac", "b4:fb:e4:21:79:1c") %} 
+            OFFICE_WIFI
+          {% elif is_state_attr("device_tracker.google_pixel_abi", "ap_mac", "78:8a:20:4b:09:83") %}
+            LIVING_ROOM_WIFI
+          {% else %}
+            Offline
+          {% endif %}
+          {% else %}
+            Offline
+          {% endif %}
+      toby_unifi_rssi:
+        value_template: '{{states.device_tracker.google_pixel_xl_toby.attributes.rssi}}'
+      abi_unifi_rssi:
+        value_template: '{{states.device_tracker.google_pixel_abi.attributes.rssi}}'
+      hello_unifi_rssi:
+        value_template: '{{states.device_tracker.nest_hello.attributes.rssi}}'
+      outdoor_unifi_rssi:
+        value_template: '{{states.device_tracker.nest_outdoor_cam.attributes.rssi}}'
+      hello_unifi_tx_rate:
+        value_template: '{{states.device_tracker.nest_hello.attributes.tx_rate}}'
+      outdoor_unifi_tx_rate:
+        value_template: '{{states.device_tracker.nest_outdoor_cam.attributes.tx_rate}}'
+      hello_unifi_rx_rate:
+        value_template: '{{states.device_tracker.nest_hello.attributes.rx_rate}}'
+      outdoor_unifi_rx_rate:
+        value_template: '{{states.device_tracker.nest_outdoor_cam.attributes.rx_rate}}'
+      hello_unifi_signal:
+        value_template: '{{states.device_tracker.nest_hello.attributes.signal}}'
+      outdoor_unifi_signal:
+        value_template: '{{states.device_tracker.nest_outdoor_cam.attributes.signal}}'
+      hello_unifi_noise:
+        value_template: '{{states.device_tracker.nest_hello.attributes.signal}}'
+      outdoor_unifi_noise:
+        value_template: '{{states.device_tracker.nest_outdoor_cam.attributes.signal}}'

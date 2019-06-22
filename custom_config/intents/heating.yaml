@@ -1,0 +1,39 @@
+  heating_status:
+    speech:
+      text: The heating is {{ states.sensor.living_room_thermostat_hvac_state.state }} 
+  lounge_temp:
+    speech:
+      text: The living room temperature is {{ states.sensor.living_room_thermostat_temperature.state }} °C
+  off_mode:
+    speech:
+      text: I have set the heating to off.
+    action:
+      service: climate.set_operation_mode
+      data:
+        entity_id: climate.living_room
+        operation_mode: 'off'
+  eco_mode:
+    speech:
+      text: I have set the heating to eco mode.
+    action:
+      service: climate.set_operation_mode
+      data:
+        entity_id: climate.living_room
+        operation_mode: 'eco'
+  heat_mode:
+    speech:
+      text: I have set the heating to heat mode.
+    action:
+      service: climate.set_operation_mode
+      data:
+        entity_id: climate.living_room
+        operation_mode: 'heat'
+  set_nest_temp:
+    speech:
+      text: I have set nest to 20 degrees
+    action:
+      service: climate.set_temperature
+      data:
+        entity_id: climate.living_room
+        temperature: 20
+        operation_mode: Heat

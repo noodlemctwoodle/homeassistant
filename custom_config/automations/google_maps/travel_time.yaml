@@ -1,0 +1,22 @@
+- id: update_morning_commute_sensor
+  alias: "Commute - Update morning commute sensor"
+  initial_state: 'on'
+  trigger:
+    - platform: time_pattern
+      minutes: '/5'
+      seconds: 00
+  condition:
+    - condition: time
+      after: '08:00:00'
+      before: '11:00:00'
+    - condition: time
+      weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+  action:
+    - service: sensor.google_travel_sensor_update
+      data:
+        entity_id: sensor.morning_commute

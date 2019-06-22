@@ -1,0 +1,13 @@
+# Home Zone Location
+  - name: Home
+    latitude: !secret hassio_latitude
+    longitude: !secret hassio_longitude
+    radius: 100
+    icon: mdi:home
+
+# Work Zone Location
+  - name: Work
+    latitude: !secret office_latitude
+    longitude: !secret office_longitude
+    radius: 200
+    icon: mdi:home-modern

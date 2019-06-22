@@ -1,0 +1,12 @@
+  - platform: darksky
+    api_key: !secret dark_sky_api
+    monitored_conditions:
+      - summary
+      - icon
+      - apparent_temperature
+      - temperature_high
+      - temperature_low
+      - wind_speed
+      - humidity
+      - pressure
+      - precip_probability

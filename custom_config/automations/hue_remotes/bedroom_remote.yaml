@@ -1,0 +1,9 @@
+# Hue Remote Automations
+- alias: Long Press OFF Bedroom Remote
+  trigger:
+    platform: state
+    entity_id: sensor.bedroom_switch
+    to: '4_hold'
+  action:
+    service: homeassistant.turn_off
+    entity_id: switch.downstairs_lights

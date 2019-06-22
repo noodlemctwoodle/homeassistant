@@ -1,0 +1,36 @@
+  intents:
+    HassLightSet:
+      sentences:
+        - Toggle {name}.
+      conversations:
+        - id: !secret notifier_noodlemctwoodle
+    heating_status:
+      sentences:
+        - What is the status of the heating
+    off_mode:
+      sentences:
+        - Turn off heating
+        - Turn of the heating
+        - Heating off
+    eco_mode:
+      sentences:
+        - Turn on eco mode
+        - Set eco mode
+    heat_mode:
+      sentences:
+        - Turn on heating mode
+        - Heating on
+        - Set mode to heating
+    lounge_temp:
+      sentences:
+        - What is the temperature in the living room
+        - Whats the living room temp
+        - Living room temp
+    set_nest_temp:
+      sentences:
+        - Set the nest temp to 20
+        - Turn it up to 20
+  error_suppressed_conversations:
+   - id: !secret notifier_noodlemctwoodle
+
+
