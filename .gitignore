@@ -1,4 +1,3 @@
-secrets.yaml
 # Ignore folders.
 .storage
 .cloud
@@ -14,19 +13,13 @@ appdaemon
 node-red
 custom_components
 tensorflow
+
+# Ignore Directories
 www/community
+www/lovelace
+www/tileboard
 www/upcoming-media-card
-# Ignore yaml
-ip_bans.yaml
-known_devices.yaml
-appdaemon.yaml
-google_calendars.yaml
-# Ignore Python
-__pycache__
-__init__.py
-# Ignore Log Files
-home-assistant.log
-access.log
+
 # Pictures Ignore
 upstairs.svg
 upstairs.png
@@ -34,11 +27,34 @@ downstairs.png
 downstairs.svg
 floor_plan.svg
 floorplan.png
+background.jpg
+
+# Ignore yaml
+appdaemon.yaml
+google_calendars.yaml
+ip_bans.yaml
+known_devices.yaml
+secrets.yaml
+ui-lovelace.yaml
+ui-lovelace_old.yaml
+ui-lovelace_original.yaml
+
+# Ignore Python
+__pycache__
+__init__.py
+*.py
+
+# Ignore Log Files
+*.log
+
+
+
 # Ignore Configs
 harmony_harmony_hub.conf
 plex.conf
 fcm_android_registrations.conf
 webostv.conf
+
 # Ignore Database
 home-assistant_v2.db
 home-assistant_v2.db-shm
@@ -47,12 +63,14 @@ appdaemon/access.log.1
 appdaemon/access.log.2
 appdaemon/access.log.3
 appdaemon/error.log
+
 # Ignore JS
 *.js
 
+# Ignore Configs
+*.conf
 
-
-
+# Certificates
 rsa.pub
 rsa
 ssh.pub

@@ -1,0 +1,29 @@
+#############################################################################################################################################
+#                                                                                                                                           # 
+#                                                                Template Sensor                                                            #
+#                                                                                                                                           #
+#############################################################################################################################################
+
+# https://www.home-assistant.io/integrations/template/
+
+#################################################################
+#                                                               #
+#                      Ping Sensor Template                     #
+#                                                               #
+#################################################################
+
+  - platform: template
+    sensors:
+      cloudflare_dns_ping:
+        friendly_name: 'Cloudflare'
+        entity_id:
+          - binary_sensor.cloudflare_dns
+        value_template: "{{ state_attr('binary_sensor.cloudflare_dns', 'round_trip_time_avg') | round(2) }}"
+        unit_of_measurement: "ms"
+
+      google_dns_ping:
+        friendly_name: 'Google'
+        entity_id:
+          - binary_sensor.google_dns
+        value_template: "{{ state_attr('binary_sensor.google_dns', 'round_trip_time_avg') | round(2) }}"
+        unit_of_measurement: "ms"

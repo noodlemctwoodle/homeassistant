@@ -1,7 +1,51 @@
+#############################################################################################################################################
+#                                                                                                                                           # 
+#                                                               GOOGLE MAPS                                                                 #
+#                                                                                                                                           #
+#############################################################################################################################################
+
+#################################################################
+#                                                               #
+#                GOOGLE GEOCODE -  CUSTOM COMPONENT             #
+#                                                               #
+#################################################################
+
+# https://github.com/gregoryduckworth/GoogleGeocode-HASS
+
+  - platform: google_geocode
+    name: geocode_user_1
+    origin: !secret geocode_device_tracker_1
+    options: street_number, street, city
+    display_zone: show
+    api_key: !secret geocode_api_key
+    scan_interval: 600
+
+  - platform: google_geocode
+    name: geocode_user_2
+    origin: !secret geocode_device_tracker_2
+    options: street_number, street, city
+    display_zone: show
+    api_key: !secret geocode_api_key
+    scan_interval: 600
+
+#################################################################
+#                                                               #
+#                 GOOGLE TRAVEL TIME - COMPONENT                #
+#                                                               #
+#################################################################
+
+# https://www.home-assistant.io/integrations/google_travel_time/
+
   - platform: google_travel_time
-    name: Phone To Home
-    api_key: !secret google_maps_distance_api
-    origin: device_tracker.google_pixel_xl_toby
-    destination: zone.home 
-    options:
-      units: imperial
+    name: user_1_to_home
+    api_key: !secret geocode_api_key
+    origin: !secret user_1_device_tracker
+    destination: zone.home
+    scan_interval: 600
+
+  - platform: google_travel_time
+    name: user_2_to_home
+    api_key: !secret geocode_api_key
+    origin: !secret user_2_device_tracker
+    destination: zone.home
+    scan_interval: 600

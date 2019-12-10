@@ -1,0 +1,58 @@
+#############################################################################################################################################
+#                                                                                                                                           # 
+#                                                                Template Sensor                                                            #
+#                                                                                                                                           #
+#############################################################################################################################################
+
+# https://www.home-assistant.io/integrations/template/
+
+#################################################################
+#                                                               #
+#                  Power Consumption Template                   #
+#                                                               #
+#################################################################
+
+  - platform: template
+    sensors:
+
+      cabinet_consumption:
+        entity_id: switch.server_cabinet
+        value_template: '{{ (states.switch.server_cabinet.attributes.current_power_w|int / 1000)|round(2) }}'  
+        friendly_name: 'Cabinet Consumption' 
+        unit_of_measurement: 'W' 
+
+      cabinet_last_month:
+        value_template: "{{ states.sensor.monthly_cabinet.attributes.last_period }}"
+        friendly_name: 'Last Month'
+        
+      cabinet_cost:
+        entity_id: sensor.monthly_cabinet
+        friendly_name: 'Cabinet Cost'
+        value_template: >-
+          {% if (states.sensor.monthly_cabinet.state|float > 0) %}
+            £{{ (states.sensor.monthly_cabinet.state|float * 0.2420)|round(2) }}
+          {% elif (states.sensor.monthly_cabinet.state|float == 0) %}
+            £{{ (states.sensor.monthly_cabinet.state|float * 0.2420)|round(2) }}
+          {% endif %}
+
+
+      xmas_lights_consumption:
+        entity_id: switch.christmas_lights
+        value_template: '{{ (states.switch.christmas_lights.attributes.current_power_w|int / 1000)|round(2) }}'  
+        friendly_name: 'Christmas Lights Consumption' 
+        unit_of_measurement: 'W' 
+
+      xmas_lights_last_month:
+        value_template: "{{ states.sensor.monthly_xmas_lights.attributes.last_period }}"
+        friendly_name: 'Last Month'
+        
+      xmas_lights_cost:
+        entity_id: sensor.monthly_xmas_lights
+        friendly_name: 'Xmas Lights Cost'
+        value_template: >-
+          {% if (states.sensor.monthly_xmas_lights.state|float > 0) %}
+            £{{ (states.sensor.monthly_xmas_lights.state|float * 0.2420)|round(2) }}
+          {% elif (states.sensor.monthly_xmas_lights.state|float == 0) %}
+            £{{ (states.sensor.monthly_xmas_lights.state|float * 0.2420)|round(2) }}
+          {% endif %}
+

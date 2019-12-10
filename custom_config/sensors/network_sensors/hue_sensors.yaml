@@ -1,93 +1,66 @@
-# Philips Hue Motion Sensor - RestAPI (Custom-Component)
-## https://github.com/robmarkcole/Hue-sensors-HASS ##
-## https://community.home-assistant.io/t/map-values-for-an-input-select/94354/20 ##
-- platform: huesensor
+#############################################################################################################################################
+#                                                                                                                                           # 
+#                                                                Min/max Sensor                                                             #
+#                                                                                                                                           #
+#############################################################################################################################################
 
-- platform: template
-  sensors:
-# Kitchen Sensor
-    kitchen_battery_level:
-      friendly_name: 'Kitchen battery level'
-      value_template: '{{state_attr("binary_sensor.kitchen_motion", "battery_level")}}'
-      unit_of_measurement: '%'
-# Living Room Sensor
-    living_room_battery_level:
-      friendly_name: 'Living Room battery level'
-      value_template: '{{state_attr("binary_sensor.living_room_motion", "battery_level")}}'
-      unit_of_measurement: '%'
-# Bathroom Sensor  
-    bathroom_battery_level:
-      friendly_name: 'Bathroom battery level'
-      value_template: '{{state_attr("binary_sensor.bathroom_motion", "battery_level")}}'
-      unit_of_measurement: '%'
-# Hall Sensor
-    hall_battery_level:
-      friendly_name: 'Hall battery level'
-      value_template: '{{state_attr("binary_sensor.hall_motion", "battery_level")}}'
-      unit_of_measurement: '%'
-# Landing Sensor
-    landing_battery_level:
-      friendly_name: 'Landing battery level'
-      value_template: '{{state_attr("binary_sensor.landing_motion", "battery_level")}}'
-      unit_of_measurement: '%' 
-# Office Sensor
-    office_battery_level:
-      friendly_name: 'Office battery level'
-      value_template: '{{state_attr("binary_sensor.office_motion", "battery_level")}}'
-      unit_of_measurement: '%'
-# Bedroom Sensor
-    bedroom_battery_level:
-      friendly_name: 'Bedroom battery level'
-      value_template: '{{state_attr("binary_sensor.bedroom_motion", "battery_level")}}'
-      unit_of_measurement: '%'
-# Kitchen Hue Remote
-    kitchen_switch_battery_level:
-      friendly_name: 'Kitchen Remote Battery'
-      value_template: '{{state_attr("sensor.kitchen_switch", "battery")}}'
-      unit_of_measurement: '%'
-# Cupboard Hue Remote
-    cupboard_switch_battery_level:
-      friendly_name: 'Cupboard Remote Battery'
-      value_template: '{{state_attr("sensor.cupboard_switch", "battery")}}'
-      unit_of_measurement: '%'        
-# Living Room Hue Remote
-    living_room_switch_battery_level:
-      friendly_name: 'Living Room Remote Battery'
-      value_template: '{{state_attr("sensor.living_room_switch", "battery")}}'
-      unit_of_measurement: '%'
-# Bathroom Hue Remote
-    bathroom_switch_battery_level:
-      friendly_name: 'Bathroom Remote Battery'
-      value_template: '{{state_attr("sensor.bathroom_switch", "battery")}}'
-      unit_of_measurement: '%'
-# Bedroom Hue Remote
-    bedroom_switch_battery_level:
-      friendly_name: 'Bedroom Remote Battery'
-      value_template: '{{state_attr("sensor.bedroom_switch", "battery")}}'
-      unit_of_measurement: '%' 
-      
-# Hue Average Temp
+# https://www.home-assistant.io/integrations/min_max/
+
+####################################################
+#                                                  #
+#            Downstairs Average Temperature        #
+#                                                  #
+####################################################
+
 - platform: min_max
   type: mean
-  name: average_room_temp
+  name: downstairs_average_temp
   entity_ids:
     - sensor.kitchen_temperature
     - sensor.living_room_temperature
+    - sensor.living_room_thermostat_temperature
     - sensor.bathroom_temperature
     - sensor.hall_temperature
+
+####################################################
+#                                                  #
+#            Upstairs Average Temperature          #
+#                                                  #
+####################################################
+
+- platform: min_max
+  type: mean
+  name: upstairs_average_temp
+  entity_ids:
     - sensor.landing_temperature
     - sensor.office_temperature
     - sensor.bedroom_temperature
 
-# Hue Average LUX
+####################################################
+#                                                  #
+#            Downstairs Average LUX                #
+#                                                  #
+####################################################
+
 - platform: min_max
   type: mean
-  name: average_room_lux
+  name: downstairs_average_lux
   entity_ids:
-    - sensor.kitchen_light_level
-    - sensor.living_room_light_level
-    - sensor.bathroom_light_level
-    - sensor.hall_light_level
-    - sensor.landing_light_level
-    - sensor.office_light_level
-    - sensor.bedroom_light_level
+    - sensor.kitchen_lux
+    - sensor.living_room_lux
+    - sensor.bathroom_lux
+    - sensor.hall_lux
+
+####################################################
+#                                                  #
+#            Upstairs Average LUX                  #
+#                                                  #
+####################################################
+
+- platform: min_max
+  type: mean
+  name: upstairs_average_lux
+  entity_ids:
+    - sensor.landing_lux
+    - sensor.office_lux
+    - sensor.bedroom_lux

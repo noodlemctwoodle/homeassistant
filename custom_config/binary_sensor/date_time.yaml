@@ -1,10 +1,11 @@
 #################################################################
 #                                                               #
-#                       WEBOS- MEDIA PLAYER                     #
+#                      Workday Binary Sensor                    #
 #                                                               #
 #################################################################
 
-  - platform: webostv
-    host: !secret living_room_tv_ip
-    name: Living Room TV
-    filename: webostv.conf
+# https://www.home-assistant.io/integrations/workday/
+
+  - platform: workday
+    country: UK
+    workdays: [mon, tue, wed, thu, fri]

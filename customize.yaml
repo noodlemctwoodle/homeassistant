@@ -51,7 +51,13 @@ switch.comms_cab_lock:
   icon: mdi:lock
 switch.christmas_lights:
   icon: mdi:power-socket-uk
-
+switch.kitchen_motion_sensor:
+  icon: mdi:motion-sensor
+switch.office_motion_sensor:
+  icon: mdi:motion-sensor
+switch.living_room_wemoplug:
+  friendly_name: Flea Light
+  icon: mdi:lightbulb
 
 # Sensors
 sensor.bedroom_sensor_battery:
@@ -80,10 +86,6 @@ sensor.living_room_switch_battery_level:
   icon: mdi:battery
 sensor.living_room_remote:
   icon: mdi:remote
-sensor.toby_presence:
-  icon: mdi:home-automation
-sensor.abi_presence:
-  icon: mdi:home-automation
 sensor.internet_time:
   hidden: true
 sensor.kitchen_nest_protect_co_status:
@@ -96,149 +98,92 @@ sensor.kitchen_nest_protect_color_status:
   icon: mdi:traffic-light
 binary_sensor.kitchen_nest_protect_online:
   icon: mdi:smoke-detector
-sensor.upstairs_nest_protect_co_status:
+sensor.upstairs_nest_protect_landing_co_status:
   icon: mdi:skull-crossbones
-sensor.upstairs_nest_protect_smoke_status:
+sensor.upstairs_nest_protect_landing_smoke_status:
   icon: mdi:fire
-sensor.upstairs_nest_protect_battery_health:
+sensor.upstairs_nest_protect_landing_battery_health:
   icon: mdi:battery
-sensor.upstairs_nest_protect_color_status:
+sensor.upstairs_nest_protect_landing_color_status:
   icon: mdi:traffic-light
-binary_sensor.upstairs_nest_protect_online:
+binary_sensor.upstairs_nest_protect_landing_online:
   icon: mdi:smoke-detector
 sensor.average_room_temp:
   icon: mdi:thermometer-lines
 sensor.average_room_lux:
   icon: mdi:brightness-6
 
-# Script
-script.set_hue_sensitivity:
-  action_name: 'Set'
-  icon: mdi:settings
-script.set_hue_threshold:
-  action_name: 'Set'
-  icon: mdi:settings
+sensor.pixel_4_battery:
+  icon: mdi:battery
+sensor.pixel_4_gps_status:
+  icon: mdi:crosshairs-gps
+sensor.pixel_4_speed_status:
+  icon: mdi:speedometer
 
-# Input Select
-input_select.select_hue_sensitivity:
-  templates:
-    icon: >
-      if (state === 'Low') return 'mdi:numeric-0-box-multiple-outline';
-      if (state === 'Medium') return 'mdi:numeric-1-box-multiple-outline';
-      return 'mdi:numeric-2-box-multiple-outline';
-    icon_color: >
-      if (state === 'Low') return 'grey';
-      if (state === 'Medium') return 'blue';
-      return 'red';
+sensor.pixel_battery:
+  icon: mdi:battery
+sensor.pixel_gps_status:
+  icon: mdi:crosshairs-gps
+sensor.pixel_speed_status:
+  icon: mdi:speedometer
 
-# Input Number
-input_number.slide_hue_threshold:
-  templates:
-    icon_color: >
-      if (state > 25000 ) return 'rgb(85, 0, 0)';
-      if (state > 20000) return 'rgb(255, 0, 0)';
-      if (state > 15000) return 'rgb(255, 165, 0)';
-      if (state > 10000) return 'rgb(0, 128, 0)';
-      if (state > 7500) return 'rgb(255, 211, 30)';
-      if (state > 5000) return 'rgb(255, 255, 0)';
-      if (state > 25000) return 'rgb(30, 144, 255)';
-      if (state > 1000) return 'rgb(30, 255, 255)';
-      return 'rgb(47, 0, 0)';
+sensor.chsdoc01_cpu_load:
+  icon: mdi:chip
+sensor.chspfs01_mem_commit:
+  unit_of_measurement: 'MiB'
 
-# Input Text
-input_text.tiles_set_hue_scene:
-  custom_ui_state_card: state-card-tiles
-  config:
-    text_uppercase: false
-    columns: 6
-#        column_width: 50px #minmax(75px, 75px)
-    icon_size: 50px
-    row_height: 50px
-    entities:
-      - entity: script.tiles_set_hue_scene
-        label: Arctic
-        data: {option: 'Arctische dageraad'}
-        style_template: >
-          if (entities['input_select.hue_scenes'].state === 'Arctische dageraad') return '--tiles-text-color:black;background-size: contain;background-color: #00d0a0';
-          return '--tiles-text-color: grey;background-size: contain; background-color: #555B65';
-        image: /local/hue_scenes/arctic.png
+sensor.user_1_to_home:
+  icon: mdi:train-car
+sensor.user_2_to_home:
+  icon: mdi:train-car
 
-      - entity: script.tiles_set_hue_scene
-        label: Savanne
-        data: {option: 'Savanne zonsondergang'}
-        style_template: >
-          if (entities['input_select.hue_scenes'].state === 'Savanne zonsondergang') return '--tiles-text-color:black;background-size: contain;background-color: #ff7935';
-          return '--tiles-text-color: grey;background-size: contain; background-color: #555B65';
-        image: /local/hue_scenes/savanna.png
+sensor.geocode_user_1:
+  entity_picture: /local/lovelace/users/user1.png
+sensor.geocode_user_2:
+  entity_picture: /local/lovelace/users/user2.png
 
-      - entity: script.tiles_set_hue_scene
-        label: Tropisch
-        data: {option: 'Tropische schemering'}
-        style_template: >
-          if (entities['input_select.hue_scenes'].state === 'Tropische schemering') return '--tiles-text-color:black;background-size: contain;background-color: #a03aa3';
-          return '--tiles-text-color: grey;background-size: contain; background-color: #555B65';
-        image: /local/hue_scenes/tropical.png
 
-      - entity: script.tiles_set_hue_scene
-        label: Lente
-        data: {option: 'Lentebloesem'}
-        style_template: >
-          if (entities['input_select.hue_scenes'].state === 'Lentebloesem') return '--tiles-text-color:black;background-size: contain;background-color: #ba496c';
-          return '--tiles-text-color: grey;background-size: contain; background-color: #555B65';
-        image: /local/hue_scenes/spring.png
+#################################################################
+#                                                               #
+#                    Packages/Trash Recycle                     #
+#                                                               #
+#################################################################
 
-      - entity: script.tiles_set_hue_scene
-        label: Relax
-        data: {option: 'Ontspannen'}
-        style_template: >
-          if (entities['input_select.hue_scenes'].state === 'Ontspannen') return '--tiles-text-color:black;background-size: contain;background-color: #ffc059';
-          return '--tiles-text-color: grey;background-size: contain; background-color: #555B65';
-        image: /local/hue_scenes/relax.png
-
-      - entity: script.tiles_set_hue_scene
-        label: Lezen
-        data: {option: 'Lezen'}
-        style_template: >
-          if (entities['input_select.hue_scenes'].state === 'Lezen') return '--tiles-text-color:black;background-size: contain;background-color: #fdfb9f';
-          return '--tiles-text-color: grey;background-size: contain; background-color: #555B65';
-        image: /local/hue_scenes/lezen.png
-
-      - entity: script.tiles_set_hue_scene
-        label: Concent
-        data: {option: 'Concentreren'}
-        style_template: >
-          if (entities['input_select.hue_scenes'].state === 'Concentreren') return '--tiles-text-color:black;background-size: contain;background-color: #a2eaf2';
-          return '--tiles-text-color: grey;background-size: contain; background-color: #555B65';
-        image: /local/hue_scenes/concentrate.png
-
-      - entity: script.tiles_set_hue_scene
-        label: Energie
-        data: {option: 'Energie'}
-        style_template: >
-          if (entities['input_select.hue_scenes'].state === 'Energie') return '--tiles-text-color:black;background-size: contain;background-color: #a8dfed';
-          return '--tiles-text-color: grey;background-size: contain; background-color: #555B65';
-        image: /local/hue_scenes/energize.png
-
-      - entity: script.tiles_set_hue_scene
-        label: Helder
-        data: {option: 'Helder'}
-        style_template: >
-          if (entities['input_select.hue_scenes'].state === 'Helder') return '--tiles-text-color:black;background-size: contain;background-color: #fcdb97';
-          return '--tiles-text-color: grey;background-size: contain; background-color: #555B65';
-        image: /local/hue_scenes/clear.png
-
-      - entity: script.tiles_set_hue_scene
-        label: Gedimd
-        data: {option: 'Gedimd'}
-        style_template: >
-          if (entities['input_select.hue_scenes'].state === 'Gedimd') return '--tiles-text-color:black;background-size: contain;background-color: #8c642b';
-          return '--tiles-text-color: grey;background-size: contain; background-color: #555B65';
-        image: /local/hue_scenes/dimmed.png
-
-      - entity: script.tiles_set_hue_scene
-        label: Nacht
-        data: {option: 'Nachtlampje'}
-        style_template: >
-          if (entities['input_select.hue_scenes'].state === 'Nachtlampje') return '--tiles-text-color:black;background-size: contain;background-color: #814346';
-          return '--tiles-text-color: grey;background-size: contain; background-color: #555B65';
-        image: /local/hue_scenes/nightlight.png
+sensor.trash_day:
+  friendly_name: Is it Trash Day today?
+  icon: mdi:delete-variant
+device_tracker.trash_bin:
+  friendly_name: Trash Bin
+  icon: fas:trash-alt
+sensor.recycle_day:
+  friendly_name: Is it Recycle Day today?
+  icon: mdi:recycle
+sensor.green_day:
+  friendly_name: Is it Green Waste Day today?
+  icon: mdi:leaf
+sensor.trash_pickup_day:
+  friendly_name: Trash Pickup Day
+  icon: mdi:calendar-today
+  hidden: true
+sensor.recycle_pickup_day:
+  friendly_name: Recycle Pickup Day
+  icon: mdi:calendar-today
+  hidden: true
+sensor.recycle_pickup_week:
+  friendly_name: Recycle Pickup Week
+  icon: mdi:calendar-today
+  hidden: true
+sensor.green_pickup_day:
+  friendly_name: Green Pickup Day
+  icon: mdi:calendar-today
+  hidden: true
+sensor.green_pickup_week:
+  friendly_name: Green Pickup Week
+  icon: mdi:calendar-today
+  hidden: true
+sensor.current_week:
+  friendly_name: Current Week is
+  icon: mdi:calendar-question
+group.trash_recycle:
+  friendly_name: Trash & Recycle
+  icon: mdi:recycle

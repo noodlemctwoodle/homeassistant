@@ -1,4 +1,11 @@
-# Server On/Off Switch
+#################################################################
+#                                                               #
+#               WAKE ON LAN SWITCH - COMPONENT                  #
+#                                                               #
+#################################################################
+
+# https://www.home-assistant.io/integrations/wake_on_lan/
+
   - platform: wake_on_lan
     mac_address: !secret server_mac_address
     name: !secret server_service_name
@@ -8,16 +15,14 @@
       service: switch.turn_off
       entity_id: switch.server_off
 
-# Desktop On/Off Switch
-  - platform: wake_on_lan
-    mac_address: !secret desktop_mac_address
-    name: !secret desktop_service_name
-    host: !secret desktop_ip_address
-    broadcast_address: !secret server_broadcast
-    turn_off:
-      service: shell_command.pc_off
+#################################################################
+#                                                               #
+#             COMMAND LINE SWITCH - COMPONENT                   #
+#                                                               #
+#################################################################
 
-# Turn Off Server
+# https://www.home-assistant.io/integrations/switch.command_line/
+
   - platform: command_line
     switches:
       server_off:

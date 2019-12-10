@@ -1,5 +1,0 @@
-# Time Component
-  - platform: time_date
-    display_options:
-      - 'time_utc'
-      - 'beat'
