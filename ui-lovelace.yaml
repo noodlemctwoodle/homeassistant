@@ -5468,7 +5468,7 @@ views:
                       - type: custom:bar-card
                         title_position: inside
                         entity: sensor.monthly_cabinet
-                        title: Power
+                        title: Monthly
                         unit_of_measurement: 'kW/h'
                         align: center
                         padding: 7px
@@ -5490,14 +5490,14 @@ views:
                       - type: custom:card-modder
                         card:
                           type: picture
-                          image: /local/lovelace/settings/Pi.jpg
+                          image: /local/lovelace/hardware/cabinet-wide.png
                         style:                 
                           border-radius: 5px
                      
                       - type: custom:bar-card
                         title_position: inside
-                        entity: sensor.total_rpi_month
-                        title: Power
+                        entity: sensor.cabinet_kwh_consumption_today
+                        title: Today
                         unit_of_measurement: 'kW/h'
                         align: center
                         padding: 7px
@@ -5506,8 +5506,8 @@ views:
                           border-radius: 0px
                       - type: custom:bar-card
                         title_position: inside
-                        entity: sensor.total_rpi_cost
-                        title: Cost
+                        entity: sensor.cabinet_kwh_consumption_total
+                        title: Total
                         align: center
                         padding: 7px
                         max: 2

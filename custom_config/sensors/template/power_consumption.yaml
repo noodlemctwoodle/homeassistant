@@ -15,11 +15,23 @@
   - platform: template
     sensors:
 
-      cabinet_consumption:
-        entity_id: switch.server_cabinet
-        value_template: '{{ (states.switch.server_cabinet.attributes.current_power_w|int / 1000)|round(2) }}'  
-        friendly_name: 'Cabinet Consumption' 
+      cabinet_w_consumption:
+        entity_id: switch.tplink_server_cabinet_power
+        value_template: '{{ (states.switch.tplink_server_cabinet_power.attributes.current_power_w|int / 1000)|round(2) }}'  
+        friendly_name: 'Cabinet Current Consumption' 
         unit_of_measurement: 'W' 
+
+      cabinet_kwh_consumption_total:
+        entity_id: switch.tplink_server_cabinet_power
+        value_template: '{{ (states.switch.tplink_server_cabinet_power.attributes.total_energy_kwh| round(2) ) }}'  
+        friendly_name: 'Cabinet Total Consumption' 
+        unit_of_measurement: 'KwH'
+
+      cabinet_kwh_consumption_today:
+        entity_id: switch.tplink_server_cabinet_power
+        value_template: '{{ (states.switch.tplink_server_cabinet_power.attributes.today_energy_kwh | round(2) ) }}'  
+        friendly_name: 'Cabinet Daily Consumption' 
+        unit_of_measurement: 'KwH'
 
       cabinet_last_month:
         value_template: "{{ states.sensor.monthly_cabinet.attributes.last_period }}"
@@ -37,8 +49,8 @@
 
 
       xmas_lights_consumption:
-        entity_id: switch.christmas_lights
-        value_template: '{{ (states.switch.christmas_lights.attributes.current_power_w|int / 1000)|round(2) }}'  
+        entity_id: switch.wemo_1_christmas_lights
+        value_template: '{{ (states.switch.wemo_1_christmas_lights.attributes.current_power_w|int / 1000)|round(2) }}'  
         friendly_name: 'Christmas Lights Consumption' 
         unit_of_measurement: 'W' 
 
