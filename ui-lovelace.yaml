@@ -212,15 +212,15 @@ views:
                   entities:
                     - sensor.pixel_4_gps_status
                     - sensor.pixel_4_speed_status
-#                    - binary_sensor.toby_keys_status
-#                    - binary_sensor.toby_bag_status
-#                    - binary_sensor.toby_car_status
+#                    - binary_sensor.user_1_keys_status
+#                    - binary_sensor.user_1_bag_status
+#                    - binary_sensor.user_1_car_status
                     
                 - type: glance
                   entities:
                     - sensor.pixel_gps_status
                     - sensor.pixel_speed_status
-#                    - binary_sensor.abi_keys_status
+#                    - binary_sensor.user_2_keys_status
                     
 #################################################################
 #                                                               #
@@ -1040,7 +1040,6 @@ views:
               background-color: rgba(50,50,50,0.3)
               background-size: 100%
 
-                  
 #################################################################
 #                                                               #
 #                Kitchen - LUX Level Graph Card                #
@@ -1066,11 +1065,13 @@ views:
                 color: "#FFFF00"
               - value: 0
                 color: "#3498db"
+
 #################################################################
 #                                                               #
 #               Kitchen - Sensor Battery Level                  #
 #                                                               #
 #################################################################
+
           - type: custom:bar-card
             title_position: inside
             show_icon: true
@@ -1312,7 +1313,7 @@ views:
 
 #################################################################
 #                                                               #
-#                 Bathroom - toby Toggle Card                  #
+#                 Bathroom - User 1 Toggle Card                  #
 #                                                               #
 #################################################################
 
@@ -1321,7 +1322,7 @@ views:
               - type: horizontal-stack
                 cards:
                   - type: picture-entity
-                    entity: input_boolean.bathroom_toby
+                    entity: input_boolean.bathroom_user_1
                     name: Daddy
                     tap_action: 
                       action: toggle
@@ -1329,12 +1330,12 @@ views:
 
 #################################################################
 #                                                               #
-#                  Bathroom - abi Toggle Card                  #
+#                  Bathroom - User 2 Toggle Card                  #
 #                                                               #
 #################################################################
 
                   - type: picture-entity
-                    entity: input_boolean.bathroom_abi
+                    entity: input_boolean.bathroom_user_2
                     name: Mummy
                     tap_action: 
                       action: toggle
@@ -1596,10 +1597,10 @@ views:
               - type: divider
               - binary_sensor.bedroom_motion
               - type: section
-              - entity: sensor.toby_bed
-                name: toby
-              - entity: sensor.abi_bed
-                name: abi
+              - entity: sensor.user_1_bed
+                name: user_1
+              - entity: sensor.user_2_bed
+                name: user_2
               - type: section
               - binary_sensor.office_openclose
 
@@ -4587,7 +4588,7 @@ views:
           
           - type: custom:mini-graph-card
             entities: 
-              - entity: sensor.toby_steps
+              - entity: sensor.user_1_steps
                 name: Steps Today
             height: 65
             line_width: 2
@@ -4677,7 +4678,7 @@ views:
                   style: {top: 5%, left: 80%, width: 6em, height: 6em, transform: none}
               
                 - type: custom:circle-sensor-card
-                  entity: sensor.toby_steps
+                  entity: sensor.user_1_steps
                   max: 8000
                   min: 0
                   stroke_width: 15
@@ -4731,7 +4732,7 @@ views:
                   
                 - type: custom:hui-markdown-card
                   content: >
-                    toby
+                    user_1
                   style:
                     top: 8%
                     left: 1%
@@ -4754,11 +4755,11 @@ views:
                   style: {top: 17%, left: 17%, color: white, transform: none}
 
                 - type: image
-                  entity: sensor.toby_bmi
+                  entity: sensor.user_1_bmi
                   image: https://apprecs.org/gp/images/app-icons/300/b7/com.despdev.weight_loss_calculator.jpg
                   style: {top: 31%, left: 6%, transform: none, width: 40px, height: 40px}
                 - type: state-label
-                  entity: sensor.toby_bmi
+                  entity: sensor.user_1_bmi
                   title: BMI
                   style: {top: 32%, left: 17%, color: white, transform: none}
 
@@ -4772,26 +4773,26 @@ views:
                   style: {top: 48%, left: 17%, color: white, transform: none}
                   
                 - type: state-icon
-                  entity: sensor.toby_miband_battery
+                  entity: sensor.user_1_miband_battery
                   title: MiBand Battery
                   style: {top: 1%, left: 17%, width: 24px, height: 24px, transform: none}
                 - type: state-label
-                  entity: sensor.toby_miband_battery
+                  entity: sensor.user_1_miband_battery
                   title: MiBand Battery
                   style: {top: 3%, left: 22%, color: white, transform: none}
 
                 - type: state-label
-                  entity: sensor.toby_miband_status
+                  entity: sensor.user_1_miband_status
                   title: Status
                   prefix: 'Status : '
                   style: {top: 3%, left: 36%, color: white, transform: none, font-size: 18px}
                   
                 - type: state-icon
-                  entity: sensor.toby_heart_rate
+                  entity: sensor.user_1_heart_rate
                   title: Heart Rate
                   style: {top: 38%, left: 68%, "--iron-icon-fill-color": red, transform: none, --iron-icon-height: 42px, --iron-icon-width: 42px}
                 - type: state-label
-                  entity: sensor.toby_heart_rate
+                  entity: sensor.user_1_heart_rate
                   title: Heart Rate
                   style: {top: 39%, left: 77%, color: white, transform: none, font-size: 20px}
                   
@@ -4809,7 +4810,7 @@ views:
 
           - type: custom:mini-graph-card
             entities: 
-              - entity: sensor.toby_heart_rate
+              - entity: sensor.user_1_heart_rate
                 name: Heart Rate
             height: 65
             line_width: 2
