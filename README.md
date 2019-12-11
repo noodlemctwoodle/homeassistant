@@ -17,6 +17,6 @@ The [NGINX and Lets Encrypt](https://github.com/noodlemctwoodle/hassio/wiki/Guid
 Further information and guides can be found on my [wiki](https://github.com/noodlemctwoodle/hassio/wiki)
 
 ## Screenshots of my front end
-![hassio1](https://raw.githubusercontent.com/noodlemctwoodle/hassio/master/www/github/screenshots/dashboard.png)
+![hassio1](https://github.com/noodlemctwoodle/Hassio/blob/master/www/github/screenshots/dashboard.png)
 ![hassio2](https://raw.githubusercontent.com/noodlemctwoodle/hassio/master/www/github/screenshots/kitchen.png)
 ![hassio3](https://raw.githubusercontent.com/noodlemctwoodle/hassio/master/www/github/screenshots/grafana.png)
