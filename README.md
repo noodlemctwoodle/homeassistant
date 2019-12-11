@@ -4,7 +4,7 @@ Open source home automation that puts local control and privacy first. Powered b
 
 ## Hassio Hardware Configuration
 - Intel NUC i3 Gen 7 
-- Ubunbu Server 18.04
+- Ubunbu Server 19.10
 - Docker CE. 
 
 ## Hassio Installation on Ubuntu 18.04 and Docker CE
