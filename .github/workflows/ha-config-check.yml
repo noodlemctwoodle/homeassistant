@@ -12,4 +12,4 @@ jobs:
       uses: ludeeus/action-ha-config-check@0.0.1
       env:
         ACTION_VERSION: STABLE
-        ACTION_CONFIG_PATH: Hassio/configuration.yaml
+        ACTION_CONFIG_PATH: noodlemctwoodle/Hassio/configuration.yaml
