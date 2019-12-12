@@ -1,5 +1,3 @@
-background: var(--lovelace-background)
-
 #################################################################
 #                                                               #
 #                    Compact Header Config                      #
@@ -27,7 +25,7 @@ cch:
 #                                                               #
 #                    Custom Resourses                           #
 #                                                               #
-################################################################# 
+#################################################################
 
 resources:
   - url: /community_plugin/compact-custom-header/compact-custom-header.js
@@ -86,7 +84,7 @@ resources:
     type: js
 
 #############################################################################################################################################
-#                                                                                                                                           # 
+#                                                                                                                                           #
 #                                                               VIEW 0 - HOME                                                               #
 #                                                                                                                                           #
 #############################################################################################################################################  
@@ -97,12 +95,12 @@ views:
     icon: mdi:home-circle-outline
     name: Home
     cards:
-          
+
 #################################################################
 #                                                               #
 #                       Home - Clock Card                       #
 #                                                               #
-################################################################# 
+#################################################################
 
         - type: vertical-stack
           cards:
@@ -112,8 +110,8 @@ views:
 #                                                               #
 #                     Home - Glance Card                        #
 #                                                               #
-################################################################# 
-            
+#################################################################
+
             - type: entities
               show_header_toggle: false
               entities:
@@ -179,12 +177,12 @@ views:
             #- type: 'custom:aftership-card'
             #  entity: sensor.aftership
             #  title: Packages
-                
+
 #################################################################
 #                                                               #
 #                     Home - Presence Card                      #
 #                                                               #
-################################################################# 
+#################################################################
 
         - type: vertical-stack
           cards:
@@ -197,7 +195,7 @@ views:
                       name: !secret user_1
                     - type: divider
                     - sensor.pixel_4_battery
-                    
+
                 - type: entities
                   show_header_toggle: false
                   entities:
@@ -205,9 +203,9 @@ views:
                       name: !secret user_2
                     - type: divider
                     - sensor.pixel_battery
-            
+
             - type: horizontal-stack
-              cards:      
+              cards:
                 - type: glance
                   entities:
                     - sensor.pixel_4_gps_status
@@ -215,18 +213,18 @@ views:
 #                    - binary_sensor.user_1_keys_status
 #                    - binary_sensor.user_1_bag_status
 #                    - binary_sensor.user_1_car_status
-                    
+
                 - type: glance
                   entities:
                     - sensor.pixel_gps_status
                     - sensor.pixel_speed_status
 #                    - binary_sensor.user_2_keys_status
-                    
+
 #################################################################
 #                                                               #
 #                   Home - Google Travel Card                   #
 #                                                               #
-################################################################# 
+#################################################################
 
             - type: entities
               show_header_toggle: false
@@ -246,7 +244,7 @@ views:
             #- type: custom:gap-card
             #  height: 45
             #  size: 
-              
+
 #            - type: entities
 #              show_header_toggle: false
 #              entities:
@@ -260,7 +258,7 @@ views:
 
 #################################################################
 #                                                               #
-#                House - Light Group Card                 #
+#                House - Light Group Card                       #
 #                                                               #
 #################################################################
 
@@ -270,16 +268,16 @@ views:
               entity: light.downstairs
               name: Downstairs
               icon: mdi:lightbulb
-              tap_action: 
+              tap_action:
                 action: call-service
                 service: homeassistant.toggle
                 service_data: {"entity_id": "light.downstairs"}
-                
+
             - type: entity-button
               entity: light.upstairs
               name: Upstairs
               icon: mdi:lightbulb
-              tap_action: 
+              tap_action:
                 action: call-service
                 service: homeassistant.toggle
                 service_data: { "entity_id": "light.upstairs" }
@@ -288,8 +286,8 @@ views:
 #                                                               #
 #                       Home - Github Card                      #
 #                                                               #
-################################################################# 
-            
+#################################################################
+
 #            - type: entities
 #              entities:
 #                - type: section
@@ -306,9 +304,9 @@ views:
 #                              - sensor.subscribers
 #                              - sensor.forks
 #                              - sensor.issues
-#                          style: 
+#                          style:
 #                            border-radius: 0px
-#                
+#
 #                        - type: custom:card-modder
 #                          card:
 #                            type: glance
@@ -316,9 +314,9 @@ views:
 #                              - sensor.git_stars_next_dif
 #                              - sensor.git_stars_last_dif
 #                              - sensor.git_stars_trend_dif
-#                          style: 
+#                          style:
 #                            border-radius: 0px
-#                     
+#
 #                    - type: horizontal-stack
 #                      cards:
 #                        - type: custom:card-modder
@@ -327,16 +325,16 @@ views:
 #                            entities:
 #                              - sensor.weekly_github
 #                              - sensor.stars_last_week
-#                          style: 
+#                          style:
 #                            border-radius: 0px
-#                    
+#
 #                        - type: custom:card-modder
 #                          card:
 #                            type: glance
 #                            entities:
 #                              - sensor.monthly_github
 #                              - sensor.stars_last_month
-#                          style: 
+#                          style:
 #                            border-radius: 0px
 
 #################################################################
@@ -353,7 +351,7 @@ views:
               details: false
               forecast: true
 
-              
+
 #################################################################
 #                                                               #
 #                   Home - Temperature Card                     #
@@ -361,7 +359,7 @@ views:
 #################################################################
 
             - type: custom:mini-graph-card
-              entities: 
+              entities:
                - sensor.garden_temperature
               name: Outside
               height: 46
@@ -379,15 +377,15 @@ views:
                   color: "#1db954"
                 - value: 0
                   color: "#3498db"
-                  
+
             #- type: custom:gap-card
             #  height: 65
-            #  size: 
-                  
+            #  size:
+
             - type: horizontal-stack
               cards:
                 - type: custom:mini-graph-card
-                  entities: 
+                  entities:
                    - sensor.average_downstairs_temp
                   name: Downstairs
                   height: 74
@@ -405,9 +403,9 @@ views:
                       color: "#1db954"
                     - value: 0
                       color: "#3498db"
-                  
+
                 - type: custom:mini-graph-card
-                  entities: 
+                  entities:
                    - sensor.average_upstairs_temp
                   name: Upstairs
                   height: 74
@@ -424,13 +422,13 @@ views:
                     - value: 15
                       color: "#1db954"
                     - value: 0
-                      color: "#3498db"              
-              
+                      color: "#3498db"
+
 #############################################################################################################################################
-#                                                                                                                                           # 
+#                                                                                                                                           #
 #                                                             VIEW 1 - SECURITY                                                             #
 #                                                                                                                                           #
-############################################################################################################################################# 
+#############################################################################################################################################
 
   - id: 1
     icon: mdi:shield-home
@@ -439,25 +437,12 @@ views:
 
 #################################################################
 #                                                               #
-#                     Security - Alarm Card                     #
-#                                                               #
-#################################################################
-        
-      - type: vertical-stack
-        cards:
-#          - type: alarm-panel
-#            entity: alarm_control_panel.ha_alarm
-            
-#          - type: custom:gap-card
-#            height: 0
-#            size:
-            
-#################################################################
-#                                                               #
 #                  Security - Smoke Alarm Card                  #
 #                                                               #
 #################################################################
-                      
+
+      - type: vertical-stack
+        cards:
           - type: entities
             #title: Smoke Detectors
             show_header_toggle: false
@@ -468,7 +453,7 @@ views:
               - type: divider
               - binary_sensor.kitchen_nest_protect_online
               - binary_sensor.upstairs_nest_protect_landing_online
-                
+
 #################################################################
 #                                                               #
 #                 Security - Motion Sensor Card                 #
@@ -476,7 +461,7 @@ views:
 #################################################################
 
       - type: vertical-stack
-        cards:              
+        cards:
           - type: entities
             #title: Motion Sensors
             show_header_toggle: false
@@ -494,13 +479,13 @@ views:
               - binary_sensor.office_motion
               - binary_sensor.bedroom_motion
               - binary_sensor.cabinet_motion
-              
+
 #################################################################
 #                                                               #
 #                  Security - Door Status Card                  #
 #                                                               #
 #################################################################
-              
+
       - type: vertical-stack
         cards:
           - type: entities
@@ -514,7 +499,7 @@ views:
               - binary_sensor.front_door_openclose
               - binary_sensor.patio_door_openclose
 #              - binary_sensor.loft_door_openclose
-           
+
           - type: custom:gap-card
             height: 10
             size:
@@ -523,8 +508,8 @@ views:
 #                                                               #
 #                 Security - Window Status Card                 #
 #                                                               #
-#################################################################   
-           
+#################################################################
+
           - type: entities
             #title: Windows
             show_header_toggle: false
@@ -540,32 +525,32 @@ views:
               - binary_sensor.landing_openclose
               - binary_sensor.office_openclose
               - binary_sensor.craft_room_openclose
-              
+
 #############################################################################################################################################
 #                                                                                                                                           # 
 #                                                              VIEW 2 - CAMERAS                                                             #
 #                                                                                                                                           #
 #############################################################################################################################################
-              
-  - id: 2  
+
+  - id: 2
     title: Surveillance
     icon: mdi:cctv
     #panel: true
     cards:
-       
+
 #################################################################
 #                                                               #
 #                             CCTV                              #
 #                                                               #
 #################################################################
-   
+
       - type: picture-entity
         entity: camera.front_door
       - type: picture-entity
         entity: camera.back_garden
 
 #############################################################################################################################################
-#                                                                                                                                           # 
+#                                                                                                                                           #
 #                                                            VIEW 3 - Living Room                                                           #
 #                                                                                                                                           #
 #############################################################################################################################################
@@ -584,7 +569,7 @@ views:
       - type: vertical-stack
         cards:
           - type: custom:mini-graph-card
-            entities: 
+            entities:
               - sensor.living_room_thermostat_temperature
             name: Themostat Temperature
             height: 65
@@ -611,7 +596,7 @@ views:
 #################################################################
 
           - type: custom:mini-graph-card
-            entities: 
+            entities:
               - sensor.living_room_temperature
             name: Sensor Temperature
             height: 65
@@ -643,34 +628,34 @@ views:
                 entity: switch.lounge_light_switch
                 name: Downstairs
                 icon: mdi:lightbulb
-                tap_action: 
+                tap_action:
                   action: call-service
                   service: homeassistant.toggle
                   service_data: {"entity_id": "group.downstairs_lights"}
-                  
+
               - type: entity-button
                 entity: scene.livingroom_bright
                 name: Brighten
                 icon: mdi:lightbulb-on
-                tap_action: 
+                tap_action:
                   action: call-service
                   service: scene.turn_on
                   service_data: { "entity_id": "scene.livingroom_bright" }
-                      
+
               - type: entity-button
                 entity: scene.livingroom_dim
                 name: Dim
                 icon: mdi:lightbulb-on-outline
-                tap_action: 
+                tap_action:
                   action: call-service
                   service: scene.turn_on
                   service_data: { "entity_id": "scene.livingroom_dim" }
-                                  
+
               - type: entity-button
                 entity: light.entrance_bulb
                 name: Outside
                 icon: mdi:lightbulb
-                tap_action: 
+                tap_action:
                   action: call-service
                   service: homeassistant.toggle
                   service_data: {"entity_id": "group.outside_lights"}
@@ -703,7 +688,6 @@ views:
                 name: Strip
               - type: divider
 
-
 #################################################################
 #                                                               #
 #               Living Room - Humidity Graph Card               #
@@ -713,7 +697,7 @@ views:
       - type: vertical-stack
         cards:
           - type: custom:mini-graph-card
-            entities: 
+            entities:
              - sensor.living_room_thermostat_humidity
             height: 65
             line_width: 2
@@ -730,7 +714,7 @@ views:
               - value: 40
                 color: "#1db954"
               - value: 0
-                color: "#3498db"            
+                color: "#3498db"
 
 #################################################################
 #                                                               #
@@ -739,7 +723,7 @@ views:
 #################################################################
 
           - type: custom:mini-graph-card
-            entities: 
+            entities:
               - sensor.living_room_lux
             height: 65
             line_width: 2
@@ -781,7 +765,7 @@ views:
               show_source: true
               show_progress: true
               group: true
-            style:                 
+            style:
               background-image: url("/local/lovelace/cardbackK.png")
               background-repeat: no-repeat
               background-color: rgba(50,50,50,0.3)
@@ -804,7 +788,7 @@ views:
               show_progress: true
               group: true
               #background: /local/lovelace/downstairs/evening-tv_3.jpg
-            style:                 
+            style:
               background-image: url("/local/lovelace/cardbackK.png")
               background-repeat: no-repeat
               background-color: rgba(50,50,50,0.3)
@@ -827,11 +811,11 @@ views:
               show_progress: true
               group: true
               #background: /local/lovelace/downstairs/evening-tv_3.jpg
-            style:                 
+            style:
               background-image: url("/local/lovelace/cardbackK.png")
               background-repeat: no-repeat
               background-color: rgba(50,50,50,0.3)
-              background-size: 100%  
+              background-size: 100%
 
 #################################################################
 #                                                               #
@@ -845,11 +829,11 @@ views:
                 entity: script.1521695976118
                 name: Cartoons
                 icon: mdi:youtube-tv
-                tap_action: 
+                tap_action:
                   action: call-service
                   service: script.turn_on
                   service_data: {"entity_id": "script.1521695976118"}
-                  
+
 #################################################################
 #                                                               #
 #                 Living Room - Evening TV Card                 #
@@ -860,11 +844,11 @@ views:
                 entity: script.1521694771100
                 name: Evening TV
                 icon: mdi:kodi
-                tap_action: 
+                tap_action:
                   action: call-service
                   service: script.turn_on
                   service_data: {"entity_id": "script.1521694771100"}
-                  
+
 #################################################################
 #                                                               #
 #                 Living Room - Super Rugby Card                #
@@ -875,25 +859,21 @@ views:
                 entity: script.1521696758169
                 name: Super Rugby
                 icon: mdi:rugby
-                tap_action: 
+                tap_action:
                   action: call-service
                   service: script.turn_on
                   service_data: {"entity_id": "script.1521696758169"}
-                  
+
 #              - type: custom:gap-card
-#                height: 
+#                height:
 #                size:
 
-
-
-
-
-               
 #################################################################
 #                                                               #
 #                  Living Room - Upcoming Media                 #
 #                                                               #
 #################################################################
+
       - type: vertical-stack
         cards:
           - type: custom:upcoming-media-card
@@ -921,23 +901,24 @@ views:
               - type: picture-entity
                 entity: switch.christmas_lights
                 name: Christmas Lights
-                tap_action: 
+                tap_action:
                   action: toggle
                 image: /local/lovelace/downstairs/xmas-lights_1.jpg
+
 #############################################################################################################################################
 #                                                                                                                                           # 
-#                                                             VIEW 4 - KITCHEN                                                            #
+#                                                             VIEW 4 - KITCHEN                                                              #
 #                                                                                                                                           #
 #############################################################################################################################################
 
-  - id: 4  
+  - id: 4
     icon: mdi:pot
     name: Play Room
     cards:
 
 #################################################################
 #                                                               #
-#                    Kitchen - Light Card                    #
+#                    Kitchen - Light Card                       #
 #                                                               #
 #################################################################
 
@@ -958,7 +939,7 @@ views:
                 name: Cupboard
               - type: custom:slider-entity-row
                 entity: light.back_door_spot_1
-                name: Back Door   
+                name: Back Door
 
 #################################################################
 #                                                               #
@@ -969,12 +950,13 @@ views:
           - type: picture-entity
             entity: light.kitchen
             name: Kitchen Light
-            tap_action: 
+            tap_action:
               action: toggle
-            image: /local/lovelace/downstairs/kitchen-light.jpg     
+            image: /local/lovelace/downstairs/kitchen-light.jpg
+
 #################################################################
 #                                                               #
-#                     Kitchen - Glance Card                    #
+#                     Kitchen - Glance Card                     #
 #                                                               #
 #################################################################
 
@@ -988,8 +970,7 @@ views:
               - binary_sensor.kitchen_motion
               - type: section
               - binary_sensor.kitchen_openclose
-
-              
+             
 #################################################################
 #                                                               #
 #                 Kitchen - Temperature Graph Card              #
@@ -999,7 +980,7 @@ views:
       - type: vertical-stack
         cards:
           - type: custom:mini-graph-card
-            entities: 
+            entities:
               - sensor.kitchen_temperature
             height: 65
             line_width: 2
@@ -1017,7 +998,6 @@ views:
                 color: "#1db954"
               - value: 0
                 color: "#3498db"
-
             
 #################################################################
 #                                                               #
@@ -1034,7 +1014,7 @@ views:
               show_progress: true
               group: true
               #background: /local/lovelace/downstairs/evening-tv_3.jpg
-            style:                 
+            style:
               background-image: url("/local/lovelace/cardbackK.png")
               background-repeat: no-repeat
               background-color: rgba(50,50,50,0.3)
@@ -1042,14 +1022,14 @@ views:
 
 #################################################################
 #                                                               #
-#                Kitchen - LUX Level Graph Card                #
+#                Kitchen - LUX Level Graph Card                 #
 #                                                               #
 #################################################################
 
       - type: vertical-stack
         cards:
           - type: custom:mini-graph-card
-            entities: 
+            entities:
               - sensor.kitchen_lux
             height: 65
             line_width: 2
@@ -1077,7 +1057,7 @@ views:
             show_icon: true
 #            align: split
             padding: 10px
-#            card_style: 
+#            card_style:
 #              border-radius: 5px
             columns: 1
             entities:
@@ -1089,17 +1069,15 @@ views:
                   color: '#bf9540'
                 - value: 50
                   color: '#bf4040'
-                  
-
 
 #################################################################
 #                                                               #
 #                   Kitchen - Switch Battery Health             #
 #                                                               #
 #################################################################
-              
+
           - type: custom:mini-graph-card
-            entities: 
+            entities:
               - sensor.kitchen_switch_battery_level
             height: 94
             line_width: 2
@@ -1117,16 +1095,16 @@ views:
                 color: "#1db954"
 
 #############################################################################################################################################
-#                                                                                                                                           # 
+#                                                                                                                                           #
 #                                                             VIEW 9 - BATHROOM                                                             #
 #                                                                                                                                           #
 #############################################################################################################################################
 
-  - id: 5 
+  - id: 5
     icon: mdi:shower
     name: Bathroom
     cards:
-        
+
 #################################################################
 #                                                               #
 #               Bathroom - Temperature Graph Card               #
@@ -1136,7 +1114,7 @@ views:
       - type: vertical-stack
         cards:
           - type: custom:mini-graph-card
-            entities: 
+            entities:
               - sensor.bathroom_temperature
             height: 65
             line_width: 2
@@ -1171,15 +1149,15 @@ views:
               - binary_sensor.bathroom_motion
               - type: section
               - sensor.bathroom_occupancy
-                
+
 #################################################################
 #                                                               #
 #                   Bathroom - Mold Indicator                   #
 #                                                               #
 #################################################################
-              
+
           - type: custom:mini-graph-card
-            entities: 
+            entities:
               - sensor.bathroom_mold_indicator
             height: 102
             line_width: 2
@@ -1205,7 +1183,7 @@ views:
       - type: vertical-stack
         cards:
           - type: custom:mini-graph-card
-            entities: 
+            entities:
               - sensor.humidity_158d00022c7248
             height: 65
             line_width: 2
@@ -1223,20 +1201,20 @@ views:
                 color: "#1db954"
               - value: 0
                 color: "#3498db"
-                
+
 #################################################################
 #                                                               #
 #                 Bathroom - Switches Group Card                #
 #                                                               #
 #################################################################
-          
+
           - type: custom:gap-card
             height: 6
             size:
-            
+
           - type: picture-entity
             entity: sensor.bathroom_switch_battery_level
-            tap_action: 
+            tap_action:
               action: toggle
             image: /local/lovelace/bathroom/bath-main_2.jpg
 
@@ -1255,7 +1233,7 @@ views:
               - type: picture-entity
                 entity: light.bathroom_pendant
                 name: Bathroom
-                tap_action: 
+                tap_action:
                   action: toggle
                 image: /local/lovelace/bathroom/bath-light.jpg
 
@@ -1268,7 +1246,7 @@ views:
               - type: picture-entity
                 entity: binary_sensor.bathroom_openclose
                 name: Window
-#                tap_action: 
+#                tap_action:
 #                  action: toggle
                 image: /local/lovelace/bathroom/bath-fan.jpg
 
@@ -1281,10 +1259,10 @@ views:
               - type: picture-entity
                 entity: sensor.bathroom_lux
                 name: Light Level
-#                tap_action: 
+#                tap_action:
 #                  action: toggle
                 image: /local/lovelace/bathroom/bath-heat.jpg
-             
+
 #################################################################
 #                                                               #
 #                Bathroom - LUX Level Graph Card                #
@@ -1294,7 +1272,7 @@ views:
       - type: vertical-stack
         cards:
           - type: custom:mini-graph-card
-            entities: 
+            entities:
               - sensor.illumination_158d000200e4ab
             height: 65
             line_width: 2
@@ -1313,7 +1291,7 @@ views:
 
 #################################################################
 #                                                               #
-#                 Bathroom - User 1 Toggle Card                  #
+#                 Bathroom - User 1 Toggle Card                 #
 #                                                               #
 #################################################################
 
@@ -1330,17 +1308,16 @@ views:
 
 #################################################################
 #                                                               #
-#                  Bathroom - User 2 Toggle Card                  #
+#                  Bathroom - User 2 Toggle Card                #
 #                                                               #
 #################################################################
 
                   - type: picture-entity
                     entity: input_boolean.bathroom_user_2
                     name: Mummy
-                    tap_action: 
+                    tap_action:
                       action: toggle
                     image: /local/lovelace/bathroom/mummy_6.jpg
-
 
 #################################################################
 #                                                               #
@@ -1350,7 +1327,7 @@ views:
 
               - type: picture-entity
                 entity: input_boolean.bathroom_guest
-                tap_action: 
+                tap_action:
                   action: toggle
                 image: /local/lovelace/bathroom/guest.png
 
@@ -1360,11 +1337,11 @@ views:
 #                                                                                                                                           #
 #############################################################################################################################################
 
-  - id: 6 
+  - id: 6
     icon: mdi:door
     name: Entrance Hall
     cards:
-        
+
 #################################################################
 #                                                               #
 #                Entrance Hall - Temperature Graph Card         #
@@ -1374,7 +1351,7 @@ views:
       - type: vertical-stack
         cards:
           - type: custom:mini-graph-card
-            entities: 
+            entities:
               - entity: sensor.hall_temperature
                 name: Temperature
             height: 65
@@ -1411,8 +1388,6 @@ views:
               - type: section
               - binary_sensor.front_door_openclose
 
-
-
 #################################################################
 #                                                               #
 #                  Entrance Hall - Light Switch Card            #
@@ -1422,7 +1397,7 @@ views:
           - type: picture-entity
             entity: light.hall
             name: Lights
-            tap_action: 
+            tap_action:
               action: toggle
             image: /local/lovelace/hall/entrance-hall.jpg
 
@@ -1435,7 +1410,7 @@ views:
       - type: vertical-stack
         cards:
           - type: custom:mini-graph-card
-            entities: 
+            entities:
               - entity: sensor.hall_lux
                 name: LUX
             height: 65
@@ -1452,28 +1427,28 @@ views:
                 color: "#FFFF00"
               - value: 0
                 color: "#3498db"
- 
+
 #############################################################################################################################################
-#                                                                                                                                           # 
+#                                                                                                                                           #
 #                                                         VIEW 7 - Landing                                                                  #
 #                                                                                                                                           #
 #############################################################################################################################################
 
-  - id: 7  
+  - id: 7
     icon: mdi:stairs
     name: Landing
     cards:
-    
+
 #################################################################
 #                                                               #
-#                Landing - Temperature Graph Card                #
+#                Landing - Temperature Graph Card               #
 #                                                               #
 #################################################################
 
       - type: vertical-stack
         cards:
           - type: custom:mini-graph-card
-            entities: 
+            entities:
               - sensor.landing_temperature
             height: 65
             line_width: 2
@@ -1515,7 +1490,7 @@ views:
           - type: picture-entity
             entity: light.landing
             name: Lights
-            tap_action: 
+            tap_action:
               action: toggle
             image: /local/lovelace/bedrooms/kids-light_1.jpg
 
@@ -1528,7 +1503,7 @@ views:
       - type: vertical-stack
         cards:
           - type: custom:mini-graph-card
-            entities: 
+            entities:
               - sensor.landing_lux
             height: 65
             line_width: 2
@@ -1545,18 +1520,17 @@ views:
               - value: 0
                 color: "#3498db"
 
-
 #############################################################################################################################################
 #                                                                                                                                           # 
 #                                                          VIEW 8 - MASTER BEDROOM                                                          #
 #                                                                                                                                           #
 #############################################################################################################################################
 
-  - id: 8  
+  - id: 8
     icon: mdi:hotel
     name: Master Bedroom
     cards:
-        
+
 #################################################################
 #                                                               #
 #            Master Bedroom - Temperature Graph Card            #

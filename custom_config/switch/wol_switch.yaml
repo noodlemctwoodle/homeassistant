@@ -1,8 +1,8 @@
-#################################################################
-#                                                               #
-#               WAKE ON LAN SWITCH - COMPONENT                  #
-#                                                               #
-#################################################################
+  #################################################################
+  #                                                               #
+  #               WAKE ON LAN SWITCH - COMPONENT                  #
+  #                                                               #
+  #################################################################
 
 # https://www.home-assistant.io/integrations/wake_on_lan/
 
@@ -15,13 +15,13 @@
       service: switch.turn_off
       entity_id: switch.server_off
 
-#################################################################
-#                                                               #
-#             COMMAND LINE SWITCH - COMPONENT                   #
-#                                                               #
-#################################################################
+  #################################################################
+  #                                                               #
+  #             COMMAND LINE SWITCH - COMPONENT                   #
+  #                                                               #
+  #################################################################
 
-# https://www.home-assistant.io/integrations/switch.command_line/
+  # https://www.home-assistant.io/integrations/switch.command_line/
 
   - platform: command_line
     switches:
