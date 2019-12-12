@@ -10,6 +10,7 @@ jobs:
     steps:
     - name: Home Assistant Configuration Check
       uses: ludeeus/action-ha-config-check@0.0.1
+      with:
+        repo-token: ${{ secrets.HA_CONFIG_TOKEN }}
       env:
         ACTION_VERSION: STABLE
-        ACTION_CONFIG_PATH: noodlemctwoodle/Hassio/configuration.yaml
