@@ -1,4 +1,4 @@
-![](https://github.com/noodlemctwoodle/Hassio/workflows/ha-config-check/badge.svg)
+![](https://github.com/noodlemctwoodle/Hassio/workflows/Home-Assistant-CI/badge.svg) ![](https://github.com/noodlemctwoodle/Hassio/workflows/HomeAssistant-Linting-Check/badge.svg) 
 
 # Home Asssistant Configuration
 

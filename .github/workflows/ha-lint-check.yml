@@ -1,5 +1,5 @@
 ---
-name: Home Assistant Linting Check
+name: HomeAssistant-Linting-Check
 
 # yamllint disable-line rule:truthy
 on:
