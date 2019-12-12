@@ -53,9 +53,9 @@
 
 # https://www.home-assistant.io/integrations/filesize/
 
-  - platform: filesize
-    file_paths:
-      - home-assistant_v2.db
+#  - platform: filesize
+#    file_paths:
+#      - home-assistant_v2.db
 
 #################################################################
 #                                                               #
