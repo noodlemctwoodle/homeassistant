@@ -19,7 +19,6 @@ cch:
   date_locale: en-gb
   disable: false
 
-
 # Custom Resourses
 
 resources:
@@ -78,7 +77,6 @@ resources:
   - url: https://unpkg.com/moment@2.22.2/min/moment.min.js
     type: js
 
-
 # VIEW 0 - HOME
 
 background: center / cover no-repeat url("/local/lovelace/background_19.png") fixed
@@ -88,13 +86,11 @@ views:
     name: Home
     cards:
 
-
 # Home - Clock Card
 
         - type: vertical-stack
           cards:
             - type: 'custom:clock-card'
-
 
 # Home - Glance Card
 
@@ -157,9 +153,9 @@ views:
 
 # Home - Aftership Card
 
-           # - type: 'custom:aftership-card'
-             # entity: sensor.aftership
-             # title: Packages
+#            - type: 'custom:aftership-card'
+#              entity: sensor.aftership
+#              title: Packages
 
 
 # Home - Presence Card
