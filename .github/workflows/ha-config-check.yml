@@ -1,0 +1,15 @@
+name: HHome Assistant Configuration Check
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Home Assistant Configuration Check
+      uses: ludeeus/action-ha-config-check@0.0.1
+      env:
+        ACTION_VERSION: Latest
+        ACTION_CONFIG_PATH: ./configuration.yaml
