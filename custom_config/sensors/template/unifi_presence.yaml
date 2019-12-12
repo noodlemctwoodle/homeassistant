@@ -1,5 +1,5 @@
 #############################################################################################################################################
-#                                                                                                                                           # 
+#                                                                                                                                           #
 #                                                                Template Sensor                                                            #
 #                                                                                                                                           #
 #############################################################################################################################################
@@ -18,7 +18,7 @@
         friendly_name: !secret user_1_phone
         value_template: >
           {% if is_state("device_tracker.pixel_4_xl", "home") %}
-          {% if is_state_attr("device_tracker.pixel_4_xl", "ap_mac", "b4:fb:e4:21:79:1c") %} 
+          {% if is_state_attr("device_tracker.pixel_4_xl", "ap_mac", "b4:fb:e4:21:79:1c") %}
             OFFICE_WIFI
           {% elif is_state_attr("device_tracker.pixel_4_xl", "ap_mac", "78:8a:20:4b:09:83") %}
             LIVING_ROOM_WIFI
@@ -32,7 +32,7 @@
         friendly_name: !secret user_2_phone
         value_template: >
           {% if is_state("device_tracker.pixel", "home") %}
-          {% if is_state_attr("device_tracker.pixel", "ap_mac", "b4:fb:e4:21:79:1c") %} 
+          {% if is_state_attr("device_tracker.pixel", "ap_mac", "b4:fb:e4:21:79:1c") %}
             OFFICE_WIFI
           {% elif is_state_attr("device_tracker.pixel", "ap_mac", "78:8a:20:4b:09:83") %}
             LIVING_ROOM_WIFI

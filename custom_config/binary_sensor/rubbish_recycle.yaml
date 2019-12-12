@@ -23,7 +23,7 @@
           {% else %}
             mdi:alert
           {% endif %}
-          
+
       recycle:
         friendly_name: Recycle
         entity_id: sensor.recycle_day
@@ -36,7 +36,7 @@
           {% else %}
             mdi:alert
           {% endif %}
-          
+
       green:
         friendly_name: Green
         entity_id: sensor.green_day

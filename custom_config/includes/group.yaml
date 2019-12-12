@@ -26,7 +26,7 @@
       - input_select.recycle_pickup_day
       - sensor.current_week
       - input_select.recycle_pickup_week
-      
+
   Green Waste Schedule:
     control: hidden
     entities:
@@ -48,4 +48,3 @@
       - sensor.internet_time
       - sensor.rocket_launch_time
       - sensor.beat
-      

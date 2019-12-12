@@ -8,7 +8,7 @@
     host: !secret cloud_key_ip
     port: !secret cloud_key_port
     name: chsuni01
-    resources:    
+    resources:
       core0_freq:
         data_group: 'cpu.cpufreq'
         element: 'cpu0'
@@ -109,7 +109,7 @@
           {% set minutes = ((time % 3600) / 60) | int %}
           {% set hours = ((time % 86400) / 3600) | int %}
           {% set days = (time / 86400) | int %}
-        
+
           {%- if time < 60 -%}
             Less than a minute
             {%- else -%}

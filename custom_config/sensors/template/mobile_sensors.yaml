@@ -1,5 +1,5 @@
 #############################################################################################################################################
-#                                                                                                                                           # 
+#                                                                                                                                           #
 #                                                                Template Sensor                                                            #
 #                                                                                                                                           #
 #############################################################################################################################################
@@ -35,4 +35,4 @@
       value_template: '{{state_attr("device_tracker.pixel_mobile_app", "gps_accuracy")}}'
     pixel_speed_status:
       friendly_name: 'Speed'
-      value_template: '{{state_attr("device_tracker.pixel_mobile_app", "speed")}}'      
+      value_template: '{{state_attr("device_tracker.pixel_mobile_app", "speed")}}'

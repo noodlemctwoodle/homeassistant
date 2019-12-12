@@ -1,5 +1,5 @@
 #############################################################################################################################################
-#                                                                                                                                           # 
+#                                                                                                                                           #
 #                                                          PFSENSE - Monitoring                                                             #
 #                                                                                                                                           #
 #############################################################################################################################################
@@ -64,7 +64,7 @@
     host: !secret pfsense_ip
     port: !secret pfsense_port
     name: chspfs01
-    resources:    
+    resources:
       system_cpu_load:
         data_group: 'system.cpu'
         element: 'system'
@@ -80,7 +80,7 @@
       nice_cpu_load:
         data_group: 'system.cpu'
         element: 'nice'
-        icon: mdi:chip        
+        icon: mdi:chip
       up:
         data_group: 'system.uptime'
         element: 'uptime'
@@ -119,7 +119,7 @@
           {% set minutes = ((time % 3600) / 60) | int %}
           {% set hours = ((time % 86400) / 3600) | int %}
           {% set days = (time / 86400) | int %}
-        
+
           {%- if time < 60 -%}
             Less than a minute
             {%- else -%}

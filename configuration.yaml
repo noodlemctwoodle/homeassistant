@@ -1,5 +1,5 @@
 #############################################################################################################################################
-#                                                                                                                                           # 
+#                                                                                                                                           #
 #                                                HOME ASSISTANT CONFIGURATION YAML                                                          #
 #                                                                                                                                           #
 #############################################################################################################################################
@@ -11,7 +11,7 @@ homeassistant:
 #                                                               #
 #             HOME ASSISTANT FRONTEND CONFIGURATION             #
 #                                                               #
-################################################################# 
+#################################################################
 
 frontend:
   themes: !include themes.yaml
@@ -25,7 +25,7 @@ frontend:
 #                                                               #
 #                 HOME ASSISTANT CONFIGURATION                  #
 #                                                               #
-################################################################# 
+#################################################################
 
 default_config:
 
@@ -48,17 +48,16 @@ lovelace:
 #                                                               #
 #          HOME ASSISTANT COMUNITY UPDATER - Component          #
 #                                                               #
-################################################################# 
+#################################################################
 
 hacs:
   token: !secret access_token
-
 
 #################################################################
 #                                                               #
 #                (UniFI) GENERIC CAMERA - Component             #
 #                                                               #
-################################################################# 
+#################################################################
 
 stream:
 
@@ -73,7 +72,7 @@ camera:
 #                                                               #
 #                CIRCADIAN LIGHTING - Component                 #
 #                                                               #
-################################################################# 
+#################################################################
 
 # https://community.home-assistant.io/t/circadian-lighting-custom-component/61246
 
@@ -83,7 +82,7 @@ circadian_lighting:
 #                                                               #
 #                WEATHER - Component                            #
 #                                                               #
-################################################################# 
+#################################################################
 
 weather:
   - platform: darksky
@@ -95,22 +94,22 @@ sun:
 #                                                               #
 #                GOOGLE CALENDAR - Component                    #
 #                                                               #
-################################################################# 
+#################################################################
 
 
 
 # Google Calendar Custom Component
 google:
-  client_id: !secret google_calendar_id 
+  client_id: !secret google_calendar_id
   client_secret: !secret google_calendar_secret
 
 #################################################################
 #                                                               #
 #                NEST SMART HOME - Intergration                 #
 #                                                               #
-################################################################# 
-    
-# Nest Integration 
+#################################################################
+
+# Nest Integration
 nest:
   client_id: !secret nest_client_id
   client_secret: !secret nest_client_secret
@@ -119,7 +118,7 @@ nest:
 #                                                               #
 #                        GOOGLE - TTS                           #
 #                                                               #
-################################################################# 
+#################################################################
 
 tts:
   - platform: google_translate
@@ -129,7 +128,7 @@ tts:
 #                                                               #
 #                       SPEEDTEST.NET                           #
 #                                                               #
-################################################################# 
+#################################################################
 
 speedtestdotnet:
   server_id: !secret speedtest_server_id
@@ -144,7 +143,7 @@ speedtestdotnet:
 #                                                               #
 #                        WEMO - Smart Plugs                     #
 #                                                               #
-################################################################# 
+#################################################################
 
 wemo:
   discovery: false
@@ -156,7 +155,7 @@ wemo:
 #                                                               #
 #                        TPLINK - Smart Plugs                   #
 #                                                               #
-################################################################# 
+#################################################################
 
 tplink:
   discovery: true
@@ -167,7 +166,7 @@ tplink:
 #                                                               #
 #                        Utility Meter                          #
 #                                                               #
-################################################################# 
+#################################################################
 
 utility_meter:
   monthly_cabinet:
@@ -181,7 +180,7 @@ utility_meter:
 #                                                               #
 #                            INCLUDES                           #
 #                                                               #
-################################################################# 
+#################################################################
 
 automation: !include_dir_merge_list custom_config/automations
 binary_sensor: !include_dir_merge_list custom_config/binary_sensor
@@ -197,15 +196,3 @@ input_select: !include custom_config/includes/input_select.yaml
 nzbget: !include custom_config/includes/nzbget.yaml
 script: !include custom_config/includes/scripts.yaml
 zone: !include custom_config/includes/zone.yaml
-
-    
-
-
-
-
-
-
-  
-
-
-

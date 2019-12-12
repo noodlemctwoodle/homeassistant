@@ -1,5 +1,5 @@
 #############################################################################################################################################
-#                                                                                                                                           # 
+#                                                                                                                                           #
 #                                                          INTEL NUC - Monitoring                                                           #
 #                                                                                                                                           #
 #############################################################################################################################################
@@ -15,7 +15,7 @@
     host: !secret docker_ip
     port: !secret docker_port
     name: chsdoc01
-    resources:    
+    resources:
       system_cpu_load:
         data_group: 'system.cpu'
         element: 'system'
@@ -31,11 +31,11 @@
       nice_cpu_load:
         data_group: 'system.cpu'
         element: 'nice'
-        icon: mdi:chip        
+        icon: mdi:chip
       iowait_cpu_load:
         data_group: 'system.cpu'
         element: 'iowait'
-        icon: mdi:chip   
+        icon: mdi:chip
       core_temp:
         data_group: 'sensors.coretemp-isa-0000_temperature'
         element: 'coretemp-isa-0000_temp1'
@@ -62,7 +62,7 @@
           {% set minutes = ((time % 3600) / 60) | int %}
           {% set hours = ((time % 86400) / 3600) | int %}
           {% set days = (time / 86400) | int %}
-        
+
           {%- if time < 60 -%}
             Less than a minute
             {%- else -%}

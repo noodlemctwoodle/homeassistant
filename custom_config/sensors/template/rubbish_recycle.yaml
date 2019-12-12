@@ -1,5 +1,5 @@
 #############################################################################################################################################
-#                                                                                                                                           # 
+#                                                                                                                                           #
 #                                                                Template Sensor                                                            #
 #                                                                                                                                           #
 #############################################################################################################################################
@@ -11,7 +11,7 @@
 #           Rubbish/Recycle - Template              #
 #                                                  #
 ####################################################
-    
+
 ## Sensor to hold info about current week is an odd week or an even week of the year
 
   - platform: template
@@ -27,7 +27,7 @@
           {%- else -%}
             Odd Week (Week# {{ as_timestamp(today) | timestamp_custom('%U', true) }})
           {%- endif -%}
-          
+
 ## Trash  - Pickup schedule is EVERY week.
 ## Set the day to a day before the actual day leaving time for reminders
 
@@ -95,7 +95,7 @@
           {%- endif -%}
           {%- endmacro -%}
           {{- is_it_today() -}}
-          
+
 ## Green Waste - Pickup schedule is every other week.
 ## Set the day to a day before the actual day leaving time for reminders
 
@@ -146,7 +146,7 @@
           {%- endif -%}
           {%- endmacro -%}
           {{- is_it_today() -}}
-          
+
       trash_bin_location:
         value_template: >-
           {% if is_state('device_tracker.trash_bin', 'home') %}
@@ -175,7 +175,7 @@
           {% elif is_state('sensor.trash_day', 'no') %}
             0
           {% endif %}
-          
+
       recycle:
         friendly_name: Recycle
         entity_id: sensor.recycle_day
@@ -185,7 +185,7 @@
           {% elif is_state('sensor.recycle_day', 'no') %}
             0
           {% endif %}
-          
+
       green:
         friendly_name: Green
         entity_id: sensor.green_day
@@ -194,4 +194,4 @@
             100
           {% elif is_state('sensor.green_day', 'no') %}
             0
-          {% endif %}  
+          {% endif %}
