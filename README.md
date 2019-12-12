@@ -1,3 +1,5 @@
+![](https://github.com/noodlemctwoodle/Hassio/workflows/ha-config-check/badge.svg)
+
 # Home Asssistant Configuration
 
 Open source home automation that puts local control and privacy first. Powered by a worldwide community of tinkerers and DIY enthusiasts. 
