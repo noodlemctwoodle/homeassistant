@@ -150,13 +150,11 @@ views:
                 - entity: binary_sensor.recycle
                   name: Recycling
 
-
 # Home - Aftership Card
 
 #            - type: 'custom:aftership-card'
 #              entity: sensor.aftership
 #              title: Packages
-
 
 # Home - Presence Card
 
@@ -3590,8 +3588,19 @@ views:
                                 color_stops:
                                   200: '#09C7E8'
                                   300: '#5294E2'
-                                font_style: {font-size: 1.1em, font-color: white, text-shadow: '2px 2px black'}
-                                style: {top: 5%, left: 80%, width: 6em, height: 6em, transform: none}
+                                font_style: {
+                                  font-size: 1.1em, 
+                                  font-color: white, 
+                                  text-shadow: '2px 2px black'
+                                  }
+
+                                style: {
+                                  top: 5%, 
+                                  left: 80%, 
+                                  width: 6em, 
+                                  height: 6em, 
+                                  transform: none
+                                  }
 
                               - type: custom:bar-card
                                 title_position: inside
@@ -3926,8 +3935,19 @@ views:
                                 color_stops:
                                   200: '#09C7E8'
                                   300: '#5294E2'
-                                font_style: {font-size: 1.1em, font-color: white, text-shadow: '2px 2px black'}
-                                style: {top: 5%, left: 80%, width: 6em, height: 6em, transform: none}
+                                font_style: {
+                                  font-size: 1.1em, 
+                                  font-color: white, 
+                                  text-shadow: '2px 2px black'
+                                  }
+
+                                style: {
+                                  top: 5%, 
+                                  left: 80%, 
+                                  width: 6em, 
+                                  height: 6em, 
+                                  transform: none
+                                  }
 
                               - type: custom:bar-card
                                 title_position: inside
@@ -4128,8 +4148,19 @@ views:
                   fill: '#383C45'
                   name: target
                   units: 'kg'
-                  font_style: {font-size: 1.1em, font-color: white, text-shadow: '2px 2px black'}
-                  style: {top: 5%, left: 80%, width: 6em, height: 6em, transform: none}
+                  font_style: {
+                    font-size: 1.1em, 
+                    font-color: white, 
+                    text-shadow: '2px 2px black'
+                    }
+
+                  style: {
+                    top: 5%, 
+                    left: 80%, 
+                    width: 6em, 
+                    height: 6em, 
+                    transform: none
+                    }
 
                 - type: custom:circle-sensor-card
                   entity: sensor.user_1_steps
@@ -4140,9 +4171,24 @@ views:
                   fill: '#383C45'
                   name: steps
                   units: ' '
-                  font_style: {font-size: 1.1em, font-color: white, text-shadow: '2px 2px black'}
-                  color_stops: {1: '#09C7E8', 10000: '#0BDF0E'}
-                  style: {top: 81%, left: 10%, width: 4em, height: 4em, transform: none}
+                  font_style: {
+                    font-size: 1.1em, 
+                    font-color: white, 
+                    text-shadow: '2px 2px black'
+                    }
+
+                  color_stops: {
+                    1: '#09C7E8', 
+                    10000: '#0BDF0E'
+                    }
+
+                  style: {
+                    top: 81%, 
+                    left: 10%, 
+                    width: 4em, 
+                    height: 4em, 
+                    transform: none
+                    }
 
                 - type: custom:circle-sensor-card
                   entity: sensor.distance
@@ -4153,9 +4199,24 @@ views:
                   fill: '#383C45'
                   name: km's
                   units: ' '
-                  font_style: {font-size: 1.1em, font-color: white, text-shadow: '2px 2px black'}
-                  color_stops: {1: '#09C7E8', 10000: '#0BDF0E'}
-                  style: {top: 81%, left: 33.33%, width: 4em, height: 4em, transform: none}
+                  font_style: {
+                    font-size: 1.1em, 
+                    font-color: white, 
+                    text-shadow: '2px 2px black'
+                    }
+
+                  color_stops: {
+                    1: '#09C7E8', 
+                    10000: '#0BDF0E'
+                    }
+
+                  style: {
+                    top: 81%, 
+                    left: 33.33%, 
+                    width: 4em, 
+                    height: 4em, 
+                    transform: none
+                    }
 
                 - type: custom:circle-sensor-card
                   entity: sensor.calories
@@ -4167,9 +4228,24 @@ views:
                   name: cals
                   shadow: true
                   units: ' '
-                  font_style: {font-size: 1.1em, font-color: white, text-shadow: '2px 2px black'}
-                  color_stops: {1: '#09C7E8', 10000: '#0BDF0E'}
-                  style: {top: 81%, left: 56.66%, width: 4em, height: 4em, transform: none}
+                  font_style: {
+                    font-size: 1.1em, 
+                    font-color: white, 
+                    text-shadow: '2px 2px black'
+                    }
+
+                  color_stops: {
+                    1: '#09C7E8', 
+                    10000: '#0BDF0E'
+                    }
+
+                  style: {
+                    top: 81%, 
+                    left: 56.66%, 
+                    width: 4em, 
+                    height: 4em, 
+                    transform: none
+                    }
 
                 - type: custom:circle-sensor-card
                   entity: sensor.time_2
@@ -4180,9 +4256,24 @@ views:
                   fill: '#383C45'
                   name: active
                   units: ' '
-                  font_style: {font-size: 1.1em, font-color: white, text-shadow: '2px 2px black'}
-                  color_stops: {1: '#09C7E8', 10000: '#0BDF0E'}
-                  style: {top: 81%, left: 80%, width: 4em, height: 4em, transform: none}
+                  font_style: {
+                    font-size: 1.1em, 
+                    font-color: white, 
+                    text-shadow: '2px 2px black'
+                    }
+
+                  color_stops: {
+                    1: '#09C7E8', 
+                    10000: '#0BDF0E'
+                    }
+
+                  style: {
+                    top: 81%, 
+                    left: 80%, 
+                    width: 4em, 
+                    height: 4em, 
+                    transform: none
+                    }
 
                 - type: custom:hui-markdown-card
                   content: >
@@ -4192,7 +4283,8 @@ views:
                     left: 1%
                     font-size: 18px
                     color: white
-                    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black
+                    text-shadow: >-
+                      -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black
                     "--paper-card-background-color": none
                     "--paper-material-elevation-1_-_box-shadow": none
                     "--shadow-elevation-2dp_-_box-shadow": none
@@ -4202,53 +4294,119 @@ views:
                 - type: state-icon
                   entity: sensor.weight
                   title: Weight
-                  style: {top: 16%, left: 6%, "--iron-icon-fill-color": '#5294E2', transform: none}
+                  style: {
+                    top: 16%, 
+                    left: 6%, 
+                    "--iron-icon-fill-color": '#5294E2', 
+                    transform: none
+                    }
+                  
                 - type: state-label
                   entity: sensor.weight
                   title: Weight
-                  style: {top: 17%, left: 17%, color: white, transform: none}
+                  style: {
+                    top: 17%, 
+                    left: 17%, 
+                    color: white, 
+                    transform: none
+                    }
 
                 - type: image
                   entity: sensor.user_1_bmi
-                  image: https://apprecs.org/gp/images/app-icons/300/b7/com.despdev.weight_loss_calculator.jpg
-                  style: {top: 31%, left: 6%, transform: none, width: 40px, height: 40px}
+                  image: ''
+                  style: {
+                    top: 31%, 
+                    left: 6%, 
+                    transform: none, 
+                    width: 40px, 
+                    height: 40px
+                    }
+
                 - type: state-label
                   entity: sensor.user_1_bmi
                   title: BMI
-                  style: {top: 32%, left: 17%, color: white, transform: none}
+                  style: {
+                    top: 32%, 
+                    left: 17%, 
+                    color: white, 
+                    transform: none
+                    }
 
                 - type: image
                   entity: sensor.body_fat
-                  image: https://cdn6.aptoide.com/imgs/f/3/9/f393c40a8435f88b403e5a2d7f8a60c7_icon.png?w=240
-                  style: {top: 49%, left: 6%, transform: none, width: 33px, height: 33px}
+                  image: ''
+                  style: {
+                    top: 49%, 
+                    left: 6%, 
+                    transform: none, 
+                    width: 33px, 
+                    height: 33px
+                    }
+
                 - type: state-label
                   entity: sensor.body_fat
                   title: Body Fat
-                  style: {top: 48%, left: 17%, color: white, transform: none}
+                  style: {
+                    top: 48%, 
+                    left: 17%, 
+                    color: white, 
+                    transform: none
+                    }
 
                 - type: state-icon
                   entity: sensor.user_1_miband_battery
                   title: MiBand Battery
-                  style: {top: 1%, left: 17%, width: 24px, height: 24px, transform: none}
+                  style: {
+                    top: 1%, 
+                    left: 17%, 
+                    width: 24px, 
+                    height: 24px,
+                    transform: none
+                    }
+
                 - type: state-label
                   entity: sensor.user_1_miband_battery
                   title: MiBand Battery
-                  style: {top: 3%, left: 22%, color: white, transform: none}
+                  style: {
+                    top: 3%, 
+                    left: 22%, 
+                    color: white, 
+                    transform: none
+                    }
 
                 - type: state-label
                   entity: sensor.user_1_miband_status
                   title: Status
                   prefix: 'Status : '
-                  style: {top: 3%, left: 36%, color: white, transform: none, font-size: 18px}
+                  style: {
+                    top: 3%, 
+                    left: 36%, 
+                    color: white, 
+                    transform: none, 
+                    font-size: 18px
+                    }
 
                 - type: state-icon
                   entity: sensor.user_1_heart_rate
                   title: Heart Rate
-                  style: {top: 38%, left: 68%, "--iron-icon-fill-color": red, transform: none, --iron-icon-height: 42px, --iron-icon-width: 42px}
+                  style: {
+                    top: 38%, 
+                    left: 68%, 
+                    "--iron-icon-fill-color": red, 
+                    transform: none, 
+                    --iron-icon-height: 42px, 
+                    --iron-icon-width: 42px}
+
                 - type: state-label
                   entity: sensor.user_1_heart_rate
                   title: Heart Rate
-                  style: {top: 39%, left: 77%, color: white, transform: none, font-size: 20px}
+                  style: {
+                    top: 39%, 
+                    left: 77%, 
+                    color: white, 
+                    transform: none, 
+                    font-size: 20px
+                    }
 
            # style:
              # border-radius: 20px
@@ -4713,10 +4871,10 @@ views:
                             title: Internal
                             unit_of_measurement: kW/h
                             severity:
-                            - value: 2
-                              color: '#b91d9e'
-                            - value: 5
-                              color: '#681db9'
+                              - value: 2
+                                color: '#b91d9e'
+                              - value: 5
+                                color: '#681db9'
 
                       - type: custom:bar-card
                         title_position: inside
@@ -4753,10 +4911,10 @@ views:
                             title: External
                             unit_of_measurement: kW/h
                             severity:
-                            - value: 2
-                              color: '#b91d9e'
-                            - value: 5
-                              color: '#681db9'
+                              - value: 2
+                                color: '#b91d9e'
+                              - value: 5
+                                color: '#681db9'
 
                       - type: custom:bar-card
                         title_position: inside
@@ -4793,10 +4951,10 @@ views:
                             title: Entertainment
                             unit_of_measurement: kW/h
                             severity:
-                            - value: 2
-                              color: '#b91d9e'
-                            - value: 5
-                              color: '#681db9'
+                              - value: 2
+                                color: '#b91d9e'
+                              - value: 5
+                                color: '#681db9'
 
                       - type: custom:bar-card
                         title_position: inside
@@ -4833,10 +4991,10 @@ views:
                             title: Festive
                             unit_of_measurement: kW/h
                             severity:
-                            - value: 2
-                              color: '#b91d9e'
-                            - value: 750
-                              color: '#681db9'
+                              - value: 2
+                                color: '#b91d9e'
+                              - value: 750
+                                color: '#681db9'
 
                       - type: custom:bar-card
                         title_position: inside
@@ -4987,12 +5145,12 @@ views:
                     title: Last Week
                     unit_of_measurement: 'kW/h'
                 severity:
-                - value: 200
-                  color: '#1db954'
-                - value: 300
-                  color: '#1d8ab9'
-                - value: 350
-                  color: '#e74c3c'
+                  - value: 200
+                    color: '#1db954'
+                  - value: 300
+                    color: '#1d8ab9'
+                  - value: 350
+                    color: '#e74c3c'
 
               - type: custom:bar-card
                 height: 160px
@@ -5014,12 +5172,12 @@ views:
                     title: Last Month
                     unit_of_measurement: 'kW/h'
                 severity:
-                - value: 200
-                  color: '#1db954'
-                - value: 300
-                  color: '#1d8ab9'
-                - value: 350
-                  color: '#e74c3c'
+                  - value: 200
+                    color: '#1db954'
+                  - value: 300
+                    color: '#1d8ab9'
+                  - value: 350
+                    color: '#e74c3c'
 
 
 # Power Consumption - Current Draw
@@ -5038,11 +5196,24 @@ views:
                 color_stops:
                 15: '#09C7E8'
                 20: '#5294E2'
-                font_style: {font-size: 1.1em, font-color: white, text-shadow: '2px 2px black'}
-                style: {top: 5%, left: 80%, width: 6em, height: 6em, transform: none}
+                font_style: {
+                  font-size: 1.1em, 
+                  font-color: white, 
+                  text-shadow: '2px 2px black'
+                  }
+
+                style: {
+                  top: 5%, 
+                  left: 80%, 
+                  width: 6em, 
+                  height: 6em, 
+                  transform: none
+                  }
+
              # - type: custom:gap-card
                # height:
                # size:
+               
               - type: custom:card-modder
                 card:
                   type: picture
@@ -5095,10 +5266,10 @@ views:
                             title: Appliances
                             unit_of_measurement: kW/h
                             severity:
-                            - value: 1000
-                              color: '#b91d58'
-                            - value: 2000
-                              color: '#b91d3e'
+                              - value: 1000
+                                color: '#b91d58'
+                              - value: 2000
+                                color: '#b91d3e'
 
                       - type: custom:bar-card
                         title_position: inside
@@ -5135,10 +5306,10 @@ views:
                             title: Dryer
                             unit_of_measurement: kW/h
                             severity:
-                            - value: 1000
-                              color: '#b91d58'
-                            - value: 2000
-                              color: '#b91d3e'
+                              - value: 1000
+                                color: '#b91d58'
+                              - value: 2000
+                                color: '#b91d3e'
 
                       - type: custom:bar-card
                         title_position: inside
@@ -5175,10 +5346,10 @@ views:
                             title: Washer
                             unit_of_measurement: kW/h
                             severity:
-                            - value: 1000
-                              color: '#b91d58'
-                            - value: 2000
-                              color: '#b91d3e'
+                              - value: 1000
+                                color: '#b91d58'
+                              - value: 2000
+                                color: '#b91d3e'
 
                       - type: custom:bar-card
                         title_position: inside
@@ -5215,10 +5386,10 @@ views:
                             title: Climate Control
                             unit_of_measurement: kW/h
                             severity:
-                            - value: 1000
-                              color: '#b91d58'
-                            - value: 2000
-                              color: '#b91d3e'
+                              - value: 1000
+                                color: '#b91d58'
+                              - value: 2000
+                                color: '#b91d3e'
 
                       - type: custom:bar-card
                         title_position: inside
@@ -5255,10 +5426,10 @@ views:
                             title: Lighting
                             unit_of_measurement: kW/h
                             severity:
-                            - value: 1000
-                              color: '#b91d58'
-                            - value: 2000
-                              color: '#b91d3e'
+                              - value: 1000
+                                color: '#b91d58'
+                              - value: 2000
+                                color: '#b91d3e'
 
                       - type: custom:bar-card
                         title_position: inside
@@ -5295,10 +5466,10 @@ views:
                             title: Smart Home
                             unit_of_measurement: kW/h
                             severity:
-                            - value: 1000
-                              color: '#b91d58'
-                            - value: 2000
-                              color: '#b91d3e'
+                              - value: 1000
+                                color: '#b91d58'
+                              - value: 2000
+                                color: '#b91d3e'
 
                       - type: custom:bar-card
                         title_position: inside
@@ -5374,10 +5545,10 @@ views:
                             title: Fans
                             unit_of_measurement: kW/h
                             severity:
-                            - value: 2
-                              color: '#1d9fb9'
-                            - value: 5
-                              color: '#1d8fb9'
+                              - value: 2
+                                color: '#1d9fb9'
+                              - value: 5
+                                color: '#1d8fb9'
 
                       - type: custom:bar-card
                         title_position: inside
@@ -5414,10 +5585,10 @@ views:
                             title: Cooling
                             unit_of_measurement: kW/h
                             severity:
-                            - value: 2
-                              color: '#1d9fb9'
-                            - value: 5
-                              color: '#1d8fb9'
+                              - value: 2
+                                color: '#1d9fb9'
+                              - value: 5
+                                color: '#1d8fb9'
 
                       - type: custom:bar-card
                         title_position: inside
@@ -5454,10 +5625,10 @@ views:
                             title: Heating
                             unit_of_measurement: kW/h
                             severity:
-                            - value: 2
-                              color: '#1d9fb9'
-                            - value: 5
-                              color: '#1d8fb9'
+                              - value: 2
+                                color: '#1d9fb9'
+                              - value: 5
+                                color: '#1d8fb9'
 
                       - type: custom:bar-card
                         title_position: inside
