@@ -11,10 +11,10 @@ tts
 assets
 appdaemon
 node-red
-custom_components
 tensorflow
 
 # Ignore Directories
+www/community
 www/lovelace
 www/tileboard
 www/upcoming-media-card
