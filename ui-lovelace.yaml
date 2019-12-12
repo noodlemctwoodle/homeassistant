@@ -1,3 +1,4 @@
+---
 #################################################################
 #                                                               #
 #                    Compact Header Config                      #
@@ -61,7 +62,7 @@ resources:
   - url: /community_plugin/bar-card/bar-card.js
     type: js
   - url: /community_plugin/calendar-card/calendar-card.js
-    type: js 
+    type: js
   - url: /community_plugin/vertical-stack-in-card/vertical-stack-in-card.js
     type: js
   - url: /community_plugin/light-entity-card/light-entity-card.js
@@ -83,11 +84,11 @@ resources:
   - url: https://unpkg.com/moment@2.22.2/min/moment.min.js
     type: js
 
-################################################################################
-#                                                                              #
-#                                VIEW 0 - HOME                                 #
-#                                                                              #
-################################################################################
+###############################################################################
+#                                                                             #
+#                                VIEW 0 - HOME                                #
+#                                                                             #
+###############################################################################
 
 background: center / cover no-repeat url("/local/lovelace/background_19.png") fixed
 views:
@@ -165,7 +166,7 @@ views:
                   text: Bin Day
                 - entity: binary_sensor.trash
                   name: Rubbish
-                - entity: binary_sensor.recycle 
+                - entity: binary_sensor.recycle
                   name: Recycling
 
 #################################################################
@@ -243,7 +244,7 @@ views:
 
             #- type: custom:gap-card
             #  height: 45
-            #  size: 
+            #  size:
 
 #            - type: entities
 #              show_header_toggle: false
@@ -424,11 +425,11 @@ views:
                     - value: 0
                       color: "#3498db"
 
-################################################################################
-#                                                                              #
-#                             VIEW 1 - SECURITY                                #
-#                                                                              #
-################################################################################
+###############################################################################
+#                                                                             #
+#                             VIEW 1 - SECURITY                               #
+#                                                                             #
+###############################################################################
 
   - id: 1
     icon: mdi:shield-home
@@ -525,11 +526,11 @@ views:
               - binary_sensor.landing_openclose
               - binary_sensor.office_openclose
               - binary_sensor.craft_room_openclose
-################################################################################
-#                                                                              #
-#                             VIEW 2 - CAMERAS                                 #
-#                                                                              #
-################################################################################
+###############################################################################
+#                                                                             #
+#                             VIEW 2 - CAMERAS                                #
+#                                                                             #
+###############################################################################
 
   - id: 2
     title: Surveillance
@@ -548,11 +549,11 @@ views:
       - type: picture-entity
         entity: camera.back_garden
 
-################################################################################
-#                                                                              #
-#                             VIEW 3 - Living Room                             #
-#                                                                              #
-################################################################################
+###############################################################################
+#                                                                             #
+#                             VIEW 3 - Living Room                            #
+#                                                                             #
+###############################################################################
 
   - id: 3
     icon: mdi:sofa
@@ -791,7 +792,7 @@ views:
               background-image: url("/local/lovelace/cardbackK.png")
               background-repeat: no-repeat
               background-color: rgba(50,50,50,0.3)
-              background-size: 100%  
+              background-size: 100%
 
 #################################################################
 #                                                               #
@@ -904,11 +905,11 @@ views:
                   action: toggle
                 image: /local/lovelace/downstairs/xmas-lights_1.jpg
 
-################################################################################
-#                                                                              #
-#                             VIEW 4 - KITCHEN                                 #
-#                                                                              #
-################################################################################
+###############################################################################
+#                                                                             #
+#                             VIEW 4 - KITCHEN                                #
+#                                                                             #
+###############################################################################
 
   - id: 4
     icon: mdi:pot
@@ -969,7 +970,7 @@ views:
               - binary_sensor.kitchen_motion
               - type: section
               - binary_sensor.kitchen_openclose
-             
+
 #################################################################
 #                                                               #
 #                 Kitchen - Temperature Graph Card              #
@@ -997,7 +998,7 @@ views:
                 color: "#1db954"
               - value: 0
                 color: "#3498db"
-            
+
 #################################################################
 #                                                               #
 #                 Kitchen - Media Player Card                   #
@@ -1093,11 +1094,11 @@ views:
               - value: 80
                 color: "#1db954"
 
-################################################################################
-#                                                                              #
-#                             VIEW 5 - BATHROOM                                #
-#                                                                              #
-################################################################################
+###############################################################################
+#                                                                             #
+#                             VIEW 5 - BATHROOM                               #
+#                                                                             #
+###############################################################################
 
   - id: 5
     icon: mdi:shower
@@ -1301,7 +1302,7 @@ views:
                   - type: picture-entity
                     entity: input_boolean.bathroom_user_1
                     name: Daddy
-                    tap_action: 
+                    tap_action:
                       action: toggle
                     image: /local/lovelace/bathroom/daddy_5.png
 
@@ -1330,11 +1331,11 @@ views:
                   action: toggle
                 image: /local/lovelace/bathroom/guest.png
 
-################################################################################
-#                                                                              #
-#                             VIEW 6 - BATHROOM                                #
-#                                                                              #
-################################################################################
+###############################################################################
+#                                                                             #
+#                             VIEW 6 - BATHROOM                               #
+#                                                                             #
+###############################################################################
 
   - id: 6
     icon: mdi:door
@@ -1427,11 +1428,11 @@ views:
               - value: 0
                 color: "#3498db"
 
-################################################################################
-#                                                                              #
-#                             VIEW 7 - Landing                                 #
-#                                                                              #
-################################################################################
+###############################################################################
+#                                                                             #
+#                             VIEW 7 - Landing                                #
+#                                                                             #
+###############################################################################
 
   - id: 7
     icon: mdi:stairs
@@ -1519,11 +1520,11 @@ views:
               - value: 0
                 color: "#3498db"
 
-################################################################################
-#                                                                              #
-#                             VIEW 8 - MASTER BEDROOM                          #
-#                                                                              #
-################################################################################
+###############################################################################
+#                                                                             #
+#                             VIEW 8 - MASTER BEDROOM                         #
+#                                                                             #
+###############################################################################
 
   - id: 8
     icon: mdi:hotel
@@ -1539,7 +1540,7 @@ views:
       - type: vertical-stack
         cards:
           - type: custom:mini-graph-card
-            entities: 
+            entities:
               - sensor.bedroom_temperature
             height: 65
             line_width: 2
@@ -1586,7 +1587,7 @@ views:
           - type: picture-entity
             entity: light.bedroom
             name: Light
-            tap_action: 
+            tap_action:
               action: toggle
             image: /local/lovelace/bedrooms/bed-light.jpg
 
@@ -1601,7 +1602,7 @@ views:
               - type: picture-entity
                 entity: light.bedroom_pendant_1
                 name: Pendant 1
-                tap_action: 
+                tap_action:
                   action: toggle
                 image: /local/lovelace/bedrooms/main-bed-light_2.jpg
 
@@ -1614,7 +1615,7 @@ views:
               - type: picture-entity
                 entity: light.bedroom_pendant_2
                 name: Pendant 2
-                tap_action: 
+                tap_action:
                   action: toggle
                 image: /local/lovelace/bedrooms/walk-in-light_2.jpg
 
@@ -1627,7 +1628,7 @@ views:
               - type: picture-entity
                 entity: light.bedroom_lamp
                 name: Lamp
-                tap_action: 
+                tap_action:
                   action: toggle
                 image: /local/lovelace/bedrooms/walk-in-light_2.jpg
 
@@ -1640,14 +1641,14 @@ views:
           - type: custom:gap-card
             height: 4
             size:
-            
+
           - type: custom:card-modder
             card:
               type: entities
               #title: Bulb
               entities:
                 - input_number.bedroom_brightness
-            style:                 
+            style:
               background-image: url("/local/lovelace/cardbackK.png")
               background-repeat: no-repeat
               background-color: rgba(50,50,50,0.3)
@@ -1662,7 +1663,7 @@ views:
       - type: vertical-stack
         cards:
           - type: custom:mini-graph-card
-            entities: 
+            entities:
               - sensor.bedroom_lux
             name: Bedroom LUX
             height: 65
@@ -1698,7 +1699,7 @@ views:
               show_source: true
               show_progress: true
               group: true
-            style:                 
+            style:
               background-image: url("/local/lovelace/cardbackK.png")
               background-repeat: no-repeat
               background-color: rgba(50,50,50,0.3)
@@ -1720,23 +1721,23 @@ views:
               show_source: true
               show_progress: true
               group: true
-            style:                 
+            style:
               background-image: url("/local/lovelace/cardbackK.png")
               background-repeat: no-repeat
               background-color: rgba(50,50,50,0.3)
               background-size: 100%
 
-################################################################################
-#                                                                              #
-#                             VIEW 9 - OFFICE                                  #
-#                                                                              #
-################################################################################
+###############################################################################
+#                                                                             #
+#                             VIEW 9 - OFFICE                                 #
+#                                                                             #
+###############################################################################
 
-  - id: 9  
+  - id: 9
     icon: mdi:office-building
     name: Office
     cards:
-        
+
 #################################################################
 #                                                               #
 #                 Office - Temperature Graph Card               #
@@ -1746,7 +1747,7 @@ views:
       - type: vertical-stack
         cards:
           - type: custom:mini-graph-card
-            entities: 
+            entities:
               - sensor.office_temperature
             height: 65
             line_width: 2
@@ -1788,7 +1789,7 @@ views:
           - type: picture-entity
             entity: switch.Office_light_switch
             name: Light
-            tap_action: 
+            tap_action:
               action: toggle
             image: /local/lovelace/office/office-light.png
 
@@ -1802,7 +1803,7 @@ views:
       - type: vertical-stack
         cards:
           - type: custom:mini-graph-card
-            entities: 
+            entities:
               - sensor.humidity_158d0001f56350
             height: 65
             line_width: 2
@@ -1842,7 +1843,7 @@ views:
               show_progress: true
               group: true
               #background: /local/lovelace/downstairs/evening-tv_3.jpg
-            style:                 
+            style:
               background-image: url("/local/lovelace/cardbackK.png")
               background-repeat: no-repeat
               background-color: rgba(50,50,50,0.3)
@@ -1850,7 +1851,7 @@ views:
 
           - type: custom:gap-card
             height: 66
-            size: 
+            size:
 
 #################################################################
 #                                                               #
@@ -1861,7 +1862,7 @@ views:
           - type: picture-entity
             entity: switch.plug_158d0001f24e2b
             name: Entertainment Lights
-            tap_action: 
+            tap_action:
               action: toggle
             image: /local/lovelace/office/office-lights.jpg
 
@@ -1874,7 +1875,7 @@ views:
       - type: vertical-stack
         cards:
           - type: custom:mini-graph-card
-            entities: 
+            entities:
               - sensor.office_lux
             height: 65
             line_width: 2
@@ -1896,9 +1897,9 @@ views:
 #                     Office - Mold Indicator                    #
 #                                                               #
 #################################################################
-              
+
           - type: custom:mini-graph-card
-            entities: 
+            entities:
               - sensor.office_mold_indicator
             height: 87
             line_width: 2
@@ -1924,17 +1925,17 @@ views:
           - type: picture-entity
             entity: switch.fairy_light_power
             name: Fairy Lights
-            tap_action: 
+            tap_action:
               action: toggle
             image: /local/lovelace/office/fairy-lights.jpg
 
-################################################################################
-#                                                                              #
-#                             VIEW 10 - CRAFT ROOM                             #
-#                                                                              #
-################################################################################
+###############################################################################
+#                                                                             #
+#                             VIEW 10 - CRAFT ROOM                            #
+#                                                                             #
+###############################################################################
 
-  - id: 10  
+  - id: 10
     icon: mdi:brush
     name: Craft Room
     cards:
@@ -1948,7 +1949,7 @@ views:
       - type: vertical-stack
         cards:
           - type: custom:mini-graph-card
-            entities: 
+            entities:
               - sensor.temperature_158d0001f56350
             height: 65
             line_width: 2
@@ -1990,7 +1991,7 @@ views:
           - type: picture-entity
             entity: light.craft_room
             name: Light
-            tap_action: 
+            tap_action:
               action: toggle
             image: /local/lovelace/office/office-light.png
 
@@ -2004,7 +2005,7 @@ views:
       - type: vertical-stack
         cards:
           - type: custom:mini-graph-card
-            entities: 
+            entities:
               - sensor.humidity_158d0001f56350
             height: 65
             line_width: 2
@@ -2044,7 +2045,7 @@ views:
               show_progress: true
               group: true
               #background: /local/lovelace/downstairs/evening-tv_3.jpg
-            style:                 
+            style:
               background-image: url("/local/lovelace/cardbackK.png")
               background-repeat: no-repeat
               background-color: rgba(50,50,50,0.3)
@@ -2052,7 +2053,7 @@ views:
 
           - type: custom:gap-card
             height: 66
-            size: 
+            size:
 
 #################################################################
 #                                                               #
@@ -2063,7 +2064,7 @@ views:
           - type: picture-entity
             entity: switch.plug_158d0001f24e2b
             name: Entertainment Lights
-            tap_action: 
+            tap_action:
               action: toggle
             image: /local/lovelace/office/office-lights.jpg
 
@@ -2076,7 +2077,7 @@ views:
       - type: vertical-stack
         cards:
           - type: custom:mini-graph-card
-            entities: 
+            entities:
               - sensor.illumination_158d000200ea5b
             height: 65
             line_width: 2
@@ -2100,7 +2101,7 @@ views:
 #################################################################
 
           - type: custom:mini-graph-card
-            entities: 
+            entities:
               - sensor.office_mold_indicator
             height: 87
             line_width: 2
@@ -2126,15 +2127,15 @@ views:
           - type: picture-entity
             entity: switch.fairy_light_power
             name: Fairy Lights
-            tap_action: 
+            tap_action:
               action: toggle
             image: /local/lovelace/office/fairy-lights.jpg
 
-################################################################################
-#                                                                              #
-#                             VIEW 11 - SYSTEM STATUS                          #
-#                                                                              #
-################################################################################
+###############################################################################
+#                                                                             #
+#                             VIEW 11 - SYSTEM STATUS                         #
+#                                                                             #
+###############################################################################
 
   - id: 11
     icon: mdi:settings
@@ -2156,7 +2157,7 @@ views:
                 show_icon: true
                 align: split
                 padding: 4px
-                card_style: 
+                card_style:
                   border-radius: 5px
                 columns: 1
                 max: 100
@@ -2176,7 +2177,7 @@ views:
                 show_icon: true
                 align: split
                 padding: 4px
-                card_style: 
+                card_style:
                   border-radius: 5px
                 columns: 1
                 max: 100
@@ -2194,7 +2195,7 @@ views:
           - type: horizontal-stack
             cards:
               - type: custom:mini-graph-card
-                entities: 
+                entities:
                   - sensor.speedtest_download
                 height: 50
                 line_width: 2
@@ -2211,7 +2212,7 @@ views:
                     color: "#3498db"
 
               - type: custom:mini-graph-card
-                entities: 
+                entities:
                   - sensor.speedtest_upload
                 height: 50
                 line_width: 2
@@ -2245,10 +2246,10 @@ views:
                       - type: horizontal-stack
                         cards:
                           - type: custom:card-modder
-                            card: 
+                            card:
                               type: picture
                               image: /local/lovelace/settings/NAS.png
-                            style:                 
+                            style:
                               border-radius: 5px
 
                           - type: vertical-stack
@@ -2258,7 +2259,7 @@ views:
                                 show_icon: true
                                 align: center
                                 padding: 1.5px
-                                card_style: 
+                                card_style:
                                   border-radius: 5px
                                 columns: 1
                                 max: 1500
@@ -2279,7 +2280,7 @@ views:
                                 show_icon: true
                                 align: center
                                 padding: 1.5px
-                                card_style: 
+                                card_style:
                                   border-radius: 5px
                                 columns: 1
                                 max: 100
@@ -2326,10 +2327,10 @@ views:
                       - type: horizontal-stack
                         cards:
                           - type: custom:card-modder
-                            card: 
+                            card:
                               type: picture
                               image: /local/lovelace/settings/NAS.png
-                            style:                 
+                            style:
                               border-radius: 5px
 
                           - type: vertical-stack
@@ -2354,7 +2355,7 @@ views:
                                       color: '#bf9540'
                                     - value: 1500
                                       color: '#bf4040'
-                                      
+
                               - type: custom:bar-card
                                 title_position: inside
                                 show_icon: true
@@ -2410,7 +2411,7 @@ views:
                 show_icon: true
                 align: split
                 padding: 4px
-                card_style: 
+                card_style:
                   border-radius: 5px
                 columns: 1
                 max: 100
@@ -2429,7 +2430,7 @@ views:
                 show_icon: true
                 align: split
                 padding: 4px
-                card_style: 
+                card_style:
                   border-radius: 5px
                 columns: 1
                 max: 100
@@ -2460,14 +2461,14 @@ views:
                   #  text: Statistics
 
                   - type: horizontal-stack
-                    cards:          
+                    cards:
                       - type: custom:bar-card
                         title: Automations
                         entity: sensor.count_automations
                         title_position: inside
                         align: center
                         padding: 4px
-                        card_style: 
+                        card_style:
                           border-radius: 5px
                         max: 4
                         severity:
@@ -2484,7 +2485,7 @@ views:
                         title_position: inside
                         align: center
                         padding: 4px
-                        card_style: 
+                        card_style:
                           border-radius: 5px
                         max: 38
                         severity:
@@ -2501,7 +2502,7 @@ views:
                         title_position: inside
                         align: center
                         padding: 4px
-                        card_style: 
+                        card_style:
                           border-radius: 5px
                         max: 2
                         severity:
@@ -2520,7 +2521,7 @@ views:
                         title_position: inside
                         align: center
                         padding: 4px
-                        card_style: 
+                        card_style:
                           border-radius: 5px
                         max: 47
                         severity:
@@ -2535,9 +2536,9 @@ views:
                         title: Tracked Devices
                         entity: sensor.count_device_trackers
                         title_position: inside
-                        align: center 
+                        align: center
                         padding: 4px
-                        card_style: 
+                        card_style:
                           border-radius: 5px
                         max: 56
                         severity:
@@ -2554,7 +2555,7 @@ views:
                         title_position: inside
                         align: center
                         padding: 4px
-                        card_style: 
+                        card_style:
                           border-radius: 5px
                         max: 11
                         severity:
@@ -2563,7 +2564,7 @@ views:
                         - value: 11
                           color: '#1db954'
                         - value: 5
-                          color: '#bf9540'             
+                          color: '#bf9540'
 
                   - type: horizontal-stack
                     cards:
@@ -2571,9 +2572,9 @@ views:
                         title: Scripts
                         entity: sensor.count_scripts
                         title_position: inside
-                        align: center 
+                        align: center
                         padding: 4px
-                        card_style: 
+                        card_style:
                           border-radius: 5px
                         max: 1
                         severity:
@@ -2590,7 +2591,7 @@ views:
                         title_position: inside
                         align: center
                         padding: 4px
-                        card_style: 
+                        card_style:
                           border-radius: 5px
                         max: 162
                         severity:
@@ -2605,9 +2606,9 @@ views:
                         title: Switches
                         entity: sensor.count_switches
                         title_position: inside
-                        align: center 
+                        align: center
                         padding: 4px
-                        card_style: 
+                        card_style:
                           border-radius: 5px
                         max: 15
                         severity:
@@ -2626,7 +2627,7 @@ views:
 #                    align: split
 #                    show_icon: true
 #                    padding: 4px
-#                    card_style: 
+#                    card_style:
 #                      border-radius: 5px
 #                    max: 4000
 #                    severity:
@@ -2644,7 +2645,7 @@ views:
 #################################################################
 
       - type: vertical-stack
-        cards:    
+        cards:
           - type: entities
             show_header_toggle: off
             entities:
@@ -2657,10 +2658,10 @@ views:
                       - type: vertical-stack
                         cards:
                           - type: custom:card-modder
-                            card: 
+                            card:
                               type: picture
                               image: /local/lovelace/settings/nuc7.png
-                            style:                 
+                            style:
                               border-radius: 5px
 
                       - type: custom:bar-card
@@ -2671,7 +2672,7 @@ views:
                         align: center
                         padding: 5px
                         max: 60
-                        card_style: 
+                        card_style:
                           border-radius: 5px
                         severity:
                           - value: 10
@@ -2679,7 +2680,7 @@ views:
                           - value: 40
                             color: '#bf9540'
                           - value: 60
-                            color: '#bf4040'                          
+                            color: '#bf4040'
                       - type: custom:bar-card
                         title_position: inside
                         entity: sensor.chsdoc01_uptime
@@ -2687,7 +2688,7 @@ views:
                         align: center
                         padding: 5px
                         max: 168
-                        card_style: 
+                        card_style:
                           border-radius: 5px
 
               - type: custom:bar-card
@@ -2695,8 +2696,8 @@ views:
                 show_icon: true
                 padding: 4px
                 columns: 2
-                card_style: 
-                  border-radius: 5px  
+                card_style:
+                  border-radius: 5px
                 entities:
                   - entity: sensor.chsdoc01_disk_used
                     title: Disk Used
@@ -2706,7 +2707,7 @@ views:
                     - value: 50
                       color: '#bf9540'
                     - value: 100
-                      color: '#bf4040' 
+                      color: '#bf4040'
                   - entity: sensor.memory_use
                     title: RAM
                     severity:
@@ -2715,7 +2716,7 @@ views:
                     - value: 4000
                       color: '#bf9540'
                     - value: 8000
-                      color: '#bf4040' 
+                      color: '#bf4040'
 
               - type: custom:bar-card
                 align: split
@@ -2733,9 +2734,9 @@ views:
                     - value: 50
                       color: '#bf9540'
                     - value: 100
-                      color: '#bf4040'   
+                      color: '#bf4040'
                   - entity: sensor.chsdoc01_core_temp
-                    title: Temp  
+                    title: Temp
                     icon: mdi:thermometer
                     severity:
                     - value: 40
@@ -2743,17 +2744,17 @@ views:
                     - value: 50
                       color: '#bf9540'
                     - value: 60
-                      color: '#bf4040'                   
+                      color: '#bf4040'
 #################################################################
 #                                                               #
 #              System Status - Network Status Card              #
 #                                                               #
 #################################################################
-              
+
           - type: entities
             show_header_toggle: off
             entities:
-              - type: section 
+              - type: section
                 label: ROUTER - CHSPFS01 - PFSENSE 2.4.4 -p3
               - type: custom:vertical-stack-in-card
                 cards:
@@ -2763,7 +2764,7 @@ views:
                         card:
                           type: picture
                           image: /local/lovelace/settings/pfsense.png
-                        style:                 
+                        style:
                           border-radius: 5px
 
                       - type: custom:bar-card
@@ -2774,7 +2775,7 @@ views:
                         align: center
                         padding: 5px
                         max: 60
-                        card_style: 
+                        card_style:
                           border-radius: 5px
                         severity:
                           - value: 10
@@ -2790,7 +2791,7 @@ views:
                         align: center
                         padding: 5px
                         max: 168
-                        card_style: 
+                        card_style:
                           border-radius: 5px
 
               - type: custom:bar-card
@@ -2798,7 +2799,7 @@ views:
                 show_icon: true
                 padding: 4px
                 columns: 2
-                card_style: 
+                card_style:
                   border-radius: 5px
                 entities:
                   - entity: sensor.chspfs01_disk_used
@@ -2810,7 +2811,7 @@ views:
                     - value: 100
                       color: '#bf9540'
                     - value: 50
-                      color: '#bf4040'                    
+                      color: '#bf4040'
                   - entity: sensor.chspfs01_disk_avail
                     title: Disk Avail
                     unit_of_measurement: 'GiB'
@@ -2826,7 +2827,7 @@ views:
                 show_icon: true
                 padding: 4px
                 columns: 2
-                card_style: 
+                card_style:
                   border-radius: 5px
                 entities:
                   - entity: sensor.chspfs01_mem_commit
@@ -2840,24 +2841,24 @@ views:
                       - value: 2000
                         color: '#bf4040'
                   - entity: sensor.chspfs01_cpu_temp
-                    title: Temp  
-                    icon: mdi:thermometer   
+                    title: Temp
+                    icon: mdi:thermometer
                     severity:
                       - value: 40
                         color: '#1db954'
                       - value: 50
                         color: '#bf9540'
                       - value: 60
-                        color: '#bf4040'              
+                        color: '#bf4040'
 
-              - type: section 
+              - type: section
                 label: NETWORK STATUS
               - type: custom:bar-card
                 title_position: inside
                 show_value: false
                 align: center
                 padding: 4px
-                card_style: 
+                card_style:
                   border-radius: 5px
                 columns: 3
                 entities:
@@ -2897,13 +2898,13 @@ views:
 #                                                               #
 #################################################################
 
-              - type: section 
+              - type: section
                 label: DEVICE STATUS
               - type: custom:bar-card
                 title_position: inside
                 align: center
                 padding: 4px
-                card_style: 
+                card_style:
                   border-radius: 5px
                 columns: 4
                 entities:
@@ -2967,7 +2968,7 @@ views:
                         align: center
                         padding: 5px
                         max: 1
-                        card_style: 
+                        card_style:
                           border-radius: 5px
                       - type: custom:bar-card
                         title_position: inside
@@ -3030,7 +3031,7 @@ views:
                         card:
                           type: picture
                           image: /local/lovelace/settings/Pi.jpg
-                        style:                 
+                        style:
                           border-radius: 5px
 
                       - type: custom:bar-card
@@ -3049,7 +3050,7 @@ views:
                         align: center
                         padding: 5px
                         max: 168
-                        card_style: 
+                        card_style:
                           border-radius: 5px
               - type: custom:bar-card
                 #title_position: inside
@@ -3073,7 +3074,7 @@ views:
                 show_icon: true
                 padding: 4px
                 columns: 2
-                card_style: 
+                card_style:
                   border-radius: 5px
                 entities:
                   - entity: sensor.garden_server_cpu
@@ -3094,7 +3095,7 @@ views:
             entities:
               #- type: 'custom:text-divider-row'
               #  text: Device Status
-              - type: section 
+              - type: section
                 label: HA DEVICES
               - type: custom:bar-card
                 title_position: inside
@@ -3136,13 +3137,13 @@ views:
 #                                                               #
 #################################################################
 
-              - type: section 
+              - type: section
                 label: MEDIA DEVICES
               - type: custom:bar-card
                 title_position: inside
                 align: center
                 padding: 4px
-                card_style: 
+                card_style:
                   border-radius: 5px
                 #unit_of_measurement: '%'
                 columns: 4
@@ -3167,13 +3168,13 @@ views:
                 - value: 50
                   color: '#bf4040'
                 - value: 100
-                  color: '#1db954'              
+                  color: '#1db954'
 
-################################################################################
-#                                                                              #
-#                             VIEW 12 - THINGS STATUS                          #
-#                                                                              #
-################################################################################
+###############################################################################
+#                                                                             #
+#                             VIEW 12 - THINGS STATUS                         #
+#                                                                             #
+###############################################################################
 
   - id: 12
     icon: mdi:cogs
@@ -3193,7 +3194,7 @@ views:
             entities:
               - type: 'custom:text-divider-row'
                 text: Firmware
-              - type: section 
+              - type: section
                 label: HOME ASSISTANT
               - entity: input_boolean.ha_update_available
                 name: HA Update Available
@@ -3211,7 +3212,7 @@ views:
                     title: Latest
               - type: custom:fold-entity-row
                 head: sensor.potential_breaking_changes
-              - type: section 
+              - type: section
                 label: HOME ASSISTANT PODCAST
               - entity: input_boolean.new_podcast_available
                 name: New Podcast Available
@@ -3225,7 +3226,7 @@ views:
                 entities:
                   - entity: sensor.latest_ha_podcast
                     title: Latest
-              - type: section 
+              - type: section
                 label: UniFI Controller
               - entity: sensor.unifi_gateway_firmware_upgradable
                 name: UniFI Firmware
@@ -3246,7 +3247,7 @@ views:
                   color: '#d98a1c'
                 - value: 1
                   color: '#1db954'
-              - type: section 
+              - type: section
                 label: PFSENSE FIRMWARE
               - entity: input_boolean.pfsense_update_available
                 name: Sonoff Update Available
@@ -3261,7 +3262,7 @@ views:
                   color: '#1db954'
                 align: center
                 padding: 4px
-                card_style: 
+                card_style:
                   border-radius: 5px
                 columns: 2
                 entities:
@@ -3296,7 +3297,7 @@ views:
                 title_position: inside
                 align: center
                 padding: 4px
-                card_style: 
+                card_style:
                   border-radius: 5px
                 columns: 3
                 entities:
@@ -3345,7 +3346,7 @@ views:
                 title_position: inside
                 align: center
                 padding: 4px
-                card_style: 
+                card_style:
                   border-radius: 5px
                 #unit_of_measurement: '%'
                 columns: 4
@@ -3388,7 +3389,7 @@ views:
                 title_position: inside
                 align: center
                 padding: 4px
-                card_style: 
+                card_style:
                   border-radius: 5px
                 columns: 3
                 entities:
@@ -3447,7 +3448,7 @@ views:
                 title_position: inside
                 align: center
                 padding: 4px
-                card_style: 
+                card_style:
                   border-radius: 5px
                 columns: 2
                 entities:
@@ -3565,11 +3566,11 @@ views:
                 - value: 100
                   color: '#1db954'
 
-################################################################################
-#                                                                              #
-#                             VIEW 13 - APPLIANCES                             #
-#                                                                              #
-################################################################################
+###############################################################################
+#                                                                             #
+#                             VIEW 13 - APPLIANCES                            #
+#                                                                             #
+###############################################################################
 
   - id: 13
     icon: mdi:washing-machine
@@ -3580,11 +3581,11 @@ views:
 #                                                               #
 #            Appliances -  Package Tracking Card                #
 #                                                               #
-#################################################################  
+#################################################################
 
           - type: custom:gap-card
             height: 32
-            size: 
+            size:
 
           - type: entities
             show_header_toggle: off
@@ -3596,7 +3597,7 @@ views:
                 align: split
                 show_icon: true
                 padding: 4px
-                card_style: 
+                card_style:
                   border-radius: 5px
                 columns: 1
                 max: 3
@@ -3609,7 +3610,7 @@ views:
                 align: split
                 show_icon: true
                 padding: 4px
-                card_style: 
+                card_style:
                   border-radius: 5px
                 columns: 2
                 max: 3
@@ -3625,7 +3626,7 @@ views:
 #                                                               #
 #                Appliances -  Trash Day Card                   #
 #                                                               #
-#################################################################  
+#################################################################
 
           - type: entities
             show_header_toggle: off
@@ -3699,11 +3700,11 @@ views:
                     icon: mdi:leaf
                     color: '#1db954'
 
-################################################################################
-#                                                                              #
-#                             VIEW 14 - WIRELESS NETWORKS STATUS               #
-#                                                                              #
-################################################################################
+###############################################################################
+#                                                                             #
+#                             VIEW 14 - WIRELESS NETWORKS STATUS              #
+#                                                                             #
+###############################################################################
 
   - id: 14
     icon: mdi:access-point-network
@@ -3723,7 +3724,7 @@ views:
             entities:
               #- type: 'custom:text-divider-row'
               #  text: WiFi - 5Ghz
-              - type: section 
+              - type: section
                 label: 5G BACKHAUL AP
               - type: custom:vertical-stack-in-card
                 cards:
@@ -3735,14 +3736,14 @@ views:
                             card:
                               type: picture
                               image: /local/lovelace/settings/nbe.png
-                            style:                 
+                            style:
                               border-radius: 5px
 
                           - type: custom:bar-card
                             title_position: inside
                             align: center
                             padding: 4px
-                            card_style: 
+                            card_style:
                               border-radius: 5px
                             columns: 1
                             max: 100
@@ -3759,7 +3760,7 @@ views:
                                 title_position: inside
                                 align: center
                                 padding: 0px
-                                card_style: 
+                                card_style:
                                   border-radius: 5px
                                 columns: 1
                                 max: 17
@@ -3770,13 +3771,13 @@ views:
 
                               - type: custom:gap-card
                                 height: 39.5
-                                size: 
+                                size:
 
                               - type: custom:bar-card
                                 title_position: inside
                                 align: center
                                 padding: 0px
-                                card_style: 
+                                card_style:
                                   border-radius: 5px
                                 columns: 1
                                 max: 17
@@ -3794,13 +3795,13 @@ views:
 
                               - type: custom:gap-card
                                 height: 39.5
-                                size: 
+                                size:
 
                               - type: custom:bar-card
                                 title_position: inside
                                 align: center
                                 padding: 0px
-                                card_style: 
+                                card_style:
                                   border-radius: 5px
                                 columns: 1
                                 max: 17
@@ -3831,7 +3832,7 @@ views:
                                 title_position: inside
                                 align: center
                                 padding: 4px
-                                card_style: 
+                                card_style:
                                   border-radius: 5px
                                 columns: 1
                                 max: 5770
@@ -3848,7 +3849,7 @@ views:
           - type: entities
             show_header_toggle: off
             entities:
-              - type: section 
+              - type: section
                 label: ALTAI - A2C Downstairs
               - type: custom:vertical-stack-in-card
                 cards:
@@ -3968,7 +3969,7 @@ views:
           - type: entities
             show_header_toggle: off
             entities:
-              - type: section 
+              - type: section
                 label: 5G BACKHAUL MEDIA ROOM
               - type: custom:vertical-stack-in-card
                 cards:
@@ -3980,9 +3981,9 @@ views:
                             card:
                               type: picture
                               image: /local/lovelace/settings/nbe.png
-                            style:                 
+                            style:
                               border-radius: 5px
-                              
+
                           - type: custom:bar-card
                             title_position: inside
                             align: center
@@ -4015,8 +4016,8 @@ views:
 
                               - type: custom:gap-card
                                 height: 39.5
-                                size: 
-                          
+                                size:
+
                               - type: custom:bar-card
                                 title_position: inside
                                 align: center
@@ -4039,7 +4040,7 @@ views:
 
                               - type: custom:gap-card
                                 height: 39.5
-                                size: 
+                                size:
 
                               - type: custom:bar-card
                                 title_position: inside
@@ -4093,7 +4094,7 @@ views:
           - type: entities
             show_header_toggle: off
             entities:
-              - type: section 
+              - type: section
                 label: ALTAI - A2C Upstairs
               - type: custom:vertical-stack-in-card
                 cards:
@@ -4103,14 +4104,14 @@ views:
                         card:
                           type: picture
                           image: /local/lovelace/settings/altai_1.png
-                        style:                 
+                        style:
                           border-radius: 5px
 
                       - type: custom:bar-card
                         max: 29
                         align: center
                         padding: 3.75px
-                        card_style: 
+                        card_style:
                           border-radius: 5px
                         columns: 1
                         entities:
@@ -4188,7 +4189,7 @@ views:
                         show_icon: true
                         align: split
                         padding: 4px
-                        card_style: 
+                        card_style:
                           border-radius: 5px
                         columns: 1
                         entities:
@@ -4235,7 +4236,7 @@ views:
                         align: split
                         show_icon: true
                         padding: 4px
-                        card_style: 
+                        card_style:
                           border-radius: 5px
                         columns: 1
                         max: 2437
@@ -4249,7 +4250,7 @@ views:
                         align: split
                         show_icon: true
                         padding: 4px
-                        card_style: 
+                        card_style:
                           border-radius: 5px
                         columns: 2
                         max: 2475
@@ -4268,7 +4269,7 @@ views:
                         title_position: inside
                         align: center
                         padding: 4px
-                        card_style: 
+                        card_style:
                           border-radius: 5px
                         columns: 1
                         max: 100
@@ -4291,7 +4292,7 @@ views:
                         title_position: inside
                         align: center
                         padding: 4px
-                        card_style: 
+                        card_style:
                           border-radius: 5px
                         columns: 2
                         max: 100
@@ -4315,7 +4316,7 @@ views:
           - type: entities
             show_header_toggle: off
             entities:
-              - type: section 
+              - type: section
                 label: 5G BACKHAUL UPSTAIRS
               - type: custom:vertical-stack-in-card
                 cards:
@@ -4327,7 +4328,7 @@ views:
                             card:
                               type: picture
                               image: /local/lovelace/settings/nbe.png
-                            style:                 
+                            style:
                               border-radius: 5px
 
                           - type: custom:bar-card
@@ -4362,13 +4363,13 @@ views:
 
                               - type: custom:gap-card
                                 height: 39.5
-                                size: 
+                                size:
 
                               - type: custom:bar-card
                                 title_position: inside
                                 align: center
                                 padding: 0px
-                                card_style: 
+                                card_style:
                                   border-radius: 5px
                                 columns: 1
                                 max: 17
@@ -4386,13 +4387,13 @@ views:
 
                               - type: custom:gap-card
                                 height: 39.5
-                                size: 
+                                size:
 
                               - type: custom:bar-card
                                 title_position: inside
                                 align: center
                                 padding: 0px
-                                card_style: 
+                                card_style:
                                   border-radius: 5px
                                 columns: 1
                                 max: 17
@@ -4423,7 +4424,7 @@ views:
                                 title_position: inside
                                 align: center
                                 padding: 4px
-                                card_style: 
+                                card_style:
                                   border-radius: 5px
                                 columns: 1
                                 max: 5770
@@ -4499,11 +4500,11 @@ views:
                     style:
                       border-radius: 8px
 
-################################################################################
-#                                                                              #
-#                             VIEW 15 - FITNESS TRACKING                       #
-#                                                                              #
-################################################################################
+###############################################################################
+#                                                                             #
+#                             VIEW 15 - FITNESS TRACKING                      #
+#                                                                             #
+###############################################################################
 
   - id: 15
     icon: mdi:google-fit
@@ -4591,7 +4592,7 @@ views:
                     color: "#1db954"
 
               - type: custom:mini-graph-card
-                entities: 
+                entities:
                   - entity: sensor.weekly_steps
                     name: Weekly Steps
                     icon: mdi:walk
@@ -4621,7 +4622,7 @@ views:
       - type: vertical-stack
         cards:
           - type: custom:card-modder
-            card:              
+            card:
               type: picture-elements
               image: /local/lovelace/fitness/google_fit_1.png
               elements:
@@ -4759,7 +4760,7 @@ views:
 #            style:
               #border-radius: 20px
               #border: solid 1px rgba(100,100,100,0.3)
-              #box-shadow: 3px 3px rgba(0,0,0,0.4) 
+              #box-shadow: 3px 3px rgba(0,0,0,0.4)
               #overflow: hidden
 
 #################################################################
@@ -4789,11 +4790,11 @@ views:
               - value: 60
                 color: "#1db954"
 
-################################################################################
-#                                                                              #
-#                             VIEW 16 - WEATHER                                #
-#                                                                              #
-################################################################################
+###############################################################################
+#                                                                             #
+#                             VIEW 16 - WEATHER                               #
+#                                                                             #
+###############################################################################
 
   - id: 16
     icon: mdi:white-balance-sunny
@@ -4811,7 +4812,7 @@ views:
           - type: horizontal-stack
             cards:
               - type: custom:mini-graph-card
-                entities: 
+                entities:
                   - sensor.temperature_158d0001f56350
                 name: Temperature
                 align_state: center
@@ -4837,7 +4838,7 @@ views:
 #################################################################
 
               - type: custom:mini-graph-card
-                entities: 
+                entities:
                   - sensor.humidity_158d0001f56350
                 name: Humidity
                 align_state: center
@@ -4857,12 +4858,12 @@ views:
                     color: "#3498db"
 
           - type: custom:mini-graph-card
-            entities: 
+            entities:
               - sensor.rain_month
             name: Temperature
             align_state: center
             line_width: 2
-            height: 45 
+            height: 45
             hours_to_show: 720
             points_per_hour: 0.0416666666666667
             show:
@@ -4878,12 +4879,12 @@ views:
                 color: "#3498db"
 
           - type: custom:mini-graph-card
-            entities: 
+            entities:
               - sensor.temperature_158d0001f56350
             name: Temperature
             align_state: center
             line_width: 2
-            height: 45 
+            height: 45
             hours_to_show: 72
             points_per_hour: 4
             show:
@@ -4902,7 +4903,7 @@ views:
 #                      Weather - Rainfall                       #
 #                                                               #
 #################################################################
-                    
+
       - type: vertical-stack
         cards:
           - type: horizontal-stack
@@ -4910,7 +4911,7 @@ views:
               - type: vertical-stack
                 cards:
                   - type: custom:mini-graph-card
-                    entities: 
+                    entities:
                       - sensor.bom_gc_rain_today
                     name: Rain Today
                     icon: mdi:weather-rainy
@@ -4929,7 +4930,7 @@ views:
                     title_position: inside
                     align: center
                     padding: 4px
-                    card_style: 
+                    card_style:
                       #border-radius: 8px
                     columns: 2
                     entities:
@@ -4963,7 +4964,7 @@ views:
               - type: vertical-stack
                 cards:
                   - type: custom:mini-graph-card
-                    entities: 
+                    entities:
                       - entity: sensor.bom_wind_sp
                     icon: mdi:weather-windy
                     name: Wind Speed
@@ -4982,12 +4983,12 @@ views:
                         color: "#e74c3c"
                       - value: 0
                         color: "#1db954"
-                      
+
                   - type: custom:bar-card
                     title_position: inside
                     align: center
                     padding: 4px
-                    card_style: 
+                    card_style:
                       #border-radius: 8px
                     columns: 2
                     entities:
@@ -5011,7 +5012,7 @@ views:
                           color: "#e74c3c"
 
           - type: custom:mini-graph-card
-            entities: 
+            entities:
               - sensor.humidity_158d0001f56350
             name: Humidity
             align_state: center
@@ -5031,7 +5032,7 @@ views:
                 color: "#3498db"
 
           - type: custom:mini-graph-card
-            entities: 
+            entities:
               - sensor.humidity_158d0001f56350
             name: Humidity
             align_state: center
@@ -5063,7 +5064,7 @@ views:
               - type: vertical-stack
                 cards:
                   - type: custom:mini-graph-card
-                    entities: 
+                    entities:
                       - entity: sensor.bom_gc_delta_temp_c
                     icon: mdi:delta
                     name: Spraying Conditions
@@ -5090,7 +5091,7 @@ views:
                     title_position: inside
                     align: center
                     padding: 4px
-                    card_style: 
+                    card_style:
                       #border-radius: 8px
                     columns: 2
                     max: 26
@@ -5137,7 +5138,7 @@ views:
                     title_position: inside
                     align: center
                     padding: 4px
-                    card_style: 
+                    card_style:
                       #border-radius: 8px
                     columns: 2
                     max: 26
@@ -5148,27 +5149,7 @@ views:
                         title: Dew Point
 
           - type: custom:mini-graph-card
-            entities: 
-              - sensor.humidity_158d0001f56350
-            name: Humidity
-            align_state: center
-            line_width: 2
-            height: 20
-            hours_to_show: 72
-            points_per_hour: 4
-            show:
-              extrema: true
-              fill: true
-            color_thresholds:
-              - value: 75
-                color: "#e74c3c"
-              - value: 20
-                color: "#1db954"
-              - value: 0
-                color: "#3498db"
-                
-          - type: custom:mini-graph-card
-            entities: 
+            entities:
               - sensor.humidity_158d0001f56350
             name: Humidity
             align_state: center
@@ -5187,11 +5168,31 @@ views:
               - value: 0
                 color: "#3498db"
 
-################################################################################
-#                                                                              #
-#                             VIEW 17 - POWER CONSUMPTION                      #
-#                                                                              #
-################################################################################
+          - type: custom:mini-graph-card
+            entities:
+              - sensor.humidity_158d0001f56350
+            name: Humidity
+            align_state: center
+            line_width: 2
+            height: 20
+            hours_to_show: 72
+            points_per_hour: 4
+            show:
+              extrema: true
+              fill: true
+            color_thresholds:
+              - value: 75
+                color: "#e74c3c"
+              - value: 20
+                color: "#1db954"
+              - value: 0
+                color: "#3498db"
+
+###############################################################################
+#                                                                             #
+#                             VIEW 17 - POWER CONSUMPTION                     #
+#                                                                             #
+###############################################################################
 
   - id: 17
     icon: mdi:power-plug
@@ -5207,7 +5208,7 @@ views:
       - type: vertical-stack
         cards:
           - type: custom:mini-graph-card
-            entities: 
+            entities:
               - entity: sensor.daily_total
                 unit: kW/h
             name: Power Consumption Today
@@ -5226,13 +5227,13 @@ views:
                 color: "#3498db"
               - value: 0
                 color: "#1db954"
- 
+
 #################################################################
 #                                                               #
 #                Power Consumption - Lighting                   #
 #                                                               #
 #################################################################
- 
+
           - type: entities
             show_header_toggle: off
             entities:
@@ -5246,14 +5247,14 @@ views:
                         card:
                           type: picture
                           image: /local/lovelace/downstairs/xmas-wide.png
-                        style:                 
+                        style:
                           border-radius: 15px
 
                       - type: custom:bar-card
                         title_position: inside
                         align: center
                         padding: 5px
-                        card_style: 
+                        card_style:
                           border-radius: 0px
                         columns: 1
                         max: 2.5
@@ -5271,7 +5272,7 @@ views:
                         title_position: inside
                         align: center
                         padding: 5px
-                        card_style: 
+                        card_style:
                           border-radius: 0px
                         columns: 1
                         max: 1
@@ -5286,14 +5287,14 @@ views:
                         card:
                           type: picture
                           image: /local/lovelace/energy/outdoor_5.png
-                        style:                 
+                        style:
                           border-radius: 5px
 
                       - type: custom:bar-card
                         title_position: inside
                         align: center
                         padding: 5px
-                        card_style: 
+                        card_style:
                           border-radius: 0px
                         columns: 1
                         max: 2.5
@@ -5311,7 +5312,7 @@ views:
                         title_position: inside
                         align: center
                         padding: 5px
-                        card_style: 
+                        card_style:
                           border-radius: 0px
                         columns: 1
                         max: 1
@@ -5326,14 +5327,14 @@ views:
                         card:
                           type: picture
                           image: /local/lovelace/energy/Office-lights_2.jpg
-                        style:                 
+                        style:
                           border-radius: 5px
 
                       - type: custom:bar-card
                         title_position: inside
                         align: center
                         padding: 5px
-                        card_style: 
+                        card_style:
                           border-radius: 0px
                         columns: 1
                         max: 2.5
@@ -5351,7 +5352,7 @@ views:
                         title_position: inside
                         align: center
                         padding: 5px
-                        card_style: 
+                        card_style:
                           border-radius: 0px
                         columns: 1
                         max: 1
@@ -5366,14 +5367,14 @@ views:
                         card:
                           type: picture
                           image: /local/lovelace/energy/led.png
-                        style:                 
+                        style:
                           border-radius: 5px
 
                       - type: custom:bar-card
                         title_position: inside
                         align: center
                         padding: 5px
-                        card_style: 
+                        card_style:
                           border-radius: 0px
                         columns: 1
                         max: 750
@@ -5391,7 +5392,7 @@ views:
                         title_position: inside
                         align: center
                         padding: 5px
-                        card_style: 
+                        card_style:
                           border-radius: 0px
                         columns: 1
                         max: 1
@@ -5416,10 +5417,10 @@ views:
                   - type: horizontal-stack
                     cards:
                       - type: custom:card-modder
-                        card: 
+                        card:
                           type: picture
                           image: /local/lovelace/hardware/cabinet-wide.png
-                        style:                 
+                        style:
                           border-radius: 5px
 
                       - type: custom:bar-card
@@ -5439,7 +5440,7 @@ views:
                         align: center
                         padding: 7px
                         max: 2
-                        card_style: 
+                        card_style:
                           border-radius: 0px
 
                   - type: horizontal-stack
@@ -5448,7 +5449,7 @@ views:
                         card:
                           type: picture
                           image: /local/lovelace/hardware/cabinet-wide.png
-                        style:                 
+                        style:
                           border-radius: 5px
 
                       - type: custom:bar-card
@@ -5488,7 +5489,7 @@ views:
                         align: center
                         padding: 12.5px
                         max: 2
-                        card_style: 
+                        card_style:
                           border-radius: 0px
                       - type: custom:bar-card
                         title_position: inside
@@ -5519,7 +5520,7 @@ views:
               - type: entities
                 show_header_toggle: false
                 #title: Week
-                entities: 
+                entities:
                   - entity: sensor.cost_month_state
                     name: Monthly
           - type: horizontal-stack
@@ -5599,7 +5600,7 @@ views:
                 15: '#09C7E8'
                 20: '#5294E2'
                 font_style: {font-size: 1.1em, font-color: white, text-shadow: '2px 2px black'}
-                style: {top: 5%, left: 80%, width: 6em, height: 6em, transform: none} 
+                style: {top: 5%, left: 80%, width: 6em, height: 6em, transform: none}
               #- type: custom:gap-card
               #  height:
               #  size:
@@ -5607,7 +5608,7 @@ views:
                 card:
                   type: picture
                   image: /local/lovelace/energy/origin_2.png
-                style:                 
+                style:
                   border-radius: 5px
               - type: custom:circle-sensor-card
                 entity: sensor.total_current
@@ -5622,14 +5623,14 @@ views:
                 0.8: '#09C7E8'
                 1: '#5294E2'
                 font_style: {font-size: 1.1em, font-color: white, text-shadow: '2px 2px black'}
-                style: {top: 5%, left: 80%, width: 6em, height: 6em, transform: none} 
+                style: {top: 5%, left: 80%, width: 6em, height: 6em, transform: none}
 
 #################################################################
 #                                                               #
 #                 Power Consumption - Overview                  #
 #                                                               #
 #################################################################
- 
+
           - type: entities
             show_header_toggle: off
             entities:
@@ -5650,7 +5651,7 @@ views:
                         title_position: inside
                         align: center
                         padding: 4.5px
-                        card_style: 
+                        card_style:
                           border-radius: 0px
                         columns: 1
                         max: 1500
@@ -5668,7 +5669,7 @@ views:
                         title_position: inside
                         align: center
                         padding: 4.5px
-                        card_style: 
+                        card_style:
                           border-radius: 0px
                         columns: 1
                         max: 1500
@@ -5683,14 +5684,14 @@ views:
                         card:
                           type: picture
                           image: /local/lovelace/energy/washer_dryer_5.png
-                        style:                 
+                        style:
                           border-radius: 5px
 
                       - type: custom:bar-card
                         title_position: inside
                         align: center
                         padding: 4.5px
-                        card_style: 
+                        card_style:
                           border-radius: 0px
                         columns: 1
                         max: 1500
@@ -5708,7 +5709,7 @@ views:
                         title_position: inside
                         align: center
                         padding: 4.5px
-                        card_style: 
+                        card_style:
                           border-radius: 0px
                         columns: 1
                         max: 1500
@@ -5723,14 +5724,14 @@ views:
                         card:
                           type: picture
                           image: /local/lovelace/energy/washer_dryer_5.png
-                        style:                 
+                        style:
                           border-radius: 5px
 
                       - type: custom:bar-card
                         title_position: inside
                         align: center
                         padding: 4.5px
-                        card_style: 
+                        card_style:
                           border-radius: 0px
                         columns: 1
                         max: 1500
@@ -5748,7 +5749,7 @@ views:
                         title_position: inside
                         align: center
                         padding: 4.5px
-                        card_style: 
+                        card_style:
                           border-radius: 0px
                         columns: 1
                         max: 1500
@@ -5788,7 +5789,7 @@ views:
                         title_position: inside
                         align: center
                         padding: 4.5px
-                        card_style: 
+                        card_style:
                           border-radius: 0px
                         columns: 1
                         max: 1500
@@ -5810,7 +5811,7 @@ views:
                         title_position: inside
                         align: center
                         padding: 4.5px
-                        card_style: 
+                        card_style:
                           border-radius: 0px
                         columns: 1
                         max: 1500
@@ -5828,7 +5829,7 @@ views:
                         title_position: inside
                         align: center
                         padding: 4.5px
-                        card_style: 
+                        card_style:
                           border-radius: 0px
                         columns: 1
                         max: 1500
@@ -5843,14 +5844,14 @@ views:
                         card:
                           type: picture
                           image: /local/lovelace/energy/smart_home.png
-                        style:                 
+                        style:
                           border-radius: 5px
 
                       - type: custom:bar-card
                         title_position: inside
                         align: center
                         padding: 4.5px
-                        card_style: 
+                        card_style:
                           border-radius: 0px
                         columns: 1
                         max: 1500
@@ -5868,7 +5869,7 @@ views:
                         title_position: inside
                         align: center
                         padding: 4.5px
-                        card_style: 
+                        card_style:
                           border-radius: 0px
                         columns: 1
                         max: 1500
@@ -5890,7 +5891,7 @@ views:
       - type: vertical-stack
         cards:
           - type: custom:mini-graph-card
-            entities: 
+            entities:
               - entity: sensor.cost_prediction
                 name: Usage Prediction
                 color: "#e74c3c"
@@ -5916,7 +5917,7 @@ views:
 #                 Power Consumption - Climate                   #
 #                                                               #
 #################################################################
- 
+
           - type: entities
             show_header_toggle: off
             entities:
@@ -5970,14 +5971,14 @@ views:
                         card:
                           type: picture
                           image: /local/lovelace/energy/aircon.png
-                        style:                 
+                        style:
                           border-radius: 5px
 
                       - type: custom:bar-card
                         title_position: inside
                         align: center
                         padding: 5px
-                        card_style: 
+                        card_style:
                           border-radius: 0px
                         columns: 1
                         max: 2.5
@@ -5995,7 +5996,7 @@ views:
                         title_position: inside
                         align: center
                         padding: 5px
-                        card_style: 
+                        card_style:
                           border-radius: 0px
                         columns: 1
                         max: 1
@@ -6003,7 +6004,7 @@ views:
                         entities:
                           - entity: sensor.total_aircon_cost
                             title: Cost
- 
+
                   - type: horizontal-stack
                     cards:
                       - type: custom:card-modder
@@ -6035,7 +6036,7 @@ views:
                         title_position: inside
                         align: center
                         padding: 5px
-                        card_style: 
+                        card_style:
                           border-radius: 0px
                         columns: 1
                         max: 1
@@ -6060,7 +6061,7 @@ views:
                   - type: horizontal-stack
                     cards:
                       - type: custom:card-modder
-                        card: 
+                        card:
                           type: picture
                           image: /local/lovelace/energy/ccr.png
                         style:
@@ -6083,7 +6084,7 @@ views:
                         align: center
                         padding: 7px
                         max: 2
-                        card_style: 
+                        card_style:
                           border-radius: 0px
 
                   - type: horizontal-stack
@@ -6092,7 +6093,7 @@ views:
                         card:
                           type: picture
                           image: /local/lovelace/settings/altai_1.png
-                        style:                 
+                        style:
                           border-radius: 5px
 
                       - type: custom:bar-card
@@ -6112,7 +6113,7 @@ views:
                         align: center
                         padding: 10px
                         max: 2
-                        card_style: 
+                        card_style:
                           border-radius: 0px
 
                   - type: horizontal-stack
