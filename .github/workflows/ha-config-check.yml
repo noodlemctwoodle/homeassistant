@@ -52,7 +52,10 @@ jobs:
         uses: actions/checkout@v1
         with:
           repo-token: ${{ secrets.HA_CONFIG_TOKEN }}
-      - name: Home Assistant Configuration Check
-        uses: ludeeus/action-ha-config-check@0.0.1
+      - uses: actions/checkout@master
+      - run: mv secrets.yaml.tmpl secrets.yaml
+      - uses: kpucynski/action-ha-config-check@master
+        with:
+          ha_version: "latest"
         env:
-          ACTION_VERSION: STABLE
+          HASS_EXTRA_ARGS: "-f -s -i"
