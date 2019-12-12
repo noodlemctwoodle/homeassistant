@@ -124,13 +124,13 @@ views:
                         columns: 2
                       show_empty: true
                       entities:
-                      - binary_sensor.bathroom_openclose
-                      - binary_sensor.craft_room_openclose
-                      - binary_sensor.kitchen_openclose
-                      - binary_sensor.landing_openclose
-                      - binary_sensor.living_room_left_openclose
-                      - binary_sensor.living_room_right_openclose
-                      - binary_sensor.office_openclose
+                        - binary_sensor.bathroom_openclose
+                        - binary_sensor.craft_room_openclose
+                        - binary_sensor.kitchen_openclose
+                        - binary_sensor.landing_openclose
+                        - binary_sensor.living_room_left_openclose
+                        - binary_sensor.living_room_right_openclose
+                        - binary_sensor.office_openclose
 
                     - type: entity-filter
                       state_filter:
@@ -251,7 +251,7 @@ views:
               tap_action:
                 action: call-service
                 service: homeassistant.toggle
-                service_data: { "entity_id": "light.upstairs" }
+                service_data: {"entity_id": "light.upstairs"}
 
 
 # Home - Github Card
@@ -568,7 +568,7 @@ views:
                 tap_action:
                   action: call-service
                   service: scene.turn_on
-                  service_data: { "entity_id": "scene.livingroom_bright" }
+                  service_data: {"entity_id": "scene.livingroom_bright"}
 
               - type: entity-button
                 entity: scene.livingroom_dim
@@ -577,7 +577,7 @@ views:
                 tap_action:
                   action: call-service
                   service: scene.turn_on
-                  service_data: { "entity_id": "scene.livingroom_dim" }
+                  service_data: {"entity_id": "scene.livingroom_dim"}
 
               - type: entity-button
                 entity: light.entrance_bulb
