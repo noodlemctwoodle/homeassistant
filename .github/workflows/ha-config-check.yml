@@ -47,6 +47,8 @@ jobs:
   home_assistant_config_check:
     runs-on: ubuntu-latest
     steps:
+      - name: Getting your configuration from GitHub
+        uses: actions/checkout@v1
       - name: Home Assistant Configuration Check
         uses: ludeeus/action-ha-config-check@0.0.1
         with:
