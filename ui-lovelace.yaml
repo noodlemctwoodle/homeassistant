@@ -477,14 +477,11 @@ views:
    # panel: true
     cards:
 
-
 # CCTV
-
       - type: picture-entity
         entity: camera.front_door
       - type: picture-entity
         entity: camera.back_garden
-
 
 # VIEW 3 - Living Room
 
@@ -492,7 +489,6 @@ views:
     icon: mdi:sofa
     name: Living Room
     cards:
-
 
 # Living Room- Themostat Temperature Graph Card
 
