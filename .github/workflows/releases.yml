@@ -1,13 +1,17 @@
-name: Publish Release
-on: [push]
+---
+name: GitHub-Releases
+
+on:
+  push:
+
 jobs:
-  build:
+  releases-check:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
-    - name: Create a Release
-      uses: elgohr/Github-Release-Action@master
-      env:
-        GITHUB_TOKEN: ${{ secrets.HA_CONFIG_TOKEN }}
-      with:
-        args: MyReleaseMessage
+      - uses: actions/checkout@master
+      - name: Create a Release
+        uses: elgohr/Github-Release-Action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.HA_CONFIG_TOKEN }}
+        with:
+          args: MyReleaseMessage
