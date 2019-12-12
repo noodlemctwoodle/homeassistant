@@ -1,3 +1,4 @@
+---
 #################################################################
 #                                                               #
 #                 Rubbish/Recycle Automations                   #
@@ -7,7 +8,7 @@
 # https://www.home-assistant.io/integrations/automation/
 
 ## Some automations for this package have now been moved to Node-RED please see
-## Node-Red Flows folder within this package for more infomation! ##
+## Node-Red Flows folder within this package for more infomation!
 
   - alias: Reset Trash Reminders
     initial_state: true
