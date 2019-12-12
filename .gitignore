@@ -39,9 +39,9 @@ ui-lovelace_old.yaml
 ui-lovelace_original.yaml
 
 # Ignore Python
-__pycache__
-__init__.py
-*.py
+#__pycache__
+#__init__.py
+#*.py
 
 # Ignore Log Files
 *.log
