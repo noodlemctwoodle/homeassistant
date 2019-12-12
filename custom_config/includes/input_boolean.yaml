@@ -1,4 +1,4 @@
-
+---
 ###############################################################################
 #                                                                             #
 #                                INPUT BOOLEAN                                #
@@ -13,10 +13,10 @@
 #                                                               #
 #################################################################
 
-  ha_update_available:
-    name: HA Update Avaiable
-    initial: off
-    icon: mdi:cloud-download
+ha_update_available:
+  name: HA Update Avaiable
+  initial: off
+  icon: mdi:cloud-download
 
 #################################################################
 #                                                               #
@@ -24,10 +24,10 @@
 #                                                               #
 #################################################################
 
-  new_podcast_available:
-    name: New Podcast Avaiable
-    initial: off
-    icon: mdi:podcast
+new_podcast_available:
+  name: New Podcast Avaiable
+  initial: off
+  icon: mdi:podcast
 
 #################################################################
 #                                                               #
@@ -37,7 +37,7 @@
 
 # https://github.com/JamesMcCarthy79/Home-Assistant-Config/tree/master/config/packages/trash_recycle
 
-  trash_reminders:
-    name: Trash Reminders
-    initial: on
-    icon: mdi:delete-variant
+trash_reminders:
+  name: Trash Reminders
+  initial: on
+  icon: mdi:delete-variant

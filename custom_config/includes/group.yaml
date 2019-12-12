@@ -1,3 +1,4 @@
+---
 #################################################################
 #                                                               #
 #                       Rubbish/Recycle                         #
@@ -8,43 +9,43 @@
 
 # https://github.com/JamesMcCarthy79/Home-Assistant-Config/tree/master/config/packages/trash_recycle
 
-  trash schedule:
-    name: Rubbish Schedule
-    view: no
-    entities:
-      - sensor.trash_day
-      - input_select.trash_reminders
-      - sensor.trash_pickup_day
-      - input_select.trash_pickup_day
+trash schedule:
+  name: Rubbish Schedule
+  view: no
+  entities:
+    - sensor.trash_day
+    - input_select.trash_reminders
+    - sensor.trash_pickup_day
+    - input_select.trash_pickup_day
 
-  Recycle Schedule:
-    control: hidden
-    entities:
-      - sensor.recycle_day
-      - sensor.recycle_pickup_day
-      - sensor.recycle_pickup_week
-      - input_select.recycle_pickup_day
-      - sensor.current_week
-      - input_select.recycle_pickup_week
+Recycle Schedule:
+  control: hidden
+  entities:
+    - sensor.recycle_day
+    - sensor.recycle_pickup_day
+    - sensor.recycle_pickup_week
+    - input_select.recycle_pickup_day
+    - sensor.current_week
+    - input_select.recycle_pickup_week
 
-  Green Waste Schedule:
-    control: hidden
-    entities:
-      - sensor.green_day
-      - sensor.green_pickup_day
-      - sensor.green_pickup_week
-      - input_select.green_pickup_day
-      - sensor.current_week
-      - input_select.green_pickup_week
+Green Waste Schedule:
+  control: hidden
+  entities:
+    - sensor.green_day
+    - sensor.green_pickup_day
+    - sensor.green_pickup_week
+    - input_select.green_pickup_day
+    - sensor.current_week
+    - input_select.green_pickup_week
 
-  Date Time:
-    control: hidden
-    entities:
-      - sensor.time
-      - sensor.date
-      - sensor.time_utc
-      - sensor.date_time
-      - sensor.time_date
-      - sensor.internet_time
-      - sensor.rocket_launch_time
-      - sensor.beat
+Date Time:
+  control: hidden
+  entities:
+    - sensor.time
+    - sensor.date
+    - sensor.time_utc
+    - sensor.date_time
+    - sensor.time_date
+    - sensor.internet_time
+    - sensor.rocket_launch_time
+    - sensor.beat

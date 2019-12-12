@@ -1,32 +1,33 @@
+---
 #################################################################
 #                                                               #
 #                      MEDIA PLAYER - COMPONENT                 #
 #                                                               #
 #################################################################
 
-  - platform: samsungtv
-    host: !secret bedroom_tv_ip
+- platform: samsungtv
+  host: !secret bedroom_tv_ip
 
-  - platform: denonavr
-    host: !secret denon_avr_ip
-    name: Denon AVRX2300w
-    show_all_sources: True
-    zones:
-      - zone: Zone2
-        name: Living Room
+- platform: denonavr
+  host: !secret denon_avr_ip
+  name: Denon AVRX2300w
+  show_all_sources: True
+  zones:
+    - zone: Zone2
+      name: Living Room
 
-  - platform: webostv
-    name: Living Room TV
-    host: !secret living_room_tv_ip
-    timeout: 5
-    turn_on_action:
-      service: wake_on_lan.send_magic_packet
-      data:
-        mac: !secret living_room_tv_mac
-        message: "Turn on action"
+- platform: webostv
+  name: Living Room TV
+  host: !secret living_room_tv_ip
+  timeout: 5
+  turn_on_action:
+    service: wake_on_lan.send_magic_packet
+    data:
+      mac: !secret living_room_tv_mac
+      message: "Turn on action"
 
-  - platform: androidtv
-    host: !secret shield_tv_ip
-    name: "NVIDIA Shield"
-    adb_server_ip: 127.0.0.1
-    adb_server_port: 5037
+- platform: androidtv
+  host: !secret shield_tv_ip
+  name: "NVIDIA Shield"
+  adb_server_ip: 127.0.0.1
+  adb_server_port: 5037

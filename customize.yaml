@@ -1,4 +1,10 @@
-# Switch
+---
+#################################################################
+#                                                               #
+#                            Switch                             #
+#                                                               #
+#################################################################
+
 switch.downstairs_lights:
   friendly_name: Downstairs Lights
   icon: mdi:dip-switch
@@ -59,7 +65,12 @@ switch.living_room_wemoplug:
   friendly_name: Flea Light
   icon: mdi:lightbulb
 
-# Sensors
+#################################################################
+#                                                               #
+#                            Sensors                            #
+#                                                               #
+#################################################################
+
 sensor.bedroom_sensor_battery:
   friendly_name: Bathroom Sensor Battery
 sensor.bedroom_luminance:
@@ -141,7 +152,6 @@ sensor.geocode_user_1:
   entity_picture: /local/lovelace/users/user1.png
 sensor.geocode_user_2:
   entity_picture: /local/lovelace/users/user2.png
-
 
 #################################################################
 #                                                               #

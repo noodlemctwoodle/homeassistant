@@ -97,8 +97,6 @@ sun:
 #                                                               #
 #################################################################
 
-
-
 # Google Calendar Custom Component
 google:
   client_id: !secret google_calendar_id
