@@ -44,3 +44,9 @@ jobs:
         uses: "docker://homeassistant/home-assistant:stable"
         with:
           args: python -m homeassistant --config ./config/ --script check_config --info all
+      - name: Home Assistant Configuration Check
+        uses: ludeeus/action-ha-config-check@0.0.1
+        with:
+         repo-token: ${{ secrets.HA_CONFIG_TOKEN }}
+        env:
+         ACTION_VERSION: STABLE
