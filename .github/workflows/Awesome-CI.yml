@@ -13,4 +13,4 @@ jobs:
       - name: Running the awesome linter
         uses: max/awesome-lint@v2.0.0
         with:
-          filename: README.m
+          filename: README.md
