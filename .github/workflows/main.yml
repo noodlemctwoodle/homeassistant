@@ -1,4 +1,4 @@
-name: CI
+name: Home Assitant
 
 on: [push]
 
@@ -8,5 +8,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Home Assistant Configuration Check
-      uses: ludeeus/action-ha-config-check@0.0.1
+    - name: Config Checker for Home Assistant
+      uses: kpucynski/action-ha-config-check@v0.1.0
+      with:
+        # HA version to use
+        ha_version: latest
