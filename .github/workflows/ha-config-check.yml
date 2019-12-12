@@ -14,3 +14,5 @@ jobs:
         repo-token: ${{ secrets.HA_CONFIG_TOKEN }}
       env:
         ACTION_VERSION: STABLE
+        ACTION_CONFIG_PATH: ./configuration.yaml
+        ACTION_ALLOW_FAIL: True
