@@ -7,7 +7,7 @@
 # https://www.home-assistant.io/integrations/wake_on_lan/
 
   - platform: wake_on_lan
-    mac_address: !secret server_mac_address
+    mac: !secret server_mac_address
     name: !secret server_service_name
     host: !secret server_ip_address
     broadcast_address: !secret server_broadcast
