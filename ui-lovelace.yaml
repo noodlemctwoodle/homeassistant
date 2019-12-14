@@ -120,13 +120,13 @@ views:
                         columns: 2
                       show_empty: true
                       entities:
-                        - binary_sensor.bathroom_openclose
-                        - binary_sensor.craft_room_openclose
-                        - binary_sensor.kitchen_openclose
-                        - binary_sensor.landing_openclose
-                        - binary_sensor.living_room_left_openclose
-                        - binary_sensor.living_room_right_openclose
-                        - binary_sensor.office_openclose
+                        - binary_sensor.bathroom_window
+                        - binary_sensor.craft_room_window
+                        - binary_sensor.kitchen_window
+                        - binary_sensor.landing_window
+                        - binary_sensor.living_room_left_window
+                        - binary_sensor.living_room_right_window
+                        - binary_sensor.office_window
 
                     - type: entity-filter
                       state_filter:
@@ -137,8 +137,8 @@ views:
                         columns: 2
                       show_empty: false
                       entities:
-                        - binary_sensor.front_door_openclose
-                        - binary_sensor.Office_door_openclose
+                        - binary_sensor.front_door
+                        - binary_sensor.patio_door
 
             - type: entities
               show_header_toggle: off
@@ -442,9 +442,9 @@ views:
               - type: 'custom:text-divider-row'
                 text: Doors
               - type: divider
-              - binary_sensor.front_door_openclose
-              - binary_sensor.patio_door_openclose
-#              - binary_sensor.loft_door_openclose
+              - binary_sensor.front_door
+              - binary_sensor.patio_door
+#              - binary_sensor.loft_door
 
           - type: custom:gap-card
             height: 10
@@ -461,13 +461,13 @@ views:
               - type: 'custom:text-divider-row'
                 text: Windows
               - type: divider
-              - binary_sensor.kitchen_openclose
-              - binary_sensor.living_room_left_openclose
-              - binary_sensor.living_room_right_openclose
-              - binary_sensor.bathroom_openclose
-              - binary_sensor.landing_openclose
-              - binary_sensor.office_openclose
-              - binary_sensor.craft_room_openclose
+              - binary_sensor.kitchen_window
+              - binary_sensor.living_room_left_window
+              - binary_sensor.living_room_right_window
+              - binary_sensor.bathroom_window
+              - binary_sensor.landing_window
+              - binary_sensor.office_window
+              - binary_sensor.craft_room_window
 
 # VIEW 2 - CAMERAS
 
@@ -497,7 +497,7 @@ views:
           - type: custom:mini-graph-card
             entities:
               - sensor.living_room_thermostat_temperature
-            name: Themostat Temperature
+            name: Nest Themostat Temperature
             height: 65
             line_width: 2
             font_size: 70
@@ -520,8 +520,8 @@ views:
 
           - type: custom:mini-graph-card
             entities:
-              - sensor.living_room_temperature
-            name: Sensor Temperature
+            - entity: sensor.living_room_temperature
+              name: Hue Sensor Temperature
             height: 65
             line_width: 2
             font_size: 70
@@ -545,8 +545,8 @@ views:
           - type: horizontal-stack
             cards:
               - type: entity-button
-                entity: switch.lounge_light_switch
-                name: Downstairs
+                entity: light.living_room
+                name: Living Room
                 icon: mdi:lightbulb
                 tap_action:
                   action: call-service
@@ -581,29 +581,37 @@ views:
                   service_data: {"entity_id": "group.outside_lights"}
 
 
-# Living Room - Light Card
+# Living Room - Glance Card
 
           - type: entities
            # title: Windows
             show_header_toggle: false
             entities:
               - type: divider
+              - entity: binary_sensor.living_room_motion
+                name: Motion
+              - type: section
+              - entity: binary_sensor.living_room_left_window
+                name: Left Window
+              - type: section
+              - entity: binary_sensor.living_room_right_window
+                name: Right Window
+              - type: divider
               - type: custom:slider-entity-row
                 entity: light.living_room_pendant
                 name: Pendant
-              - type: divider
+              - type: section
               - type: custom:slider-entity-row
                 entity: light.living_room_lamp
                 name: Lamp
-              - type: divider
+              - type: section
               - type: custom:slider-entity-row
                 entity: light.living_room_bookshelf
                 name: Bookshelf
-              - type: divider
+              - type: section
               - type: custom:slider-entity-row
                 entity: light.living_room_strip
                 name: Strip
-              - type: divider
 
 
 # Living Room - Humidity Graph Card
@@ -612,7 +620,8 @@ views:
         cards:
           - type: custom:mini-graph-card
             entities:
-             - sensor.living_room_thermostat_humidity
+             - entity: sensor.living_room_thermostat_humidity
+               name: Nest Thermostat Humidity
             height: 65
             line_width: 2
             font_size: 70
@@ -634,7 +643,8 @@ views:
 
           - type: custom:mini-graph-card
             entities:
-              - sensor.living_room_lux
+              - entity: sensor.living_room_lux
+                name: Hue Sensor LUX
             height: 65
             line_width: 2
             font_size: 70
@@ -787,56 +797,14 @@ views:
     name: Play Room
     cards:
 
-# Kitchen - Light Card
-
-      - type: vertical-stack
-        cards:
-          - type: entities
-           # title: Windows
-            show_header_toggle: false
-            entities:
-              - type: divider
-              - type: 'custom:text-divider-row'
-                text: Lights
-              - type: divider
-              - type: custom:slider-entity-row
-                entity: light.kitchen
-              - type: custom:slider-entity-row
-                entity: light.cupboard_spot_1
-                name: Cupboard
-              - type: custom:slider-entity-row
-                entity: light.back_door_spot_1
-                name: Back Door
-
-# Kitchen - Light Card
-
-          - type: picture-entity
-            entity: light.kitchen
-            name: Kitchen Light
-            tap_action:
-              action: toggle
-            image: /local/lovelace/downstairs/kitchen-light.jpg
-
-# Kitchen - Glance Card
-
-          - type: entities
-            show_header_toggle: off
-            entities:
-              - type: divider
-              - type: 'custom:text-divider-row'
-                text: Sensors
-              - type: divider
-              - binary_sensor.kitchen_motion
-              - type: section
-              - binary_sensor.kitchen_openclose
-
 # Kitchen - Temperature Graph Card
 
       - type: vertical-stack
         cards:
           - type: custom:mini-graph-card
             entities:
-              - sensor.kitchen_temperature
+            - entity: sensor.kitchen_temperature
+              name: Hue Sensor Temperature
             height: 65
             line_width: 2
             font_size: 70
@@ -853,6 +821,41 @@ views:
                 color: "#1db954"
               - value: 0
                 color: "#3498db"
+
+# Kitchen - Glance Card
+
+          - type: entities
+           # title: Windows
+            show_header_toggle: false
+            entities:
+              - type: divider
+              - entity: binary_sensor.kitchen_motion
+                name: Motion
+              - type: section
+              - entity: binary_sensor.kitchen_window
+                name: Window
+              - type: divider
+              - type: custom:slider-entity-row
+                entity: light.kitchen
+                name: Lights
+              - type: section
+              - type: custom:slider-entity-row
+                entity: light.cupboard_spot_1
+                name: Cupboard
+              - type: section
+              - type: custom:slider-entity-row
+                entity: light.back_door_spot_1
+                name: Back Door
+
+# Kitchen - Light Card
+      - type: vertical-stack
+        cards:
+          - type: picture-entity
+            entity: light.kitchen
+            name: Kitchen Light
+            tap_action:
+              action: toggle
+            image: /local/lovelace/downstairs/kitchen-light.jpg
 
 # Kitchen - Media Player Card
           - type: custom:card-modder
@@ -877,7 +880,8 @@ views:
         cards:
           - type: custom:mini-graph-card
             entities:
-              - sensor.kitchen_lux
+            - entity: sensor.kitchen_lux
+              name: Hue Sensor LUX
             height: 65
             line_width: 2
             font_size: 70
@@ -946,7 +950,8 @@ views:
         cards:
           - type: custom:mini-graph-card
             entities:
-              - sensor.bathroom_temperature
+            - entity: sensor.bathroom_temperature
+              name: Hue Sensor Temperature
             height: 65
             line_width: 2
             font_size: 70
@@ -970,65 +975,25 @@ views:
             show_header_toggle: off
             entities:
               - type: divider
-              - type: 'custom:text-divider-row'
-                text: Bathroom
-              - type: divider
-              - binary_sensor.bathroom_motion
+              - entity: binary_sensor.bathroom_motion
+                name: Motion
               - type: section
-              - binary_sensor.bathroom_door_openclose
-
-# Bathroom - Mold Indicator
-
-          - type: custom:mini-graph-card
-            entities:
-              - sensor.bathroom_mold_indicator
-            height: 102
-            line_width: 2
-            font_size: 70
-            hours_to_show: 168
-            points_per_hour: 1
-            show:
-              extrema: true
-              fill: true
-              graph: bar
-            color_thresholds:
-              - value: 80
-                color: "#e74c3c"
-              - value: 0
-                color: "#1db954"
-
-# Bathroom - Humidity Graph Card
-
-      - type: vertical-stack
-        cards:
-          - type: custom:mini-graph-card
-            entities:
-              - sensor.humidity_158d00022c7248
-            height: 65
-            line_width: 2
-            font_size: 70
-            hours_to_show: 168
-            points_per_hour: 1
-            show:
-             # extrema: true
-              fill: true
-             # graph: bar
-            color_thresholds:
-              - value: 70
-                color: "#e74c3c"
-              - value: 40
-                color: "#1db954"
-              - value: 0
-                color: "#3498db"
+              - entity: binary_sensor.bathroom_window
+                name: Window
+              - type: section
+              - entity: binary_sensor.bathroom_door
+                name: Door
 
 # Bathroom - Switches Group Card
+      - type: vertical-stack
+        cards:
 
           - type: custom:gap-card
             height: 6
             size:
 
           - type: picture-entity
-            entity: sensor.bathroom_switch_battery_level
+            entity: light.bathroom_pendant
             tap_action:
               action: toggle
             image: /local/lovelace/bathroom/bath-main_2.jpg
@@ -1048,10 +1013,10 @@ views:
                   action: toggle
                 image: /local/lovelace/bathroom/bath-light.jpg
 
-# Bathroom - Exhaust Fan Card
+# Bathroom - Window Open Close
 
               - type: picture-entity
-                entity: binary_sensor.bathroom_openclose
+                entity: binary_sensor.bathroom_window
                 name: Window
 #                tap_action:
 #                  action: toggle
@@ -1072,7 +1037,8 @@ views:
         cards:
           - type: custom:mini-graph-card
             entities:
-              - sensor.illumination_158d000200e4ab
+            - entity: sensor.bathroom_lux
+              name: Hue Sensor LUX
             height: 65
             line_width: 2
             font_size: 70
@@ -1088,37 +1054,28 @@ views:
               - value: 0
                 color: "#3498db"
 
-# Bathroom - User 1 Toggle Card
 
-          - type: vertical-stack
-            cards:
-              - type: horizontal-stack
-                cards:
-                  - type: picture-entity
-                    entity: input_boolean.bathroom_user_1
-                    name: Daddy
-                    tap_action:
-                      action: toggle
-                    image: /local/lovelace/bathroom/daddy_5.png
+# Bathroom - Switch Battery Health
 
-# Bathroom - User 2 Toggle Card
+          - type: custom:mini-graph-card
+            entities:
+              - sensor.bathroom_switch_battery_level
+            height: 94
+            line_width: 2
+            font_size: 70
+            hours_to_show: 168
+            points_per_hour: 1
+            show:
+              extrema: true
+              fill: true
+              graph: bar
+            color_thresholds:
+              - value: 0
+                color: "#e74c3c"
+              - value: 80
+                color: "#1db954"
 
-                  - type: picture-entity
-                    entity: input_boolean.bathroom_user_2
-                    name: Mummy
-                    tap_action:
-                      action: toggle
-                    image: /local/lovelace/bathroom/mummy_6.jpg
-
-# Bathroom - Guest Toggle Card
-
-              - type: picture-entity
-                entity: input_boolean.bathroom_guest
-                tap_action:
-                  action: toggle
-                image: /local/lovelace/bathroom/guest.png
-
-# VIEW 6 - BATHROOM
+# VIEW 6 - Hall
 
   - id: 6
     icon: mdi:door
@@ -1131,8 +1088,8 @@ views:
         cards:
           - type: custom:mini-graph-card
             entities:
-              - entity: sensor.hall_temperature
-                name: Temperature
+            - entity: sensor.hall_temperature
+              name: Hue Sensor Temperature
             height: 65
             line_width: 2
             font_size: 70
@@ -1156,21 +1113,13 @@ views:
             show_header_toggle: off
             entities:
               - type: divider
-              - binary_sensor.hall_motion
+              - entity: binary_sensor.hall_motion
+                name: Motion
               - type: section
               - entity: binary_sensor.front_door_camera_person_detected
                 name: Person Detected
               - type: section
-              - binary_sensor.front_door_openclose
-
-# Entrance Hall - Light Switch Card
-
-          - type: picture-entity
-            entity: light.hall
-            name: Lights
-            tap_action:
-              action: toggle
-            image: /local/lovelace/hall/entrance-hall.jpg
+              - binary_sensor.front_door
 
 # Entrance Hall - LUX Level Graph Card
 
@@ -1178,8 +1127,8 @@ views:
         cards:
           - type: custom:mini-graph-card
             entities:
-              - entity: sensor.hall_lux
-                name: LUX
+            - entity: sensor.hall_lux
+              name: Hue Sensor LUX
             height: 65
             line_width: 2
             font_size: 70
@@ -1195,6 +1144,25 @@ views:
               - value: 0
                 color: "#3498db"
 
+# Entrance Hall - Light Switch Card
+      - type: vertical-stack
+        cards:
+
+          - type: custom:gap-card
+            height: 6
+            size:
+
+          - type: picture-entity
+            entity: light.hall
+            name: Lights
+            tap_action:
+              action: toggle
+            image: /local/lovelace/hall/entrance-hall.jpg
+
+          - type: custom:gap-card
+            height: 6
+            size:
+
 # VIEW 7 - Landing
 
   - id: 7
@@ -1208,7 +1176,8 @@ views:
         cards:
           - type: custom:mini-graph-card
             entities:
-              - sensor.landing_temperature
+            - entity: sensor.landing_temperature
+              name: Hue Sensor Temerature
             height: 65
             line_width: 2
             font_size: 70
@@ -1232,9 +1201,11 @@ views:
             show_header_toggle: off
             entities:
               - type: divider
-              - binary_sensor.landing_motion
+              - entity: binary_sensor.landing_motion
+                name: Motion
               - type: section
-              - binary_sensor.landing_openclose
+              - entity: binary_sensor.landing_window
+                name: Window
 
 # Landing - Light Switch Card
 
@@ -1251,7 +1222,8 @@ views:
         cards:
           - type: custom:mini-graph-card
             entities:
-              - sensor.landing_lux
+            - entity: sensor.landing_lux
+              name: Hue Sensor LUX
             height: 65
             line_width: 2
             font_size: 70
@@ -1280,7 +1252,8 @@ views:
         cards:
           - type: custom:mini-graph-card
             entities:
-              - sensor.bedroom_temperature
+            - entity: sensor.bedroom_temperature
+              name: Hue Sensor Temerature
             height: 65
             line_width: 2
             font_size: 70
@@ -1304,17 +1277,25 @@ views:
             show_header_toggle: off
             entities:
               - type: divider
-              - binary_sensor.bedroom_motion
+              - entity: binary_sensor.bedroom_motion
+                name: Motion
               - type: section
               - entity: sensor.user_1_bed
                 name: user_1
               - entity: sensor.user_2_bed
                 name: user_2
+              - type: divider
+              - type: custom:slider-entity-row
+                entity: light.bedroom_lamp
+                name: Lamp
               - type: section
-              - binary_sensor.office_openclose
+              - type: custom:slider-entity-row
+                entity: light.bedroom_pendants
+                name: Pendants
 
 # Master Bedroom - Light Group Card
-
+      - type: vertical-stack
+        cards:
           - type: picture-entity
             entity: light.bedroom
             name: Light
@@ -1324,50 +1305,32 @@ views:
 
 # Master Bedroom - Pendant 1
 
-          - type: horizontal-stack
-            cards:
-              - type: picture-entity
-                entity: light.bedroom_pendant_1
-                name: Pendant 1
-                tap_action:
-                  action: toggle
-                image: /local/lovelace/bedrooms/main-bed-light_2.jpg
+      - type: horizontal-stack
+        cards:
+          - type: picture-entity
+            entity: light.bedroom_pendant_1
+            name: Pendant 1
+            tap_action:
+              action: toggle
+            image: /local/lovelace/bedrooms/main-bed-light_2.jpg
 
 # Master Bedroom - Pendant 2
 
-              - type: picture-entity
-                entity: light.bedroom_pendant_2
-                name: Pendant 2
-                tap_action:
-                  action: toggle
-                image: /local/lovelace/bedrooms/walk-in-light_2.jpg
+          - type: picture-entity
+            entity: light.bedroom_pendant_2
+            name: Pendant 2
+            tap_action:
+              action: toggle
+            image: /local/lovelace/bedrooms/walk-in-light_2.jpg
 
 # Master Bedroom - Lamp
 
-              - type: picture-entity
-                entity: light.bedroom_lamp
-                name: Lamp
-                tap_action:
-                  action: toggle
-                image: /local/lovelace/bedrooms/walk-in-light_2.jpg
-
-# Master Bedroom - Light Bulb Card
-
-          - type: custom:gap-card
-            height: 4
-            size:
-
-          - type: custom:card-modder
-            card:
-              type: entities
-             # title: Bulb
-              entities:
-                - input_number.bedroom_brightness
-            style:
-              background-image: url("/local/lovelace/cardbackK.png")
-              background-repeat: no-repeat
-              background-color: rgba(50,50,50,0.3)
-              background-size: 100%
+          - type: picture-entity
+            entity: light.bedroom_lamp
+            name: Lamp
+            tap_action:
+              action: toggle
+            image: /local/lovelace/bedrooms/walk-in-light_2.jpg
 
 # Master Bedroom - LUX Level Graph Card
 
@@ -1375,8 +1338,8 @@ views:
         cards:
           - type: custom:mini-graph-card
             entities:
-              - sensor.bedroom_lux
-            name: Bedroom LUX
+            - entity: sensor.bedroom_lux
+              name: Hue Sensor LUX
             height: 65
             line_width: 2
             font_size: 70
@@ -1443,7 +1406,8 @@ views:
         cards:
           - type: custom:mini-graph-card
             entities:
-              - sensor.office_temperature
+            - entity: sensor.office_temperature
+              name: Hue Sensor Temperature
             height: 65
             line_width: 2
             font_size: 70
@@ -1467,27 +1431,55 @@ views:
             show_header_toggle: off
             entities:
               - type: divider
-              - binary_sensor.office_motion
+              - entity: binary_sensor.office_motion
+                name: Motion
               - type: section
-              - binary_sensor.office_openclose
+              - entity: binary_sensor.office_window
+                name: Window
+              - type: divider
+              - type: custom:slider-entity-row
+                entity: light.office
+                name: Lights
 
+# Office - Entertainment Lights Card
+
+          - type: picture-entity
+            entity: switch.home_server
+            name: Server
+            tap_action:
+              action: toggle
+            image: /local/lovelace/office/office-lights.jpg
+
+
+
+# Server Cabinet - Light Card
+
+      - type: vertical-stack
+        cards:
+          - type: picture-entity
+            entity: light.server_cabinet
+            name: Server Cabinet
+            tap_action:
+              action: toggle
+            image: /local/lovelace/downstairs/kitchen-light.jpg
 
 # Office - Light Card
 
           - type: picture-entity
-            entity: switch.Office_light_switch
-            name: Light
+            entity: light.office
+            name: Office Lights
             tap_action:
               action: toggle
-            image: /local/lovelace/office/office-light.png
+            image: /local/lovelace/downstairs/kitchen-light.jpg
 
-# Office - Humidity Graph Card
+# Office - LUX Level Graph Card
 
       - type: vertical-stack
         cards:
           - type: custom:mini-graph-card
             entities:
-              - sensor.humidity_158d0001f56350
+            - entity: sensor.office_lux
+              name: Hue Sensor LUX
             height: 65
             line_width: 2
             font_size: 70
@@ -1498,15 +1490,14 @@ views:
               fill: true
              # graph: bar
             color_thresholds:
-              - value: 70
-                color: "#e74c3c"
-              - value: 40
-                color: "#1db954"
+              - value: 50
+                color: "#FFFF00"
               - value: 0
                 color: "#3498db"
 
 # Office - Media Player Card
-
+      - type: vertical-stack
+        cards:
           - type: custom:gap-card
             height: 66
             size:
@@ -1532,40 +1523,6 @@ views:
             height: 66
             size:
 
-
-# Office - Entertainment Lights Card
-
-          - type: picture-entity
-            entity: switch.plug_158d0001f24e2b
-            name: Entertainment Lights
-            tap_action:
-              action: toggle
-            image: /local/lovelace/office/office-lights.jpg
-
-
-# Office - LUX Level Graph Card
-
-      - type: vertical-stack
-        cards:
-          - type: custom:mini-graph-card
-            entities:
-              - sensor.office_lux
-            height: 65
-            line_width: 2
-            font_size: 70
-            hours_to_show: 168
-            points_per_hour: 1
-            show:
-             # extrema: true
-              fill: true
-             # graph: bar
-            color_thresholds:
-              - value: 50
-                color: "#FFFF00"
-              - value: 0
-                color: "#3498db"
-
-
 # Office - Mold Indicator
 
           - type: custom:mini-graph-card
@@ -1587,7 +1544,7 @@ views:
                 color: "#1db954"
 
 
-# Office - Fairy Lights Card
+# Office - Fairy Lights Card ###########################################
 
           - type: picture-entity
             entity: switch.fairy_light_power
@@ -1609,7 +1566,8 @@ views:
         cards:
           - type: custom:mini-graph-card
             entities:
-              - sensor.temperature_158d0001f56350
+            - entity: sensor.craft_room_temperature
+              name: Hue Sensor Temperature
             height: 65
             line_width: 2
             font_size: 70
@@ -1633,42 +1591,25 @@ views:
             show_header_toggle: off
             entities:
               - type: divider
-              - binary_sensor.motion_sensor_158d000200ea5b
+              - entity: binary_sensor.craft_room_motion
+                name: Motion
               - type: section
-              - binary_sensor.craft_room_openclose
-
+              - entity: binary_sensor.craft_room_window
+                name: Window
+              - type: divider
+              - type: custom:slider-entity-row
+                entity: light.craft_room
+                name: Lights
 # Craft Room - Light Card
 
+      - type: vertical-stack
+        cards:
           - type: picture-entity
             entity: light.craft_room
             name: Light
             tap_action:
               action: toggle
             image: /local/lovelace/office/office-light.png
-
-# Craft Room - Humidity Graph Card
-
-      - type: vertical-stack
-        cards:
-          - type: custom:mini-graph-card
-            entities:
-              - sensor.humidity_158d0001f56350
-            height: 65
-            line_width: 2
-            font_size: 70
-            hours_to_show: 168
-            points_per_hour: 1
-            show:
-             # extrema: true
-              fill: true
-             # graph: bar
-            color_thresholds:
-              - value: 70
-                color: "#e74c3c"
-              - value: 40
-                color: "#1db954"
-              - value: 0
-                color: "#3498db"
 
 # Craft Room - Media Player Card
 
@@ -1712,7 +1653,8 @@ views:
         cards:
           - type: custom:mini-graph-card
             entities:
-              - sensor.illumination_158d000200ea5b
+            - entity: sensor.craft_room_lux
+              name: Hue Sensor LUX
             height: 65
             line_width: 2
             font_size: 70

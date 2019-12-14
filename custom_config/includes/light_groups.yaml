@@ -1,26 +1,122 @@
 ---
+## Philip Hue Light Groups
 
-# Bedroom Pendants
+## Downstairs
 
+## Kitchen Light Groups
+# Kitchen
 - platform: group
-  name: Bedroom Pendants
+  name: Kitchen
   entities:
-    - light.bedroom_pendant_1
-    - light.bedroom_pendant_2
+    - light.kitchen_spot_1
+    - light.kitchen_spot_2
+    - light.kitchen_spot_3
+    - light.kitchen_spot_4
+    - light.kitchen_spot_5
+    - light.kitchen_spot_6
+    - light.kitchen_spot_7
+    - light.kitchen_spot_8
+    - light.kitchen_spot_9
+    - light.kitchen_spot_10
 
-# Craft Room Spots
-
+## Utility Light Groups
+# Back Door
 - platform: group
-  name: Craft Room Spots
+  name: Back Door
   entities:
-    - light.craft_room_spot_1
-    - light.craft_room_spot_2
+    - light.back_door_spot_1
 
-# Craft Room Spots
+# Cupboard
+- platform: group
+  name: Cupboard
+  entities:
+    - light.cupboard_spot_1
 
+## Living Room Light Groups
+# Living Room
+- platform: group
+  name: Living Room
+  entities:
+    - light.living_room_lamp
+    - light.living_room_bookshelf
+    - light.living_room_strip
+    - light.living_room_pendant
+
+# Living Room Lamps
 - platform: group
   name: Living Room Lamps
   entities:
     - light.living_room_lamp
     - light.living_room_bookshelf
     - light.living_room_strip
+
+## Hall Light Groups
+# Hall
+- platform: group
+  name: Hall
+  entities:
+    - light.hall_spot_1
+    - light.hall_spot_2
+
+## Bathroom Light Groups
+# Bathroom
+- platform: group
+  name: Bathroom
+  entities:
+    - light.bathroom_pendant
+
+## Upstairs
+
+## Landing Light Groups
+# Hall
+- platform: group
+  name: Landing
+  entities:
+    - light.landing_spot_1
+
+## Bedroom Light Groups
+# Bedroom Pendants
+- platform: group
+  name: Bedroom
+  entities:
+    - light.bedroom_pendant_1
+    - light.bedroom_pendant_2
+    - light.bedroom_lamp
+
+# Bedroom Lamps
+- platform: group
+  name: Bedroom Pendants
+  entities:
+    - light.bedroom_pendant_1
+    - light.bedroom_pendant_2
+
+## Craft Room Light Groups
+# Craft Room
+- platform: group
+  name: Craft Room
+  entities:
+    - light.craft_room_spot_1
+    - light.craft_room_spot_2
+    - light.craft_room_shadow
+
+# Craft Room Spots
+- platform: group
+  name: Craft Room Spots
+  entities:
+    - light.craft_room_spot_1
+    - light.craft_room_spot_2
+
+## Office Light Groups
+# Office Lights
+
+- platform: group
+  name: Office
+  entities:
+    - light.office_spot_1
+    - light.office_spot_2
+
+- platform: group
+  name: Server Cabinet
+  entities:
+    - light.cabinet
+    - light.cabinet_strip
