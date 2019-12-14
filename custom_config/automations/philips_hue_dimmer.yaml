@@ -299,3 +299,64 @@
     - service: light.turn_off
       data_template:
         entity_id: light.kitchen
+
+# Bathroom - Philips Hue Dimmer
+
+- alias: 'Turn on bathroom from dimmer'
+  initial_state: 'on'
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: bathroom_switch
+      event: 1002
+  action:
+    - service: light.turn_on
+      data_template:
+        entity_id: light.bathroom
+        brightness: 249
+
+- alias: 'Increase brightness of bathroom from dimmer'
+  initial_state: 'on'
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: bathroom_switch
+      event: 2002
+  action:
+    - service: light.turn_on
+      data_template:
+        entity_id: light.bathroom
+        brightness: >
+          {% set bri = state_attr('light.bathroom', 'brightness') | int %}
+          {{ [bri+30, 249] | min }}
+
+- alias: 'Decrease brightness of bathroom from dimmer'
+  initial_state: 'on'
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: bathroom_switch
+      event: 3002
+  action:
+    - service: light.turn_on
+      data_template:
+        entity_id: light.bathroom
+        brightness: >
+          {% set bri = state_attr('light.bathroom', 'brightness') | int %}
+          {{ [bri-30, 10] | max }}
+
+- alias: 'Turn off bathroom from dimmer'
+  initial_state: 'on'
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: bathroom_switch
+      event: 4000
+  action:
+    - service: light.turn_off
+      data_template:
+        entity_id: light.bathroom
