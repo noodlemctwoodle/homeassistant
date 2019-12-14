@@ -7,9 +7,9 @@
   host: !secret host_ip_address
   port: !secret radarr_port
   monitored_conditions:
-    - upcoming
-    - status
-    - diskspace
+  - upcoming
+  - status
+  - diskspace
   days: 7
   unit: GB
   ssl: false
@@ -31,9 +31,9 @@
   host: !secret host_ip_address
   port: !secret sonarr_port
   monitored_conditions:
-    - upcoming
-    - queue
-    - diskspace
+  - upcoming
+  - queue
+  - diskspace
   days: 7
   unit: GB
   ssl: false
