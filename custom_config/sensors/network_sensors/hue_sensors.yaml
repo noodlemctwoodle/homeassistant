@@ -1,17 +1,8 @@
 ---
-###############################################################################
-#                                                                             #
-#                                Min/max Sensor                               #
-#                                                                             #
-###############################################################################
-
+## Min/max Sensor
 # https://www.home-assistant.io/integrations/min_max/
 
-####################################################
-#                                                  #
-#            Downstairs Average Temperature        #
-#                                                  #
-####################################################
+# Downstairs Average Temperature
 
 - platform: min_max
   type: mean
@@ -23,11 +14,7 @@
     - sensor.bathroom_temperature
     - sensor.hall_temperature
 
-####################################################
-#                                                  #
-#            Upstairs Average Temperature          #
-#                                                  #
-####################################################
+# Upstairs Average Temperature
 
 - platform: min_max
   type: mean
@@ -37,11 +24,7 @@
     - sensor.office_temperature
     - sensor.bedroom_temperature
 
-####################################################
-#                                                  #
-#            Downstairs Average LUX                #
-#                                                  #
-####################################################
+# Downstairs Average LUX
 
 - platform: min_max
   type: mean
@@ -52,11 +35,7 @@
     - sensor.bathroom_lux
     - sensor.hall_lux
 
-####################################################
-#                                                  #
-#            Upstairs Average LUX                  #
-#                                                  #
-####################################################
+# Upstairs Average LUX
 
 - platform: min_max
   type: mean

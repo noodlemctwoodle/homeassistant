@@ -1,0 +1,61 @@
+- id: '1576251938491'
+  name: Office Blue
+  entities:
+    light.office:
+      all_on: true
+      brightness: 254
+      effect_list:
+      - colorloop
+      friendly_name: Office
+      hs_color:
+      - 242.588
+      - 100
+      is_deconz_group: true
+      max_mireds: 500
+      min_mireds: 153
+      rgb_color:
+      - 10
+      - 0
+      - 255
+      state: 'on'
+      supported_features: 63
+      xy_color:
+      - 0.137
+      - 0.041
+- id: '1576252224652'
+  name: Office Bright
+  entities:
+    light.office:
+      all_on: true
+      brightness: 254
+      color_temp: 328
+      effect_list:
+      - colorloop
+      friendly_name: Office
+      is_deconz_group: true
+      max_mireds: 500
+      min_mireds: 153
+      state: 'on'
+      supported_features: 63
+- id: '1576252331879'
+  name: Christmas Lights
+  entities:
+    switch.wemo_0_christmas_lights:
+      current_power_w: 9.28
+      friendly_name: Hall Christmas Lights
+      on_latest_time: 00d 00h 00m 51s
+      on_today_time: 00d 02h 07m 25s
+      on_total_time: 00d 02h 04m 52s
+      power_threshold_w: 8
+      state: 'on'
+      state_detail: 'on'
+      today_energy_kwh: 0.02
+    switch.wemo_1_christmas_lights:
+      current_power_w: 2.37
+      friendly_name: Living Room Christmas Lights
+      on_latest_time: 00d 00h 00m 00s
+      on_today_time: 00d 00h 00m 00s
+      on_total_time: 00d 00h 00m 00s
+      power_threshold_w: 8
+      state: 'on'
+      state_detail: standby

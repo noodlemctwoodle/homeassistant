@@ -1,10 +1,5 @@
 ---
-#################################################################
-#                                                               #
-#                      RADARR - COMPONENT                       #
-#                                                               #
-#################################################################
-
+## RADARR - COMPONENT
 # https://www.home-assistant.io/integrations/radarr/
 
   - platform: radarr
@@ -29,12 +24,7 @@
     theaters: false
     max: 10
 
-#################################################################
-#                                                               #
-#                      SONARR - COMPONENT                       #
-#                                                               #
-#################################################################
-
+# SONARR - COMPONENT
 # https://www.home-assistant.io/integrations/sonarr/
 
   - platform: sonarr
@@ -59,12 +49,7 @@
     ssl: false
     max: 10
 
-#################################################################
-#                                                               #
-#            PLEX RECENTLY ADDED - CUSTOM COMPONENT             #
-#                                                               #
-#################################################################
-
+# PLEX RECENTLY ADDED - CUSTOM COMPONENT
 # https://github.com/custom-components/sensor.plex_recently_added
 
   - platform: plex_recently_added

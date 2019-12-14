@@ -975,7 +975,7 @@ views:
               - type: divider
               - binary_sensor.bathroom_motion
               - type: section
-              - sensor.bathroom_occupancy
+              - binary_sensor.bathroom_door_openclose
 
 # Bathroom - Mold Indicator
 

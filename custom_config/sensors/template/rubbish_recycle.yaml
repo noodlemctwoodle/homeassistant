@@ -1,19 +1,10 @@
 ---
-###############################################################################
-#                                                                             #
-#                                Template Sensor                              #
-#                                                                             #
-###############################################################################
-
+## Template Sensor
 # https://www.home-assistant.io/integrations/template/
 
-####################################################
-#                                                  #
-#           Rubbish/Recycle - Template              #
-#                                                  #
-####################################################
+# Rubbish/Recycle - Template
 
-## Sensor to hold info about current week is an odd week or an even week of the year
+# Sensor to hold info about current week is an odd week or an even week of the year
 
 - platform: template
   sensors:
@@ -29,8 +20,8 @@
           Odd Week (Week# {{ as_timestamp(today) | timestamp_custom('%U', true) }})
         {%- endif -%}
 
-## Trash  - Pickup schedule is EVERY week.
-## Set the day to a day before the actual day leaving time for reminders
+# Trash  - Pickup schedule is EVERY week.
+# Set the day to a day before the actual day leaving time for reminders
 
 - platform: template
   sensors:
@@ -46,8 +37,8 @@
         {%- else -%}
           no
         {%- endif -%}
-## Recycle - Pickup schedule is every other week.
-## Set the day to a day before the actual day leaving time for reminders
+# Recycle - Pickup schedule is every other week.
+# Set the day to a day before the actual day leaving time for reminders
 
 - platform: template
   sensors:
@@ -97,8 +88,8 @@
         {%- endmacro -%}
         {{- is_it_today() -}}
 
-## Green Waste - Pickup schedule is every other week.
-## Set the day to a day before the actual day leaving time for reminders
+# Green Waste - Pickup schedule is every other week.
+# Set the day to a day before the actual day leaving time for reminders
 
 - platform: template
   sensors:

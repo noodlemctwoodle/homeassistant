@@ -1,10 +1,5 @@
 ---
-#################################################################
-#                                                               #
-#                        NZBGET - COMPONENT                     #
-#                                                               #
-#################################################################
-
+## NZBGET - COMPONENT
 # https://www.home-assistant.io/integrations/nzbget/
 
 host: !secret host_ip_address

@@ -1,12 +1,6 @@
 ---
-####################################################
-#                                                  #
-#           Rubbish/Recycle - Template             #
-#                                                  #
-####################################################
-
+## Rubbish/Recycle - Template
 # https://www.home-assistant.io/integrations/template/
-
 # https://github.com/JamesMcCarthy79/Home-Assistant-Config/tree/master/config/packages/trash_recycle
 
 - platform: template

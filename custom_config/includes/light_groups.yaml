@@ -1,0 +1,17 @@
+---
+
+# Bedroom Pendants
+
+- platform: group
+  name: Bedroom Pendants
+  entities:
+    - light.bedroom_pendant_1
+    - light.bedroom_pendant_2
+
+# Craft Room Spots
+
+- platform: group
+  name: Craft Room Spots
+  entities:
+    - light.craft_room_spot_1
+    - light.craft_room_spot_2

@@ -1,10 +1,5 @@
 ---
-#################################################################
-#                                                               #
-#                      Workday Binary Sensor                    #
-#                                                               #
-#################################################################
-
+## Workday Binary Sensor
 # https://www.home-assistant.io/integrations/workday/
 
 - platform: workday

@@ -1,9 +1,5 @@
 ---
-#################################################################
-#                                                               #
-#                      MEDIA PLAYER - COMPONENT                 #
-#                                                               #
-#################################################################
+## MEDIA PLAYER - COMPONENT
 
 - platform: samsungtv
   host: !secret bedroom_tv_ip

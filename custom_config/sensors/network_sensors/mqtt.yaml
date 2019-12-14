@@ -1,38 +1,29 @@
 ---
-###############################################################################
-#                                                                             #
-#                                Hassio Addon                                 #
-#                                                                             #
-###############################################################################
+## Hassio Addon
+# Rubbish/Recycle - MQTT
 
-####################################################
-#                                                  #
-#            Rubbish/Recycle - MQTT                #
-#                                                  #
-####################################################
-
-  - platform: mqtt
-    state_topic: "/home/trashpickupday"
-    name: "Trash Pickup Day"
-    value_template: "{{ value }}"
-    qos: 1
-  - platform: mqtt
-    state_topic: "/home/recyclepickupday"
-    name: "Recycle Pickup Day"
-    value_template: "{{ value }}"
-    qos: 1
-  - platform: mqtt
-    state_topic: "/home/recyclepickupweek"
-    name: "Recycle Pickup Week"
-    value_template: "{{ value }}"
-    qos: 1
-  - platform: mqtt
-    state_topic: "/home/greenpickupday"
-    name: "Green Pickup Day"
-    value_template: "{{ value }}"
-    qos: 1
-  - platform: mqtt
-    state_topic: "/home/greenpickupweek"
-    name: "Green Pickup Week"
-    value_template: "{{ value }}"
-    qos: 1
+- platform: mqtt
+  state_topic: "/home/trashpickupday"
+  name: "Trash Pickup Day"
+  value_template: "{{ value }}"
+  qos: 1
+- platform: mqtt
+  state_topic: "/home/recyclepickupday"
+  name: "Recycle Pickup Day"
+  value_template: "{{ value }}"
+  qos: 1
+- platform: mqtt
+  state_topic: "/home/recyclepickupweek"
+  name: "Recycle Pickup Week"
+  value_template: "{{ value }}"
+  qos: 1
+- platform: mqtt
+  state_topic: "/home/greenpickupday"
+  name: "Green Pickup Day"
+  value_template: "{{ value }}"
+  qos: 1
+- platform: mqtt
+  state_topic: "/home/greenpickupweek"
+  name: "Green Pickup Week"
+  value_template: "{{ value }}"
+  qos: 1

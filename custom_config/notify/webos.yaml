@@ -1,10 +1,6 @@
-#################################################################
-#                                                               #
-#                       WEBOS- MEDIA PLAYER                     #
-#                                                               #
-#################################################################
+## WEBOS- MEDIA PLAYER
 
-  - platform: webostv
-    host: !secret living_room_tv_ip
-    name: Living Room TV
-    filename: webostv.conf
+- platform: webostv
+  host: !secret living_room_tv_ip
+  name: Living Room TV
+  filename: webostv.conf

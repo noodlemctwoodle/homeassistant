@@ -1,9 +1,5 @@
 ---
-#################################################################
-#                                                               #
-#                        ZONES - COMPONENT                      #
-#                                                               #
-#################################################################
+## ZONES - COMPONENT
 
 - name: !secret hassio_location
   latitude: !secret hassio_latitude

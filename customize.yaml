@@ -1,9 +1,5 @@
 ---
-#################################################################
-#                                                               #
-#                            Switch                             #
-#                                                               #
-#################################################################
+## Switch
 
 switch.downstairs_lights:
   friendly_name: Downstairs Lights
@@ -65,11 +61,7 @@ switch.living_room_wemoplug:
   friendly_name: Flea Light
   icon: mdi:lightbulb
 
-#################################################################
-#                                                               #
-#                            Sensors                            #
-#                                                               #
-#################################################################
+# Sensors
 
 sensor.bedroom_sensor_battery:
   friendly_name: Bathroom Sensor Battery
@@ -153,11 +145,7 @@ sensor.geocode_user_1:
 sensor.geocode_user_2:
   entity_picture: /local/lovelace/users/user2.png
 
-#################################################################
-#                                                               #
-#                    Packages/Trash Recycle                     #
-#                                                               #
-#################################################################
+# Packages/Trash Recycle
 
 sensor.trash_day:
   friendly_name: Is it Trash Day today?

@@ -1,10 +1,5 @@
 ---
-#################################################################
-#                                                               #
-#                 Google Tavel Time Automations                 #
-#                                                               #
-#################################################################
-
+## Google Tavel Time Automations
 # https://www.home-assistant.io/integrations/automation/
 
 - id: update_morning_commute_sensor

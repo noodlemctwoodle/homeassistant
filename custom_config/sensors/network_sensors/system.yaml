@@ -1,26 +1,11 @@
 ---
-###############################################################################
-#                                                                             #
-#                                SYSTEM DETAILS                               #
-#                                                                             #
-###############################################################################
-
-#################################################################
-#                                                               #
-#                         Version Sensor                        #
-#                                                               #
-#################################################################
-
+## SYSTEM DETAILS
+# Version Sensor
 # https://www.home-assistant.io/integrations/version/
 
   - platform: version
 
-#################################################################
-#                                                               #
-#                         Time & Date                           #
-#                                                               #
-#################################################################
-
+# Time & Date
 # https://www.home-assistant.io/integrations/time_date/
 
   - platform: time_date
@@ -32,12 +17,7 @@
       - time_utc
       - beat
 
-#################################################################
-#                                                               #
-#                          System Monitor                       #
-#                                                               #
-#################################################################
-
+# System Monitor
 # https://www.home-assistant.io/integrations/systemmonitor/
 
   - platform: systemmonitor
@@ -45,24 +25,14 @@
       - type: memory_use
       - type: processor_use
 
-#################################################################
-#                                                               #
-#                          File size Sensor                     #
-#                                                               #
-#################################################################
-
+# File size Sensor
 # https://www.home-assistant.io/integrations/filesize/
 
 #  - platform: filesize
 #    file_paths:
 #      - home-assistant_v2.db
 
-#################################################################
-#                                                               #
-#              UNIFI MONITORING - CUSTOM COMPONENT              #
-#                                                               #
-#################################################################
-
+# UNIFI MONITORING - CUSTOM COMPONENT
 # https://github.com/custom-components/sensor.unifigateway
 
   - platform: unifigateway

@@ -1,40 +1,20 @@
 ---
-###############################################################################
-#                                                                             #
-#                                INPUT BOOLEAN                                #
-#                                                                             #
-###############################################################################
-
+## INPUT BOOLEAN
 # https://www.home-assistant.io/integrations/input_boolean/
 
-#################################################################
-#                                                               #
-#                Home Assistant Update Available                #
-#                                                               #
-#################################################################
-
+# Home Assistant Update Available
 ha_update_available:
   name: HA Update Avaiable
   initial: off
   icon: mdi:cloud-download
 
-#################################################################
-#                                                               #
-#                Home Assistant Podcast Available               #
-#                                                               #
-#################################################################
-
+#  Home Assistant Podcast Available
 new_podcast_available:
   name: New Podcast Avaiable
   initial: off
   icon: mdi:podcast
 
-#################################################################
-#                                                               #
-#                         Rubbish Reminder                      #
-#                                                               #
-#################################################################
-
+# Rubbish Reminder
 # https://github.com/JamesMcCarthy79/Home-Assistant-Config/tree/master/config/packages/trash_recycle
 
 trash_reminders:

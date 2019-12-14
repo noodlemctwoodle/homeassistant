@@ -1,8 +1,4 @@
-#################################################################
-#                                                               #
-#              UniFI Cloud key Gen2  - NETDATA                  #
-#                                                               #
-#################################################################
+## UniFI Cloud key Gen2  - NETDATA
 
   - platform: netdata
     host: !secret cloud_key_ip

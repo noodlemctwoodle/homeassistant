@@ -1,18 +1,10 @@
 ---
-###############################################################################
-#                                                                             #
-#                         HOME ASSISTANT CONFIGURATION YAML                   #
-#                                                                             #
-###############################################################################
+# HOME ASSISTANT CONFIGURATION YAML
 
 homeassistant:
   customize: !include customize.yaml
 
-#################################################################
-#                                                               #
-#             HOME ASSISTANT FRONTEND CONFIGURATION             #
-#                                                               #
-#################################################################
+# HOME ASSISTANT FRONTEND CONFIGURATION
 
 frontend:
   themes: !include themes.yaml
@@ -22,11 +14,9 @@ frontend:
     - /local/custom_ui/fontawesome/hass-fontawesome-regular.html
     - /local/custom_ui/fontawesome/hass-fontawesome-brands.html
 
-#################################################################
-#                                                               #
-#                 HOME ASSISTANT CONFIGURATION                  #
-#                                                               #
-#################################################################
+# HOME ASSISTANT CONFIGURATION
+
+config:
 
 default_config:
 
@@ -36,8 +26,8 @@ recorder:
 
 logger:
   default: error
-  logs:
-    homeassistant.components.scrape: debug
+#  logs:
+#    homeassistant.components.scrape: debug
 
 system_log:
   fire_event: true
@@ -45,20 +35,12 @@ system_log:
 lovelace:
   mode: yaml
 
-#################################################################
-#                                                               #
-#          HOME ASSISTANT COMUNITY UPDATER - Component          #
-#                                                               #
-#################################################################
+# HOME ASSISTANT COMUNITY UPDATER - Component
 
 hacs:
   token: !secret access_token
 
-#################################################################
-#                                                               #
-#                (UniFI) GENERIC CAMERA - Component             #
-#                                                               #
-#################################################################
+# (UniFI) GENERIC CAMERA - Component
 
 stream:
 
@@ -69,21 +51,13 @@ camera:
     stream_source: !secret rtsp_stream_source
     verify_ssl: !secret verify_ssl
 
-#################################################################
-#                                                               #
-#                CIRCADIAN LIGHTING - Component                 #
-#                                                               #
-#################################################################
-
+# CIRCADIAN LIGHTING - Component
 # https://community.home-assistant.io/t/circadian-lighting-custom-component/61246
 
 circadian_lighting:
 
-#################################################################
-#                                                               #
-#                WEATHER - Component                            #
-#                                                               #
-#################################################################
+# WEATHER - Component
+
 
 weather:
   - platform: darksky
@@ -91,43 +65,26 @@ weather:
 
 sun:
 
-#################################################################
-#                                                               #
-#                GOOGLE CALENDAR - Component                    #
-#                                                               #
-#################################################################
 
-# Google Calendar Custom Component
+# GOOGLE CALENDAR - Component
+
 google:
   client_id: !secret google_calendar_id
   client_secret: !secret google_calendar_secret
 
-#################################################################
-#                                                               #
-#                NEST SMART HOME - Intergration                 #
-#                                                               #
-#################################################################
+# NEST SMART HOME - Intergration
 
-# Nest Integration
 nest:
   client_id: !secret nest_client_id
   client_secret: !secret nest_client_secret
 
-#################################################################
-#                                                               #
-#                        GOOGLE - TTS                           #
-#                                                               #
-#################################################################
+# GOOGLE - TTS
 
 tts:
   - platform: google_translate
     service_name: google_say
 
-#################################################################
-#                                                               #
-#                       SPEEDTEST.NET                           #
-#                                                               #
-#################################################################
+# SPEEDTEST.NET
 
 speedtestdotnet:
   server_id: !secret speedtest_server_id
@@ -138,11 +95,7 @@ speedtestdotnet:
     - download
     - upload
 
-#################################################################
-#                                                               #
-#                        WEMO - Smart Plugs                     #
-#                                                               #
-#################################################################
+# WEMO - Smart Plugs
 
 wemo:
   discovery: false
@@ -150,22 +103,14 @@ wemo:
     - !secret wemo_0_ip_address
     - !secret wemo_1_ip_address
 
-#################################################################
-#                                                               #
-#                        TPLINK - Smart Plugs                   #
-#                                                               #
-#################################################################
+# TPLINK - Smart Plugs
 
 tplink:
   discovery: true
   switch:
     - host: !secret tplink_0_ip_address
 
-#################################################################
-#                                                               #
-#                        Utility Meter                          #
-#                                                               #
-#################################################################
+# Utility Meter
 
 utility_meter:
   monthly_cabinet:
@@ -175,16 +120,11 @@ utility_meter:
     source: sensor.xmas_lights_consumption
     cycle: monthly
 
-#################################################################
-#                                                               #
-#                            INCLUDES                           #
-#                                                               #
-#################################################################
+# INCLUDES
 
 automation: !include_dir_merge_list custom_config/automations
 binary_sensor: !include_dir_merge_list custom_config/binary_sensor
 intent_script: !include_dir_merge_list custom_config/intents
-light: !include_dir_merge_list custom_config/hue_lights
 media_player: !include_dir_merge_list custom_config/media_player
 sensor: !include_dir_merge_list custom_config/sensors
 switch: !include_dir_merge_list custom_config/switch
@@ -192,6 +132,8 @@ switch: !include_dir_merge_list custom_config/switch
 group: !include custom_config/includes/group.yaml
 input_boolean: !include custom_config/includes/input_boolean.yaml
 input_select: !include custom_config/includes/input_select.yaml
+light: !include custom_config/includes/light_groups.yaml
 nzbget: !include custom_config/includes/nzbget.yaml
+scene: !include scenes.yaml
 script: !include custom_config/includes/scripts.yaml
 zone: !include custom_config/includes/zone.yaml

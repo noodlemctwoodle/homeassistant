@@ -1,16 +1,6 @@
 ---
-###############################################################################
-#                                                                             #
-#                                INPUT SELECT                                 #
-#                                                                             #
-###############################################################################
-
-#################################################################
-#                                                               #
-#               Rubbish/Recycle - User Inputs                   #
-#                                                               #
-#################################################################
-
+## INPUT SELECT
+# Rubbish/Recycle - User Inputs
 # https://github.com/JamesMcCarthy79/Home-Assistant-Config/tree/master/config/packages/trash_recycle
 
 trash_pickup_day:
