@@ -15,3 +15,12 @@
   entities:
     - light.craft_room_spot_1
     - light.craft_room_spot_2
+
+# Craft Room Spots
+
+- platform: group
+  name: Living Room Lamps
+  entities:
+    - light.living_room_lamp
+    - light.living_room_bookshelf
+    - light.living_room_strip

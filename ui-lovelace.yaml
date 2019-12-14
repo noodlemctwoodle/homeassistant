@@ -344,7 +344,7 @@ views:
               cards:
                 - type: custom:mini-graph-card
                   entities:
-                   - sensor.average_downstairs_temp
+                   - sensor.downstairs_average_temp
                   name: Downstairs
                   height: 74
                   line_width: 2
@@ -364,7 +364,7 @@ views:
 
                 - type: custom:mini-graph-card
                   entities:
-                   - sensor.average_upstairs_temp
+                   - sensor.upstairs_average_temp
                   name: Upstairs
                   height: 74
                   line_width: 2
@@ -774,7 +774,7 @@ views:
           - type: horizontal-stack
             cards:
               - type: picture-entity
-                entity: switch.christmas_lights
+                entity: group.christmas_lights
                 name: Christmas Lights
                 tap_action:
                   action: toggle

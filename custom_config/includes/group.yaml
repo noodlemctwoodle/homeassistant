@@ -1,5 +1,15 @@
 ---
-## Rubbish/Recycle
+## GROUP
+
+# Christmas Lights
+
+Christmas Lights:
+  control: hidden
+  entities:
+    - switch.wemo_0_christmas_lights
+    - switch.wemo_1_christmas_lights
+
+# Rubbish/Recycle
 # https://www.home-assistant.io/integrations/group/
 # https://github.com/JamesMcCarthy79/Home-Assistant-Config/tree/master/config/packages/trash_recycle
 
