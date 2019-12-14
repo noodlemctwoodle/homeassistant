@@ -7,52 +7,52 @@
 - platform: template
   sensors:
 
-  # Count Automations
+    # Count Automations
     count_automations:
       entity_id: sensor.date
       value_template: "{{ states.automation | list | length }}"
 
-  # Count Cameras
+    # Count Cameras
     count_cameras:
       entity_id: sensor.date
       value_template: "{{ states.camera | list | length }}"
 
-  # Count Device Trackers
+    # Count Device Trackers
     count_device_trackers:
       entity_id: sensor.date
       value_template: "{{ states.device_tracker | list | length }}"
 
-  # Count Binary Sensors
+    # Count Binary Sensors
     count_binary_sensors:
       entity_id: sensor.date
       value_template: "{{ states.binary_sensor| list | length }}"
 
-  # Count Lights
+    # Count Lights
     count_light:
       entity_id: sensor.date
       value_template: "{{ states.light | list | length }}"
 
-  # Count Media Players
+    # Count Media Players
     count_media_player:
       entity_id: sensor.date
       value_template: "{{ states.media_player | list | length }}"
 
-  # Count Sensors
+    # Count Sensors
     count_sensors:
       entity_id: sensor.date
       value_template: "{{ states.sensor | list | length }}"
 
-  # Count Scripts
+    # Count Scripts
     count_scripts:
       entity_id: sensor.date
       value_template: "{{ states.script| list | length }}"
 
-  # Count Switches
+    # Count Switches
     count_switches:
       entity_id: sensor.date
       value_template: "{{ states.switch | list | length }}"
 
-  # Count Zones
+    # Count Zones
     count_zones:
       entity_id: sensor.date
       value_template: "{{ states.zone | list | length }}"

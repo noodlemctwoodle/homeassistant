@@ -86,18 +86,18 @@ views:
     name: Home
     cards:
 
-# Home - Clock Card
+          # Home - Clock Card
 
         - type: vertical-stack
           cards:
             - type: 'custom:clock-card'
 
-# Home - Glance Card
+              # Home - Glance Card
 
             - type: entities
               show_header_toggle: false
               entities:
-               # - binary_sensor.alarm
+                  # - binary_sensor.alarm
                 - entity: sensor.kitchen_nest_protect_smoke_status
                   name: Kitchen Smoke Detector
                 - entity: sensor.upstairs_nest_protect_landing_smoke_status
@@ -158,7 +158,7 @@ views:
 #              title: Packages
 
 
-# Home - Presence Card
+          # Home - Presence Card
 
         - type: vertical-stack
           cards:
@@ -186,18 +186,18 @@ views:
                   entities:
                     - sensor.pixel_4_gps_status
                     - sensor.pixel_4_speed_status
-                   # - binary_sensor.user_1_keys_status
-                   # - binary_sensor.user_1_bag_status
-                   # - binary_sensor.user_1_car_status
+                      # - binary_sensor.user_1_keys_status
+                      # - binary_sensor.user_1_bag_status
+                      # - binary_sensor.user_1_car_status
 
                 - type: glance
                   entities:
                     - sensor.pixel_gps_status
                     - sensor.pixel_speed_status
-                   # - binary_sensor.user_2_keys_status
+                      # - binary_sensor.user_2_keys_status
 
 
-# Home - Google Travel Card
+              # Home - Google Travel Card
 
             - type: entities
               show_header_toggle: false
@@ -227,7 +227,7 @@ views:
                # - type: section
 
 
-# House - Light Group Card
+          # House - Light Group Card
 
         - type: horizontal-stack
           cards:
@@ -302,7 +302,7 @@ views:
 #                            border-radius: 0px
 
 
-# Home - Weather Card
+          # Home - Weather Card
 
         - type: vertical-stack
           cards:
@@ -314,7 +314,7 @@ views:
 
 
 
-# Home - Temperature Card
+              # Home - Temperature Card
 
             - type: custom:mini-graph-card
               entities:
