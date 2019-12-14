@@ -20,7 +20,6 @@ cch:
   disable: false
 
 # Custom Resourses
-
 resources:
   - url: /community_plugin/compact-custom-header/compact-custom-header.js
     type: module
@@ -78,7 +77,6 @@ resources:
     type: js
 
 # VIEW 0 - HOME
-
 background: center / cover no-repeat url("/local/lovelace/background_19.png") fixed
 views:
   - id: 0
@@ -86,18 +84,15 @@ views:
     name: Home
     cards:
 
-          # Home - Clock Card
-
+        # Home - Clock Card
         - type: vertical-stack
           cards:
             - type: 'custom:clock-card'
 
-              # Home - Glance Card
-
+            # Home - Glance Card
             - type: entities
               show_header_toggle: false
               entities:
-                  # - binary_sensor.alarm
                 - entity: sensor.kitchen_nest_protect_smoke_status
                   name: Kitchen Smoke Detector
                 - entity: sensor.upstairs_nest_protect_landing_smoke_status
@@ -150,16 +145,7 @@ views:
                 - entity: binary_sensor.recycle
                   name: Recycling
 
-
-# Home - Aftership Card
-
-#            - type: 'custom:aftership-card'
-#              entity: sensor.aftership
-#              title: Packages
-
-
-          # Home - Presence Card
-
+        # Home - Presence Card
         - type: vertical-stack
           cards:
             - type: horizontal-stack
@@ -186,19 +172,13 @@ views:
                   entities:
                     - sensor.pixel_4_gps_status
                     - sensor.pixel_4_speed_status
-                      # - binary_sensor.user_1_keys_status
-                      # - binary_sensor.user_1_bag_status
-                      # - binary_sensor.user_1_car_status
 
                 - type: glance
                   entities:
                     - sensor.pixel_gps_status
                     - sensor.pixel_speed_status
-                      # - binary_sensor.user_2_keys_status
 
-
-              # Home - Google Travel Card
-
+            # Home - Google Travel Card
             - type: entities
               show_header_toggle: false
               entities:
@@ -209,26 +189,7 @@ views:
                 - entity: sensor.user_2_to_home
                   name: !secret user_2_to_home
 
-# Home - Next Bus Card
-
-           # - type: custom:gap-card
-             # height: 45
-             # size:
-
-           # - type: entities
-             # show_header_toggle: false
-             # entities:
-               # - type: 'custom:text-divider-row'
-                 # text: Next Bus
-               # - entity: sensor.next_bus
-                 # name: ' '
-               # - type: section
-               # - type: section
-               # - type: section
-
-
-          # House - Light Group Card
-
+        # House - Light Group Card
         - type: horizontal-stack
           cards:
             - type: entity-button
@@ -249,61 +210,7 @@ views:
                 service: homeassistant.toggle
                 service_data: {"entity_id": "light.upstairs"}
 
-
-# Home - Github Card
-
-#            - type: entities
-#              entities:
-#                - type: section
-#                  label: GITHUB
-#                - type: custom:vertical-stack-in-card
-#                  cards:
-#                    - type: horizontal-stack
-#                      cards:
-#                        - type: custom:card-modder
-#                          card:
-#                            type: glance
-#                            entities:
-#                              - sensor.stars
-#                              - sensor.subscribers
-#                              - sensor.forks
-#                              - sensor.issues
-#                          style:
-#                            border-radius: 0px
-#
-#                        - type: custom:card-modder
-#                          card:
-#                            type: glance
-#                            entities:
-#                              - sensor.git_stars_next_dif
-#                              - sensor.git_stars_last_dif
-#                              - sensor.git_stars_trend_dif
-#                          style:
-#                            border-radius: 0px
-#
-#                    - type: horizontal-stack
-#                      cards:
-#                        - type: custom:card-modder
-#                          card:
-#                            type: glance
-#                            entities:
-#                              - sensor.weekly_github
-#                              - sensor.stars_last_week
-#                          style:
-#                            border-radius: 0px
-#
-#                        - type: custom:card-modder
-#                          card:
-#                            type: glance
-#                            entities:
-#                              - sensor.monthly_github
-#                              - sensor.stars_last_month
-#                          style:
-#                            border-radius: 0px
-
-
-          # Home - Weather Card
-
+        # Home - Weather Card
         - type: vertical-stack
           cards:
             - type: 'custom:weather-card'
@@ -312,10 +219,7 @@ views:
               details: false
               forecast: true
 
-
-
-              # Home - Temperature Card
-
+            # Home - Temperature Card
             - type: custom:mini-graph-card
               entities:
                - sensor.garden_temperature
@@ -335,10 +239,6 @@ views:
                   color: "#1db954"
                 - value: 0
                   color: "#3498db"
-
-           # - type: custom:gap-card
-             # height: 65
-             # size:
 
             - type: horizontal-stack
               cards:
@@ -375,28 +275,23 @@ views:
                     icon: false
                     extrema: true
                   color_thresholds:
-                    - value: 25
-                      color: "#e74c3c"
-                    - value: 15
-                      color: "#1db954"
-                    - value: 0
-                      color: "#3498db"
-
+                  - value: 25
+                    color: "#e74c3c"
+                  - value: 15
+                    color: "#1db954"
+                  - value: 0
+                    color: "#3498db"
 
 # VIEW 1 - SECURITY
-
   - id: 1
     icon: mdi:shield-home
     name: Security
     cards:
 
-
-# Security - Smoke Alarm Card
-
+      # Security - Smoke Alarm Card
       - type: vertical-stack
         cards:
           - type: entities
-           # title: Smoke Detectors
             show_header_toggle: false
             entities:
               - type: divider
@@ -406,13 +301,10 @@ views:
               - binary_sensor.kitchen_nest_protect_online
               - binary_sensor.upstairs_nest_protect_landing_online
 
-
-# Security - Motion Sensor Card
-
+      # Security - Motion Sensor Card
       - type: vertical-stack
         cards:
           - type: entities
-           # title: Motion Sensors
             show_header_toggle: false
             entities:
               - type: divider
@@ -429,12 +321,10 @@ views:
               - binary_sensor.bedroom_motion
               - binary_sensor.craft_room_motion
 
-# Security - Door Status Card
-
+      # Security - Door Status Card
       - type: vertical-stack
         cards:
           - type: entities
-           # title: Doors
             show_header_toggle: false
             entities:
               - type: divider
@@ -443,17 +333,13 @@ views:
               - type: divider
               - binary_sensor.front_door
               - binary_sensor.patio_door
-#              - binary_sensor.loft_door
 
           - type: custom:gap-card
             height: 10
             size:
 
-
-# Security - Window Status Card
-
+          # Security - Window Status Card
           - type: entities
-           # title: Windows
             show_header_toggle: false
             entities:
               - type: divider
@@ -468,29 +354,25 @@ views:
               - binary_sensor.office_window
               - binary_sensor.craft_room_window
 
-# VIEW 2 - CAMERAS
-
+  # VIEW 2 - CAMERAS
   - id: 2
     title: Surveillance
     icon: mdi:cctv
-   # panel: true
     cards:
 
-# CCTV
+      # CCTV
       - type: picture-entity
         entity: camera.front_door
       - type: picture-entity
         entity: camera.back_garden
 
 # VIEW 3 - Living Room
-
   - id: 3
     icon: mdi:sofa
     name: Living Room
     cards:
 
-# Living Room- Themostat Temperature Graph Card
-
+      # Living Room- Themostat Temperature Graph Card
       - type: vertical-stack
         cards:
           - type: custom:mini-graph-card
@@ -503,20 +385,16 @@ views:
             hours_to_show: 168
             points_per_hour: 1
             show:
-             # extrema: true
               fill: true
-             # graph: bar
             color_thresholds:
-              - value: 28
-                color: "#e74c3c"
-              - value: 15
-                color: "#1db954"
-              - value: 0
-                color: "#3498db"
+            - value: 28
+              color: "#e74c3c"
+            - value: 15
+              color: "#1db954"
+            - value: 0
+              color: "#3498db"
 
-
-# Living Room- Sensor Temperature Graph Card
-
+          # Living Room- Sensor Temperature Graph Card
           - type: custom:mini-graph-card
             entities:
             - entity: sensor.living_room_temperature
@@ -527,20 +405,16 @@ views:
             hours_to_show: 168
             points_per_hour: 1
             show:
-             # extrema: true
               fill: true
-             # graph: bar
             color_thresholds:
-              - value: 28
-                color: "#e74c3c"
-              - value: 15
-                color: "#1db954"
-              - value: 0
-                color: "#3498db"
+            - value: 28
+              color: "#e74c3c"
+            - value: 15
+              color: "#1db954"
+            - value: 0
+              color: "#3498db"
 
-
-# Living Room - Light Group Card
-
+          # Living Room - Light Group Card
           - type: horizontal-stack
             cards:
               - type: entity-button
@@ -580,10 +454,8 @@ views:
                   service_data: {"entity_id": "group.outside_lights"}
 
 
-# Living Room - Glance Card
-
+          # Living Room - Glance Card
           - type: entities
-           # title: Windows
             show_header_toggle: false
             entities:
               - type: divider
@@ -612,9 +484,7 @@ views:
                 entity: light.living_room_strip
                 name: Strip
 
-
-# Living Room - Humidity Graph Card
-
+      # Living Room - Humidity Graph Card
       - type: vertical-stack
         cards:
           - type: custom:mini-graph-card
@@ -627,9 +497,7 @@ views:
             hours_to_show: 168
             points_per_hour: 1
             show:
-             # extrema: true
               fill: true
-             # graph: bar
             color_thresholds:
               - value: 70
                 color: "#e74c3c"
@@ -638,8 +506,7 @@ views:
               - value: 0
                 color: "#3498db"
 
-# Living Room - Lounge LUX Graph Card
-
+          # Living Room - Lounge LUX Graph Card
           - type: custom:mini-graph-card
             entities:
               - entity: sensor.living_room_lux
@@ -650,22 +517,18 @@ views:
             hours_to_show: 168
             points_per_hour: 1
             show:
-             # extrema: true
               fill: true
-             # graph: bar
             color_thresholds:
               - value: 50
                 color: "#FFFF00"
               - value: 0
                 color: "#3498db"
 
-#  Living Room - Climate Card
-
+          #  Living Room - Climate Card
           - type: thermostat
             entity: climate.living_room
 
-#            Living Room - Lounge Media Player Card
-
+          # Living Room - Lounge Media Player Card
           - type: custom:card-modder
             card:
               type: custom:mini-media-player
@@ -682,8 +545,7 @@ views:
               background-color: rgba(50,50,50,0.3)
               background-size: 100%
 
-# Living Room - Denon AVR  Card
-
+          # Living Room - Denon AVR  Card
           - type: custom:card-modder
             card:
               type: custom:mini-media-player
@@ -694,15 +556,13 @@ views:
               show_source: true
               show_progress: true
               group: true
-             # background: /local/lovelace/downstairs/evening-tv_3.jpg
             style:
               background-image: url("/local/lovelace/cardbackK.png")
               background-repeat: no-repeat
               background-color: rgba(50,50,50,0.3)
               background-size: 100%
 
-# Living Room - Denon AVR  Card
-
+          # Living Room - Denon AVR  Card
           - type: custom:card-modder
             card:
               type: custom:mini-media-player
@@ -713,15 +573,13 @@ views:
               show_source: true
               show_progress: true
               group: true
-             # background: /local/lovelace/downstairs/evening-tv_3.jpg
             style:
               background-image: url("/local/lovelace/cardbackK.png")
               background-repeat: no-repeat
               background-color: rgba(50,50,50,0.3)
               background-size: 100%
 
-# Living Room - Morning Routine Card
-
+          # Living Room - Morning Routine Card
           - type: horizontal-stack
             cards:
               - type: entity-button
@@ -733,8 +591,7 @@ views:
                   service: script.turn_on
                   service_data: {"entity_id": "script.1521695976118"}
 
-# Living Room - Evening TV Card
-
+              # Living Room - Evening TV Card
               - type: entity-button
                 entity: script.1521694771100
                 name: Evening TV
@@ -744,8 +601,7 @@ views:
                   service: script.turn_on
                   service_data: {"entity_id": "script.1521694771100"}
 
-# Living Room - Super Rugby Card
-
+              # Living Room - Super Rugby Card
               - type: entity-button
                 entity: script.1521696758169
                 name: Super Rugby
@@ -755,12 +611,7 @@ views:
                   service: script.turn_on
                   service_data: {"entity_id": "script.1521696758169"}
 
-#              - type: custom:gap-card
-#                height:
-#                size:
-
-# Living Room - Upcoming Media
-
+      # Living Room - Upcoming Media
       - type: vertical-stack
         cards:
           - type: custom:upcoming-media-card
@@ -777,9 +628,7 @@ views:
             date: ddmm
             hide_empty: true
 
-
-# Christmas- Light Switch Card
-
+          # Christmas- Light Switch Card
           - type: horizontal-stack
             cards:
               - type: picture-entity
