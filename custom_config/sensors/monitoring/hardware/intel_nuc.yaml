@@ -2,85 +2,84 @@
 ## INTEL NUC - Monitoring
 # Intel NUC - NETDATA
 
-  - platform: netdata
-    host: !secret docker_ip
-    port: !secret docker_port
-    name: chsdoc01
-    resources:
-      system_cpu_load:
-        data_group: 'system.cpu'
-        element: 'system'
-        icon: mdi:chip
-      softirq_cpu_load:
-        data_group: 'system.cpu'
-        element: 'softirq'
-        icon: mdi:chip
-      user_cpu_load:
-        data_group: 'system.cpu'
-        element: 'user'
-        icon: mdi:chip
-      nice_cpu_load:
-        data_group: 'system.cpu'
-        element: 'nice'
-        icon: mdi:chip
-      iowait_cpu_load:
-        data_group: 'system.cpu'
-        element: 'iowait'
-        icon: mdi:chip
-      core_temp:
-        data_group: 'sensors.coretemp-isa-0000_temperature'
-        element: 'coretemp-isa-0000_temp1'
-        icon: mdi:thermometer-lines
-      mem_commit:
-        data_group: 'mem.committed'
-        element: 'value'
-        icon: mdi:chip
-      disk_used:
-        data_group: 'disk_space._'
-        element: 'used'
-        icon: mdi:harddisk
-      up:
-        data_group: 'system.uptime'
-        element: 'uptime'
-        icon: mdi:update
+- platform: netdata
+  host: !secret docker_ip
+  port: !secret docker_port
+  name: chsdoc01
+  resources:
+    system_cpu_load:
+      data_group: 'system.cpu'
+      element: 'system'
+      icon: mdi:chip
+    softirq_cpu_load:
+      data_group: 'system.cpu'
+      element: 'softirq'
+      icon: mdi:chip
+    user_cpu_load:
+      data_group: 'system.cpu'
+      element: 'user'
+      icon: mdi:chip
+    nice_cpu_load:
+      data_group: 'system.cpu'
+      element: 'nice'
+      icon: mdi:chip
+    iowait_cpu_load:
+      data_group: 'system.cpu'
+      element: 'iowait'
+      icon: mdi:chip
+    core_temp:
+      data_group: 'sensors.coretemp-isa-0000_temperature'
+      element: 'coretemp-isa-0000_temp1'
+      icon: mdi:thermometer-lines
+    mem_commit:
+      data_group: 'mem.committed'
+      element: 'value'
+      icon: mdi:chip
+    disk_used:
+      data_group: 'disk_space._'
+      element: 'used'
+      icon: mdi:harddisk
+    up:
+      data_group: 'system.uptime'
+      element: 'uptime'
+      icon: mdi:update
 
-  - platform: template
-    sensors:
-      chsdoc01_uptime:
-        friendly_name: 'Docker Host Uptime'
-        value_template: >-
-          {% set time = (states.sensor.chsdoc01_up.state | int) | int %}
-          {% set minutes = ((time % 3600) / 60) | int %}
-          {% set hours = ((time % 86400) / 3600) | int %}
-          {% set days = (time / 86400) | int %}
+- platform: template
+  sensors:
+    chsdoc01_uptime:
+      friendly_name: 'Docker Host Uptime'
+      value_template: >-
+        {% set time = (states.sensor.chsdoc01_up.state | int) | int %}
+        {% set minutes = ((time % 3600) / 60) | int %}
+        {% set hours = ((time % 86400) / 3600) | int %}
+        {% set days = (time / 86400) | int %}
 
-          {%- if time < 60 -%}
-            Less than a minute
-            {%- else -%}
-            {%- if days > 0 -%}
-              {{ days }}d
-            {%- endif -%}
-            {%- if hours > 0 -%}
-              {%- if days > 0 -%}
-                {{ ' ' }}
-              {%- endif -%}
-              {{ hours }}h
-            {%- endif -%}
-            {%- if minutes > 0 -%}
-              {%- if days > 0 or hours > 0 -%}
-                {{ ' ' }}
-              {%- endif -%}
-              {{ minutes }}m
-            {%- endif -%}
+        {%- if time < 60 -%}
+          Less than a minute
+          {%- else -%}
+          {%- if days > 0 -%}
+            {{ days }}d
           {%- endif -%}
+          {%- if hours > 0 -%}
+            {%- if days > 0 -%}
+              {{ ' ' }}
+            {%- endif -%}
+            {{ hours }}h
+          {%- endif -%}
+          {%- if minutes > 0 -%}
+            {%- if days > 0 or hours > 0 -%}
+              {{ ' ' }}
+            {%- endif -%}
+            {{ minutes }}m
+          {%- endif -%}
+        {%- endif -%}
 
-
-  - platform: min_max
-    type: mean
-    name: chsdoc01_cpu_load
-    entity_ids:
-      - sensor.chsdoc01_system_cpu_load
-      - sensor.chsdoc01_softirq_cpu_load
-      - sensor.chsdoc01_user_cpu_load
-      - sensor.chsdoc01_nice_cpu_load
-      - sensor.chsdoc01_iowait_cpu_load
+- platform: min_max
+  type: mean
+  name: chsdoc01_cpu_load
+  entity_ids:
+    - sensor.chsdoc01_system_cpu_load
+    - sensor.chsdoc01_softirq_cpu_load
+    - sensor.chsdoc01_user_cpu_load
+    - sensor.chsdoc01_nice_cpu_load
+    - sensor.chsdoc01_iowait_cpu_load

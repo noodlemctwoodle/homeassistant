@@ -108,15 +108,55 @@
 
 ## Office Light Groups
 # Office Lights
-
 - platform: group
   name: Office
   entities:
     - light.office_spot_1
     - light.office_spot_2
 
+# Server Cabinet Lights
+
 - platform: group
   name: Server Cabinet
   entities:
     - light.cabinet
     - light.cabinet_strip
+
+## House Light Groups
+# Upstairs Lights
+- platform: group
+  name: Upstairs
+  entities:
+    - light.landing_spot_1
+    - light.bedroom_pendant_1
+    - light.bedroom_pendant_2
+    - light.bedroom_lamp
+    - light.craft_room_spot_1
+    - light.craft_room_spot_2
+    - light.craft_room_shadow
+    - light.office_spot_1
+    - light.office_spot_2
+
+# Downstairs Lights
+- platform: group
+  name: Downstairs
+  entities:
+    - light.kitchen_spot_1
+    - light.kitchen_spot_2
+    - light.kitchen_spot_3
+    - light.kitchen_spot_4
+    - light.kitchen_spot_5
+    - light.kitchen_spot_6
+    - light.kitchen_spot_7
+    - light.kitchen_spot_8
+    - light.kitchen_spot_9
+    - light.kitchen_spot_10
+    - light.back_door_spot_1
+    - light.cupboard_spot_1
+    - light.living_room_lamp
+    - light.living_room_bookshelf
+    - light.living_room_strip
+    - light.living_room_pendant
+    - light.hall_spot_1
+    - light.hall_spot_2
+    - light.bathroom_pendant

@@ -7,7 +7,7 @@
 - platform: denonavr
   host: !secret denon_avr_ip
   name: Denon AVRX2300w
-  show_all_sources: True
+  show_all_sources: true
   zones:
     - zone: Zone2
       name: Living Room

@@ -6,31 +6,31 @@
 
 - platform: template
   sensors:
-# Pixel 4 XL
+  # Pixel 4 XL
     pixel_4_battery:
       friendly_name: 'Battery'
-      value_template: '{{state_attr("device_tracker.pixel_4_xl_mobile_app", 
+      value_template: '{{state_attr("device_tracker.pixel_4_xl_mobile_app",
       "battery_level")}}'
       unit_of_measurement: '%'
     pixel_4_gps_status:
       friendly_name: 'GPS'
-      value_template: '{{state_attr("device_tracker.pixel_4_xl_mobile_app", 
+      value_template: '{{state_attr("device_tracker.pixel_4_xl_mobile_app",
       "gps_accuracy")}}'
     pixel_4_speed_status:
       friendly_name: 'Speed'
-      value_template: '{{state_attr("device_tracker.pixel_4_xl_mobile_app", 
+      value_template: '{{state_attr("device_tracker.pixel_4_xl_mobile_app",
       "speed")}}'
-# Pixel
+  # Pixel
     pixel_battery:
       friendly_name: 'battery'
-      value_template: '{{state_attr("device_tracker.pixel_mobile_app", 
+      value_template: '{{state_attr("device_tracker.pixel_mobile_app",
       "battery_level")}}'
       unit_of_measurement: '%'
     pixel_gps_status:
       friendly_name: 'GPS'
-      value_template: '{{state_attr("device_tracker.pixel_mobile_app", 
+      value_template: '{{state_attr("device_tracker.pixel_mobile_app",
       "gps_accuracy")}}'
     pixel_speed_status:
       friendly_name: 'Speed'
-      value_template: '{{state_attr("device_tracker.pixel_mobile_app", 
+      value_template: '{{state_attr("device_tracker.pixel_mobile_app",
       "speed")}}'

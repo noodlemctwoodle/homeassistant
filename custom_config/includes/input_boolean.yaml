@@ -5,13 +5,13 @@
 # Home Assistant Update Available
 ha_update_available:
   name: HA Update Avaiable
-  initial: off
+  initial: false
   icon: mdi:cloud-download
 
 #  Home Assistant Podcast Available
 new_podcast_available:
   name: New Podcast Avaiable
-  initial: off
+  initial: false
   icon: mdi:podcast
 
 # Rubbish Reminder
@@ -19,5 +19,5 @@ new_podcast_available:
 
 trash_reminders:
   name: Trash Reminders
-  initial: on
+  initial: true
   icon: mdi:delete-variant

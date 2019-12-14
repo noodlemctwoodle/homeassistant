@@ -9,7 +9,7 @@
 
     cabinet_w_consumption:
       entity_id: switch.tplink_server_cabinet_power
-      value_template: '{{ (states.switch.tplink_server_cabinet_power.attributes.current_power_w|int / 1000)|round(2) }}'
+      value_template: '{{ (states.switch.tplink_server_cabinet_power.attributes.current_power_w | int / 1000)|round(2) }}'
       friendly_name: 'Cabinet Current Consumption'
       unit_of_measurement: 'W'
 

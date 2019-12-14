@@ -45,4 +45,3 @@ jobs:
         uses: "docker://homeassistant/home-assistant:stable"
         with:
           args: python -m homeassistant --config ./config/ --script check_config --info all
-

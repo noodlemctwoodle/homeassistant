@@ -1,127 +1,128 @@
+---
 ## UniFI Cloud key Gen2  - NETDATA
 
-  - platform: netdata
-    host: !secret cloud_key_ip
-    port: !secret cloud_key_port
-    name: chsuni01
-    resources:
-      core0_freq:
-        data_group: 'cpu.cpufreq'
-        element: 'cpu0'
-        icon: mdi:chip
-      core1_freq:
-        data_group: 'cpu.cpufreq'
-        element: 'cpu1'
-        icon: mdi:chip
-      core2_freq:
-        data_group: 'cpu.cpufreq'
-        element: 'cpu2'
-        icon: mdi:chip
-      core3_freq:
-        data_group: 'cpu.cpufreq'
-        element: 'cpu3'
-        icon: mdi:chip
-      core4_freq:
-        data_group: 'cpu.cpufreq'
-        element: 'cpu4'
-        icon: mdi:chip
-      core5_freq:
-        data_group: 'cpu.cpufreq'
-        element: 'cpu5'
-        icon: mdi:chip
-      core6_freq:
-        data_group: 'cpu.cpufreq'
-        element: 'cpu6'
-        icon: mdi:chip
-      core7_freq:
-        data_group: 'cpu.cpufreq'
-        element: 'cpu7'
-        icon: mdi:chip
-      builtin_disk_used:
-        data_group: 'disk_space._'
-        element: 'used'
-        icon: mdi:harddisk
-      builtin_disk_avail:
-        data_group: 'disk_space._'
-        element: 'avail'
-        icon: mdi:harddisk
-      hdd_used:
-        data_group: 'disk_space._srv'
-        element: 'used'
-        icon: mdi:harddisk
-      hdd_avail:
-        data_group: 'disk_space._srv'
-        element: 'avail'
-        icon: mdi:harddisk
-      system_load:
-        data_group: 'system.load'
-        element: 'load15'
-        icon: mdi:chip
-      mem_avail:
-        data_group: 'mem.available'
-        element: 'MemAvailable'
-        icon: mdi:chip
-      system_swap:
-        data_group: 'system.swap'
-        element: 'used'
-        icon: mdi:chip
-      lan_in:
-        data_group: 'system.net'
-        element: 'InOctets'
-        icon: mdi:lan-pending
-      lan_out:
-        data_group: 'system.net'
-        element: 'OutOctets'
-        icon: mdi:lan-pending
-      up:
-        data_group: 'system.uptime'
-        element: 'uptime'
-        icon: mdi:update
-      battery:
-        data_group: 'powersupply_capacity.battery'
-        element: 'capacity'
-        icon: mdi:battery-charging-100
+- platform: netdata
+  host: !secret cloud_key_ip
+  port: !secret cloud_key_port
+  name: chsuni01
+  resources:
+    core0_freq:
+      data_group: 'cpu.cpufreq'
+      element: 'cpu0'
+      icon: mdi:chip
+    core1_freq:
+      data_group: 'cpu.cpufreq'
+      element: 'cpu1'
+      icon: mdi:chip
+    core2_freq:
+      data_group: 'cpu.cpufreq'
+      element: 'cpu2'
+      icon: mdi:chip
+    core3_freq:
+      data_group: 'cpu.cpufreq'
+      element: 'cpu3'
+      icon: mdi:chip
+    core4_freq:
+      data_group: 'cpu.cpufreq'
+      element: 'cpu4'
+      icon: mdi:chip
+    core5_freq:
+      data_group: 'cpu.cpufreq'
+      element: 'cpu5'
+      icon: mdi:chip
+    core6_freq:
+      data_group: 'cpu.cpufreq'
+      element: 'cpu6'
+      icon: mdi:chip
+    core7_freq:
+      data_group: 'cpu.cpufreq'
+      element: 'cpu7'
+      icon: mdi:chip
+    builtin_disk_used:
+      data_group: 'disk_space._'
+      element: 'used'
+      icon: mdi:harddisk
+    builtin_disk_avail:
+      data_group: 'disk_space._'
+      element: 'avail'
+      icon: mdi:harddisk
+    hdd_used:
+      data_group: 'disk_space._srv'
+      element: 'used'
+      icon: mdi:harddisk
+    hdd_avail:
+      data_group: 'disk_space._srv'
+      element: 'avail'
+      icon: mdi:harddisk
+    system_load:
+      data_group: 'system.load'
+      element: 'load15'
+      icon: mdi:chip
+    mem_avail:
+      data_group: 'mem.available'
+      element: 'MemAvailable'
+      icon: mdi:chip
+    system_swap:
+      data_group: 'system.swap'
+      element: 'used'
+      icon: mdi:chip
+    lan_in:
+      data_group: 'system.net'
+      element: 'InOctets'
+      icon: mdi:lan-pending
+    lan_out:
+      data_group: 'system.net'
+      element: 'OutOctets'
+      icon: mdi:lan-pending
+    up:
+      data_group: 'system.uptime'
+      element: 'uptime'
+      icon: mdi:update
+    battery:
+      data_group: 'powersupply_capacity.battery'
+      element: 'capacity'
+      icon: mdi:battery-charging-100
 
-  - platform: template
-    sensors:
-      chsuni01_lan_inbound:
-        friendly_name: 'LAN Inbound'
-        unit_of_measurement: 'Mb/s'
-        value_template: "{{ states('sensor.chsuni01_lan_in') | float | round() | float / 1000 }}"
+- platform: template
+  sensors:
+    chsuni01_lan_inbound:
+      friendly_name: 'LAN Inbound'
+      unit_of_measurement: 'Mb/s'
+      value_template: "{{ states('sensor.chsuni01_lan_in') | float | round() | float / 1000 }}"
 
-  - platform: template
-    sensors:
-      chsuni01_lan_outbound:
-        friendly_name: 'LAN Outbound'
-        unit_of_measurement: 'Mb/s'
-        value_template: "{{ states('sensor.chsuni01_lan_out') | float | round() | float * 1000 }}"
+- platform: template
+  sensors:
+    chsuni01_lan_outbound:
+      friendly_name: 'LAN Outbound'
+      unit_of_measurement: 'Mb/s'
+      value_template: "{{ states('sensor.chsuni01_lan_out') | float | round() | float * 1000 }}"
 
-  - platform: template
-    sensors:
-      chsuni01_uptime:
-        friendly_name: 'Unifi Cloud Key Uptime'
-        value_template: >-
-          {% set time = (states.sensor.chsuni01_up.state | int) | int %}
-          {% set minutes = ((time % 3600) / 60) | int %}
-          {% set hours = ((time % 86400) / 3600) | int %}
-          {% set days = (time / 86400) | int %}
+- platform: template
+  sensors:
+    chsuni01_uptime:
+      friendly_name: 'Unifi Cloud Key Uptime'
+      value_template: >-
+        {% set time = (states.sensor.chsuni01_up.state | int) | int %}
+        {% set minutes = ((time % 3600) / 60) | int %}
+        {% set hours = ((time % 86400) / 3600) | int %}
+        {% set days = (time / 86400) | int %}
 
-          {%- if time < 60 -%}
-            Less than a minute
-            {%- else -%}
-            {%- if days > 0 -%}
-              {{ days }}d
-            {%- endif -%}
-            {%- if hours > 0 -%}
-              {%- if days > 0 -%}
-                {{ ' ' }}
-              {%- endif -%}
-              {{ hours }}h
-            {%- endif -%}
-            {%- if minutes > 0 -%}
-              {%- if days > 0 or hours > 0 -%}
-                {{ ' ' }}
-              {%- endif -%}
-              {{ minutes }}m
-            {%- endif -%}
+        {%- if time < 60 -%}
+          Less than a minute
+          {%- else -%}
+          {%- if days > 0 -%}
+            {{ days }}d
           {%- endif -%}
+          {%- if hours > 0 -%}
+            {%- if days > 0 -%}
+              {{ ' ' }}
+            {%- endif -%}
+            {{ hours }}h
+          {%- endif -%}
+          {%- if minutes > 0 -%}
+            {%- if days > 0 or hours > 0 -%}
+              {{ ' ' }}
+            {%- endif -%}
+            {{ minutes }}m
+          {%- endif -%}
+        {%- endif -%}

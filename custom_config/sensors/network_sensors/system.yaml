@@ -3,27 +3,27 @@
 # Version Sensor
 # https://www.home-assistant.io/integrations/version/
 
-  - platform: version
+- platform: version
 
 # Time & Date
 # https://www.home-assistant.io/integrations/time_date/
 
-  - platform: time_date
-    display_options:
-      - time
-      - date
-      - date_time
-      - time_date
-      - time_utc
-      - beat
+- platform: time_date
+  display_options:
+    - time
+    - date
+    - date_time
+    - time_date
+    - time_utc
+    - beat
 
 # System Monitor
 # https://www.home-assistant.io/integrations/systemmonitor/
 
-  - platform: systemmonitor
-    resources:
-      - type: memory_use
-      - type: processor_use
+- platform: systemmonitor
+  resources:
+    - type: memory_use
+    - type: processor_use
 
 # File size Sensor
 # https://www.home-assistant.io/integrations/filesize/
@@ -35,12 +35,12 @@
 # UNIFI MONITORING - CUSTOM COMPONENT
 # https://github.com/custom-components/sensor.unifigateway
 
-  - platform: unifigateway
-    host: !secret unifi_host
-    username: !secret unifi_username
-    password: !secret unifi_password
-    monitored_conditions:
-      - lan
-      - wlan
-      - alerts
-      - firmware
+- platform: unifigateway
+  host: !secret unifi_host
+  username: !secret unifi_username
+  password: !secret unifi_password
+  monitored_conditions:
+    - lan
+    - wlan
+    - alerts
+    - firmware

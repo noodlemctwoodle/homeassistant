@@ -15,7 +15,7 @@ Christmas Lights:
 
 trash schedule:
   name: Rubbish Schedule
-  view: no
+  view: false
   entities:
     - sensor.trash_day
     - input_select.trash_reminders
