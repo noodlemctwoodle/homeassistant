@@ -282,7 +282,7 @@ views:
                   - value: 0
                     color: "#3498db"
 
-# VIEW 1 - SECURITY
+  # VIEW 1 - SECURITY
   - id: 1
     icon: mdi:shield-home
     name: Security
@@ -361,11 +361,16 @@ views:
     cards:
 
       # CCTV
-      - type: picture-entity
-        entity: camera.front_door
-      - type: picture-entity
-        entity: camera.back_garden
-
+      - type: vertical-stack
+        cards:      
+        - type: picture-entity
+          entity: camera.front_door
+      - type: vertical-stack
+        cards:
+        - type: picture-entity
+          entity: camera.back_garden
+        - type: picture-entity
+          entity: camera.office
 # VIEW 3 - Living Room
   - id: 3
     icon: mdi:sofa

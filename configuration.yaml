@@ -47,8 +47,13 @@ stream:
 camera:
   - platform: generic
     name: Back Garden
-    still_image_url: !secret still_image_url
-    stream_source: !secret rtsp_stream_source
+    still_image_url: !secret g3_still_image_url
+    stream_source: !secret g3_rtsp_stream_source
+    verify_ssl: !secret verify_ssl
+  - platform: generic
+    name: Office
+    still_image_url: !secret g3_flex_still_image_url
+    stream_source: !secret g3_flex_rtsp_stream_source
     verify_ssl: !secret verify_ssl
 
 # CIRCADIAN LIGHTING - Component

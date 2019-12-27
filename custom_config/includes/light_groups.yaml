@@ -48,7 +48,6 @@
   entities:
     - light.living_room_lamp
     - light.living_room_bookshelf
-    - light.living_room_strip
 
 ## Hall Light Groups
 # Hall
