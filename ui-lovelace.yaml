@@ -93,10 +93,20 @@ views:
             - type: entities
               show_header_toggle: false
               entities:
+                - type: 'custom:text-divider-row'
+                  text: Smoke Alarms
                 - entity: sensor.kitchen_nest_protect_smoke_status
-                  name: Kitchen Smoke Detector
+                  name: Kitchen
                 - entity: sensor.upstairs_nest_protect_landing_smoke_status
-                  name: Landing Smoke Detector
+                  name: Landing
+                - type: 'custom:text-divider-row'
+                  text: Cameras
+                - entity: binary_sensor.front_door_camera_person_detected
+                  name: Front Garden
+                - entity: binary_sensor.unifiprotect_motion_back_gate
+                  name: Back Garden
+                - entity: binary_sensor.unifiprotect_motion_office
+                  name: Office
 
 
             - type: entities
@@ -188,6 +198,11 @@ views:
                   name: !secret user_1_to_home
                 - entity: sensor.user_2_to_home
                   name: !secret user_2_to_home
+            - type: custom:calendar-card
+              title: "My Calendar"
+              progressBar: true
+              entities:
+                - calendar.noodlemctwoodle
 
         # House - Light Group Card
         - type: horizontal-stack
@@ -294,10 +309,8 @@ views:
           - type: entities
             show_header_toggle: false
             entities:
-              - type: divider
               - type: 'custom:text-divider-row'
                 text: Smoke Detectors
-              - type: divider
               - binary_sensor.kitchen_nest_protect_online
               - binary_sensor.upstairs_nest_protect_landing_online
 
@@ -307,10 +320,8 @@ views:
           - type: entities
             show_header_toggle: false
             entities:
-              - type: divider
               - type: 'custom:text-divider-row'
                 text: Motion Sensors
-              - type: divider
               - binary_sensor.kitchen_motion
               - binary_sensor.living_room_motion
               - binary_sensor.hall_motion
@@ -327,10 +338,8 @@ views:
           - type: entities
             show_header_toggle: false
             entities:
-              - type: divider
               - type: 'custom:text-divider-row'
                 text: Doors
-              - type: divider
               - binary_sensor.front_door
               - binary_sensor.patio_door
 
@@ -342,10 +351,8 @@ views:
           - type: entities
             show_header_toggle: false
             entities:
-              - type: divider
               - type: 'custom:text-divider-row'
                 text: Windows
-              - type: divider
               - binary_sensor.kitchen_window
               - binary_sensor.living_room_left_window
               - binary_sensor.living_room_right_window
@@ -368,10 +375,11 @@ views:
       - type: vertical-stack
         cards:
         - type: picture-entity
-          entity: camera.back_garden
+          entity: camera.back_gate
         - type: picture-entity
           entity: camera.office
-# VIEW 3 - Living Room
+
+  # VIEW 3 - Living Room
   - id: 3
     icon: mdi:sofa
     name: Living Room
@@ -423,41 +431,40 @@ views:
           - type: horizontal-stack
             cards:
               - type: entity-button
-                entity: light.living_room
-                name: Living Room
+                entity: scene.living_room_lamps_dim
+                name: Lamps Dim
                 icon: mdi:lightbulb
                 tap_action:
                   action: call-service
-                  service: homeassistant.toggle
-                  service_data: {"entity_id": "group.downstairs_lights"}
+                  service: scene.turn_on
+                  service_data: {"entity_id": "scene.living_room_lamps_dim"}
 
               - type: entity-button
-                entity: scene.livingroom_bright
-                name: Brighten
+                entity: scene.living_room_lamps_bright
+                name: Lamps Bright
                 icon: mdi:lightbulb-on
                 tap_action:
                   action: call-service
                   service: scene.turn_on
-                  service_data: {"entity_id": "scene.livingroom_bright"}
+                  service_data: {"entity_id": "scene.living_room_lamps_bright"}
 
               - type: entity-button
-                entity: scene.livingroom_dim
-                name: Dim
-                icon: mdi:lightbulb-on-outline
+                entity: scene.movie_time
+                name: Movie Time
+                icon: mdi:movie-open-outline
                 tap_action:
                   action: call-service
                   service: scene.turn_on
-                  service_data: {"entity_id": "scene.livingroom_dim"}
+                  service_data: {"entity_id": "scene.movie_time"}
 
               - type: entity-button
-                entity: light.entrance_bulb
-                name: Outside
-                icon: mdi:lightbulb
+                entity: scene.christmas_lights
+                name: Christmas
+                icon: mdi:pine-tree
                 tap_action:
                   action: call-service
-                  service: homeassistant.toggle
-                  service_data: {"entity_id": "group.outside_lights"}
-
+                  service: scene.turn_on
+                  service_data: {"entity_id": "scene.christmas_lights"}
 
           # Living Room - Glance Card
           - type: entities
@@ -584,37 +591,53 @@ views:
               background-color: rgba(50,50,50,0.3)
               background-size: 100%
 
+          # Living Room - Shield TV
+          - type: custom:card-modder
+            card:
+              type: custom:mini-media-player
+              entity: media_player.living_room_nvidia_shield_adb
+              name: Shield TV
+              artwork: cover
+              power_color: true
+              show_source: true
+              show_progress: true
+              group: true
+            style:
+              background-image: url("/local/lovelace/cardbackK.png")
+              background-repeat: no-repeat
+              background-color: rgba(50,50,50,0.3)
+              background-size: 100%
+
           # Living Room - Morning Routine Card
           - type: horizontal-stack
             cards:
+              # Start Plex
               - type: entity-button
-                entity: script.1521695976118
-                name: Cartoons
-                icon: mdi:youtube-tv
+                entity: script.adb_open_living_room_plex
+                name: Plex
+                icon: mdi:plex
                 tap_action:
                   action: call-service
                   service: script.turn_on
-                  service_data: {"entity_id": "script.1521695976118"}
-
-              # Living Room - Evening TV Card
+                  service_data: {"entity_id": "script.adb_open_living_room_plex"}
+              # Start Netflix
               - type: entity-button
-                entity: script.1521694771100
-                name: Evening TV
-                icon: mdi:kodi
+                entity: script.adb_open_living_room_netflix
+                name: Netflix
+                icon: mdi:netflix
                 tap_action:
                   action: call-service
                   service: script.turn_on
-                  service_data: {"entity_id": "script.1521694771100"}
-
-              # Living Room - Super Rugby Card
+                  service_data: {"entity_id": "script.adb_open_living_room_netflix"}
+              # Start YouTube
               - type: entity-button
-                entity: script.1521696758169
-                name: Super Rugby
-                icon: mdi:rugby
+                entity: script.adb_open_living_room_youtube
+                name: YouTube
+                icon: mdi:youtube
                 tap_action:
                   action: call-service
                   service: script.turn_on
-                  service_data: {"entity_id": "script.1521696758169"}
+                  service_data: {"entity_id": "script.adb_open_living_room_youtube"}
 
       # Living Room - Upcoming Media
       - type: vertical-stack
@@ -633,15 +656,35 @@ views:
             date: ddmm
             hide_empty: true
 
+          # Living Room - Light Switch Card
+          - type: horizontal-stack
+            cards:
+              - type: picture-entity
+                entity: light.living_room
+                name: Living Room Lights
+                tap_action:
+                  action: toggle
+                image: /local/lovelace/rooms/living_room.png
+
           # Christmas- Light Switch Card
           - type: horizontal-stack
             cards:
               - type: picture-entity
-                entity: group.christmas_lights
+                entity: switch.wemo_1_christmas_lights
                 name: Christmas Lights
                 tap_action:
                   action: toggle
-                image: /local/lovelace/downstairs/xmas-lights_1.jpg
+                image: /local/lovelace/christmas/christmas_lights.png
+
+          # Christmas- Light Switch Card
+          - type: horizontal-stack
+            cards:
+              - type: picture-entity
+                entity: switch.wemo_0_christmas_lights
+                name: Christmas Tree
+                tap_action:
+                  action: toggle
+                image: /local/lovelace/christmas/christmas_tree.png
 
 # VIEW 4 - KITCHEN
 
@@ -708,7 +751,7 @@ views:
             name: Kitchen Light
             tap_action:
               action: toggle
-            image: /local/lovelace/downstairs/kitchen-light.jpg
+            image: /local/lovelace/rooms/kitchen.png
 
 # Kitchen - Media Player Card
           - type: custom:card-modder
@@ -791,7 +834,6 @@ views:
                 color: "#1db954"
 
 # VIEW 5 - BATHROOM
-
   - id: 5
     icon: mdi:shower
     name: Bathroom
@@ -1010,7 +1052,7 @@ views:
             name: Lights
             tap_action:
               action: toggle
-            image: /local/lovelace/hall/entrance-hall.jpg
+            image: /local/lovelace/rooms/hall.png
 
           - type: custom:gap-card
             height: 6
@@ -1067,7 +1109,7 @@ views:
             name: Lights
             tap_action:
               action: toggle
-            image: /local/lovelace/bedrooms/kids-light_1.jpg
+            image: /local/lovelace/rooms/stairs.png
 
 # Landing - LUX Level Graph Card
 
@@ -1154,7 +1196,7 @@ views:
             name: Light
             tap_action:
               action: toggle
-            image: /local/lovelace/bedrooms/bed-light.jpg
+            image: /local/lovelace/rooms/bedroom.png
 
 # Master Bedroom - Pendant 1
 
@@ -1165,7 +1207,7 @@ views:
             name: Pendant 1
             tap_action:
               action: toggle
-            image: /local/lovelace/bedrooms/main-bed-light_2.jpg
+            image: /local/lovelace/rooms/bedroom_pendant.png
 
 # Master Bedroom - Pendant 2
 
@@ -1174,7 +1216,7 @@ views:
             name: Pendant 2
             tap_action:
               action: toggle
-            image: /local/lovelace/bedrooms/walk-in-light_2.jpg
+            image: /local/lovelace/rooms/bedroom_pendant.png
 
 # Master Bedroom - Lamp
 
@@ -1183,7 +1225,7 @@ views:
             name: Lamp
             tap_action:
               action: toggle
-            image: /local/lovelace/bedrooms/walk-in-light_2.jpg
+            image: /local/lovelace/rooms/bedroom_lamp.png
 
 # Master Bedroom - LUX Level Graph Card
 
@@ -1246,6 +1288,53 @@ views:
               background-color: rgba(50,50,50,0.3)
               background-size: 100%
 
+          - type: custom:card-modder
+            card:
+              type: custom:mini-media-player
+              entity: media_player.bedroom_nvidia_shield_adb
+              name: Shield TV
+              artwork: cover
+              power_color: true
+              show_source: true
+              show_progress: true
+              group: true
+            style:
+              background-image: url("/local/lovelace/cardbackK.png")
+              background-repeat: no-repeat
+              background-color: rgba(50,50,50,0.3)
+              background-size: 100%
+
+          - type: horizontal-stack
+            cards:
+              # Start Plex
+              - type: entity-button
+                entity: script.adb_open_bedroom_plex
+                name: Plex
+                icon: mdi:plex
+                tap_action:
+                  action: call-service
+                  service: script.turn_on
+                  service_data: {"entity_id": "script.adb_open_bedroom_plex"}
+              # Start Netflix
+              - type: entity-button
+                entity: script.adb_open_bedroom_netflix
+                name: Netflix
+                icon: mdi:netflix
+                tap_action:
+                  action: call-service
+                  service: script.turn_on
+                  service_data: {"entity_id": "script.adb_open_bedroom_netflix"}
+              # Start YouTube
+              - type: entity-button
+                entity: script.adb_open_bedroom_youtube
+                name: YouTube
+                icon: mdi:youtube
+                tap_action:
+                  action: call-service
+                  service: script.turn_on
+                  service_data: {"entity_id": "script.adb_open_bedroom_youtube"}
+
+
 # VIEW 9 - OFFICE
 
   - id: 9
@@ -1293,6 +1382,20 @@ views:
               - type: custom:slider-entity-row
                 entity: light.office
                 name: Lights
+              - type: custom:slider-entity-row
+                entity: light.office_strip
+                name: Shadow
+
+# Server Cabinet - Light Card
+
+      - type: vertical-stack
+        cards:
+          - type: picture-entity
+            entity: light.server_cabinet
+            name: Cabinet Lights
+            tap_action:
+              action: toggle
+            image: /local/lovelace/hardware/cabinet.png
 
 # Office - Entertainment Lights Card
 
@@ -1301,18 +1404,7 @@ views:
             name: Server
             tap_action:
               action: toggle
-            image: /local/lovelace/office/office-lights.jpg
-
-# Server Cabinet - Light Card
-
-      - type: vertical-stack
-        cards:
-          - type: picture-entity
-            entity: light.server_cabinet
-            name: Server Cabinet
-            tap_action:
-              action: toggle
-            image: /local/lovelace/downstairs/kitchen-light.jpg
+            image: /local/lovelace/hardware/server.png
 
 # Office - Light Card
 
@@ -1321,7 +1413,7 @@ views:
             name: Office Lights
             tap_action:
               action: toggle
-            image: /local/lovelace/downstairs/kitchen-light.jpg
+            image: /local/lovelace/rooms/office.png
 
 # Office - LUX Level Graph Card
 
@@ -1394,15 +1486,6 @@ views:
               - value: 0
                 color: "#1db954"
 
-# Office - Fairy Lights Card ###########################################
-
-          - type: picture-entity
-            entity: switch.fairy_light_power
-            name: Fairy Lights
-            tap_action:
-              action: toggle
-            image: /local/lovelace/office/fairy-lights.jpg
-
 # VIEW 10 - CRAFT ROOM
 
   - id: 10
@@ -1459,7 +1542,7 @@ views:
             name: Light
             tap_action:
               action: toggle
-            image: /local/lovelace/office/office-light.png
+            image: /local/lovelace/rooms/craftroom.png
 
 # Craft Room - Media Player Card
 
@@ -4653,7 +4736,7 @@ views:
                       - type: custom:card-modder
                         card:
                           type: picture
-                          image: /local/lovelace/hardware/cabinet-wide.png
+                          image: /local/lovelace/hardware/cabinet_1.png
                         style:
                           border-radius: 5px
 
@@ -4682,7 +4765,7 @@ views:
                       - type: custom:card-modder
                         card:
                           type: picture
-                          image: /local/lovelace/hardware/cabinet-wide.png
+                          image: /local/lovelace/hardware/cabinet_2.png
                         style:
                           border-radius: 5px
 
@@ -4711,7 +4794,7 @@ views:
                       - type: custom:card-modder
                         card:
                           type: picture
-                          image: /local/lovelace/energy/nas_2.png
+                          image: /local/lovelace/hardware/cabinet_3.png
                         style:
                           border-radius: 5px
 

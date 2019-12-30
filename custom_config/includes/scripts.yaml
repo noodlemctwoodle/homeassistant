@@ -1,0 +1,58 @@
+---
+# Living Room Media Player
+adb_open_living_room_plex:
+  sequence:
+    - service: androidtv.adb_command
+      data:
+        entity_id: media_player.living_room_nvidia_shield_adb
+        command: "monkey -p com.plexapp.android -c android.intent.category.LAUNCHER 1"
+
+adb_open_living_room_netflix:
+  sequence:
+    - service: androidtv.adb_command
+      data:
+        entity_id: media_player.living_room_nvidia_shield_adb
+        command: "am start -a android.intent.action.VIEW -d -n com.netflix.ninja/.MainActivity"
+
+adb_open_living_room_youtube:
+  sequence:
+    - service: androidtv.adb_command
+      data:
+        entity_id: media_player.living_room_nvidia_shield_adb
+        command: "am start -a android.intent.action.VIEW -d -n com.google.android.youtube.tv/com.google.android.apps.youtube.tv.activity.ShellActivity"
+
+# Bedroom Media Player
+adb_open_bedroom_plex:
+  sequence:
+    - service: androidtv.adb_command
+      data:
+        entity_id: media_player.bedroom_nvidia_shield_adb
+        command: "monkey -p com.plexapp.android -c android.intent.category.LAUNCHER 1"
+
+adb_open_bedroom_netflix:
+  sequence:
+    - service: androidtv.adb_command
+      data:
+        entity_id: media_player.bedroom_nvidia_shield_adb
+        command: "am start -a android.intent.action.VIEW -d -n com.netflix.ninja/.MainActivity"
+
+adb_open_bedroom_youtube:
+  sequence:
+    - service: androidtv.adb_command
+      data:
+        entity_id: media_player.bedroom_nvidia_shield_adb
+        command: "am start -a android.intent.action.VIEW -d -n com.google.android.youtube.tv/com.google.android.apps.youtube.tv.activity.ShellActivity"
+
+
+# Bathroom Sensor Off
+turnoff_bathroom_sensor:
+  sequence:
+    - service: homeassistant.turn_off
+      data:
+        entity_id: automation.bathroom_turn_on_lights
+
+turnon_bathroom_sensor:
+  sequence:
+    - service: homeassistant.turn_on
+      data:
+        entity_id: automation.bathroom_turn_on_lights

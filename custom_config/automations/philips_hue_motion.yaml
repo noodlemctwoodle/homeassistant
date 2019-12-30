@@ -1,7 +1,6 @@
 ---
 #  Office - Philips Hue Motion
 - alias: 'Office turn-on lights'
-  initial_state: 'off'
   trigger:
     platform: state
     entity_id: binary_sensor.office_motion
@@ -22,30 +21,11 @@
     entity_id: binary_sensor.office_motion
     to: 'off'
     for:
-      seconds: 5
+      minutes: 60
   condition:
   - condition: state
     entity_id: binary_sensor.office_window
     state: 'off'
-  action:
-    service: light.turn_off
-    data:
-      entity_id: light.office
-      transition : 5
-
-- alias: 'Office door Sensor turn-off lights'
-  trigger:
-    platform: state
-    entity_id: binary_sensor.office_window
-    to: 'off'
-    for:
-      seconds: 5
-  condition:
-  - condition: state
-    entity_id: binary_sensor.office_motion
-    state: 'off'
-    for:
-      seconds: 5
   action:
     service: light.turn_off
     data:
@@ -54,19 +34,18 @@
 
 #  Bathroom - Philips Hue Motion
 - alias: 'Bathroom turn-on lights'
-  initial_state: 'off'
   trigger:
     platform: state
     entity_id: binary_sensor.bathroom_motion
     to: 'on'
   condition:
   - condition: state
-    entity_id: light.bathroom_pendant
+    entity_id: light.bathroom
     state: 'off'
   action:
     service: light.turn_on
     data:
-      entity_id: light.bathroom_pendant
+      entity_id: light.bathroom
       brightness: 249
 
 - alias: 'Bathroom motion sensor turn-off lights'
@@ -83,7 +62,7 @@
   action:
     service: light.turn_off
     data:
-      entity_id: light.bathroom_pendant
+      entity_id: light.bathroom
       transition : 10
 
 - alias: 'Bathroom door Sensor turn-off lights'
@@ -102,5 +81,5 @@
   action:
     service: light.turn_off
     data:
-      entity_id: light.bathroom_pendant
+      entity_id: light.bathroom
       transition : 10

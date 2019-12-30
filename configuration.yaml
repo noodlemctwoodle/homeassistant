@@ -40,21 +40,20 @@ lovelace:
 hacs:
   token: !secret access_token
 
-# (UniFI) GENERIC CAMERA - Component
+# Camera Streams
 
 stream:
 
 camera:
-  - platform: generic
-    name: Back Garden
-    still_image_url: !secret g3_still_image_url
-    stream_source: !secret g3_rtsp_stream_source
-    verify_ssl: !secret verify_ssl
-  - platform: generic
-    name: Office
-    still_image_url: !secret g3_flex_still_image_url
-    stream_source: !secret g3_flex_rtsp_stream_source
-    verify_ssl: !secret verify_ssl
+  - platform: unifiprotect
+
+# UniFI Protect - Custom Component
+# https://github.com/briis/unifiprotect
+
+unifiprotect:
+  host: !secret cloud_key_ip
+  username: !secret unifi_protect_username
+  password: !secret unifi_protect_password
 
 # CIRCADIAN LIGHTING - Component
 # https://community.home-assistant.io/t/circadian-lighting-custom-component/61246
@@ -137,7 +136,6 @@ switch: !include_dir_merge_list custom_config/switch
 group: !include custom_config/includes/group.yaml
 input_boolean: !include custom_config/includes/input_boolean.yaml
 input_select: !include custom_config/includes/input_select.yaml
-light: !include custom_config/includes/light_groups.yaml
 nzbget: !include custom_config/includes/nzbget.yaml
 scene: !include scenes.yaml
 script: !include custom_config/includes/scripts.yaml

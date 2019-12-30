@@ -23,7 +23,13 @@
       message: "Turn on action"
 
 - platform: androidtv
-  host: !secret shield_tv_ip
-  name: "NVIDIA Shield"
+  host: !secret living_room_shield_tv_ip
+  name: "Living Room Shield"
+  adb_server_ip: 127.0.0.1
+  adb_server_port: 5037
+
+- platform: androidtv
+  host: !secret bedroom_shield_tv_ip
+  name: "Bedroom Shield"
   adb_server_ip: 127.0.0.1
   adb_server_port: 5037
