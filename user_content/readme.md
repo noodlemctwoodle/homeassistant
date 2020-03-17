@@ -24,9 +24,9 @@ What this Dashboard does
  - [ElectricBrainUK](https://github.com/ElectricBrainUK/UnraidAPI) Thanks for creating this API for us to use and making this dashboard possible
  - [123](https://community.home-assistant.io/u/123/summary) Thanks for solving the problem with parenthesis 
 
-### If you want to buy me a coffee you can. 
+### Buy me a toilet roll?. 
 I don't expect anything for my work and if you are thinking of donating you should consider donating the main developers of HKI or UNRAID-API. 
-I don't drink beer, I don't like going outside because I might catch something, so if you want to buy me a coffee I would greatly appreciate it. 
+I don't drink beer, I don't like going outside because I might catch something and we cant buy toilet roll!!! If you want to buy me one I would greatly appreciate it. 
 
 
 <a href="https://www.buymeacoffee.com/noodlemctwoodle" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
