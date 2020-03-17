@@ -32,3 +32,8 @@ As an example this is the value for key 7, you will need to replicate it for key
 You will also need to configure your MQTT Broker, replacing the fields marked in Yellow.
 
 ![Container MQTT](https://github.com/noodlemctwoodle/homeassistant/blob/master/www/images/github/unraid-api/container-configuration.png)
+
+### Starting The Container
+When you start the container for the first time you must browse to the login screen of the UnRAID-API Web-UI and login with your UnRAID credentials. If this step is missed the API will not work. 
+
+![Web-UI](https://github.com/noodlemctwoodle/homeassistant/blob/master/www/images/github/unraid-api/web-ui.png)
