@@ -4,12 +4,17 @@
 
 
 ### Setup MQTT on Home Assistant
+Im not going to go through the setup for MQTT as there is plenty of guides out there. If you are running Home Assistant (Hassio) Docker then you can just install the addon package. and the integration. 
 
+These need to be configured and working before you proceed to configure the UnRAID-API
+ - Mosquitto broker
+ - MQTT Integration
 
+Home Assistant have documentation [here](https://github.com/home-assistant/hassio-addons/blob/master/mosquitto/README.md) on the add-on package.
 
 ### UNRAID-API Container Configuration
 
-Insatll the UnRAID-API on your unraid server 
+Install the [UnRAID-API](https://github.com/ElectricBrainUK/UnraidAPI) on your UnRAID server, this can alo be installed from the UnRAID App Store.
 
 ![unraid-api-container](https://github.com/noodlemctwoodle/homeassistant/blob/master/www/images/github/unraid-api/unraid-api.png)
 
