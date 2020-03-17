@@ -4,6 +4,17 @@
 ## UnRAID Monitoring View for HKI
 ![unraid-monitor](https://github.com/noodlemctwoodle/homeassistant/blob/master/www/images/github/views/unraid.png)
 
+What this Dashboard does
+ - View arrayStatus
+ - View arrayProtection
+ - View diskSpace
+ - Start/Stop Containers
+ - View total per disk used space
+ - View total per disk free space
+ - View System Temperatures
+ - View CPU usage
+ - View RAM usage
+
 
 ### Setup MQTT on Home Assistant
 Im not going to go through the setup for MQTT as there is plenty of guides out there. If you are running Home Assistant (Hassio) Docker then you can just install the addon package. and the integration. 
@@ -13,6 +24,12 @@ These need to be configured and working before you proceed to configure the UnRA
  - MQTT Integration
 
 Home Assistant have documentation [here](https://github.com/home-assistant/hassio-addons/blob/master/mosquitto/README.md) on the add-on package.
+
+### Setup Glances for UnRAID
+
+Requirements:
+ - Glances Docker Container installed on UnRAID
+ - Glances Integration for Home Assistant setup to pull data from UnRAID
 
 ### UNRAID-API Container Configuration
 
@@ -45,3 +62,9 @@ Once the UnRAID-API container is up and running check the mqtt integration, you 
 
 ![mqtt-integration](https://github.com/noodlemctwoodle/homeassistant/blob/master/www/images/github/unraid-api/mqtt.png)
 
+### Setting Up Sensors
+
+You need the following [Sensors](https://github.com/noodlemctwoodle/homeassistant/blob/master/configuration/sensors/template/unraid.yaml) to be configured in Home Assistant for the view to to collect:
+ - arrayStatus
+ - arrayProtection
+ - diskSpace
