@@ -19,8 +19,8 @@ What this Dashboard does
  You can find the config [here](https://github.com/noodlemctwoodle/homeassistant/blob/master/user_content/views/computers_user_content.yaml)
 
  ## Credits
- - [jimz011](https://github.com/jimz011) Thanks for your assistance and ideas on this :)
- - [stephen](https://github.com/Stephan296) Thanks for creating the version sensor curl request and exploring the correct configuration for the UnRAID-API.
+ - [Jimz011](https://github.com/jimz011) Thanks for your assistance and ideas on this :)
+ - [Stephan](https://github.com/Stephan296) Thanks for creating the version sensor curl request and exploring the correct configuration for the UnRAID-API.
  - [ElectricBrainUK](https://github.com/ElectricBrainUK/UnraidAPI) Thanks for creating this API for us to use and making this dashboard possible
  - [123](https://community.home-assistant.io/u/123/summary) Thanks for solving the problem with parenthesis 
 
