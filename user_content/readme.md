@@ -63,7 +63,7 @@ These need to be configured and working before you proceed to configure the UnRA
  - Mosquitto broker
  - MQTT Integration
 
-<u>When setting up the MQTT integration, ensure that you tick the box to enable discovery.</u>
+**_When setting up the MQTT integration, ensure that you tick the box to enable discovery._**
 
 
 Home Assistant have documentation [here](https://github.com/home-assistant/hassio-addons/blob/master/mosquitto/README.md) on the add-on package.
