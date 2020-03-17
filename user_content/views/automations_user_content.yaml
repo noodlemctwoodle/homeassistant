@@ -1,0 +1,178 @@
+# This is the file you can use to add your own cards, they are already in a vertical stack.
+# You can simply put cards under each other, easy huh? :P. You can even use this file to 
+# customize your entire view (just turn off the other elements except for user content)!
+# The first card is an example, you can safely remove it!
+
+# Kitchen Automations
+  - !include
+    - '../../lovelace/templates/header_text.yaml'
+    - content: '##### Kitchen'
+  - type: entities
+    style: |
+      ha-card {
+        border-radius: {{ states('input_select.border_radius') }};
+        box-shadow: {{ states('input_select.box_shadow') }};
+        font-family: Helvetica;
+        font-size: 12px;
+        opacity: 0.8;
+      }
+    entities:
+      - entity: automation.kitchen_decrease_brightness_from_dimmer
+      - entity: automation.kitchen_increase_brightness_from_dimmer
+      - entity: automation.kitchen_lights_delay_turn_off_on_deconz_event
+      - entity: automation.kitchen_lights_enable_turn_off_on_deconz_event
+      - entity: automation.kitchen_lights_turn_off
+      - entity: automation.kitchen_turn_off_from_dimmer
+      - entity: automation.kitchen_turn_on_from_dimmer_normal
+      - entity: automation.kithen_lights_turn_on_day
+      - entity: automation.kithen_lights_turn_on_night
+
+# Living Room Automations
+  - !include
+    - '../../lovelace/templates/header_text.yaml'
+    - content: '##### Living Room'
+  - type: entities
+    style: |
+      ha-card {
+        border-radius: {{ states('input_select.border_radius') }};
+        box-shadow: {{ states('input_select.box_shadow') }};
+        font-family: Helvetica;
+        font-size: 12px;
+        opacity: 0.8;
+      }
+    entities:
+      - entity: automation.living_room_decrease_brightness_from_dimmer
+      - entity: automation.living_room_increase_brightness_from_dimmer
+      - entity: automation.living_room_lights_turn_off
+      - entity: automation.living_room_stop_brightness_from_dimmer
+      - entity: automation.living_room_turn_off_from_dimmer
+      - entity: automation.living_room_turn_on_from_dimmer_bright
+      - entity: automation.living_room_turn_on_from_dimmer_normal
+      - entity: automation.living_rooom_lights_delay_turn_off_on_deconz_event
+      - entity: automation.living_rooom_lights_enable_turn_off_on_deconz_event
+      - entity: automation.living_rooom_lights_turn_on_day
+      - entity: automation.living_rooom_lights_turn_on_night
+
+# Hall Automations
+  - !include
+    - '../../lovelace/templates/header_text.yaml'
+    - content: '##### Hall'
+  - type: entities
+    style: |
+      ha-card {
+        border-radius: {{ states('input_select.border_radius') }};
+        box-shadow: {{ states('input_select.box_shadow') }};
+        font-family: Helvetica;
+        font-size: 12px;
+        opacity: 0.8;
+      }
+    entities:
+      - entity: automation.hall_lights_delay_turn_off_rubbish_collection
+      - entity: automation.hall_lights_turn_off
+      - entity: automation.hall_lights_turn_on
+
+# Bathroom Automations
+  - !include
+    - '../../lovelace/templates/header_text.yaml'
+    - content: '##### Bathroom'
+  - type: entities
+    style: |
+      ha-card {
+        border-radius: {{ states('input_select.border_radius') }};
+        box-shadow: {{ states('input_select.box_shadow') }};
+        font-family: Helvetica;
+        font-size: 12px;
+        opacity: 0.8;
+      }
+    entities:
+      - entity: automation.bathroom_decrease_brightness_from_dimmer
+      - entity: automation.bathroom_increase_brightness_from_dimmer
+      - entity: automation.bathroom_lights_turn_off_when_door_open_and_no_motion
+      - entity: automation.bathroom_lights_turn_off_when_no_motion_sensor
+      - entity: automation.bathroom_lights_turn_on
+      - entity: automation.bathroom_turn_off_from_dimmer
+      - entity: automation.bathroom_turn_on_from_dimmer_normal
+
+# Landing Automations
+  - !include
+    - '../../lovelace/templates/header_text.yaml'
+    - content: '##### Landing'
+  - type: entities
+    style: |
+      ha-card {
+        border-radius: {{ states('input_select.border_radius') }};
+        box-shadow: {{ states('input_select.box_shadow') }};
+        font-family: Helvetica;
+        font-size: 12px;
+        opacity: 0.8;
+      }
+    entities:
+      - entity: automation.landing_lights_turn_off
+      - entity: automation.landing_lights_turn_on
+
+# Bedroom Automations
+  - !include
+    - '../../lovelace/templates/header_text.yaml'
+    - content: '##### Bedroom'
+  - type: entities
+    style: |
+      ha-card {
+        border-radius: {{ states('input_select.border_radius') }};
+        box-shadow: {{ states('input_select.box_shadow') }};
+        font-family: Helvetica;
+        font-size: 12px;
+        opacity: 0.8;
+      }
+    entities:
+      - entity: automation.bedroom_decrease_brightness_from_dimmer
+      - entity: automation.bedroom_increase_brightness_from_dimmer
+      - entity: automation.bedroom_stop_brightness_from_dimmer
+      - entity: automation.bedroom_turn_off_from_dimmer
+      - entity: automation.bedroom_turn_on_from_dimmer_bright
+      - entity: automation.bedroom_turn_on_from_dimmer_normal
+
+# Craft Room Automations
+  - !include
+    - '../../lovelace/templates/header_text.yaml'
+    - content: '##### Craft Room'
+  - type: entities
+    style: |
+      ha-card {
+        border-radius: {{ states('input_select.border_radius') }};
+        box-shadow: {{ states('input_select.box_shadow') }};
+        font-family: Helvetica;
+        font-size: 12px;
+        opacity: 0.8;
+      }
+    entities:
+      - entity: automation.craft_room_decrease_brightness_from_dimmer
+      - entity: automation.craft_room_increase_brightness_from_dimmer
+      - entity: automation.craft_room_lights_turn_off
+      - entity: automation.craft_room_lights_turn_on_day
+      - entity: automation.craft_room_lights_turn_on_night
+      - entity: automation.craft_room_turn_off_from_dimmer
+      - entity: automation.craft_room_turn_on_from_dimmer_bright
+      - entity: automation.craft_room_turn_on_from_dimmer_normal
+
+# Office Automations
+  - !include
+    - '../../lovelace/templates/header_text.yaml'
+    - content: '##### Office'
+  - type: entities
+    style: |
+      ha-card {
+        border-radius: {{ states('input_select.border_radius') }};
+        box-shadow: {{ states('input_select.box_shadow') }};
+        font-family: Helvetica;
+        font-size: 12px;
+        opacity: 0.8;
+      }
+    entities:
+      - entity: automation.office_decrease_brightness_from_dimmer
+      - entity: automation.office_increase_brightness_from_dimmer
+      - entity: automation.office_lights_turn_off
+      - entity: automation.office_lights_turn_on
+      - entity: automation.office_stop_brightness_from_dimmer
+      - entity: automation.office_turn_off_from_dimmer
+      - entity: automation.office_turn_on_from_dimmer_bright
+      - entity: automation.office_turn_on_from_dimmer_normal

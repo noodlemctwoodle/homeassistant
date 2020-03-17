@@ -1,0 +1,39 @@
+- id: '1576251938491'
+  name: Office Blue
+  entities:
+    light.office:
+      all_on: true
+      brightness: 254
+      effect_list:
+      - colorloop
+      friendly_name: Office
+      hs_color:
+      - 242.588
+      - 100
+      is_deconz_group: true
+      max_mireds: 500
+      min_mireds: 153
+      rgb_color:
+      - 10
+      - 0
+      - 255
+      state: 'on'
+      supported_features: 63
+      xy_color:
+      - 0.137
+      - 0.041
+- id: '1576252224652'
+  name: Office Bright
+  entities:
+    light.office:
+      all_on: true
+      brightness: 254
+      color_temp: 328
+      effect_list:
+      - colorloop
+      friendly_name: Office
+      is_deconz_group: true
+      max_mireds: 500
+      min_mireds: 153
+      state: 'on'
+      supported_features: 63

@@ -1,0 +1,21 @@
+---
+## Template Sensor
+# https://www.home-assistant.io/integrations/template/
+
+# Device States Template
+
+- platform: template
+  sensors:
+#    current_lights_on:
+#      friendly_name: All lights currently on
+#      unit_of_measurement: 'on'
+#      entity_id: group.all_lights
+#      value_template: >
+#          {{ states.light | rejectattr('entity_id','in', ['light.back_door','light.bathroom','light.bedroom','light.cabinet','light.craft_room','light.cupboard','light.hall','light.kitchen','light.landing','light.living_room','light.loft','light.office'] ) |selectattr('state','eq','on') | list | count }}
+
+    current_mediaplayers_on:
+      friendly_name: All media players currently on
+      unit_of_measurement: 'playing'
+      entity_id: group.all_mediaplayers
+      value_template: >
+          {{ states.media_player | rejectattr('entity_id','in', ['media_player.bedroom_nvidia_shield_adb','media_player.bedroom_shield','media_player.bedroom_speaker','media_player.craft_room_speaker','media_player.denon_avrx2300w','media_player.downstairs_multiroom','media_player.kitchen_display','media_player.living_room','media_player.living_room_display','media_player.living_room_nvidia_shield_adb','media_player.living_room_shield','media_player.living_room_tv','media_player.office_speaker','media_player.office_tv'] ) |selectattr('state','eq','playing') | list | count }}

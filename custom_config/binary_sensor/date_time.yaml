@@ -1,7 +1,0 @@
----
-## Workday Binary Sensor
-# https://www.home-assistant.io/integrations/workday/
-
-- platform: workday
-  country: UK
-  workdays: [mon, tue, wed, thu, fri]

@@ -1,0 +1,4 @@
+---
+# UniFI Protect - Custom Component
+# https://github.com/briis/unifiprotect
+- platform: unifiprotect

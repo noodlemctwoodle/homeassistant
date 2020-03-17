@@ -1,0 +1,14 @@
+## INPUT BOOLEAN
+# https://www.home-assistant.io/integrations/input_boolean/
+
+# Home Assistant Update Available
+ha_update_available:
+  name: HA Update Avaiable
+  initial: false
+  icon: mdi:cloud-download
+
+#  Home Assistant Podcast Available
+#new_podcast_available:
+#  name: New Podcast Avaiable
+#  initial: false
+#  icon: mdi:podcast

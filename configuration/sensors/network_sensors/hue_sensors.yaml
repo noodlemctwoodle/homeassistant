@@ -1,0 +1,48 @@
+---
+## Min/max Sensor
+# https://www.home-assistant.io/integrations/min_max/
+
+# Downstairs Average Temperature
+
+- platform: min_max
+  type: mean
+  name: downstairs_average_temp
+  entity_ids:
+    - sensor.kitchen_temperature
+    - sensor.living_room_temperature
+    - sensor.living_room_thermostat_temperature
+    - sensor.bathroom_temperature
+    - sensor.hall_temperature
+
+# Upstairs Average Temperature
+
+- platform: min_max
+  type: mean
+  name: upstairs_average_temp
+  entity_ids:
+    - sensor.landing_temperature
+    - sensor.office_temperature
+    - sensor.bedroom_temperature
+    - sensor.craft_room_temperature
+
+# Downstairs Average LUX
+
+- platform: min_max
+  type: mean
+  name: downstairs_average_lux
+  entity_ids:
+    - sensor.kitchen_lux
+    - sensor.living_room_lux
+    - sensor.bathroom_lux
+    - sensor.hall_lux
+
+# Upstairs Average LUX
+
+- platform: min_max
+  type: mean
+  name: upstairs_average_lux
+  entity_ids:
+    - sensor.landing_lux
+    - sensor.office_lux
+    - sensor.bedroom_lux
+    - sensor.craft_room_lux

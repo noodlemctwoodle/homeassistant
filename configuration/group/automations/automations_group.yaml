@@ -1,0 +1,69 @@
+  kitchen_light_automations:
+    name: Kitchen Light Automations
+    entities:
+    # Light Automations
+      - automation.kithen_lights_turn_on_day
+      - automation.kithen_lights_turn_on_night
+      - automation.kitchen_turn_off_from_dimmer
+      - automation.kitchen_lights_turn_off
+      - automation.kitchen_lights_delay_turn_off_on_deconz_event
+      - automation.kitchen_lights_enable_turn_off_on_deconz_event
+    # Remote Automations
+      - automation.kitchen_turn_on_from_dimmer_normal
+      - automation.kitchen_decrease_brightness_from_dimmer
+      - automation.kitchen_increase_brightness_from_dimmer
+
+  living_room_light_automations:
+    name: Living Room Light Automations
+    entities:
+    # Light Automations
+      - automation.living_rooom_lights_turn_on_day
+      - automation.living_rooom_lights_turn_on_night
+      - automation.living_room_turn_off_from_dimmer
+      - automation.living_room_lights_turn_off
+      - automation.living_rooom_lights_delay_turn_off_on_deconz_event
+      - automation.living_rooom_lights_enable_turn_off_on_deconz_event
+    # Remote Automations
+      - automation.living_room_turn_on_from_dimmer_bright
+      - automation.living_room_turn_on_from_dimmer_normal
+      - automation.living_room_stop_brightness_from_dimmer
+      - automation.living_room_decrease_brightness_from_dimmer
+      - automation.living_room_increase_brightness_from_dimmer
+
+  hall_light_automations:
+    name: Hall Light Automations
+    entities:
+    # Light Automations
+      - automation.hall_lights_turn_on
+      - automation.hall_lights_turn_off
+      - automation.hall_lights_delay_turn_off_rubbish_collection
+
+  bathroom_light_automations:
+    name: Living Room Light Automations
+    entities:
+    # Light Automations
+      - automation.bathroom_lights_turn_on
+      - automation.bathroom_lights_turn_off_when_no_motion_sensor
+      - automation.bathroom_lights_turn_off_when_door_open_and_no_motion
+    # Remote Automations
+      - automation.bathroom_decrease_brightness_from_dimmer
+      - automation.bathroom_increase_brightness_from_dimmer
+      - automation.bathroom_turn_on_from_dimmer_normal
+      - automation.bathroom_turn_off_from_dimmer
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

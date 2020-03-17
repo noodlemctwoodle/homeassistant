@@ -1,9 +1,0 @@
----
-## NZBGET - COMPONENT
-# https://www.home-assistant.io/integrations/nzbget/
-
-host: !secret host_ip_address
-port: !secret nzbget_port
-name: !secret nzbget_server_name
-username: !secret nzbgetuser
-password: !secret nzbgetpass

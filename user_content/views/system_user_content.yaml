@@ -1,0 +1,445 @@
+## Special thanks to Jimz011 for helping create the picture elements of this view and HKI on the whole.
+## Its a fantastic frontend that make your life much easier
+
+## UnRAID Montitoring for HKI. 
+## Version 1.0 by noodlemctwoodle
+
+## This configuration expects input_text with the following values.
+#       input_text:
+#         card_containers:
+#           initial: Containers
+#         unraid_usb:
+#           initial: USB Storage
+
+## You need to the following images in /www/images/hardware
+# flash-drive.png
+# unraid_logo.png
+
+## Bar-Card is required to be installed from HACs and added to lovelace/views/resources.yaml
+# Bar Card
+#  - url: /hacsfiles/bar-card/bar-card.js
+#    type: js
+
+
+# Home Assistant Picture Card
+- type: picture-elements
+  style: |
+    ha-card {
+      border-radius: {{ states('input_select.border_radius') }};
+      box-shadow: {{ states('input_select.box_shadow') }};
+      overflow: hidden;
+    }
+  image: '/local/images/software/homeassistant.png'
+  elements:
+
+# Docker Containers  
+    - type: state-label
+      entity: input_text.card_containers
+      style:
+        top: 15%
+        left: 1%
+        pointer-events: none
+        transform: initial
+        font-size: 12px
+        color: rgba(255,255,255,0.8)
+        line-height: 32px
+        padding: 0px 28px
+    - type: icon
+      icon: mdi:docker
+      style:
+        top: 35%
+        left: 11%
+        pointer-events: none
+        transform: scale(1.0)
+        color: rgba(255,255,255,0.8)
+        line-height: 32px
+        padding: 7px 7px
+        font-size: 15px
+    - type: state-label
+      entity: sensor.glances_homeassistant_containers_active
+      style:
+        top: 60%
+        left: 6%
+        pointer-events: none
+        transform: initial
+        font-size: 12px
+        color: rgba(255,255,255,0.8)
+        line-height: 32px
+        padding: 0px 28px
+
+# Home Assistant Version
+    - type: state-label
+      entity: input_text.software_version
+      style:
+        top: 15%
+        left: 73%
+        pointer-events: none
+        transform: initial
+        font-size: 12px
+        color: rgba(255,255,255,0.8)
+        line-height: 32px
+        padding: 0px 28px
+    - type: icon
+      icon: mdi:home-assistant
+      style:
+        top: 38%
+        left: 81%
+        pointer-events: none
+        transform: scale(0.8)
+        line-height: 32px
+        padding: 7px 7px
+        font-size: 15px
+    - type: state-label
+      entity: sensor.current_version
+      style:
+        top: 60%
+        left: 73%
+        pointer-events: none
+        transform: initial
+        font-size: 12px
+        color: rgba(255,255,255,0.8)
+        line-height: 32px
+        padding: 0px 28px
+
+# System Temperatures Card
+- !include
+  - '../../lovelace/templates/header_text.yaml'
+  - content: '##### System Temperatures'
+
+- type: horizontal-stack
+  cards:
+
+# CPU Temps
+    - type: custom:mini-graph-card
+      style: |
+        ha-card {
+          background: var(--paper-card-background-color);
+          border-radius: {{ states('input_select.border_radius') }};
+          --paper-item-icon-color: var(--paper-item-icon-color);
+          box-shadow: {{ states('input_select.box_shadow') }};
+          font-weight: bold;
+          opacity: 0.8;
+        }
+      entities:
+        - entity: sensor.glances_homeassistant_core_0_temp
+          name: CPU0
+        - entity: sensor.glances_homeassistant_core_1_temp
+          name: CPU1
+      name: Intel Core i3-7100U
+      color_thresholds:
+        - value: 40
+          color: "#4fcc29"
+        - value: 50
+          color: "#f39c12"
+        - value: 70
+          color: "#d35400"
+        - value: 70
+          color: "#c0392b"
+      hours_to_show: 1
+      points_per_hour: 60
+      update_interval: 30
+      aggregate_func: max
+      line_width: 2
+      smoothing: false
+      font_size: 65
+      font_size_header: 9
+      show:
+        average: true
+        extrema: true
+
+# Motherboard Temps
+    - type: custom:mini-graph-card
+      style: |
+        ha-card {
+          background: var(--paper-card-background-color);
+          border-radius: {{ states('input_select.border_radius') }};
+          --paper-item-icon-color: var(--paper-item-icon-color);
+          box-shadow: {{ states('input_select.box_shadow') }};
+          font-weight: bold;
+          opacity: 0.8;
+        }
+      entities:
+        - entity: sensor.glances_homeassistant_pch_skylake_1_temp
+          name: Motherboard
+      name: Intel NUC NUC7i3BNH
+      hours_to_show: 1
+      points_per_hour: 60
+      update_interval: 30
+      aggregate_func: max
+      line_width: 2
+      smoothing: false
+      font_size: 65
+      font_size_header: 9
+      show:
+        labels: true
+        average: true
+        extrema: true
+      color_thresholds:
+        - value: 40
+          color: "#4fcc29"
+        - value: 50
+          color: "#f39c12"
+        - value: 70
+          color: "#d35400"
+        - value: 70
+          color: "#c0392b"
+
+
+
+- !include
+  - '../../lovelace/templates/header_text.yaml'
+  - content: '##### Resources'
+  
+- type: horizontal-stack
+  cards:
+    - type: custom:mini-graph-card
+      style: |
+        ha-card {
+          background: var(--paper-card-background-color);
+          border-radius: {{ states('input_select.border_radius') }};
+          --paper-item-icon-color: var(--paper-item-icon-color);
+          box-shadow: {{ states('input_select.box_shadow') }};
+          font-weight: bold;
+          opacity: 0.8;
+        }
+      entities:
+        - entity: sensor.glances_homeassistant_cpu_used
+          name: System
+          line_color: '"#14ff8d"'
+        - entity: sensor.glances_homeassistant_containers_cpu_used
+          name: Containers
+          line_color: '"#2814ff"'
+      name: CPU Usage
+      hours_to_show: 1
+      points_per_hour: 60
+      update_interval: 30
+      aggregate_func: max
+      line_width: 2
+      smoothing: false
+      font_size: 65
+      font_size_header: 9
+      show:
+        average: true
+        extrema: true
+
+    - type: custom:mini-graph-card
+      style: |
+        ha-card {
+          background: var(--paper-card-background-color);
+          border-radius: {{ states('input_select.border_radius') }};
+          --paper-item-icon-color: var(--paper-item-icon-color);
+          box-shadow: {{ states('input_select.box_shadow') }};
+          font-weight: bold;
+          opacity: 0.8;
+        }
+      entities:
+        - entity: sensor.glances_homeassistant_ram_used
+          name: System
+          line_color: '"#14ff8d"'
+        - entity: sensor.glances_homeassistant_containers_ram_used
+          name: Containers
+          line_color: '"#2814ff"'
+      name: RAM Usage
+      hours_to_show: 1
+      points_per_hour: 60
+      update_interval: 30
+      aggregate_func: max
+      line_width: 2
+      smoothing: false
+      font_size: 65
+      font_size_header: 9
+      show:
+        average: true
+        extrema: true
+
+- type: vertical-stack
+  cards:
+    - type: custom:mini-graph-card
+      style: |
+        ha-card {
+          background: var(--paper-card-background-color);
+          border-radius: {{ states('input_select.border_radius') }};
+          --paper-item-icon-color: var(--paper-item-icon-color);
+          box-shadow: {{ states('input_select.box_shadow') }};
+          font-weight: bold;
+          opacity: 0.8;
+        }
+      entities:
+        - entity: sensor.home_assistant_db_size
+          line_colour: '"#ffb414"'
+      name: Database Size
+      hours_to_show: 24
+#      points_per_hour: 60
+      update_interval: 30
+#      decimals: 0
+      aggregate_func: max
+      line_width: 2
+      smoothing: true
+      font_size: 65
+      font_size_header: 9
+      show:
+        average: true
+        extrema: true
+
+- !include
+  - '../../lovelace/templates/header_text.yaml'
+  - content: '##### Storage'
+
+- type: horizontal-stack
+  cards:
+
+# NVMe System
+    - type: custom:bar-card
+      style: |
+        ha-card {
+          background: var(--paper-card-background-color);
+          border-radius: {{ states('input_select.border_radius') }};
+          --paper-item-icon-color: var(--paper-item-icon-color);
+          box-shadow: {{ states('input_select.box_shadow') }};
+          font-weight: bold;
+          opacity: 0.8;
+        }
+      entities: 
+        - sensor.glances_homeassistant_etc_hostname_free
+      severity:
+      - value: 900
+        color: '#3ed11d'
+      - value: 700
+        color: '#bf9540'
+      - value: 300
+        color: '#e69422'
+      - value: 100
+        color: '#bf4040'
+      title: NVMe System (Free)
+      show_icon: true
+      icon: mdi:harddisk
+      title_position: 'inside'
+      icon_position: inside
+      direction: right
+      title_style:
+        font-size: 10px
+      value_style:
+        font-size: 10px
+      columns: 1
+      align: split
+# Disk Size (250GB)
+      max: 233
+      min: 0
+
+# SSD Data Disk
+    - type: custom:bar-card
+      style: |
+        ha-card {
+          background: var(--paper-card-background-color);
+          border-radius: {{ states('input_select.border_radius') }};
+          --paper-item-icon-color: var(--paper-item-icon-color);
+          box-shadow: {{ states('input_select.box_shadow') }};
+          font-weight: bold;
+          opacity: 0.8;
+        }
+      entities: 
+        - sensor.glances_homeassistant_data_free
+      severity:
+      - value: 900
+        color: '#3ed11d'
+      - value: 700
+        color: '#bf9540'
+      - value: 300
+        color: '#e69422'
+      - value: 100
+        color: '#bf4040'
+      title: SSD Data (Free)
+      show_icon: true
+      icon: mdi:harddisk
+      title_position: 'inside'
+      icon_position: inside
+      direction: right
+      title_style:
+        font-size: 10px
+      value_style:
+        font-size: 10px
+      columns: 1
+      align: split
+# Disk Size (750GB)
+      max: 687
+      min: 0
+
+- !include
+  - '../../lovelace/templates/header_text.yaml'
+  - content: '##### Internet'
+- type: horizontal-stack
+  cards:
+    - !include
+      - '../../lovelace/templates/mini_graph.yaml'
+      - entity: sensor.cloudflare_dns_ping
+        name: Cloudflare Ping
+        line_color: '"#ffb414"'
+        graph_type: line
+        show_extrema: true
+        decimals: 0
+        font_size: 65
+    - !include
+      - '../../lovelace/templates/mini_graph.yaml'
+      - entity: sensor.google_dns_ping
+        name: Google Ping
+        line_color: '"#ffb414"'
+        graph_type: line
+        show_extrema: true
+        decimals: 0
+        font_size: 65
+
+- type: horizontal-stack
+  cards:
+    - type: custom:mini-graph-card
+      style: |
+        ha-card {
+          background: var(--paper-card-background-color);
+          border-radius: {{ states('input_select.border_radius') }};
+          --paper-item-icon-color: var(--paper-item-icon-color);
+          box-shadow: {{ states('input_select.box_shadow') }};
+          font-weight: bold;
+          opacity: 0.8;
+        }
+      entities:
+        - entity: sensor.speedtest_download
+      name: Download
+      hours_to_show: 24
+      points_per_hour: 10
+      update_interval: 30
+      aggregate_func: max
+      line_width: 2
+      smoothing: false
+      font_size: 65
+      font_size_header: 9
+      show:
+        average: true
+        extrema: true
+      color_thresholds:
+        - value: 300
+          color: "#29cf45"
+        - value: 200
+          color: "#e7ff14"
+        - value: 180
+          color: "#ff1414"
+    - type: custom:mini-graph-card
+      entities:
+        - entity: sensor.speedtest_upload
+      name: Upload
+      hours_to_show: 24
+      points_per_hour: 10
+      update_interval: 30
+      aggregate_func: max
+      line_width: 2
+      smoothing: false
+      font_size: 65
+      font_size_header: 9
+      show:
+        average: true
+        extrema: true
+      color_thresholds:
+        - value: 30
+          color: "#29cf45"
+        - value: 20
+          color: "#e7ff14"
+        - value: 10
+          color: "#ff1414"

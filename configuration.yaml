@@ -1,44 +1,58 @@
----
-# HOME ASSISTANT CONFIGURATION YAML
-
 homeassistant:
+  packages: !include_dir_named packages/
   customize: !include customize.yaml
 
-# HOME ASSISTANT FRONTEND CONFIGURATION
-
 frontend:
-  themes: !include themes.yaml
-  javascript_version: latest
-  extra_html_url:
-    - /local/custom_ui/fontawesome/hass-fontawesome-solid.html
-    - /local/custom_ui/fontawesome/hass-fontawesome-regular.html
-    - /local/custom_ui/fontawesome/hass-fontawesome-brands.html
-
-# HOME ASSISTANT CONFIGURATION
-
-config:
-
-default_config:
-
-recorder:
-  purge_interval: 2
-  purge_keep_days: 5
-
-logger:
-  default: error
-#  logs:
-#    homeassistant.components.scrape: debug
-
-system_log:
-  fire_event: true
+  themes: !include_dir_merge_named themes/
 
 lovelace:
   mode: yaml
 
-# HOME ASSISTANT COMUNITY UPDATER - Component
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
 
 hacs:
   token: !secret access_token
+
+api:
+
+logger:
+  default: warning
+  logs:
+    plexwebsocket: critical
+    homeassistant.loader: error
+    homeassistant.components.sensor: error
+    homeassistant.helpers.entity: error
+    homeassistant.config_entries: error
+    homeassistant.components.plex: critical
+    homeassistant.components.radarr.sensor: error
+    homeassistant.components.sonarr.sensor: error
+    custom_components.plex_recently_added.sensor: error
+    custom_components.sonarr_upcoming_media.sensor: error
+    custom_components.radarr_upcoming_media.sensor: error
+    
+recorder:
+  purge_keep_days: '5'
+  db_url: !secret db_url
+  exclude:
+    domains:
+      - automation
+      - weblink
+      - updater
+    entities:
+      - sun.sun # Don't record sun data
+      - sensor.last_boot # Comes from 'systemmonitor' sensor platform
+      - sensor.date
+    event_types:
+      - call_service # Don't record service calls
+
+#Browser Mod
+browser_mod:
+  devices:
+    f53a47d6-c0e82f5f:
+      name: 'Desktop'
+#    51f611b0-e9cbafa9:
+#      name: 'Pixel 4 XL'
 
 # Camera Streams
 
@@ -55,67 +69,19 @@ unifiprotect:
   username: !secret unifi_protect_username
   password: !secret unifi_protect_password
 
-# CIRCADIAN LIGHTING - Component
-# https://community.home-assistant.io/t/circadian-lighting-custom-component/61246
-
-circadian_lighting:
-
 # WEATHER - Component
-
-
 weather:
   - platform: darksky
     api_key: !secret dark_sky_api
 
 sun:
 
-
-# GOOGLE CALENDAR - Component
-
-google:
-  client_id: !secret google_calendar_id
-  client_secret: !secret google_calendar_secret
-
 # NEST SMART HOME - Intergration
-
 nest:
   client_id: !secret nest_client_id
   client_secret: !secret nest_client_secret
 
-# GOOGLE - TTS
-
-tts:
-  - platform: google_translate
-    service_name: google_say
-
-# SPEEDTEST.NET
-
-speedtestdotnet:
-  server_id: !secret speedtest_server_id
-  scan_interval:
-    minutes: 30
-  monitored_conditions:
-    - ping
-    - download
-    - upload
-
-# WEMO - Smart Plugs
-
-wemo:
-  discovery: false
-  static:
-    - !secret wemo_0_ip_address
-    - !secret wemo_1_ip_address
-
-# TPLINK - Smart Plugs
-
-tplink:
-  discovery: true
-  switch:
-    - host: !secret tplink_0_ip_address
-
 # Utility Meter
-
 utility_meter:
   monthly_cabinet:
     source: sensor.cabinet_consumption
@@ -124,19 +90,56 @@ utility_meter:
     source: sensor.xmas_lights_consumption
     cycle: monthly
 
-# INCLUDES
+# LG WebOS
+webostv:
+  host: !secret living_room_tv_ip
+  name: Living Room TV
+  turn_on_action:
+    service: wake_on_lan.send_magic_packet
+    data:
+      mac: !secret living_room_tv_mac
+  customize:
+    sources:
+      - Amazon Prime Video
+      - Denon AVR
+      - Live TV
+      - Netflix
+      - YouTube
 
-automation: !include_dir_merge_list custom_config/automations
-binary_sensor: !include_dir_merge_list custom_config/binary_sensor
-intent_script: !include_dir_merge_list custom_config/intents
-media_player: !include_dir_merge_list custom_config/media_player
-sensor: !include_dir_merge_list custom_config/sensors
-switch: !include_dir_merge_list custom_config/switch
+# Speedtest.net
+speedtestdotnet:
+  server_id: 17970
+  scan_interval:
+    minutes: 480
+  monitored_conditions:
+    - download
+    - upload
 
-group: !include custom_config/includes/group.yaml
-input_boolean: !include custom_config/includes/input_boolean.yaml
-input_select: !include custom_config/includes/input_select.yaml
-nzbget: !include custom_config/includes/nzbget.yaml
-scene: !include scenes.yaml
-script: !include custom_config/includes/scripts.yaml
-zone: !include custom_config/includes/zone.yaml
+input_text:
+  card_containers:
+    initial: Containers
+  software_version:
+    initial: Version
+  unraid_usb:
+    initial: USB Storage
+
+
+# Text to speech
+tts:
+  - platform: google_translate
+    cache: true
+    cache_dir: /config/tts
+    time_memory: 300
+    base_url: !secret homeassistant_url
+    service_name: google_say
+  
+automation: !include_dir_merge_list configuration/automations/
+binary_sensor: !include_dir_merge_list configuration/binary_sensors/
+group: !include_dir_merge_list configuration/group/
+#light: !include_dir_merge_list configuration/lights/
+#input_boolean: !include_dir_merge_named configuration/input_boolean/
+media_player: !include configuration/media_player/media_player.yaml
+scene: !include_dir_merge_list configuration/scenes/
+script: !include_dir_merge_named configuration/scripts/
+sensor: !include_dir_merge_list configuration/sensors/
+switch: !include_dir_merge_list configuration/switch/

@@ -12,11 +12,12 @@ assets
 appdaemon
 node-red
 tensorflow
+esphome
+glances
+custom_components
 
 # Ignore Directories
 www/community
-www/lovelace
-www/tileboard
 www/upcoming-media-card
 
 # Pictures Ignore
@@ -37,6 +38,16 @@ secrets.yaml
 ui-lovelace.yaml
 ui-lovelace_old.yaml
 ui-lovelace_original.yaml
+
+# Ignore HKI Structure
+packages
+themes
+lovelace/custom_header
+lovelace/includes
+lovelace/templates
+lovelace/views
+global_config
+
 
 # Ignore Python
 #__pycache__
@@ -68,6 +79,9 @@ appdaemon/error.log
 
 # Ignore Configs
 *.conf
+
+# Ignore Zips 
+*.7z
 
 # Certificates
 rsa.pub

@@ -1,0 +1,5 @@
+---
+## Home Assistant Build In Weather
+# https://www.home-assistant.io/integrations/yr/
+
+- platform: yr

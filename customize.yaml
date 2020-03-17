@@ -46,9 +46,6 @@ switch.craftroom_lights:
 switch.home_desktop:
   friendly_name: Desktop
   icon: mdi:desktop-classic
-switch.home_server:
-  friendly_name: Server
-  icon: mdi:server
 switch.comms_cab_lock:
   icon: mdi:lock
 switch.christmas_lights:
@@ -61,8 +58,62 @@ switch.living_room_wemoplug:
   friendly_name: Flea Light
   icon: mdi:lightbulb
 
+switch.utility_on_off:
+  icon: mdi:light-switch
+  friendly_name: Utility Light Switch
+switch.home_server:
+  friendly_name: Server
+  icon: mdi:server
+
+switch.sp_lr_amp_relay:
+  friendly_name: AV Receiver
+switch.subwoofer_smart_socket:
+  friendly_name: Subwoofer
+
+
 # Sensors
 
+## Glances
+sensor.glances_data_used:
+  friendly_name: Used
+sensor.glances_data_free:
+  friendly_name: Free
+sensor.glances_etc_hosts_used:
+  friendly_name: Used
+sensor.glances_etc_hosts_free:
+  friendly_name: Free
+
+sensor.glances_cpu_used:
+  friendly_name: System
+  icon: mdi:cpu-64-bit
+sensor.glances_containers_cpu_used:
+  friendly_name: Containers
+  icon: mdi:cpu-64-bit
+
+sensor.glances_ram_used:
+  friendly_name: System
+#  icon: fa:memory
+sensor.glances_containers_ram_used:
+  friendly_name: Containers
+#  icon: fa:memory
+
+sensor.glances_containers_active:
+  friendly_name: Containers
+sensor.glances_pch_skylake_1_temp:
+  friendly_name: CPU Temp
+sensor.glances_package_id_0_temp:
+  friendly_name: Board Temp
+
+## Home Assistant Version
+sensor.current_version:
+  friendly_name: Version
+  icon: mdi:home-assistant
+
+## Database
+sensor.home_assistant_db_size:
+  icon: mdi:database-check
+
+## Batteries
 sensor.bedroom_sensor_battery:
   friendly_name: Bathroom Sensor Battery
 sensor.bedroom_luminance:
@@ -145,43 +196,35 @@ sensor.geocode_user_1:
 sensor.geocode_user_2:
   entity_picture: /local/lovelace/users/user2.png
 
-# Packages/Trash Recycle
+scene.living_room_lamps_bright:
+  icon: mdi:floor-lamp-dual
+  friendly_name: Lamps Bright
 
-sensor.trash_day:
-  friendly_name: Is it Trash Day today?
-  icon: mdi:delete-variant
-device_tracker.trash_bin:
-  friendly_name: Trash Bin
-  icon: fas:trash-alt
-sensor.recycle_day:
-  friendly_name: Is it Recycle Day today?
-  icon: mdi:recycle
-sensor.green_day:
-  friendly_name: Is it Green Waste Day today?
-  icon: mdi:leaf
-sensor.trash_pickup_day:
-  friendly_name: Trash Pickup Day
-  icon: mdi:calendar-today
-  hidden: true
-sensor.recycle_pickup_day:
-  friendly_name: Recycle Pickup Day
-  icon: mdi:calendar-today
-  hidden: true
-sensor.recycle_pickup_week:
-  friendly_name: Recycle Pickup Week
-  icon: mdi:calendar-today
-  hidden: true
-sensor.green_pickup_day:
-  friendly_name: Green Pickup Day
-  icon: mdi:calendar-today
-  hidden: true
-sensor.green_pickup_week:
-  friendly_name: Green Pickup Week
-  icon: mdi:calendar-today
-  hidden: true
-sensor.current_week:
-  friendly_name: Current Week is
-  icon: mdi:calendar-question
-group.trash_recycle:
-  friendly_name: Trash & Recycle
-  icon: mdi:recycle
+scene.living_room_lamps_dim:
+  icon: mdi:floor-lamp-dual
+  friendly_name: Lamps Dim
+
+scene.movie_time:
+  icon: mdi:movie
+  friendly_name: Movie Time
+
+scene.office_blue:
+  icon: mdi:spotlight
+  friendly_name: Office Blue
+
+scene.office_bright:
+  icon: mdi:spotlight
+  friendly_name: Office Bright
+
+
+light.back_door_spot_1:
+  friendly_name: Back Door
+light.cupboard_spot_1:
+  friendly_name: Cupboard
+
+light.cabinet:
+  friendly_name: Server Cabinet White
+  icon: mdi:led-strip-variant
+light.cabinet_strip:
+  friendly_name: Server Cabinet Colour
+  icon: mdi:led-strip-variant
