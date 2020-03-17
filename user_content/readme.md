@@ -15,6 +15,8 @@ What this Dashboard does
  - View CPU usage
  - View RAM usage
 
+ You can find the config [here](https://github.com/noodlemctwoodle/homeassistant/blob/master/user_content/views/computers_user_content.yaml)
+
 
 ### Setup MQTT on Home Assistant
 Im not going to go through the setup for MQTT as there is plenty of guides out there. If you are running Home Assistant (Hassio) Docker then you can just install the addon package. and the integration. 
@@ -68,3 +70,4 @@ You need the following [Sensors](https://github.com/noodlemctwoodle/homeassistan
  - arrayStatus
  - arrayProtection
  - diskSpace
+ - latestRelease
