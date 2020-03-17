@@ -1,33 +1,8 @@
-## Special thanks to Jimz011 for helping create the picture elements of this view and HKI on the whole.
-## Its a fantastic frontend that make your life much easier
-
-## UnRAID Montitoring for HKI. 
+# UnRAID Montitoring for HKI. 
 ## Version 1.1 by noodlemctwoodle
 
-## Credit to Stephan#8331 on discord for creating the version sensor and docker container API detials. 
-
-## This sensor is requred to get the version available.
-# sensor:
-#  - platform: command_line
-#    name: Version Unraid (Next)
-#    command: /usr/bin/curl --insecure "https://s3.amazonaws.com/dnld.lime-technology.com/next/unRAIDServer.plg" 2>&1 | grep Version |awk '{print $3}'
-
-## This configuration expects input_text with the following values.
-#       input_text:
-#         unraid_containers:
-#           initial: Containers
-#         unraid_usb:
-#           initial: USB Storage
-
-## You need to the following images in /www/images/hardware
-# flash-drive.png
-# unraid_logo.png
-
-## Bar-Card is required to be installed from HACs and added to lovelace/views/resources.yaml
-# Bar Card
-#  - url: /hacsfiles/bar-card/bar-card.js
-#    type: js
-
+# Please view the set up guide for this view on GitHub
+## https://github.com/noodlemctwoodle/homeassistant/tree/master/user_content
 
 # UnRAID Picture Card
 - type: picture-elements
@@ -40,7 +15,7 @@
   image: '/local/images/hardware/unraid_logo.png'
   elements:
 
-# Docker Containers  
+# Docker Containers Running
     - type: state-label
       entity: input_text.card_containers
       style:
@@ -499,6 +474,7 @@
 
 - type: horizontal-stack
   cards:
+# Plex Container
     - type: picture-entity
       style: |
         ha-card {
@@ -519,7 +495,7 @@
         service: switch.toggle
         service_data:
           entity_id: switch.chsunr01_docker_binhex_plexpass
-
+# Sonarr Container
     - type: picture-entity
       style: |
         ha-card {
@@ -540,7 +516,7 @@
         service: switch.toggle
         service_data:
           entity_id: switch.chsunr01_docker_sonarr
-
+# Radar Container
     - type: picture-entity
       style: |
         ha-card {
@@ -561,7 +537,7 @@
         service: switch.toggle
         service_data:
           entity_id: switch.chsunr01_docker_radarr
-
+# Lidarr Container
     - type: picture-entity
       style: |
         ha-card {
@@ -582,7 +558,7 @@
         service: switch.toggle
         service_data:
           entity_id: switch.chsunr01_docker_lidarr
-
+# UnRAID-API Container
     - type: picture-entity
       style: |
         ha-card {
@@ -603,7 +579,7 @@
         service: switch.toggle
         service_data:
           entity_id: switch.chsunr01_docker_unraid_api
-
+# NZBGet Container
     - type: picture-entity
       style: |
         ha-card {
