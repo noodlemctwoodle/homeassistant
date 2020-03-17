@@ -2,6 +2,7 @@
 
 
 # UnRAID Monitoring View for HKI
+## Version 1.1
 ![unraid-monitor](https://github.com/noodlemctwoodle/homeassistant/blob/master/www/images/github/views/unraid.png)
 
 What this Dashboard does
