@@ -1,6 +1,8 @@
 
 
 
+## UnRAID Monitoring View for HKI
+![unraid-monitor](https://github.com/noodlemctwoodle/homeassistant/blob/master/www/images/github/views/unraid.png)
 
 
 ### Setup MQTT on Home Assistant
@@ -37,3 +39,9 @@ You will also need to configure your MQTT Broker, replacing the fields marked in
 When you start the container for the first time you must browse to the login screen of the UnRAID-API Web-UI and login with your UnRAID credentials. If this step is missed the API will not work. 
 
 ![Web-UI](https://github.com/noodlemctwoodle/homeassistant/blob/master/www/images/github/unraid-api/web-ui.png)
+
+### Check Home Assistant
+Once the UnRAID-API container is up and running check the mqtt integration, you should now have some UnRAID entities. If not please reboot your Home Assistant instance, once your Home Assistant instance has rebooted wait at least 3 minutes for entities to appear in the integration. 
+
+![mqtt-integration](https://github.com/noodlemctwoodle/homeassistant/blob/master/www/images/github/unraid-api/mqtt.png)
+
