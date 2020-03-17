@@ -1,7 +1,7 @@
 
 
 
-## UnRAID Monitoring View for HKI
+# UnRAID Monitoring View for HKI
 ![unraid-monitor](https://github.com/noodlemctwoodle/homeassistant/blob/master/www/images/github/views/unraid.png)
 
 What this Dashboard does
@@ -32,6 +32,29 @@ Home Assistant have documentation [here](https://github.com/home-assistant/hassi
 Requirements:
  - Glances Docker Container installed on UnRAID
  - Glances Integration for Home Assistant setup to pull data from UnRAID
+
+
+## Required Home Assistant Configuration
+
+
+```yaml
+input_text:
+  card_containers:
+    initial: Containers
+  software_version:
+    initial: Version
+```
+
+This [images](https://github.com/noodlemctwoodle/homeassistant/tree/master/www/images/hardware) are used in the view
+ - unraid_logo.png
+
+Bar-Card is required to be installed from HACs and added to lovelace/views/resources.yaml
+
+```yaml
+# Bar Card
+  - url: /hacsfiles/bar-card/bar-card.js
+    type: js
+```
 
 ### UNRAID-API Container Configuration
 

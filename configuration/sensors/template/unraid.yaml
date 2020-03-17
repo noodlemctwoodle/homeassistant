@@ -1,9 +1,9 @@
-## Version Sensor
+## UnRAID Version Sensor URLs
 # Stable URL: https://s3.amazonaws.com/dnld.lime-technology.com/stable/unRAIDServer.plg
 # Beta URL: https://s3.amazonaws.com/dnld.lime-technology.com/next/unRAIDServer.plg
 
 - platform: command_line
-  name: Version Unraid (Next)
+  name: Unraid Version (Next)
   command: /usr/bin/curl --insecure "https://s3.amazonaws.com/dnld.lime-technology.com/next/unRAIDServer.plg" 2>&1 | grep Version |awk '{print $3}'
 
 ## API sensors

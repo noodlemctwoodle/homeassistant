@@ -98,7 +98,7 @@
         padding: 7px 7px
         font-size: 15px
     - type: state-label
-      entity: sensor.version_unraid_next
+      entity: sensor.unraid_version_next
       style:
         top: 60%
         left: 68%
