@@ -57,6 +57,8 @@ global_config
 # Ignore Log Files
 *.log
 
+# Ignore Workspace
+homeassistant.code-workspace
 
 
 # Ignore Configs
