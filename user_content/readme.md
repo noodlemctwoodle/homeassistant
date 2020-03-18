@@ -16,6 +16,8 @@ What this Dashboard does
  - View CPU usage
  - View RAM usage
 
+![unraid-monitor](https://github.com/noodlemctwoodle/homeassistant/blob/master/www/images/github/views/unraid.gif)
+
  You can find the config [here](https://github.com/noodlemctwoodle/homeassistant/blob/master/user_content/views/computers_user_content.yaml)
 
  ## Credits
