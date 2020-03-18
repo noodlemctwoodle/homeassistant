@@ -474,132 +474,268 @@
 
 - type: horizontal-stack
   cards:
-# Plex Container
-    - type: picture-entity
-      style: |
-        ha-card {
-          background: var(--paper-card-background-color);
-          border-radius: {{ states('input_select.border_radius') }};
-          --paper-item-icon-color: var(--paper-item-icon-color);
-          box-shadow: {{ states('input_select.box_shadow') }};
-          font-weight: bold;
-          opacity: 0.8;
-        }
-      entity: switch.chsunr01_docker_binhex_plexpass
-      image: /local/images/software/plex.png
-      aspect_ratio: 4:9
-      show_name: false
-      show_state: false
-      tap_action:
-        action: toggle
-        service: switch.toggle
-        service_data:
-          entity_id: switch.chsunr01_docker_binhex_plexpass
-# Sonarr Container
-    - type: picture-entity
-      style: |
-        ha-card {
-          background: var(--paper-card-background-color);
-          border-radius: {{ states('input_select.border_radius') }};
-          --paper-item-icon-color: var(--paper-item-icon-color);
-          box-shadow: {{ states('input_select.box_shadow') }};
-          font-weight: bold;
-          opacity: 0.8;
-        }
-      entity: switch.chsunr01_docker_sonarr
-      image: /local/images/software/sonarr.png
-      aspect_ratio: 4:9
-      show_name: false
-      show_state: false
-      tap_action:
-        action: toggle
-        service: switch.toggle
-        service_data:
-          entity_id: switch.chsunr01_docker_sonarr
-# Radar Container
-    - type: picture-entity
-      style: |
-        ha-card {
-          background: var(--paper-card-background-color);
-          border-radius: {{ states('input_select.border_radius') }};
-          --paper-item-icon-color: var(--paper-item-icon-color);
-          box-shadow: {{ states('input_select.box_shadow') }};
-          font-weight: bold;
-          opacity: 0.8;
-        }
-      entity: switch.chsunr01_docker_radarr
-      image: /local/images/software/radarr.png
-      aspect_ratio: 4:9
-      show_name: false
-      show_state: false
-      tap_action:
-        action: toggle
-        service: switch.toggle
-        service_data:
-          entity_id: switch.chsunr01_docker_radarr
-# Lidarr Container
-    - type: picture-entity
-      style: |
-        ha-card {
-          background: var(--paper-card-background-color);
-          border-radius: {{ states('input_select.border_radius') }};
-          --paper-item-icon-color: var(--paper-item-icon-color);
-          box-shadow: {{ states('input_select.box_shadow') }};
-          font-weight: bold;
-          opacity: 0.8;
-        }
-      entity: switch.chsunr01_docker_lidarr
-      image: /local/images/software/lidarr.png
-      aspect_ratio: 4:9
-      show_name: false
-      show_state: false
-      tap_action:
-        action: toggle
-        service: switch.toggle
-        service_data:
-          entity_id: switch.chsunr01_docker_lidarr
-# UnRAID-API Container
-    - type: picture-entity
-      style: |
-        ha-card {
-          background: var(--paper-card-background-color);
-          border-radius: {{ states('input_select.border_radius') }};
-          --paper-item-icon-color: var(--paper-item-icon-color);
-          box-shadow: {{ states('input_select.box_shadow') }};
-          font-weight: bold;
-          opacity: 0.8;
-        }
-      entity: switch.chsunr01_docker_unraid_api
-      image: /local/images/software/unraid-api.png
-      aspect_ratio: 4:9
-      show_name: false
-      show_state: false
-      tap_action:
-        action: toggle
-        service: switch.toggle
-        service_data:
-          entity_id: switch.chsunr01_docker_unraid_api
-# NZBGet Container
-    - type: picture-entity
-      style: |
-        ha-card {
-          background: var(--paper-card-background-color);
-          border-radius: {{ states('input_select.border_radius') }};
-          --paper-item-icon-color: var(--paper-item-icon-color);
-          box-shadow: {{ states('input_select.box_shadow') }};
-          font-weight: bold;
-          opacity: 0.8;
-        }
-      entity: switch.chsunr01_docker_nzbget
-      image: /local/images/software/nzbget.png
-      aspect_ratio: 4:9
-      show_name: false
-      show_state: false
-      tap_action:
-        action: toggle
-        service: switch.toggle
-        service_data:
-          entity_id: switch.chsunr01_docker_nzbget
+    - type: custom:swipe-card
+      parameters:
+        spaceBetween: 8
+        scrollbar:
+          hide: true
+          draggable: true
+          snapOnRelease: true
+      cards:
+    # Plex Container
+        - type: picture-entity
+          style: |
+            ha-card {
+              background: var(--paper-card-background-color);
+              border-radius: {{ states('input_select.border_radius') }};
+              --paper-item-icon-color: var(--paper-item-icon-color);
+              box-shadow: {{ states('input_select.box_shadow') }};
+              font-weight: bold;
+              opacity: 0.8;
+            }
+          entity: switch.chsunr01_docker_binhex_plexpass
+          image: /local/images/software/containers/plex_bar.png
+          aspect_ratio: 4:9
+          show_name: false
+          show_state: false
+          tap_action:
+            action: none
+          hold_action:
+            action: toggle
+            service: switch.toggle
+            service_data:
+              entity_id: switch.chsunr01_docker_binhex_plexpass
+    # Sonarr Container
+        - type: picture-entity
+          style: |
+            ha-card {
+              background: var(--paper-card-background-color);
+              border-radius: {{ states('input_select.border_radius') }};
+              --paper-item-icon-color: var(--paper-item-icon-color);
+              box-shadow: {{ states('input_select.box_shadow') }};
+              font-weight: bold;
+              opacity: 0.8;
+            }
+          entity: switch.chsunr01_docker_sonarr
+          image: /local/images/software/containers/sonarr_bar.png
+          aspect_ratio: 4:9
+          show_name: false
+          show_state: false
+          tap_action:
+            action: none
+          hold_action:
+            action: toggle
+            service: switch.toggle
+            service_data:
+              entity_id: switch.chsunr01_docker_sonarr
+    # Radar Container
+        - type: picture-entity
+          style: |
+            ha-card {
+              background: var(--paper-card-background-color);
+              border-radius: {{ states('input_select.border_radius') }};
+              --paper-item-icon-color: var(--paper-item-icon-color);
+              box-shadow: {{ states('input_select.box_shadow') }};
+              font-weight: bold;
+              opacity: 0.8;
+            }
+          entity: switch.chsunr01_docker_radarr
+          image: /local/images/software/containers/radarr_bar.png
+          aspect_ratio: 4:9
+          show_name: false
+          show_state: false
+          tap_action:
+            action: none
+          hold_action:
+            action: toggle
+            service: switch.toggle
+            service_data:
+              entity_id: switch.chsunr01_docker_radarr
+    # Lidarr Container
+        - type: picture-entity
+          style: |
+            ha-card {
+              background: var(--paper-card-background-color);
+              border-radius: {{ states('input_select.border_radius') }};
+              --paper-item-icon-color: var(--paper-item-icon-color);
+              box-shadow: {{ states('input_select.box_shadow') }};
+              font-weight: bold;
+              opacity: 0.8;
+            }
+          entity: switch.chsunr01_docker_lidarr
+          image: /local/images/software/containers/lidarr_bar.png
+          aspect_ratio: 4:9
+          show_name: false
+          show_state: false
+          tap_action:
+            action: none
+          hold_action:
+            action: toggle
+            service: switch.toggle
+            service_data:
+              entity_id: switch.chsunr01_docker_lidarr
+    # UnRAID-API Container
+        - type: picture-entity
+          style: |
+            ha-card {
+              background: var(--paper-card-background-color);
+              border-radius: {{ states('input_select.border_radius') }};
+              --paper-item-icon-color: var(--paper-item-icon-color);
+              box-shadow: {{ states('input_select.box_shadow') }};
+              font-weight: bold;
+              opacity: 0.8;
+            }
+          entity: switch.chsunr01_docker_unraid_api
+          image: /local/images/software/containers/unraid-api_bar.png
+          aspect_ratio: 4:9
+          show_name: false
+          show_state: false
+          tap_action:
+            action: none
+          hold_action:
+            action: toggle
+            service: switch.toggle
+            service_data:
+              entity_id: switch.chsunr01_docker_unraid_api
+    # NZBGet Container
+        - type: picture-entity
+          style: |
+            ha-card {
+              background: var(--paper-card-background-color);
+              border-radius: {{ states('input_select.border_radius') }};
+              --paper-item-icon-color: var(--paper-item-icon-color);
+              box-shadow: {{ states('input_select.box_shadow') }};
+              font-weight: bold;
+              opacity: 0.8;
+            }
+          entity: switch.chsunr01_docker_nzbget
+          image: /local/images/software/containers/nzbget_bar.png
+          aspect_ratio: 4:9
+          show_name: false
+          show_state: false
+          tap_action:
+            action: none
+          hold_action:
+            action: toggle
+            service: switch.toggle
+            service_data:
+              entity_id: switch.chsunr01_docker_nzbget
+    # NZBHydra Container
+        - type: picture-entity
+          style: |
+            ha-card {
+              background: var(--paper-card-background-color);
+              border-radius: {{ states('input_select.border_radius') }};
+              --paper-item-icon-color: var(--paper-item-icon-color);
+              box-shadow: {{ states('input_select.box_shadow') }};
+              font-weight: bold;
+              opacity: 0.8;
+            }
+          entity: switch.chsunr01_docker_binhex_nzbhydra2
+          image: /local/images/software/containers/nzbhydra_bar.png
+          aspect_ratio: 4:9
+          show_name: false
+          show_state: false
+          tap_action:
+            action: none
+          hold_action:
+            action: toggle
+            service: switch.toggle
+            service_data:
+              entity_id: switch.chsunr01_docker_binhex_nzbhydra2
+    # Tautulli Container
+        - type: picture-entity
+          style: |
+            ha-card {
+              background: var(--paper-card-background-color);
+              border-radius: {{ states('input_select.border_radius') }};
+              --paper-item-icon-color: var(--paper-item-icon-color);
+              box-shadow: {{ states('input_select.box_shadow') }};
+              font-weight: bold;
+              opacity: 0.8;
+            }
+          entity: switch.chsunr01_docker_tautulli
+          image: /local/images/software/containers/tautulli_bar.png
+          aspect_ratio: 4:9
+          show_name: false
+          show_state: false
+          tap_action:
+            action: none
+          hold_action:
+            action: toggle
+            service: switch.toggle
+            service_data:
+              entity_id: switch.chsunr01_docker_tautulli
+    # DiskSpeed Container
+        - type: picture-entity
+          style: |
+            ha-card {
+              background: var(--paper-card-background-color);
+              border-radius: {{ states('input_select.border_radius') }};
+              --paper-item-icon-color: var(--paper-item-icon-color);
+              box-shadow: {{ states('input_select.box_shadow') }};
+              font-weight: bold;
+              opacity: 0.8;
+            }
+          entity: switch.chsunr01_docker_diskspeed
+          image: /local/images/software/containers/diskspeed_bar.png
+          aspect_ratio: 4:9
+          show_name: false
+          show_state: false
+          tap_action:
+            action: none
+          hold_action:
+            action: toggle
+            service: switch.toggle
+            service_data:
+              entity_id: switch.chsunr01_docker_diskspeed
+    # DiskSpeed Container
+        - type: picture-entity
+          style: |
+            ha-card {
+              background: var(--paper-card-background-color);
+              border-radius: {{ states('input_select.border_radius') }};
+              --paper-item-icon-color: var(--paper-item-icon-color);
+              box-shadow: {{ states('input_select.box_shadow') }};
+              font-weight: bold;
+              opacity: 0.8;
+            }
+          entity: switch.chsunr01_docker_glances
+          image: /local/images/software/containers/glances_bar.png
+          aspect_ratio: 4:9
+          show_name: false
+          show_state: false
+          tap_action:
+            action: none
+          hold_action:
+            action: toggle
+            service: switch.toggle
+            service_data:
+              entity_id: switch.chsunr01_docker_glances
+    # Netdata Container
+        - type: picture-entity
+          style: |
+            ha-card {
+              background: var(--paper-card-background-color);
+              border-radius: {{ states('input_select.border_radius') }};
+              --paper-item-icon-color: var(--paper-item-icon-color);
+              box-shadow: {{ states('input_select.box_shadow') }};
+              font-weight: bold;
+              opacity: 0.8;
+            }
+          entity: switch.chsunr01_docker_netdata
+          image: /local/images/software/containers/netdata_bar.png
+          aspect_ratio: 4:9
+          show_name: false
+          show_state: false
+          tap_action:
+            action: none
+          hold_action:
+            action: toggle
+            service: switch.toggle
+            service_data:
+              entity_id: switch.chsunr01_docker_netdata
+
 
 # Disk Space Used Card
 - !include

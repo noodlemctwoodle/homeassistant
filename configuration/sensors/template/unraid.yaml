@@ -6,6 +6,11 @@
   name: Unraid Version (Next)
   command: /usr/bin/curl --insecure "https://s3.amazonaws.com/dnld.lime-technology.com/next/unRAIDServer.plg" 2>&1 | grep Version |awk '{print $3}'
 
+- platform: snmp
+  host: 10.0.20.2
+  baseoid: 1.3.6.1.4.1.2021.10.1.3.1
+
+
 ## API sensors
 
 - platform: template

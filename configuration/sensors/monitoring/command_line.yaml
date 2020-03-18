@@ -1,0 +1,5 @@
+- platform: command_line
+  name: 'HDD_sda_temp'
+  unit_of_measurement: "°C"
+  scan_interval: 120 
+  command: "smartctl -A /dev/sda | grep Temperature_Celsius | awk '{print $10}'"
