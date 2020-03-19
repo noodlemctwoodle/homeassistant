@@ -237,52 +237,6 @@
         average: true
         extrema: true
 
-# HDD Temps
-    - type: custom:mini-graph-card
-      style: |
-        ha-card {
-          background: var(--paper-card-background-color);
-          border-radius: {{ states('input_select.border_radius') }};
-          --paper-item-icon-color: var(--paper-item-icon-color);
-          box-shadow: {{ states('input_select.box_shadow') }};
-          font-weight: bold;
-          opacity: 0.8;
-        }
-      entities:
-        - entity: sensor.unraid_parity_temperature
-          name: Parity
-          line_color: '"#14ff8d"'
-        - entity: sensor.unraid_disk1_temperature
-          name: Disk 1
-          line_color: '"#2814ff"'
-        - entity: sensor.unraid_disk2_temperature
-          name: Disk 2
-          line_color: '"#2814ff"'
-        - entity: sensor.unraid_disk3_temperature
-          name: Disk 3
-          line_color: '"#2814ff"'
-        - entity: sensor.unraid_disk4_temperature
-          name: Disk 4
-          line_color: '"#14ff8d"'
-        - entity: sensor.unraid_disk5_temperature
-          name: Disk 5
-          line_color: '"#2814ff"'
-        - entity: sensor.unraid_disk6_temperature
-          name: Disk 6
-          line_color: '"#2814ff"'
-      name: UnRAID Storage Pool
-      hours_to_show: 7
-      points_per_hour: 10
-      update_interval: 30
-      aggregate_func: max
-      line_width: 2
-      smoothing: false
-      font_size: 65
-      font_size_header: 9
-      show:
-        average: true
-        extrema: true
-
 - type: horizontal-stack
   cards:
 
