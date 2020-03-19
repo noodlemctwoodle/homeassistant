@@ -50,13 +50,9 @@ input_text:
 This [images](https://github.com/noodlemctwoodle/homeassistant/tree/master/www/images/hardware) are used in the view
  - unraid_logo.png
 
-These [images](https://github.com/noodlemctwoodle/homeassistant/tree/master/www/images/software) are required for the containers
- - lidarr.png
- - nzbget.png
- - plex.png
- - radarr.png
- - sonarr.png
- - unraid-api.png
+These [images](https://github.com/noodlemctwoodle/homeassistant/tree/master/www/images/software/containers) can be used for the containers
+
+![containers](https://github.com/noodlemctwoodle/homeassistant/blob/master/www/images/github/unraid-api/containers.png)
 
 
 Bar-Card is required to be installed from HACs and added to lovelace/views/resources.yaml
