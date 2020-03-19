@@ -118,13 +118,11 @@
 
 # Bar Card
   - url: /hacsfiles/bar-card/bar-card.js
-    type: js
+    type: module
 
 # Banner Card
   - url: /hacsfiles/banner-card/banner-card.js
     type: module
-
-
 
 ### *note: Deep-Press is known to have issues when used on an Android device,
 ###        if it does not work, please remove the mod and remove all deep_press

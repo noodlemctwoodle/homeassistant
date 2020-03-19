@@ -27,7 +27,7 @@ What this Dashboard does
  - [Stephan](https://github.com/Stephan296) Thanks for creating the version sensor curl request and exploring the correct configuration for the UnRAID-API.
  - [ElectricBrainUK](https://github.com/ElectricBrainUK/UnraidAPI) Thanks for creating this API for us to use and making this dashboard possible
  - [123](https://community.home-assistant.io/u/123/summary) Thanks for solving the problem with parenthesis
- - [Avi](Discord) Thanks for creating the awesome graphics used in v1.2 containers swipe-card and also providing most of the code for it. 
+ - [Avi](https://github.com/abeksis/My-HomeAssistant-Config) Thanks for creating the awesome graphics used in v1.2 containers swipe-card and also providing most of the code for it. 
 
 ### Buy me a toilet roll?. 
 I don't expect anything for my work and if you are thinking of donating you should consider donating the main developers of HKI or UNRAID-API. 
@@ -60,7 +60,7 @@ Bar-Card is required to be installed from HACs and added to lovelace/views/resou
 ```yaml
 # Bar Card
   - url: /hacsfiles/bar-card/bar-card.js
-    type: js
+    type: module
 ```
 
 ### Setup MQTT on Home Assistant
