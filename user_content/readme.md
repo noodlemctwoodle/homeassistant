@@ -3,7 +3,10 @@
 
 # UnRAID Monitoring View for HKI
 ## Version 1.1
-![unraid-monitor](https://github.com/noodlemctwoodle/homeassistant/blob/master/www/images/github/views/unraid.png)
+|Full screen|Container Support|
+|---|---|
+|![unraid-monitor](https://github.com/noodlemctwoodle/homeassistant/blob/master/www/images/github/views/unraid.png)|![unraid-monitor](https://github.com/noodlemctwoodle/homeassistant/blob/master/www/images/github/views/unraid.gif)|
+
 
 What this Dashboard does
  - View arrayStatus
@@ -16,7 +19,6 @@ What this Dashboard does
  - View CPU usage
  - View RAM usage
 
-![unraid-monitor](https://github.com/noodlemctwoodle/homeassistant/blob/master/www/images/github/views/unraid.gif)
 
  You can find the config [here](https://github.com/noodlemctwoodle/homeassistant/blob/master/user_content/views/computers_user_content.yaml)
 
