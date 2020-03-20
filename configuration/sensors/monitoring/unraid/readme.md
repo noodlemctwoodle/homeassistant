@@ -56,7 +56,7 @@ You can then string to gether the 'snmpwalk' commad
 |---|---|---|
 |snmpwalk -v 2c -On -c public localhost | LM-SENSORS-MIB::|lmFanSensorsTable|
 
-![mib-query](https://github.com/noodlemctwoodle/homeassistant/blob/unraid-view-1.2-dev/www/images/github/unraid-snmp/sensor-query.png-)
+![mib-query](https://github.com/noodlemctwoodle/homeassistant/blob/unraid-view-1.2-dev/www/images/github/unraid-snmp/sensor-query.png)
 
 This Queery is split up into 3 sections
  - INTEGER
