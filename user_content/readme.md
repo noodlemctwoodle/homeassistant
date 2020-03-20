@@ -28,6 +28,7 @@ What this Dashboard does
  - [ElectricBrainUK](https://github.com/ElectricBrainUK/UnraidAPI) Thanks for creating this API for us to use and making this dashboard possible
  - [123](https://community.home-assistant.io/u/123/summary) Thanks for solving the problem with parenthesis
  - [Avi](https://github.com/abeksis/My-HomeAssistant-Config) Thanks for creating the awesome graphics used in v1.2 containers swipe-card and also providing most of the code for it. 
+ - [OnlyMe](https://github.com/Holewijn/home-assistant-config) Thanks for adding the additional container images
 
 ### Buy me a toilet roll?. 
 I don't expect anything for my work and if you are thinking of donating you should consider donating the main developers of HKI or UNRAID-API. 
