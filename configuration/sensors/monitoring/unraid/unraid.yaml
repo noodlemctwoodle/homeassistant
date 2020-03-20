@@ -1,0 +1,26 @@
+## UnRAID Version Sensor URLs
+# Stable URL: https://s3.amazonaws.com/dnld.lime-technology.com/stable/unRAIDServer.plg
+# Beta URL: https://s3.amazonaws.com/dnld.lime-technology.com/next/unRAIDServer.plg
+
+- platform: command_line
+  name: Unraid Version (Next)
+  command: /usr/bin/curl --insecure "https://s3.amazonaws.com/dnld.lime-technology.com/next/unRAIDServer.plg" 2>&1 | grep Version |awk '{print $3}'
+
+## API sensors
+
+- platform: template
+  sensors:
+    unraid_array_status:
+      friendly_name: UnRAID Array Status
+      value_template: '{{state_attr("binary_sensor.chsunr01_server", "arrayStatus")}}'
+
+    unraid_array_protection:
+      friendly_name: UnRAID Array Protection
+      value_template: '{{state_attr("binary_sensor.chsunr01_server", "arrayProtection")}}'
+
+    unraid_array_space:
+      friendly_name: UnRAID Array Space
+      value_template: >
+        {{ state_attr("binary_sensor.chsunr01_server", "diskSpace")
+          | regex_findall_index(".*\((\d+.?\d+) %\)") | float }}
+      unit_of_measurement: '%'
