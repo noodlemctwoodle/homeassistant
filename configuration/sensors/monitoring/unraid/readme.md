@@ -40,18 +40,60 @@ This Sensor will only show the numerical value of the output.
   unit_of_measurement: '°C'
 ```
 
+## Building a snmpwalk query string
+
+All the SNMP Mib values can be found on your UnRAID sever in: 
+
+    /usr/share/snmp/mibs
+
+You ned to 'cat' the '.txt' file and locate the sensors
+
+![mib-txt](https://github.com/noodlemctwoodle/homeassistant/blob/unraid-view-1.2-dev/www/images/github/unraid-snmp/mib-file.png)
+
+You can then string to gether the 'snmpwalk' commad
+
+|Intial command|MIB-FILE-NAME|Sensor Name|
+|---|---|---|
+|snmpwalk -v 2c -On -c public localhost | LM-SENSORS-MIB::|lmFanSensorsTable|
+
+![mib-query](https://github.com/noodlemctwoodle/homeassistant/blob/unraid-view-1.2-dev/www/images/github/unraid-snmp/sensor-query.png-)
+
+This Queery is split up into 3 sections
+ - INTEGER
+ - STRING
+ - GAUGE
+
+These can then be matched with the corresponding OID. In the example below the 'INTEGER', 'STRING' & Gauge32 all belong to CPU TEMP
+
+    .1.3.6.1.4.1.2021.13.16.2.1.1.1 = INTEGER: 1
+    .1.3.6.1.4.1.2021.13.16.2.1.2.1 = STRING: CPU Temp
+    .1.3.6.1.4.1.2021.13.16.2.1.3.1 = Gauge32: 44000
 
 
-## LM Sensors Values
+In this example they all belong to Core 0
 
+    .1.3.6.1.4.1.2021.13.16.2.1.1.2 = INTEGER: 2
+    .1.3.6.1.4.1.2021.13.16.2.1.2.2 = STRING: Core 0
+    .1.3.6.1.4.1.2021.13.16.2.1.3.2 = Gauge32: 26000
+
+
+```yaml
+
+```
+
+## Some of the sensors discovered to far
+
+#### Temperature Sensors
 ```
 snmpwalk -v 2c -On -c public localhost LM-SENSORS-MIB::lmTempSensorsTable
 ```
 
+#### Fan RPM
 ```
-snmpwalk -v 2c -On -c public localhost LM-SENSORS-MIB::lmTempSensorsValue
+snmpwalk -v 2c -On -c public localhost LM-SENSORS-MIB::lmFanSensorsTable
 ```
 
-### Disk Info
+#### Disk/Share Info
 ```
 snmpwalk -v 2c -On -c public localhost NET-SNMP-EXTEND-MIB::nsExtendOutLine
+```
