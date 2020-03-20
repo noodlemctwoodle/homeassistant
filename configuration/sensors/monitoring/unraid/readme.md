@@ -1,5 +1,15 @@
 # SNMP Sensors for UnRAID HKI View v1.2
 
+## Install Perl for UnRAID
+
+Install NerdPack GUI from the UnRAID community store
+
+![nerd-pack-gui](https://github.com/noodlemctwoodle/homeassistant/blob/unraid-view-1.2-dev/www/images/github/unraid-snmp/nerdpack-gui.png)
+
+Next go to plugins and click on the NerdPack plugin icon, scroll down the list and enable 'perl-5.30.1-x86_64-1.txz'
+
+![nerd-pack-perl](https://github.com/noodlemctwoodle/homeassistant/blob/unraid-view-1.2-dev/www/images/github/unraid-snmp/enable-perl.png)
+
 
 ## Install the UnRAID SNMP Plugin
 ```
