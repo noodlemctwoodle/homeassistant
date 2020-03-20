@@ -63,7 +63,7 @@ This [images](https://github.com/noodlemctwoodle/homeassistant/tree/master/www/i
 
 These [images](https://github.com/noodlemctwoodle/homeassistant/tree/master/www/images/software/containers) can be used for the containers
 
-![containers](https://github.com/noodlemctwoodle/homeassistant/blob/master/www/images/github/unraid-api/containers.png)
+![containers](https://github.com/noodlemctwoodle/homeassistant/blob/unraid-view-1.2-dev/www/images/github/views/container-badges.png)
 
 
 Bar-Card is required to be installed from HACs and added to lovelace/views/resources.yaml
