@@ -4,7 +4,7 @@
 # UnRAID Monitoring View for HKI
 ## Version 1.1
 
-![unraid-monitor](https://github.com/noodlemctwoodle/homeassistant/blob/master/www/images/github/views/unraid.gif)
+![unraid-monitor](https://github.com/noodlemctwoodle/homeassistant/blob/unraid-view-1.2-dev/www/images/github/views/unraid.gif)
 
 What this Dashboard does
  - View arrayStatus
