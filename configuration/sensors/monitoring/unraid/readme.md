@@ -1,5 +1,9 @@
 # SNMP Sensors for UnRAID HKI View v1.2
-
+ 
+ ## Credits
+  - [Stephan](https://github.com/Stephan296) Suggested this plugin, assisted finding SNMP sensors, provided code examples
+ - [Avi](https://github.com/abeksis/My-HomeAssistant-Config) Tested the  guide and submitted all the bugs. 
+ 
 
 
 ## Install Perl for UnRAID
@@ -19,7 +23,10 @@ Install 'SNMP' from the community store
 
 ![plugin-install](https://github.com/noodlemctwoodle/homeassistant/blob/unraid-view-1.2-dev/www/images/github/unraid-snmp/install-plugin.png)
 
-Run a test query to confirm SNMP is working correctly
+
+## Run a test query to confirm SNMP is working correctly
+
+Make sure you run these queries to ensure the plugin is working correctly.
 
     snmpwalk -v 2c localhost -c public 'NET-SNMP-EXTEND-MIB::nsExtendOutLine."disktemp"'
 
@@ -68,11 +75,11 @@ You can then string together the 'snmpwalk' commad
 
 |Intial command|MIB-FILE-NAME|Sensor Name|
 |---|---|---|
-|snmpwalk -v 2c -On -c public localhost | LM-SENSORS-MIB::|lmFanSensorsTable|
+|snmpwalk -v 2c -On -c public localhost | LM-SENSORS-MIB::|lmTempSensorsTable|
 
 ![mib-query](https://github.com/noodlemctwoodle/homeassistant/blob/unraid-view-1.2-dev/www/images/github/unraid-snmp/sensor-query.png)
 
-    snmpwalk -v 2c -On -c public localhost LM-SENSORS-MIB::lmFanSensorsTable
+    snmpwalk -v 2c -On -c public localhost LM-SENSORS-MIB::lmTempSensorsTable
 
 This Queery is split up into 3 sections
  - INTEGER
@@ -109,6 +116,8 @@ Some of the sensor I have created can be found in my config [here](https://githu
 
 
 ## Some of the sensors discovered to far...
+
+I'll add more sensors here as time goes on and as I go through and discover them. If you find any good ones please contact me on the HKI discord and I'll be sure to add them. 
 
 #### Temperature Sensors
 ```

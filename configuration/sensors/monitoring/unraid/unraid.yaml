@@ -32,10 +32,6 @@
 ## HDD SNMP Temperatures
 
 - platform: snmp
-  host: !secret server_ip_address_vlan20
-  baseoid: 1.3.6.1.4.1.2021.10.1.3.1
-
-- platform: snmp
   name: 'UnRAID PARITY Temperature'
   host: !secret server_ip_address_vlan20
   port: 161
