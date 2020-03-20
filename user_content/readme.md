@@ -3,10 +3,8 @@
 
 # UnRAID Monitoring View for HKI
 ## Version 1.1
-|Full screen|Container Support|
-|---|---|
-|![unraid-monitor](https://github.com/noodlemctwoodle/homeassistant/blob/master/www/images/github/views/unraid.png)|![unraid-monitor](https://github.com/noodlemctwoodle/homeassistant/blob/master/www/images/github/views/unraid.gif)|
 
+![unraid-monitor](https://github.com/noodlemctwoodle/homeassistant/blob/master/www/images/github/views/unraid.gif)
 
 What this Dashboard does
  - View arrayStatus
@@ -133,7 +131,6 @@ Once the UnRAID-API container is up and running check the mqtt integration, you 
 ![mqtt-integration](https://github.com/noodlemctwoodle/homeassistant/blob/master/www/images/github/unraid-api/mqtt.png)
 
 ### Setting Up Sensors
-
 You need the following [Sensors](https://github.com/noodlemctwoodle/homeassistant/blob/unraid-view-1.2-dev/configuration/sensors/monitoring/unraid/unraid.yaml) to be configured in Home Assistant for the view to to collect:
  - arrayStatus
  - arrayProtection
