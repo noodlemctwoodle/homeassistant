@@ -121,7 +121,7 @@ Once the UnRAID-API container is up and running check the mqtt integration, you 
 
 ### Setting Up Sensors
 
-You need the following [Sensors](https://github.com/noodlemctwoodle/homeassistant/blob/master/configuration/sensors/template/unraid.yaml) to be configured in Home Assistant for the view to to collect:
+You need the following [Sensors](https://github.com/noodlemctwoodle/homeassistant/blob/master/configuration/sensors/monitoring/unraid/unraid.yaml) to be configured in Home Assistant for the view to to collect:
  - arrayStatus
  - arrayProtection
  - diskSpace
