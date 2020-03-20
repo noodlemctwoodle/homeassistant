@@ -81,7 +81,7 @@ You can then string together the 'snmpwalk' commad
 
     snmpwalk -v 2c -On -c public localhost LM-SENSORS-MIB::lmTempSensorsTable
 
-This Queery is split up into 3 sections
+This query is split up into 3 sections
  - INTEGER
  - STRING
  - GAUGE
