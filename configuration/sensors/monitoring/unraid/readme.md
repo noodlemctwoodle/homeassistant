@@ -12,10 +12,10 @@ Next go to plugins and click on the NerdPack plugin icon, scroll down the list a
 
 
 ## Install the UnRAID SNMP Plugin
-```
-https://raw.githubusercontent.com/coppit/unraid-snmp/master/snmp.plg
-```
-![plugin-install](https://github.com/noodlemctwoodle/homeassistant/blob/unraid-view-1.2-dev/www/images/github/unraid-snmp/plugin-install.png)
+
+Install 'SNMP' from the community store
+
+![plugin-install](https://github.com/noodlemctwoodle/homeassistant/blob/unraid-view-1.2-dev/www/images/github/unraid-snmp/install-plugin.png)
 
 Run a test query to confirm SNMP is working correctly
 
@@ -56,7 +56,7 @@ All the SNMP Mib values can be found on your UnRAID sever in:
 
     /usr/share/snmp/mibs
 
-You ned to 'cat' the '.txt' file and locate the sensors
+You need to 'cat' the '.txt' file and locate the sensors
 
 ![mib-txt](https://github.com/noodlemctwoodle/homeassistant/blob/unraid-view-1.2-dev/www/images/github/unraid-snmp/mib-file.png)
 
