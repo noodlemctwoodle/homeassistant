@@ -2,7 +2,7 @@
 
 
 # UnRAID Monitoring View for HKI
-## Version 1.1
+## Version 1.2
 
 ![unraid-monitor](https://github.com/noodlemctwoodle/homeassistant/blob/unraid-view-1.2-dev/www/images/github/views/unraid.gif)
 
