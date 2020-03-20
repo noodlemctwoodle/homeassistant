@@ -21,6 +21,8 @@ Install 'SNMP' from the community store
 
 Run a test query to confirm SNMP is working correctly
 
+    snmpwalk -v 2c localhost -c public 'NET-SNMP-EXTEND-MIB::nsExtendOutLine."disktemp"'
+
     snmpwalk -On -v 2c localhost -c public 'NET-SNMP-EXTEND-MIB::nsExtendOutLine."disktemp"'
 
 ![test-query](https://github.com/noodlemctwoodle/homeassistant/blob/unraid-view-1.2-dev/www/images/github/unraid-snmp/test-query.png)
@@ -70,6 +72,8 @@ You can then string together the 'snmpwalk' commad
 
 ![mib-query](https://github.com/noodlemctwoodle/homeassistant/blob/unraid-view-1.2-dev/www/images/github/unraid-snmp/sensor-query.png)
 
+    snmpwalk -v 2c -On -c public localhost LM-SENSORS-MIB::lmFanSensorsTable
+
 This Queery is split up into 3 sections
  - INTEGER
  - STRING
@@ -90,7 +94,15 @@ In this example they all belong to Core 0
 
 
 ```yaml
-example goes here.... 
+- platform: snmp
+    name: 'UNRAID CPU TEMP'
+    host: 1.2.3.4
+    port: 161
+    community: public
+    baseoid: .1.3.6.1.4.1.2021.13.16.2.1.3.19
+    accept_errors: true
+    unit_of_measurement: '°C'
+    value_template: '{{((value | float) / 1000) | round(2) }}'
 ```
 
 Some of the sensor I have created can be found in my config [here](https://github.com/noodlemctwoodle/homeassistant/blob/unraid-view-1.2-dev/configuration/sensors/monitoring/unraid/unraid.yaml) from Line 30 onwards.
