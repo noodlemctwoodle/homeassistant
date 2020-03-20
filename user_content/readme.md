@@ -18,7 +18,19 @@ What this Dashboard does
  - View System Temperatures
  - View CPU usage
  - View RAM usage
+ - HDD Array temps
 
+Version 1.1
+ - added swipe card for docker containers
+ - Unraid-API added
+ - Container Support
+
+Version 1.2
+ - Added SNMP [config](https://github.com/noodlemctwoodle/homeassistant/tree/unraid-view-1.2-dev/configuration/sensors/monitoring/unraid)
+ - Moved temperature cards to swipe to reduce screen real estate
+ - combined disk usage into swipe card
+ - Added HDD temperatures to temperatures swipe card
+ - Removed Tap actions on mini-graph-card and bar-card
 
  You can find the config [here](https://github.com/noodlemctwoodle/homeassistant/blob/master/user_content/views/computers_user_content.yaml)
 
