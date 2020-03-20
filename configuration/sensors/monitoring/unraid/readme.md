@@ -50,7 +50,7 @@ You ned to 'cat' the '.txt' file and locate the sensors
 
 ![mib-txt](https://github.com/noodlemctwoodle/homeassistant/blob/unraid-view-1.2-dev/www/images/github/unraid-snmp/mib-file.png)
 
-You can then string to gether the 'snmpwalk' commad
+You can then string together the 'snmpwalk' commad
 
 |Intial command|MIB-FILE-NAME|Sensor Name|
 |---|---|---|
@@ -78,10 +78,13 @@ In this example they all belong to Core 0
 
 
 ```yaml
-
+example goes here.... 
 ```
 
-## Some of the sensors discovered to far
+Some of the sensor I have created can be found in my config [here](https://github.com/noodlemctwoodle/homeassistant/blob/unraid-view-1.2-dev/configuration/sensors/monitoring/unraid/unraid.yaml) from Line 30 onwards.
+
+
+## Some of the sensors discovered to far...
 
 #### Temperature Sensors
 ```

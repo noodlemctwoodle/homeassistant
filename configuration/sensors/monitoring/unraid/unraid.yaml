@@ -27,6 +27,7 @@
           | regex_findall_index(".*\((\d+.?\d+) %\)") | float }}
       unit_of_measurement: '%'
 
+# SNMP Sensors
 
 ## HDD SNMP Temperatures
 
