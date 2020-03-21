@@ -133,6 +133,32 @@ snmpwalk -v 2c -On -c public localhost LM-SENSORS-MIB::lmFanSensorsTable
 ```
 snmpwalk -v 2c -On -c public localhost NET-SNMP-EXTEND-MIB::nsExtendOutLine
 ```
+### Network 
+
+Descriptiom
+
+```
+snmpwalk -v 1 localhost -c public IF-MIB::ifDescr
+```
+
+Upload
+
+```
+snmpwalk -v 1 localhost -c public IF-MIB::ifOutOctets
+```
+
+Download
+
+```
+snmpwalk -v 1 localhost -c public IF-MIB::ifOutOctets
+```
+
+Errors
+
+```
+snmpwalk -v 2c localhost -c public systemStats
+snmpwalk -On -v 2c localhost -c public systemStats
+```
 
 
 ## Sensor Examples

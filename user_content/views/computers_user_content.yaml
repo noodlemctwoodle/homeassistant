@@ -257,6 +257,7 @@
               box-shadow: {{ states('input_select.box_shadow') }};
               font-weight: bold;
               opacity: 0.8;
+              height: 242px;
             }
           entities:
             - entity: sensor.glances_unraid_package_id_0_temp
@@ -338,71 +339,177 @@
 
 - type: horizontal-stack
   cards:
+    - type: custom:swipe-card
+      parameters:
+        spaceBetween: 8
+        scrollbar:
+          hide: true
+          draggable: true
+          snapOnRelease: true
+      cards:
 
-# CPU Usage
-    - type: custom:mini-graph-card
-      style: |
-        ha-card {
-          background: var(--paper-card-background-color);
-          border-radius: {{ states('input_select.border_radius') }};
-          --paper-item-icon-color: var(--paper-item-icon-color);
-          box-shadow: {{ states('input_select.box_shadow') }};
-          font-weight: bold;
-          opacity: 0.8;
-        }
-      entities:
-        - entity: sensor.glances_unraid_cpu_used
-          name: System
-          line_color: '"#14ff8d"'
-        - entity: sensor.glances_unraid_containers_cpu_used
-          name: Containers
-          line_color: '"#2814ff"'
-      name: CPU Usage
-      icon: mdi:cpu-64-bit
-      hours_to_show: 7
-      points_per_hour: 10
-      update_interval: 30
-      aggregate_func: max
-      line_width: 2
-      smoothing: false
-      font_size: 65
-      font_size_header: 9
-      show:
-        average: true
-        extrema: true
-      tap_action: none
+        - type: vertical-stack
+          cards:
+            - type: horizontal-stack
+              cards: 
 
-# Ram Usage
-    - type: custom:mini-graph-card
-      style: |
-        ha-card {
-          background: var(--paper-card-background-color);
-          border-radius: {{ states('input_select.border_radius') }};
-          --paper-item-icon-color: var(--paper-item-icon-color);
-          box-shadow: {{ states('input_select.box_shadow') }};
-          font-weight: bold;
-          opacity: 0.8;
-        }
-      entities:
-        - entity: sensor.glances_unraid_ram_used
-          name: System
-          line_color: '"#14ff8d"'
-        - entity: sensor.glances_unraid_containers_ram_used
-          name: Containers
-          line_color: '"#2814ff"'
-      name: RAM Usage
-      hours_to_show: 7
-      points_per_hour: 10
-      update_interval: 30
-      aggregate_func: max
-      line_width: 2
-      smoothing: false
-      font_size: 65
-      font_size_header: 9
-      show:
-        average: true
-        extrema: true
-      tap_action: none
+## Disk 1 Used %
+                - type: custom:mini-graph-card
+                  style: |
+                    ha-card {
+                      background: var(--paper-card-background-color);
+                      border-radius: {{ states('input_select.border_radius') }};
+                      --paper-item-icon-color: var(--paper-item-icon-color);
+                      box-shadow: {{ states('input_select.box_shadow') }};
+                      font-weight: bold;
+                      opacity: 0.8;
+                      height: 242px;
+                    }
+                  entities:
+                    - entity: sensor.glances_unraid_cpu_used
+                      name: System
+                      line_color: '"#14ff8d"'
+                    - entity: sensor.glances_unraid_containers_cpu_used
+                      name: Containers
+                      line_color: '"#2814ff"'
+                  name: CPU Usage
+                  icon: mdi:cpu-64-bit
+                  hours_to_show: 7
+                  points_per_hour: 10
+                  update_interval: 30
+                  height: 150
+                  aggregate_func: max
+                  line_width: 2
+                  smoothing: false
+                  font_size: 65
+                  font_size_header: 9
+                  show:
+                    average: true
+                    extrema: true
+                  tap_action: none
+
+            # Ram Usage
+                - type: custom:mini-graph-card
+                  style: |
+                    ha-card {
+                      background: var(--paper-card-background-color);
+                      border-radius: {{ states('input_select.border_radius') }};
+                      --paper-item-icon-color: var(--paper-item-icon-color);
+                      box-shadow: {{ states('input_select.box_shadow') }};
+                      font-weight: bold;
+                      opacity: 0.8;
+                      height: 242px;
+                    }
+                  entities:
+                    - entity: sensor.glances_unraid_ram_used
+                      name: System
+                      line_color: '"#14ff8d"'
+                    - entity: sensor.glances_unraid_containers_ram_used
+                      name: Containers
+                      line_color: '"#2814ff"'
+                  name: RAM Usage
+                  hours_to_show: 7
+                  points_per_hour: 10
+                  update_interval: 30
+                  height: 150
+                  aggregate_func: max
+                  line_width: 2
+                  smoothing: false
+                  font_size: 65
+                  font_size_header: 9
+                  show:
+                    average: true
+                    extrema: true
+                  tap_action: none
+
+        - type: vertical-stack
+          cards:
+
+            # LAN Download
+            - type: custom:mini-graph-card
+              style: |
+                ha-card {
+                  background: var(--paper-card-background-color);
+                  border-radius: {{ states('input_select.border_radius') }};
+                  --paper-item-icon-color: var(--paper-item-icon-color);
+                  box-shadow: {{ states('input_select.box_shadow') }};
+                  font-weight: bold;
+                  opacity: 0.8;
+                }
+              entities:
+                - entity: sensor.unraid_lan0_download_vlan10
+                  name: LAN 0
+                  line_color: '"#14ff8d"'
+                - entity: sensor.unraid_lan1_download_lagg0
+                  name: LAN 1
+                  line_color: '"#2814ff"'
+                - entity: sensor.unraid_lan2_download_lagg0
+                  name: LAN 2
+                  line_color: '"#2814ff"'
+                - entity: sensor.unraid_lan3_download_lagg0
+                  name: LAN 3
+                  line_color: '"#2814ff"'
+                - entity: sensor.unraid_lan4_download_lagg0
+                  name: LAN 4
+                  line_color: '"#14ff8d"'
+              name: UnRAID LAN Traffic (Download)
+              hours_to_show: 7
+              points_per_hour: 60
+              update_interval: 30
+              aggregate_func: max
+              line_width: 2
+              smoothing: false
+              font_size: 65
+              font_size_header: 9
+              show:
+                average: true
+                extrema: true
+              tap_action: none
+
+        - type: vertical-stack
+          cards:
+
+        # LAN Upload
+            - type: custom:mini-graph-card
+              style: |
+                ha-card {
+                  background: var(--paper-card-background-color);
+                  border-radius: {{ states('input_select.border_radius') }};
+                  --paper-item-icon-color: var(--paper-item-icon-color);
+                  box-shadow: {{ states('input_select.box_shadow') }};
+                  font-weight: bold;
+                  opacity: 0.8;
+                }
+              entities:
+                - entity: sensor.unraid_lan0_upload_vlan10
+                  name: LAN 0
+                  line_color: '"#14ff8d"'
+                - entity: sensor.unraid_lan1_upload_lagg0
+                  name: LAN 1
+                  line_color: '"#2814ff"'
+                - entity: sensor.unraid_lan2_upload_lagg0
+                  name: LAN 2
+                  line_color: '"#2814ff"'
+                - entity: sensor.unraid_lan3_upload_lagg0
+                  name: LAN 3
+                  line_color: '"#2814ff"'
+                - entity: sensor.unraid_lan4_upload_lagg0
+                  name: LAN 4
+                  line_color: '"#14ff8d"'
+              name: UnRAID LAN Traffic (Upload)
+              hours_to_show: 7
+              points_per_hour: 60
+              update_interval: 30
+              aggregate_func: max
+              line_width: 2
+              smoothing: false
+              font_size: 65
+              font_size_header: 9
+              show:
+                average: true
+                extrema: true
+              tap_action: none
+
 
 - type: horizontal-stack
   cards:
