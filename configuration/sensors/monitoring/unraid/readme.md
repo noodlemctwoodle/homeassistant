@@ -175,6 +175,17 @@ snmpwalk -On -v 2c localhost -c public systemStats
     value_template: '{{((value | float) * 0.000004096) | round(2) }}'
 ```
 
+```yaml
+- platform: snmp
+  name: 'UnRAID LAN0 Upload (VLAN10)'
+  host: 1.2.3.4
+  port: 161
+  community: public
+  baseoid: 1.3.6.1.2.1.2.2.1.16.17
+  accept_errors: true
+  unit_of_measurement: "Kbps"
+  value_template: '{{((value | float ) / 1000000 ) | round(2) }}'
+```
 
 ### Buy me a toilet roll?. 
 
