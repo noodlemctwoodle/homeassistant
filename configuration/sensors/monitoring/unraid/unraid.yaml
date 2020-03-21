@@ -29,11 +29,16 @@
       friendly_name: UnRAID Array Protection
       value_template: '{{state_attr("binary_sensor.chsunr01_server", "arrayProtection")}}'
 
+
+
+## !!!Requires IF statement!!!!
     unraid_array_space:
       friendly_name: UnRAID Array Space
       value_template: >
-        {{ state_attr("binary_sensor.chsunr01_server", "diskSpace")
-          | regex_findall_index(".*\((\d+.?\d+) %\)") | float }}
+        {% set s = state_attr("binary_sensor.chsunr01_server", "diskSpace") %} 
+        {{ 0 if s == None else s | regex_findall_index(".*\((\d+.?\d+) %\)") | float }}
+#        {{ state_attr("binary_sensor.chsunr01_server", "diskSpace")
+#          | regex_findall_index(".*\((\d+.?\d+) %\)") | float }}
       unit_of_measurement: '%'
 
 
