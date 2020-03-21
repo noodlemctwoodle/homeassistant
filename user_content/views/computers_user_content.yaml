@@ -209,128 +209,142 @@
           draggable: true
           snapOnRelease: true
       cards:
-    # CPU Temps
-        - type: custom:mini-graph-card
-          style: |
-            ha-card {
-              background: var(--paper-card-background-color);
-              border-radius: {{ states('input_select.border_radius') }};
-              --paper-item-icon-color: var(--paper-item-icon-color);
-              box-shadow: {{ states('input_select.box_shadow') }};
-              font-weight: bold;
-              opacity: 0.8;
-            }
-          entities:
-            - entity: sensor.glances_unraid_core_0_temp
-              name: CPU0
-              line_color: '"#14ff8d"'
-            - entity: sensor.glances_unraid_core_1_temp
-              name: CPU1
-              line_color: '"#2814ff"'
-            - entity: sensor.glances_unraid_core_2_temp
-              name: CPU2
-              line_color: '"#2814ff"'
-            - entity: sensor.glances_unraid_core_3_temp
-              name: CPU3
-              line_color: '"#2814ff"'
-          name: Intel i7 6700k
-          hours_to_show: 7
-          points_per_hour: 10
-          update_interval: 30
-          aggregate_func: max
-          line_width: 2
-          smoothing: false
-          font_size: 65
-          font_size_header: 9
-          show:
-            average: true
-            extrema: true
-          tap_action: none
 
-    # Motherboard Temps
-        - type: custom:mini-graph-card
-          style: |
-            ha-card {
-              background: var(--paper-card-background-color);
-              border-radius: {{ states('input_select.border_radius') }};
-              --paper-item-icon-color: var(--paper-item-icon-color);
-              box-shadow: {{ states('input_select.box_shadow') }};
-              font-weight: bold;
-              opacity: 0.8;
-              height: 242px;
-            }
-          entities:
-            - entity: sensor.glances_unraid_package_id_0_temp
-              name: Motherboard
-          name: ROG Maximus Gene VI
-          hours_to_show: 7
-          points_per_hour: 10
-          update_interval: 30
-          aggregate_func: max
-          line_width: 2
-          smoothing: false
-          font_size: 65
-          font_size_header: 9
-          show:
-            average: true
-            extrema: true
-          color_thresholds:
-            - value: 30
-              color: "#4fcc29"
-            - value: 40
-              color: "#f39c12"
-            - value: 50
-              color: "#d35400"
-            - value: 60
-              color: "#c0392b"
-          tap_action: none
+        - type: vertical-stack
+          cards:
+            - type: horizontal-stack
+              cards: 
 
-    # HDD Temps
-        - type: custom:mini-graph-card
-          style: |
-            ha-card {
-              background: var(--paper-card-background-color);
-              border-radius: {{ states('input_select.border_radius') }};
-              --paper-item-icon-color: var(--paper-item-icon-color);
-              box-shadow: {{ states('input_select.box_shadow') }};
-              font-weight: bold;
-              opacity: 0.8;
-            }
-          entities:
-            - entity: sensor.unraid_parity_temperature
-              name: Parity
-              line_color: '"#14ff8d"'
-            - entity: sensor.unraid_disk1_temperature
-              name: Disk 1
-              line_color: '"#2814ff"'
-            - entity: sensor.unraid_disk2_temperature
-              name: Disk 2
-              line_color: '"#2814ff"'
-            - entity: sensor.unraid_disk3_temperature
-              name: Disk 3
-              line_color: '"#2814ff"'
-            - entity: sensor.unraid_disk4_temperature
-              name: Disk 4
-              line_color: '"#14ff8d"'
-            - entity: sensor.unraid_disk5_temperature
-              name: Disk 5
-              line_color: '"#2814ff"'
-            - entity: sensor.unraid_disk6_temperature
-              name: Disk 6
-              line_color: '"#2814ff"'
-          name: UnRAID Storage Pool
-          hours_to_show: 7
-          points_per_hour: 10
-          update_interval: 30
-          aggregate_func: max
-          line_width: 2
-          smoothing: false
-          font_size: 65
-          font_size_header: 9
-          show:
-            average: true
-            extrema: true
-          tap_action: none
+          # CPU Temps
+              - type: custom:mini-graph-card
+                style: |
+                  ha-card {
+                    background: var(--paper-card-background-color);
+                    border-radius: {{ states('input_select.border_radius') }};
+                    --paper-item-icon-color: var(--paper-item-icon-color);
+                    box-shadow: {{ states('input_select.box_shadow') }};
+                    font-weight: bold;
+                    opacity: 0.8;
+                    height: 242px;                
+                  }
+                entities:
+                  - entity: sensor.glances_unraid_core_0_temp
+                    name: CPU0
+                    line_color: '"#14ff8d"'
+                  - entity: sensor.glances_unraid_core_1_temp
+                    name: CPU1
+                    line_color: '"#2814ff"'
+                  - entity: sensor.glances_unraid_core_2_temp
+                    name: CPU2
+                    line_color: '"#2814ff"'
+                  - entity: sensor.glances_unraid_core_3_temp
+                    name: CPU3
+                    line_color: '"#2814ff"'
+                name: Intel i7 6700k
+                hours_to_show: 7
+                points_per_hour: 10
+                update_interval: 30
+                aggregate_func: max
+                line_width: 2
+                smoothing: false
+                font_size: 65
+                font_size_header: 9
+                show:
+                  average: true
+                  extrema: true
+                tap_action: none
+
+        - type: vertical-stack
+          cards:
+
+        # Motherboard Temps
+            - type: custom:mini-graph-card
+              style: |
+                ha-card {
+                  background: var(--paper-card-background-color);
+                  border-radius: {{ states('input_select.border_radius') }};
+                  --paper-item-icon-color: var(--paper-item-icon-color);
+                  box-shadow: {{ states('input_select.box_shadow') }};
+                  font-weight: bold;
+                  opacity: 0.8;
+                  height: 242px;                  
+                }
+              entities:
+                - entity: sensor.glances_unraid_package_id_0_temp
+                  name: Motherboard
+              name: ROG Maximus Gene VI
+              hours_to_show: 7
+              points_per_hour: 10
+              update_interval: 30
+              aggregate_func: max
+              line_width: 2
+              smoothing: false
+              font_size: 65
+              font_size_header: 9
+              show:
+                average: true
+                extrema: true
+              color_thresholds:
+                - value: 30
+                  color: "#4fcc29"
+                - value: 40
+                  color: "#f39c12"
+                - value: 50
+                  color: "#d35400"
+                - value: 60
+                  color: "#c0392b"
+              tap_action: none
+
+        - type: vertical-stack
+          cards:
+
+        # HDD Temps
+            - type: custom:mini-graph-card
+              style: |
+                ha-card {
+                  background: var(--paper-card-background-color);
+                  border-radius: {{ states('input_select.border_radius') }};
+                  --paper-item-icon-color: var(--paper-item-icon-color);
+                  box-shadow: {{ states('input_select.box_shadow') }};
+                  font-weight: bold;
+                  opacity: 0.8;
+                  height: 242px;
+                }
+              entities:
+                - entity: sensor.unraid_parity_temperature
+                  name: Parity
+                  line_color: "#14ff8d"
+                - entity: sensor.unraid_disk1_temperature
+                  name: Disk 1
+                  line_color: "#2814ff"
+                - entity: sensor.unraid_disk2_temperature
+                  name: Disk 2
+                  line_color: "#2814ff"
+                - entity: sensor.unraid_disk3_temperature
+                  name: Disk 3
+                  line_color: "#2814ff"
+                - entity: sensor.unraid_disk4_temperature
+                  name: Disk 4
+                  line_color: '"#14ff8d"'
+                - entity: sensor.unraid_disk5_temperature
+                  name: Disk 5
+                  line_color: '"#2814ff"'
+                - entity: sensor.unraid_disk6_temperature
+                  name: Disk 6
+                  line_color: '"#2814ff"'
+              name: UnRAID Storage Pool
+              hours_to_show: 7
+              points_per_hour: 60
+              update_interval: 60
+              aggregate_func: max
+              line_width: 2
+              smoothing: false
+              font_size: 65
+              font_size_header: 9
+              show:
+                average: true
+                extrema: true
+              tap_action: none
 
 # System Resourses Card
 - !include
@@ -353,7 +367,7 @@
             - type: horizontal-stack
               cards: 
 
-## Disk 1 Used %
+            # CPU Useage
                 - type: custom:mini-graph-card
                   style: |
                     ha-card {
@@ -435,6 +449,7 @@
                   box-shadow: {{ states('input_select.box_shadow') }};
                   font-weight: bold;
                   opacity: 0.8;
+                  height: 242px;
                 }
               entities:
                 - entity: sensor.unraid_lan0_download_vlan10
@@ -479,6 +494,7 @@
                   box-shadow: {{ states('input_select.box_shadow') }};
                   font-weight: bold;
                   opacity: 0.8;
+                  height: 242px;                
                 }
               entities:
                 - entity: sensor.unraid_lan0_upload_vlan10
@@ -509,7 +525,6 @@
                 average: true
                 extrema: true
               tap_action: none
-
 
 - type: horizontal-stack
   cards:
