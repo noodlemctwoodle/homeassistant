@@ -204,10 +204,14 @@
     - type: custom:swipe-card
       parameters:
         spaceBetween: 8
-        scrollbar:
-          hide: true
-          draggable: true
-          snapOnRelease: true
+        touchEventsTarget: 'container'
+        pagination:
+          type: 'bullets'
+          dynamicBullets: true
+#        scrollbar:
+#          hide: true
+#          draggable: true
+#          snapOnRelease: true
       cards:
 
         - type: vertical-stack
@@ -334,8 +338,8 @@
                   line_color: '"#2814ff"'
               name: UnRAID Storage Pool
               hours_to_show: 7
-              points_per_hour: 60
-              update_interval: 60
+              points_per_hour: 10
+              update_interval: 30
               aggregate_func: max
               line_width: 2
               smoothing: false
@@ -356,10 +360,14 @@
     - type: custom:swipe-card
       parameters:
         spaceBetween: 8
-        scrollbar:
-          hide: true
-          draggable: true
-          snapOnRelease: true
+        touchEventsTarget: 'container'
+        pagination:
+          type: 'bullets'
+          dynamicBullets: true
+#        scrollbar:
+#          hide: true
+#          draggable: true
+#          snapOnRelease: true
       cards:
 
         - type: vertical-stack
@@ -469,14 +477,15 @@
                   line_color: '"#14ff8d"'
               name: UnRAID LAN Traffic (Download)
               hours_to_show: 7
-              points_per_hour: 60
-              update_interval: 30
-              aggregate_func: max
+              points_per_hour: 5
+              update_interval: 120
+              aggregate_func: avg
               line_width: 2
               smoothing: false
               font_size: 65
               font_size_header: 9
               show:
+                graph: bar
                 average: true
                 extrema: true
               tap_action: none
@@ -514,14 +523,15 @@
                   line_color: '"#14ff8d"'
               name: UnRAID LAN Traffic (Upload)
               hours_to_show: 7
-              points_per_hour: 60
-              update_interval: 30
-              aggregate_func: max
+              points_per_hour: 5
+              update_interval: 120
+              aggregate_func: avg
               line_width: 2
               smoothing: false
               font_size: 65
               font_size_header: 9
               show:
+                graph: bar
                 average: true
                 extrema: true
               tap_action: none
@@ -659,6 +669,9 @@
     - type: custom:swipe-card
       parameters:
         spaceBetween: 8
+        touchEventsTarget: 'container'
+        pagination:
+          type: 'bullets'
         scrollbar:
           hide: true
           draggable: true
@@ -929,10 +942,14 @@
     - type: custom:swipe-card
       parameters:
         spaceBetween: 8
-        scrollbar:
-          hide: true
-          draggable: true
-          snapOnRelease: true
+        touchEventsTarget: 'container'
+        pagination:
+          type: 'bullets'
+          dynamicBullets: true
+#        scrollbar:
+#          hide: true
+#          draggable: true
+#          snapOnRelease: true
       cards:
 
         - type: vertical-stack
@@ -1430,3 +1447,5 @@
                   max: 5460
                   min: 0
                   tap_action: none
+
+
