@@ -1,6 +1,8 @@
+# UnRAID Sensors v1.2
+
 ## UnRAID Version Sensor URLs
-# Stable URL: https://s3.amazonaws.com/dnld.lime-technology.com/stable/unRAIDServer.plg
-# Beta URL: https://s3.amazonaws.com/dnld.lime-technology.com/next/unRAIDServer.plg
+### Stable URL: https://s3.amazonaws.com/dnld.lime-technology.com/stable/unRAIDServer.plg
+### Beta URL: https://s3.amazonaws.com/dnld.lime-technology.com/next/unRAIDServer.plg
 
 - platform: command_line
   name: Unraid Version (Next)

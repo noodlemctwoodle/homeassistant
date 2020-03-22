@@ -1,9 +1,9 @@
 # SNMP Sensors for UnRAID HKI View v1.2
  
  ## Credits
- - [Stephan](https://github.com/Stephan296) Suggested this plugin, assisted finding SNMP sensors, provided code examples
+ - [Stephan](https://github.com/Stephan296) Suggested this plugin, assisted finding SNMP sensors, provided code snips
 ### Testers  
- - [Avi](https://github.com/abeksis/My-HomeAssistant-Config) Tested the  guide and submitted bugs
+ - [Avi](https://github.com/abeksis/My-HomeAssistant-Config) Tested the SNMP guide and submitted bugs
  - [OnlyMe](https://github.com/Holewijn/home-assistant-config) Tested the SNMP guide submitted bugs
 
  
@@ -13,18 +13,18 @@
 
 Install NerdPack GUI from the UnRAID community store
 
-![nerd-pack-gui](https://github.com/noodlemctwoodle/homeassistant/blob/unraid-view-1.2-dev/www/images/github/unraid-snmp/nerdpack-gui.png)
+![nerd-pack-gui](https://github.com/noodlemctwoodle/homeassistant/blob/master/www/images/github/unraid-snmp/nerdpack-gui.png)
 
 Next go to plugins and click on the NerdPack plugin icon, scroll down the list and enable 'perl-5.30.1-x86_64-1.txz'
 
-![nerd-pack-perl](https://github.com/noodlemctwoodle/homeassistant/blob/unraid-view-1.2-dev/www/images/github/unraid-snmp/enable-perl.png)
+![nerd-pack-perl](https://github.com/noodlemctwoodle/homeassistant/blob/master/www/images/github/unraid-snmp/enable-perl.png)
 
 
 ## Install the UnRAID SNMP Plugin
 
 Install 'SNMP' from the community store
 
-![plugin-install](https://github.com/noodlemctwoodle/homeassistant/blob/unraid-view-1.2-dev/www/images/github/unraid-snmp/install-plugin.png)
+![plugin-install](https://github.com/noodlemctwoodle/homeassistant/blob/master/www/images/github/unraid-snmp/install-plugin.png)
 
 
 ## Run a test query to confirm SNMP is working correctly
@@ -35,7 +35,7 @@ Make sure you run these queries to ensure the plugin is working correctly.
 
     snmpwalk -On -v 2c localhost -c public 'NET-SNMP-EXTEND-MIB::nsExtendOutLine."disktemp"'
 
-![test-query](https://github.com/noodlemctwoodle/homeassistant/blob/unraid-view-1.2-dev/www/images/github/unraid-snmp/test-query.png)
+![test-query](https://github.com/noodlemctwoodle/homeassistant/blob/master/www/images/github/unraid-snmp/test-query.png)
 
 Make a note of the OID 
 
@@ -45,7 +45,7 @@ Make a note of the disk serial numbers and match it to the disk number in UnRAID
 
     STRING: **ST6000VN0033-2EE110_ZAD4BDGE**
 
-![disk-sn](https://github.com/noodlemctwoodle/homeassistant/blob/unraid-view-1.2-dev/www/images/github/unraid-snmp/disk-sn.png)
+![disk-sn](https://github.com/noodlemctwoodle/homeassistant/blob/master/www/images/github/unraid-snmp/disk-sn.png)
 
 ## Create a SNMP sensor in your config
 
@@ -72,7 +72,7 @@ All the SNMP Mib values can be found on your UnRAID sever in:
 
 You need to 'cat' the '.txt' file and locate the sensors
 
-![mib-txt](https://github.com/noodlemctwoodle/homeassistant/blob/unraid-view-1.2-dev/www/images/github/unraid-snmp/mib-file.png)
+![mib-txt](https://github.com/noodlemctwoodle/homeassistant/blob/master/www/images/github/unraid-snmp/mib-file.png)
 
 You can then string together the 'snmpwalk' commad
 
@@ -80,7 +80,7 @@ You can then string together the 'snmpwalk' commad
 |---|---|---|
 |snmpwalk -v 2c -On -c public localhost | LM-SENSORS-MIB::|lmTempSensorsTable|
 
-![mib-query](https://github.com/noodlemctwoodle/homeassistant/blob/unraid-view-1.2-dev/www/images/github/unraid-snmp/sensor-query.png)
+![mib-query](https://github.com/noodlemctwoodle/homeassistant/blob/master/www/images/github/unraid-snmp/sensor-query.png)
 
     snmpwalk -v 2c -On -c public localhost LM-SENSORS-MIB::lmTempSensorsTable
 
@@ -168,7 +168,7 @@ snmpwalk -On -v 2c localhost -c public systemStats
 
 ```yaml
   - platform: snmp
-    name: 'UNRAID DISK 1 USED'
+    name: 'HDD Disk Usage'
     host: 1.2.3.4
     port: 161
     community: public
@@ -180,7 +180,7 @@ snmpwalk -On -v 2c localhost -c public systemStats
 
 ```yaml
 - platform: snmp
-  name: 'UnRAID LAN0 Upload (VLAN10)'
+  name: 'LAN Upload Sensor'
   host: 1.2.3.4
   port: 161
   community: public
@@ -188,6 +188,20 @@ snmpwalk -On -v 2c localhost -c public systemStats
   accept_errors: true
   unit_of_measurement: "Kbps"
   value_template: '{{((value | float ) / 1000000 ) | round(2) }}'
+```
+
+```yaml
+- platform: snmp
+  name: 'HDD Temperature Sensor'  
+  host: 1.2.3.4
+  port: 161
+  community: public
+  version: 2c
+  baseoid: .1.3.6.1.4.1.8072.1.3.2.4.1.2.8.100.105.115.107.116.101.109.112.1
+  accept_errors: false
+  value_template: >
+    {{ value.split(':')[1].strip() }}
+  unit_of_measurement: '°C'
 ```
 
 ### Buy me a toilet roll?. 
