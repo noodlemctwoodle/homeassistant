@@ -15,8 +15,9 @@ The [Hassio](https://github.com/noodlemctwoodle/hassio/wiki/Install-Hass.io) gui
 ## HKI Documentation can be found here
 [Documentation](https://jimz011.github.io/homekit-infused/)
 
-## UnRAID-API Setup
+## UnRAID Data Monitoring Feeds
 [UnRAID-API Setup](https://github.com/noodlemctwoodle/homeassistant/tree/master/user_content)
+[UnRAID-SNMP Setup](https://github.com/noodlemctwoodle/homeassistant/tree/master/configuration/sensors/monitoring/unraid)
 
 ## Check out my Wiki
 Further information and guides can be found on my [wiki](https://github.com/noodlemctwoodle/hassio/wiki)
