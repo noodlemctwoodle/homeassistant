@@ -148,7 +148,7 @@ snmpwalk -v 1 localhost -c public IF-MIB::ifOutOctets
 Download
 
 ```
-snmpwalk -v 1 localhost -c public IF-MIB::ifOutOctets
+ snmpwalk -v 1 localhost -c public IF-MIB::ifInOctets
 ```
 
 Errors
