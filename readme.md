@@ -38,14 +38,18 @@ Version 1.1
 
 Version 1.2
  - Added SNMP [config](https://github.com/noodlemctwoodle/homeassistant/tree/unraid-view-1.2-dev/configuration/sensors/monitoring/unraid)
- - Moved temperature cards to swipe to reduce screen real estate
+ - Moved temperature cards to swipe-card to reduce screen real estate
  - combined disk usage into swipe card
- - Added HDD temperatures to temperatures swipe card
+ - Added HDD temperatures to temperatures swipe-card
+ - Added LAN Throughput bar graph to resources swipe-card
  - Removed Tap actions on mini-graph-card and bar-card
+ - Fixed graph height issue on swipe-card
+ - Added bullets to swipe card and removed progress bar
+ - Fixed template issue on 'Array Usage' when Home Assistant gets value of unavailable or none
 
  You can find the config [here](https://github.com/noodlemctwoodle/homeassistant/blob/master/user_content/views/computers_user_content.yaml)
 
- ## Credits
+ #### Credits
  - [Jimz011](https://github.com/jimz011) Thanks for your assistance and ideas on this :)
  - [Stephan](https://github.com/Stephan296) Thanks for creating the version sensor curl request and exploring the correct configuration for the UnRAID-API.
  - [ElectricBrainUK](https://github.com/ElectricBrainUK/UnraidAPI) Thanks for creating this API for us to use and making this dashboard possible
