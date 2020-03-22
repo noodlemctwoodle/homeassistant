@@ -19,17 +19,18 @@ The [Hassio](https://github.com/noodlemctwoodle/hassio/wiki/Install-Hass.io) gui
 
 ![unraid-monitor](https://github.com/noodlemctwoodle/homeassistant/blob/unraid-view-1.2-dev/www/images/github/views/unraid.gif)
 
-What this Dashboard does
- - View arrayStatus
- - View arrayProtection
- - View diskSpace
- - Start/Stop Containers
- - View total per disk used space
- - View total per disk free space
- - View System Temperatures
- - View CPU usage
- - View RAM usage
- - HDD Array temps
+### What This Dashboard Does
+
+| [UnRAID-API](https://github.com/noodlemctwoodle/homeassistant/tree/master/user_content) | [UnRAID-SNMP](https://github.com/noodlemctwoodle/homeassistant/tree/master/configuration/sensors/monitoring/unraid) | Glances Container |
+|-----------------------|-----------------|--------------------------------|
+| View arrayStatus      | HDD Array Temps | View total per disk used space |
+| View arrayProtection  | LAN Throughput  | View total per disk free space |
+| Total arrayDiskSpace  | Disk Space      | View CPU usage                 |
+| Start/Stop Containers | CPU Load        | View RAM usage                 |
+
+Version 1.0
+ - Initial view
+ - Glances container support
 
 Version 1.1
  - added swipe card for docker containers
@@ -59,7 +60,7 @@ Version 1.2
 
 ## UnRAID Data Monitoring Feeds
 
-| [UnRAID-API Setup ](https://github.com/noodlemctwoodle/homeassistant/tree/master/user_content ) | [UnRAID-SNMP Setup](https://github.com/noodlemctwoodle/homeassistant/tree/master/configuration/sensors/monitoring/unraid) | 
+| [UnRAID-API Setup ](https://github.com/noodlemctwoodle/homeassistant/tree/master/user_content) | [UnRAID-SNMP Setup](https://github.com/noodlemctwoodle/homeassistant/tree/master/configuration/sensors/monitoring/unraid) | 
 |-------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------:|
 
 ## Check out my Wiki
