@@ -1,13 +1,11 @@
-# SNMP Sensors for UnRAID HKI View v1.2
+# UnRAID SNMP Configuration
  
- ## Credits
+## Credits
  - [Stephan](https://github.com/Stephan296) Suggested this plugin, assisted finding SNMP sensors, provided code snips
+
 ### Testers  
  - [Avi](https://github.com/abeksis/My-HomeAssistant-Config) Tested the SNMP guide and submitted bugs
  - [OnlyMe](https://github.com/Holewijn/home-assistant-config) Tested the SNMP guide submitted bugs
-
- 
-
 
 ## Install Perl for UnRAID
 
@@ -19,13 +17,11 @@ Next go to plugins and click on the NerdPack plugin icon, scroll down the list a
 
 ![nerd-pack-perl](https://github.com/noodlemctwoodle/homeassistant/blob/master/www/images/github/unraid-snmp/enable-perl.png)
 
-
 ## Install the UnRAID SNMP Plugin
 
 Install 'SNMP' from the community store
 
 ![plugin-install](https://github.com/noodlemctwoodle/homeassistant/blob/master/www/images/github/unraid-snmp/install-plugin.png)
-
 
 ## Run a test query to confirm SNMP is working correctly
 
@@ -117,7 +113,6 @@ In this example they all belong to Core 0
 
 Some of the sensor I have created can be found in my config [here](https://github.com/noodlemctwoodle/homeassistant/blob/unraid-view-1.2-dev/configuration/sensors/monitoring/unraid/unraid.yaml) from Line 30 onwards.
 
-
 ## Some of the sensors discovered to far...
 
 I'll add more sensors here as time goes on and as I go through and discover them. If you find any good ones please contact me on the HKI discord and I'll be sure to add them. 
@@ -162,7 +157,6 @@ Errors
 snmpwalk -v 2c localhost -c public systemStats
 snmpwalk -On -v 2c localhost -c public systemStats
 ```
-
 
 ## Sensor Examples
 
