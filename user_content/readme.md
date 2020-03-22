@@ -2,11 +2,9 @@
 
 
 # UnRAID Monitoring View for HKI
-## Version 1.1
-|Full screen|Container Support|
-|---|---|
-|![unraid-monitor](https://github.com/noodlemctwoodle/homeassistant/blob/master/www/images/github/views/unraid.png)|![unraid-monitor](https://github.com/noodlemctwoodle/homeassistant/blob/master/www/images/github/views/unraid.gif)|
+## Version 1.2
 
+![unraid-monitor](https://github.com/noodlemctwoodle/homeassistant/blob/unraid-view-1.2-dev/www/images/github/views/unraid.gif)
 
 What this Dashboard does
  - View arrayStatus
@@ -18,7 +16,19 @@ What this Dashboard does
  - View System Temperatures
  - View CPU usage
  - View RAM usage
+ - HDD Array temps
 
+Version 1.1
+ - added swipe card for docker containers
+ - Unraid-API added
+ - Container Support
+
+Version 1.2
+ - Added SNMP [config](https://github.com/noodlemctwoodle/homeassistant/tree/unraid-view-1.2-dev/configuration/sensors/monitoring/unraid)
+ - Moved temperature cards to swipe to reduce screen real estate
+ - combined disk usage into swipe card
+ - Added HDD temperatures to temperatures swipe card
+ - Removed Tap actions on mini-graph-card and bar-card
 
  You can find the config [here](https://github.com/noodlemctwoodle/homeassistant/blob/master/user_content/views/computers_user_content.yaml)
 
@@ -28,6 +38,7 @@ What this Dashboard does
  - [ElectricBrainUK](https://github.com/ElectricBrainUK/UnraidAPI) Thanks for creating this API for us to use and making this dashboard possible
  - [123](https://community.home-assistant.io/u/123/summary) Thanks for solving the problem with parenthesis
  - [Avi](https://github.com/abeksis/My-HomeAssistant-Config) Thanks for creating the awesome graphics used in v1.2 containers swipe-card and also providing most of the code for it. 
+ - [OnlyMe](https://github.com/Holewijn/home-assistant-config) Thanks for adding the additional container images
 
 ### Buy me a toilet roll?. 
 I don't expect anything for my work and if you are thinking of donating you should consider donating the main developers of HKI or UNRAID-API. 
@@ -52,7 +63,7 @@ This [images](https://github.com/noodlemctwoodle/homeassistant/tree/master/www/i
 
 These [images](https://github.com/noodlemctwoodle/homeassistant/tree/master/www/images/software/containers) can be used for the containers
 
-![containers](https://github.com/noodlemctwoodle/homeassistant/blob/master/www/images/github/unraid-api/containers.png)
+![containers](https://github.com/noodlemctwoodle/homeassistant/blob/unraid-view-1.2-dev/www/images/github/views/container-badges.png)
 
 
 Bar-Card is required to be installed from HACs and added to lovelace/views/resources.yaml
@@ -120,8 +131,8 @@ Once the UnRAID-API container is up and running check the mqtt integration, you 
 ![mqtt-integration](https://github.com/noodlemctwoodle/homeassistant/blob/master/www/images/github/unraid-api/mqtt.png)
 
 ### Setting Up Sensors
-
 You need the following [Sensors](https://github.com/noodlemctwoodle/homeassistant/blob/master/configuration/sensors/monitoring/unraid/unraid.yaml) to be configured in Home Assistant for the view to to collect:
+
  - arrayStatus
  - arrayProtection
  - diskSpace
