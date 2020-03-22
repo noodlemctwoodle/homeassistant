@@ -58,7 +58,7 @@ Version 1.2
  - Added bullets to swipe card and removed progress bar
  - Fixed template issue on 'Array Usage' when Home Assistant gets value of unavailable or none
 
- You can find the config [here](https://github.com/noodlemctwoodle/homeassistant/blob/master/user_content/views/computers_user_content.yaml)
+ HKI UnRAID view can be found [here](https://github.com/noodlemctwoodle/homeassistant/blob/master/user_content/views/computers_user_content.yaml)
 
  #### Credits
  - [Jimz011](https://github.com/jimz011) Thanks for your assistance and ideas on this :)
