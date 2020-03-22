@@ -2,8 +2,11 @@
 
 ![](https://github.com/noodlemctwoodle/homeassistant/workflows/Home-Assistant-CI/badge.svg)
 
-
 Open source home automation that puts local control and privacy first. Powered by a worldwide community of tinkerers and DIY enthusiasts. 
+
+#### Contents
+[UnRAID View HKI](https://github.com/noodlemctwoodle/homeassistant#unraid-monitoring-view-for-hki)
+[Home Assistand View](https://github.com/noodlemctwoodle/homeassistant#home-assistant-monitoring-view-for-hki)
 
 ## Home Assistant Hardware Configuration
 - Intel NUC i3 Gen 7
@@ -62,6 +65,9 @@ Version 1.2
  - [Avi](https://github.com/abeksis/My-HomeAssistant-Config) Thanks for creating the awesome graphics used in v1.2 containers swipe-card and also providing code snips. 
  - [OnlyMe](https://github.com/Holewijn/home-assistant-config) Thanks for adding the additional container images
 
+
+# Home Assistant Monitoring View for HKI
+Coming Soon....
 
 ## Check out my Wiki
 Further information and guides can be found on my [wiki](https://github.com/noodlemctwoodle/hassio/wiki)
