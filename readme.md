@@ -1,6 +1,3 @@
-<!-- Place this tag in your head or just before your close body tag. -->
-<script async defer src="https://buttons.github.io/buttons.js"></script>
-
 # Home Asssistant Configuration
 
 Open source home automation that puts local control and privacy first. Powered by a worldwide community of tinkerers and DIY enthusiasts. 
@@ -9,6 +6,10 @@ Open source home automation that puts local control and privacy first. Powered b
 If you want to <a class="github-button" href="https://github.com/noodlemctwoodle/homeassistant" data-icon="octicon-star" data-show-count="true" aria-label="Star noodlemctwoodle/homeassistant on GitHub">Star</a>
 
 If you wish to <a class="github-button" href="https://github.com/noodlemctwoodle" data-show-count="true" aria-label="Follow @noodlemctwoodle on GitHub">Follow</a> me on GitHub
+
+
+<iframe src="https://ghbtns.com/github-btn.html?user=twbs&repo=bootstrap&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
+
 
 
 ## Home Assistant Hardware Configuration
