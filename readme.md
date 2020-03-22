@@ -1,8 +1,13 @@
+import GitHubButton from 'react-github-btn'
+
 # Home Asssistant Configuration
 
 Open source home automation that puts local control and privacy first. Powered by a worldwide community of tinkerers and DIY enthusiasts. 
 
-Be sure to <a class="github-button" href="https://github.com/noodlemctwoodle/homeassistant" data-color-scheme="no-preference: light; light: light; dark: dark;" data-icon="octicon-star" aria-label="Star noodlemctwoodle/homeassistant on GitHub">Star</a> my repo
+
+If you want to <GitHubButton href="https://github.com/noodlemctwoodle/homeassistant" data-icon="octicon-star" data-show-count="true" aria-label="Star noodlemctwoodle/homeassistant on GitHub">Star</GitHubButton> my repo
+
+If you wish to <GitHubButton href="https://github.com/noodlemctwoodle" data-show-count="true" aria-label="Follow me on GitHub">Follow @noodlemctwoodle</GitHubButton>
 
 ## Home Assistant Hardware Configuration
 - Intel NUC i3 Gen 7
@@ -19,7 +24,7 @@ The [Hassio](https://github.com/noodlemctwoodle/hassio/wiki/Install-Hass.io) gui
 # UnRAID Monitoring View for HKI
 ## Version 1.2
 
-![unraid-monitor](https://github.com/noodlemctwoodle/homeassistant/blob/unraid-view-1.2-dev/www/images/github/views/unraid.gif)
+![unraid-monitor](https://github.com/noodlemctwoodle/homeassistant/blob/master/www/images/github/views/unraid.gif)
 
 ### UnRAID Data Monitoring Feeds
 
