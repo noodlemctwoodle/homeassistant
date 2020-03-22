@@ -2,6 +2,8 @@
 
 Open source home automation that puts local control and privacy first. Powered by a worldwide community of tinkerers and DIY enthusiasts. 
 
+Be sure to <a class="github-button" href="https://github.com/noodlemctwoodle/homeassistant" data-color-scheme="no-preference: light; light: light; dark: dark;" data-icon="octicon-star" aria-label="Star noodlemctwoodle/homeassistant on GitHub">Star</a> my repo
+
 ## Home Assistant Hardware Configuration
 - Intel NUC i3 Gen 7
 - Ubunbu Server 19.10
