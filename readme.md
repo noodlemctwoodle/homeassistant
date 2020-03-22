@@ -1,6 +1,9 @@
 # Home Asssistant Configuration
 
-![](https://github.com/noodlemctwoodle/homeassistant/workflows/Home-Assistant-CI/badge.svg)
+![](https://github.com/noodlemctwoodle/homeassistant/workflows/Home-Assistant-CI/badge.svg) 
+[![Star](https://img.shields.io/github/stars/noodlemctwoodle/homeassistant?style=plastic)](https://github.com/noodlemctwoodle/homeassistant/stargazers)
+[![Star](https://img.shields.io/github/forks/noodlemctwoodle/homeassistant?style=plastic)](https://github.com/noodlemctwoodle/homeassistant/network/members)
+[![Star](https://img.shields.io/github/issues/noodlemctwoodle/homeassistant?style=plastic)](https://github.com/noodlemctwoodle/homeassistant/issues)
 
 Open source home automation that puts local control and privacy first. Powered by a worldwide community of tinkerers and DIY enthusiasts. 
 
