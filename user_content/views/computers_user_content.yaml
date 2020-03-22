@@ -672,10 +672,11 @@
         touchEventsTarget: 'container'
         pagination:
           type: 'bullets'
-        scrollbar:
-          hide: true
-          draggable: true
-          snapOnRelease: true
+          dynamicBullets: true
+#        scrollbar:
+#          hide: true
+#          draggable: true
+#          snapOnRelease: true
       cards:
     # Plex Container
         - type: picture-entity
