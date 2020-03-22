@@ -1,25 +1,3 @@
-## Special thanks to Jimz011 for helping create the picture elements of this view and HKI on the whole.
-## Its a fantastic frontend that make your life much easier
-
-## UnRAID Montitoring for HKI. 
-## Version 1.0 by noodlemctwoodle
-
-## This configuration expects input_text with the following values.
-#       input_text:
-#         card_containers:
-#           initial: Containers
-#         unraid_usb:
-#           initial: USB Storage
-
-## You need to the following images in /www/images/hardware
-# flash-drive.png
-# unraid_logo.png
-
-## Bar-Card is required to be installed from HACs and added to lovelace/views/resources.yaml
-# Bar Card
-#  - url: /hacsfiles/bar-card/bar-card.js
-#    type: js
-
 
 # Home Assistant Picture Card
 - type: picture-elements
@@ -363,6 +341,280 @@
 # Disk Size (750GB)
       max: 687
       min: 0
+
+# Containers
+- !include
+  - '../../lovelace/templates/header_text.yaml'
+  - content: '##### Docker Containers'
+
+- type: horizontal-stack
+  cards:
+    - type: custom:swipe-card
+      parameters:
+        spaceBetween: 8
+        touchEventsTarget: 'container'
+        pagination:
+          type: 'bullets'
+          dynamicBullets: false
+#        scrollbar:
+#          hide: true
+#          draggable: true
+#          snapOnRelease: true
+      cards:
+    # ADB Addon
+        - type: picture-entity
+          style: |
+            ha-card {
+              background: var(--paper-card-background-color);
+              border-radius: {{ states('input_select.border_radius') }};
+              --paper-item-icon-color: var(--paper-item-icon-color);
+              box-shadow: {{ states('input_select.box_shadow') }};
+              font-weight: bold;
+              opacity: 0.8;
+            }
+          entity: switch.adb_addon
+          image: /local/images/software/containers/sonarr_bar.png
+          aspect_ratio: 4:9
+          show_name: false
+          show_state: false
+          tap_action:
+            action: none
+          hold_action:
+            action: toggle
+            service: switch.toggle
+            service_data:
+              entity_id: switch.adb_addon
+    # AdGaurd
+        - type: picture-entity
+          style: |
+            ha-card {
+              background: var(--paper-card-background-color);
+              border-radius: {{ states('input_select.border_radius') }};
+              --paper-item-icon-color: var(--paper-item-icon-color);
+              box-shadow: {{ states('input_select.box_shadow') }};
+              font-weight: bold;
+              opacity: 0.8;
+            }
+          entity: switch.adguard_addon
+          image: /local/images/software/containers/adgaurd_bar.png
+          aspect_ratio: 4:9
+          show_name: false
+          show_state: false
+          tap_action:
+            action: none
+          hold_action:
+            action: toggle
+            service: switch.toggle
+            service_data:
+              entity_id: switch.adguard_addon
+    # Deconz Addon
+        - type: picture-entity
+          style: |
+            ha-card {
+              background: var(--paper-card-background-color);
+              border-radius: {{ states('input_select.border_radius') }};
+              --paper-item-icon-color: var(--paper-item-icon-color);
+              box-shadow: {{ states('input_select.box_shadow') }};
+              font-weight: bold;
+              opacity: 0.8;
+            }
+          entity: switch.deconz_addon
+          image: /local/images/software/containers/lidarr_bar.png
+          aspect_ratio: 4:9
+          show_name: false
+          show_state: false
+          tap_action:
+            action: none
+          hold_action:
+            action: toggle
+            service: switch.toggle
+            service_data:
+              entity_id: switch.deconz_addon
+    # ESPHome Addon
+        - type: picture-entity
+          style: |
+            ha-card {
+              background: var(--paper-card-background-color);
+              border-radius: {{ states('input_select.border_radius') }};
+              --paper-item-icon-color: var(--paper-item-icon-color);
+              box-shadow: {{ states('input_select.box_shadow') }};
+              font-weight: bold;
+              opacity: 0.8;
+            }
+          entity: switch.esphome_addon
+          image: /local/images/software/containers/unraid-api_bar.png
+          aspect_ratio: 4:9
+          show_name: false
+          show_state: false
+          tap_action:
+            action: none
+          hold_action:
+            action: toggle
+            service: switch.toggle
+            service_data:
+              entity_id: switch.esphome_addon
+    # Glances Addon
+        - type: picture-entity
+          style: |
+            ha-card {
+              background: var(--paper-card-background-color);
+              border-radius: {{ states('input_select.border_radius') }};
+              --paper-item-icon-color: var(--paper-item-icon-color);
+              box-shadow: {{ states('input_select.box_shadow') }};
+              font-weight: bold;
+              opacity: 0.8;
+            }
+          entity: switch.glances_addon
+          image: /local/images/software/containers/glances_bar.png
+          aspect_ratio: 4:9
+          show_name: false
+          show_state: false
+          tap_action:
+            action: none
+          hold_action:
+            action: toggle
+            service: switch.toggle
+            service_data:
+              entity_id: switch.glances_addon
+    # MariaDB Addon
+        - type: picture-entity
+          style: |
+            ha-card {
+              background: var(--paper-card-background-color);
+              border-radius: {{ states('input_select.border_radius') }};
+              --paper-item-icon-color: var(--paper-item-icon-color);
+              box-shadow: {{ states('input_select.box_shadow') }};
+              font-weight: bold;
+              opacity: 0.8;
+            }
+          entity: switch.mariadb_addon
+          image: /local/images/software/containers/mariadb_bar.png
+          aspect_ratio: 4:9
+          show_name: false
+          show_state: false
+          tap_action:
+            action: none
+          hold_action:
+            action: toggle
+            service: switch.toggle
+            service_data:
+              entity_id: switch.mariadb_addon
+    # Mosquitto Addon
+        - type: picture-entity
+          style: |
+            ha-card {
+              background: var(--paper-card-background-color);
+              border-radius: {{ states('input_select.border_radius') }};
+              --paper-item-icon-color: var(--paper-item-icon-color);
+              box-shadow: {{ states('input_select.box_shadow') }};
+              font-weight: bold;
+              opacity: 0.8;
+            }
+          entity: switch.mosquitto_addon
+          image: /local/images/software/containers/tautulli_bar.png
+          aspect_ratio: 4:9
+          show_name: false
+          show_state: false
+          tap_action:
+            action: none
+          hold_action:
+            action: toggle
+            service: switch.toggle
+            service_data:
+              entity_id: switch.mosquitto_addon
+    # Node-Red Addon
+        - type: picture-entity
+          style: |
+            ha-card {
+              background: var(--paper-card-background-color);
+              border-radius: {{ states('input_select.border_radius') }};
+              --paper-item-icon-color: var(--paper-item-icon-color);
+              box-shadow: {{ states('input_select.box_shadow') }};
+              font-weight: bold;
+              opacity: 0.8;
+            }
+          entity: switch.node_red_addon
+          image: /local/images/software/containers/diskspeed_bar.png
+          aspect_ratio: 4:9
+          show_name: false
+          show_state: false
+          tap_action:
+            action: none
+          hold_action:
+            action: toggle
+            service: switch.toggle
+            service_data:
+              entity_id: switch.node_red_addon
+    # PHPMyAdmin Addon
+        - type: picture-entity
+          style: |
+            ha-card {
+              background: var(--paper-card-background-color);
+              border-radius: {{ states('input_select.border_radius') }};
+              --paper-item-icon-color: var(--paper-item-icon-color);
+              box-shadow: {{ states('input_select.box_shadow') }};
+              font-weight: bold;
+              opacity: 0.8;
+            }
+          entity: switch.phpmyadmin_addon
+          image: /local/images/software/containers/phpmyadmin_bar.png
+          aspect_ratio: 4:9
+          show_name: false
+          show_state: false
+          tap_action:
+            action: none
+          hold_action:
+            action: toggle
+            service: switch.toggle
+            service_data:
+              entity_id: switch.phpmyadmin_addon
+    # SSH & Terminal Addon
+        - type: picture-entity
+          style: |
+            ha-card {
+              background: var(--paper-card-background-color);
+              border-radius: {{ states('input_select.border_radius') }};
+              --paper-item-icon-color: var(--paper-item-icon-color);
+              box-shadow: {{ states('input_select.box_shadow') }};
+              font-weight: bold;
+              opacity: 0.8;
+            }
+          entity: switch.ssh_and_terminal_addon
+          image: /local/images/software/containers/netdata_bar.png
+          aspect_ratio: 4:9
+          show_name: false
+          show_state: false
+          tap_action:
+            action: none
+          hold_action:
+            action: toggle
+            service: switch.toggle
+            service_data:
+              entity_id: switch.ssh_and_terminal_addon
+    # VSCode Addon
+        - type: picture-entity
+          style: |
+            ha-card {
+              background: var(--paper-card-background-color);
+              border-radius: {{ states('input_select.border_radius') }};
+              --paper-item-icon-color: var(--paper-item-icon-color);
+              box-shadow: {{ states('input_select.box_shadow') }};
+              font-weight: bold;
+              opacity: 0.8;
+            }
+          entity: switch.vscode_addon
+          image: /local/images/software/containers/netdata_bar.png
+          aspect_ratio: 4:9
+          show_name: false
+          show_state: false
+          tap_action:
+            action: none
+          hold_action:
+            action: toggle
+            service: switch.toggle
+            service_data:
+              entity_id: switch.vscode_addon
+
 
 - !include
   - '../../lovelace/templates/header_text.yaml'
