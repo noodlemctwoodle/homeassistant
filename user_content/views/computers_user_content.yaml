@@ -447,7 +447,7 @@
         - type: vertical-stack
           cards:
 
-            # LAN Download
+        # LAN Download
             - type: custom:mini-graph-card
               style: |
                 ha-card {

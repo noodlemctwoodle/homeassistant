@@ -8,14 +8,6 @@
   name: Unraid Version (Next)
   command: /usr/bin/curl --insecure "https://s3.amazonaws.com/dnld.lime-technology.com/next/unRAIDServer.plg" 2>&1 | grep Version |awk '{print $3}'
 
-#SNMP Sensors
-#- platform: command_line
-#  name: "UnRAID PARITY Temperature"
-#  command: snmpget -v 2c 10.0.20.2 -c public -Oqv .1.3.6.1.4.1.8072.1.3.2.4.1.2.8.100.105.115.107.116.101.109.112.4
-
-
-#  snmpget -v 2c 10.0.20.2 -c public -Oqv .1.3.6.1.4.1.8072.1.3.2.4.1.2.8.100.105.115.107.116.101.109.112.4 | sed -e 's/^"//' -e 's/.*: //' -e 's/"$//'
-
 
 ## API sensors
 
@@ -31,9 +23,6 @@
       value_template: >
         {{state_attr("binary_sensor.chsunr01_server", "arrayProtection")}}
 
-
-
-## !!!Requires IF statement!!!!
     unraid_array_space:
       friendly_name: UnRAID Array Space
       value_template: >
@@ -45,7 +34,7 @@
 ## HDD SNMP Temperatures
 
 - platform: snmp
-  name: 'UnRAID PARITY Temperature'
+  name: 'UnRAID PARITY Temperature'  
   host: !secret server_ip_address_vlan20
   port: 161
   community: public
@@ -128,7 +117,7 @@
     {{ value.split(':')[1].strip() }}
   unit_of_measurement: '°C'
 
-## Network Traffic Upload
+## SNMP LAN Upload
 
 - platform: snmp
   name: 'UnRAID LAN0 Upload (VLAN10)'
@@ -185,7 +174,7 @@
   value_template: >
     {{((value | float ) / 1000000 ) | round(2) }}
 
-## Network Traffic Download
+## SNMP LAN Download
 
 - platform: snmp
   name: 'UnRAID LAN0 Download (VLAN10)'
