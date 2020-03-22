@@ -1,13 +1,11 @@
-import GitHubButton from 'react-github-btn'
-
 # Home Asssistant Configuration
 
 Open source home automation that puts local control and privacy first. Powered by a worldwide community of tinkerers and DIY enthusiasts. 
 
 
-If you want to <GitHubButton href="https://github.com/noodlemctwoodle/homeassistant" data-icon="octicon-star" data-show-count="true" aria-label="Star noodlemctwoodle/homeassistant on GitHub">Star</GitHubButton> my repo
+If you want to <a class="github-button" href="https://github.com/noodlemctwoodle/homeassistant" data-icon="octicon-star" data-show-count="true" aria-label="Star noodlemctwoodle/homeassistant on GitHub">Star</a>
 
-If you wish to <GitHubButton href="https://github.com/noodlemctwoodle" data-show-count="true" aria-label="Follow me on GitHub">Follow @noodlemctwoodle</GitHubButton>
+If you wish to <a class="github-button" href="https://github.com/noodlemctwoodle" data-show-count="true" aria-label="Follow me on GitHub">Follow @noodlemctwoodle</a>
 
 ## Home Assistant Hardware Configuration
 - Intel NUC i3 Gen 7
