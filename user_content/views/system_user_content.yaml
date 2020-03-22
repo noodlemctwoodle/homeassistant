@@ -79,6 +79,17 @@
         line-height: 32px
         padding: 0px 28px
 
+- type: horizontal-stack
+  cards:
+
+    - type: custom:button-card
+      name: Reload
+      icon: mdi:heart
+      tap_action:
+        action: call-service
+        service_data: browser_mod.lovelace_reload
+
+
 # System Temperatures Card
 - !include
   - '../../lovelace/templates/header_text.yaml'
@@ -345,7 +356,7 @@
 # Containers
 - !include
   - '../../lovelace/templates/header_text.yaml'
-  - content: '##### Docker Containers'
+  - content: '##### Home Assistant Addons'
 
 - type: horizontal-stack
   cards:
