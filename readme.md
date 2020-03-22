@@ -5,8 +5,8 @@
 Open source home automation that puts local control and privacy first. Powered by a worldwide community of tinkerers and DIY enthusiasts. 
 
 #### Contents
-[UnRAID View HKI](https://github.com/noodlemctwoodle/homeassistant#unraid-monitoring-view-for-hki)
-[Home Assistand View](https://github.com/noodlemctwoodle/homeassistant#home-assistant-monitoring-view-for-hki)
+* [UnRAID View HKI](https://github.com/noodlemctwoodle/homeassistant#unraid-monitoring-view-for-hki)
+* [Home Assistand View](https://github.com/noodlemctwoodle/homeassistant#home-assistant-monitoring-view-for-hki)
 
 ## Home Assistant Hardware Configuration
 - Intel NUC i3 Gen 7
