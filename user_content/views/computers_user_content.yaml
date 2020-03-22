@@ -476,6 +476,7 @@
                   name: LAN 4
                   line_color: '"#14ff8d"'
               name: UnRAID LAN Traffic (Download)
+              icon: mdi:download-network
               hours_to_show: 7
               points_per_hour: 5
               update_interval: 120
@@ -522,6 +523,7 @@
                   name: LAN 4
                   line_color: '"#14ff8d"'
               name: UnRAID LAN Traffic (Upload)
+              icon: mdi:upload-network
               hours_to_show: 7
               points_per_hour: 5
               update_interval: 120
