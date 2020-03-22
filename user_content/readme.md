@@ -10,14 +10,20 @@ input_text:
     initial: Version
 ```
 
-This [images](https://github.com/noodlemctwoodle/homeassistant/tree/master/www/images/hardware) are used in the view
- - unraid_logo.png
+### Picture Elements Card
 
-These [images](https://github.com/noodlemctwoodle/homeassistant/tree/master/www/images/software/containers) can be used for the containers
+This [image](https://github.com/noodlemctwoodle/homeassistant/tree/master/www/images/hardware) is used in the view
+ 
+![unraid](https://github.com/noodlemctwoodle/homeassistant/blob/master/www/images/hardware/unraid_logo.png)
+
+
+### Containers Swipe-Card
+
+These [images](https://github.com/noodlemctwoodle/homeassistant/tree/master/www/images/software/containers) can be used for the containers, please use bar.psd to create your own.
 
 ![containers](https://github.com/noodlemctwoodle/homeassistant/blob/unraid-view-1.2-dev/www/images/github/views/container-badges.png)
 
-
+### Install Bar-Card
 Bar-Card is required to be installed from HACs and added to lovelace/views/resources.yaml
 
 ```yaml
