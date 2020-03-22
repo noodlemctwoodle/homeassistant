@@ -3,7 +3,7 @@
 Open source home automation that puts local control and privacy first. Powered by a worldwide community of tinkerers and DIY enthusiasts. 
 
 
-If you want to <a class="btn" href="https://github.com/noodlemctwoodle/homeassistant/stargazers" target="_blank" rel="noopener" aria-label="Star ntkme/github-buttons on GitHub"><svg viewBox="0 0 14 16" class="octicon octicon-star" style="width: 12.25px; height: 14px;" aria-hidden="true"><path fill-rule="evenodd" d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74L14 6z"></path></svg> <span>Star</span></a>
+If you want to <a class="btn" href="https://github.com/noodlemctwoodle/homeassistant/stargazers" target="_blank" rel="noopener" aria-label="Star ntkme/github-buttons on GitHub"><svg viewBox="0 0 14 16" class="octicon octicon-star" style="width: 12.25px; height: 14px;" aria-hidden="true"><path fill-rule="evenodd" d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74L14 6z"></path></svg></a>
 
 If you wish to <a class="github-button" href="https://github.com/noodlemctwoodle" data-show-count="true" aria-label="Follow @noodlemctwoodle on GitHub">Follow</a> me on GitHub
 
