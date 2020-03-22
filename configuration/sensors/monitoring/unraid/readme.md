@@ -1,8 +1,11 @@
 # SNMP Sensors for UnRAID HKI View v1.2
  
  ## Credits
-  - [Stephan](https://github.com/Stephan296) Suggested this plugin, assisted finding SNMP sensors, provided code examples
- - [Avi](https://github.com/abeksis/My-HomeAssistant-Config) Tested the  guide and submitted all the bugs. 
+ - [Stephan](https://github.com/Stephan296) Suggested this plugin, assisted finding SNMP sensors, provided code examples
+### Testers  
+ - [Avi](https://github.com/abeksis/My-HomeAssistant-Config) Tested the  guide and submitted bugs
+ - [OnlyMe](https://github.com/Holewijn/home-assistant-config) Tested the SNMP guide submitted bugs
+
  
 
 
