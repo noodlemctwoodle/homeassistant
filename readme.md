@@ -19,9 +19,9 @@ The [Hassio](https://github.com/noodlemctwoodle/hassio/wiki/Install-Hass.io) gui
 
 ![unraid-monitor](https://github.com/noodlemctwoodle/homeassistant/blob/unraid-view-1.2-dev/www/images/github/views/unraid.gif)
 
-### What This Dashboard Does
+### UnRAID Data Monitoring Feeds
 
-| [UnRAID-API](https://github.com/noodlemctwoodle/homeassistant/tree/master/user_content) | [UnRAID-SNMP](https://github.com/noodlemctwoodle/homeassistant/tree/master/configuration/sensors/monitoring/unraid) | Glances Container |
+| [UnRAID-API](https://github.com/noodlemctwoodle/homeassistant/tree/master/user_content) | [UnRAID-SNMP](https://github.com/noodlemctwoodle/homeassistant/tree/master/configuration/sensors/monitoring/unraid) | [UnRAID Glances Container](https://github.com/nicolargo/glances) |
 |-----------------------|-----------------|--------------------------------|
 | View arrayStatus      | HDD Array Temps | View total per disk used space |
 | View arrayProtection  | LAN Throughput  | View total per disk free space |
@@ -31,10 +31,11 @@ The [Hassio](https://github.com/noodlemctwoodle/hassio/wiki/Install-Hass.io) gui
 Version 1.0
  - Initial view
  - Glances container support
+ - Glances Home Assistant Integration
 
 Version 1.1
- - added swipe card for docker containers
- - Unraid-API added
+ - Added swipe card for docker containers
+ - UnRAID-API added
  - Container Support
 
 Version 1.2
@@ -58,10 +59,6 @@ Version 1.2
  - [Avi](https://github.com/abeksis/My-HomeAssistant-Config) Thanks for creating the awesome graphics used in v1.2 containers swipe-card and also providing code snips. 
  - [OnlyMe](https://github.com/Holewijn/home-assistant-config) Thanks for adding the additional container images
 
-## UnRAID Data Monitoring Feeds
-
-| [UnRAID-API Setup ](https://github.com/noodlemctwoodle/homeassistant/tree/master/user_content) | [UnRAID-SNMP Setup](https://github.com/noodlemctwoodle/homeassistant/tree/master/configuration/sensors/monitoring/unraid) | 
-|-------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------:|
 
 ## Check out my Wiki
 Further information and guides can be found on my [wiki](https://github.com/noodlemctwoodle/hassio/wiki)
