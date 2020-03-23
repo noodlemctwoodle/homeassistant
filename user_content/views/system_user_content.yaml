@@ -129,6 +129,8 @@
       tap_action:
         action: call-service
         service: homeassistant.restart
+      confirmation: 
+        text: 'Are you sure you want to restart Home Assistant?'
 
     - type: custom:button-card
       style: |
@@ -145,6 +147,8 @@
       tap_action:
         action: call-service
         service: hassio.host_reboot
+      confirmation: 
+        text: 'Are you sure you want to restart the host?'
 
 
 
