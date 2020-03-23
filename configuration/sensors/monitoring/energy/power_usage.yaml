@@ -21,3 +21,45 @@
           (states.sensor.office_pdu_smart_plug_wattage.state | float) +
           (states.sensor.living_room_tv_smart_plug_wattage.state | float)
         }}
+
+    daily_power:
+      friendly_name: Daily Power
+      unit_of_measurement: £
+      value_template: >
+        {{ (sensor.daily_energy_kwh * 14.113) | float }}
+
+
+
+#    monthly_power:
+#      friendly_name: Monthly Power
+#      unit_of_measurement: kWh
+#      value_template: >
+#        {{ states("sensor.monthly_power_offpeak")|float + states("sensor.monthly_power_peak")|float }}
+
+#    daily_power_cost:
+#      friendly_name: Daily Power
+#      unit_of_measurement: £
+#      value_template: >
+#        {{ (states("sensor.daily_power_offpeak")|float * 0.2307
+#            + states("sensor.daily_power_peak")|float * 0.2479) | round(2) }}
+
+#    monthly_power_cost:
+#      friendly_name: Monthly Power
+#      unit_of_measurement: £
+#      value_template: >
+#        {{ (states("sensor.monthly_power_offpeak")|float * 0.2307
+#            + states("sensor.monthly_power_peak")|float * 0.2479) | round(2) }}
+
+#    daily_energy_fixed_cost:
+#      friendly_name: Fixed daily energy cost (gas and power)
+#      unit_of_measurement: £
+#      entity_id: sensor.date  # To get rid of the warning
+#      value_template: >
+#        {{ (0.1480 + 0.3554) + (0.1480 + 0.6293) }}
+
+#    monthly_energy_fixed_cost:
+#      friendly_name: Fixed daily energy cost (gas and power)
+#      unit_of_measurement: £
+#      entity_id: sensor.date
+#      value_template: >
+#        {{ states("sensor.daily_energy_fixed_cost")|float * now().day }}
