@@ -1,25 +1,3 @@
-## Special thanks to Jimz011 for helping create the picture elements of this view and HKI on the whole.
-## Its a fantastic frontend that make your life much easier
-
-## UnRAID Montitoring for HKI. 
-## Version 1.0 by noodlemctwoodle
-
-## This configuration expects input_text with the following values.
-#       input_text:
-#         card_containers:
-#           initial: Containers
-#         unraid_usb:
-#           initial: USB Storage
-
-## You need to the following images in /www/images/hardware
-# flash-drive.png
-# unraid_logo.png
-
-## Bar-Card is required to be installed from HACs and added to lovelace/views/resources.yaml
-# Bar Card
-#  - url: /hacsfiles/bar-card/bar-card.js
-#    type: js
-
 
 # Home Assistant Picture Card
 - type: picture-elements
@@ -101,6 +79,76 @@
         line-height: 32px
         padding: 0px 28px
 
+- type: horizontal-stack
+  cards:
+
+    - type: custom:button-card
+      style: |
+        ha-card {
+          background: var(--paper-card-background-color);
+          border-radius: {{ states('input_select.border_radius') }};
+          --paper-item-icon-color: var(--paper-item-icon-color);
+          box-shadow: {{ states('input_select.box_shadow') }};
+          font-weight: bold;
+          opacity: 0.8;
+        }
+      name: Reload
+      icon: mdi:heart
+      tap_action:
+        action: call-service
+        service: browser_mod.lovelace_reload
+
+    - type: custom:button-card
+      style: |
+        ha-card {
+          background: var(--paper-card-background-color);
+          border-radius: {{ states('input_select.border_radius') }};
+          --paper-item-icon-color: var(--paper-item-icon-color);
+          box-shadow: {{ states('input_select.box_shadow') }};
+          font-weight: bold;
+          opacity: 0.8;
+        }
+      name: Snapshot
+      icon: mdi:backup-restore
+      tap_action:
+        action: call-service
+        service: hassio.snapshot_full
+
+    - type: custom:button-card
+      style: |
+        ha-card {
+          background: var(--paper-card-background-color);
+          border-radius: {{ states('input_select.border_radius') }};
+          --paper-item-icon-color: var(--paper-item-icon-color);
+          box-shadow: {{ states('input_select.box_shadow') }};
+          font-weight: bold;
+          opacity: 0.8;
+        }
+      name: Restart
+      icon: mdi:home-assistant
+      tap_action:
+        action: call-service
+        service: homeassistant.restart
+
+    - type: custom:button-card
+      style: |
+        ha-card {
+          background: var(--paper-card-background-color);
+          border-radius: {{ states('input_select.border_radius') }};
+          --paper-item-icon-color: var(--paper-item-icon-color);
+          box-shadow: {{ states('input_select.box_shadow') }};
+          font-weight: bold;
+          opacity: 0.8;
+        }
+      name: Reboot
+      icon: mdi:server-network
+      tap_action:
+        action: call-service
+        service: hassio.host_reboot
+
+
+
+
 # System Temperatures Card
 - !include
   - '../../lovelace/templates/header_text.yaml'
@@ -146,6 +194,7 @@
       show:
         average: true
         extrema: true
+      tap_action: none
 
 # Motherboard Temps
     - type: custom:mini-graph-card
@@ -183,107 +232,133 @@
           color: "#d35400"
         - value: 70
           color: "#c0392b"
+      tap_action: none
 
 
 
 - !include
   - '../../lovelace/templates/header_text.yaml'
   - content: '##### Resources'
-  
+
 - type: horizontal-stack
   cards:
-    - type: custom:mini-graph-card
-      style: |
-        ha-card {
-          background: var(--paper-card-background-color);
-          border-radius: {{ states('input_select.border_radius') }};
-          --paper-item-icon-color: var(--paper-item-icon-color);
-          box-shadow: {{ states('input_select.box_shadow') }};
-          font-weight: bold;
-          opacity: 0.8;
-        }
-      entities:
-        - entity: sensor.glances_homeassistant_cpu_used
-          name: System
-          line_color: '"#14ff8d"'
-        - entity: sensor.glances_homeassistant_containers_cpu_used
-          name: Containers
-          line_color: '"#2814ff"'
-      name: CPU Usage
-      hours_to_show: 1
-      points_per_hour: 60
-      update_interval: 30
-      aggregate_func: max
-      line_width: 2
-      smoothing: false
-      font_size: 65
-      font_size_header: 9
-      show:
-        average: true
-        extrema: true
+    - type: custom:swipe-card
+      parameters:
+        spaceBetween: 8
+        touchEventsTarget: 'container'
+        pagination:
+          type: 'bullets'
+          dynamicBullets: true
+#        scrollbar:
+#          hide: true
+#          draggable: true
+#          snapOnRelease: true
+      cards:
 
-    - type: custom:mini-graph-card
-      style: |
-        ha-card {
-          background: var(--paper-card-background-color);
-          border-radius: {{ states('input_select.border_radius') }};
-          --paper-item-icon-color: var(--paper-item-icon-color);
-          box-shadow: {{ states('input_select.box_shadow') }};
-          font-weight: bold;
-          opacity: 0.8;
-        }
-      entities:
-        - entity: sensor.glances_homeassistant_ram_used
-          name: System
-          line_color: '"#14ff8d"'
-        - entity: sensor.glances_homeassistant_containers_ram_used
-          name: Containers
-          line_color: '"#2814ff"'
-      name: RAM Usage
-      hours_to_show: 1
-      points_per_hour: 60
-      update_interval: 30
-      aggregate_func: max
-      line_width: 2
-      smoothing: false
-      font_size: 65
-      font_size_header: 9
-      show:
-        average: true
-        extrema: true
+        - type: vertical-stack
+          cards:
+            - type: horizontal-stack
+              cards: 
 
-- type: vertical-stack
-  cards:
-    - type: custom:mini-graph-card
-      style: |
-        ha-card {
-          background: var(--paper-card-background-color);
-          border-radius: {{ states('input_select.border_radius') }};
-          --paper-item-icon-color: var(--paper-item-icon-color);
-          box-shadow: {{ states('input_select.box_shadow') }};
-          font-weight: bold;
-          opacity: 0.8;
-        }
-      entities:
-        - entity: sensor.home_assistant_db_size
-          line_colour: '"#ffb414"'
-      name: Database Size
-      hours_to_show: 24
-#      points_per_hour: 60
-      update_interval: 30
-#      decimals: 0
-      aggregate_func: max
-      line_width: 2
-      smoothing: true
-      font_size: 65
-      font_size_header: 9
-      show:
-        average: true
-        extrema: true
+                - type: custom:mini-graph-card
+                  style: |
+                    ha-card {
+                      background: var(--paper-card-background-color);
+                      border-radius: {{ states('input_select.border_radius') }};
+                      --paper-item-icon-color: var(--paper-item-icon-color);
+                      box-shadow: {{ states('input_select.box_shadow') }};
+                      font-weight: bold;
+                      opacity: 0.8;
+                      height: 242px;                
+                    }
+                  entities:
+                    - entity: sensor.glances_homeassistant_cpu_used
+                      name: System
+                      line_color: '"#14ff8d"'
+                    - entity: sensor.glances_homeassistant_containers_cpu_used
+                      name: Containers
+                      line_color: '"#2814ff"'
+                  name: CPU Usage
+                  icon: mdi:cpu-64-bit
+                  hours_to_show: 7
+                  points_per_hour: 10
+                  update_interval: 30
+                  height: 150
+                  aggregate_func: max
+                  line_width: 2
+                  smoothing: false
+                  font_size: 65
+                  font_size_header: 9
+                  show:
+                    average: true
+                    extrema: true
+                  tap_action: none
 
-- !include
-  - '../../lovelace/templates/header_text.yaml'
-  - content: '##### Storage'
+                - type: custom:mini-graph-card
+                  style: |
+                    ha-card {
+                      background: var(--paper-card-background-color);
+                      border-radius: {{ states('input_select.border_radius') }};
+                      --paper-item-icon-color: var(--paper-item-icon-color);
+                      box-shadow: {{ states('input_select.box_shadow') }};
+                      font-weight: bold;
+                      opacity: 0.8;
+                      height: 242px;                
+                    }
+                  entities:
+                    - entity: sensor.glances_homeassistant_ram_used
+                      name: System
+                      line_color: '"#14ff8d"'
+                    - entity: sensor.glances_homeassistant_containers_ram_used
+                      name: Containers
+                      line_color: '"#2814ff"'
+                  name: RAM Usage
+                  hours_to_show: 7
+                  points_per_hour: 10
+                  update_interval: 30
+                  height: 150
+                  aggregate_func: max
+                  line_width: 2
+                  smoothing: false
+                  font_size: 65
+                  font_size_header: 9
+                  show:
+                    average: true
+                    extrema: true
+                  tap_action: none
+
+
+        - type: vertical-stack
+          cards:
+            - type: horizontal-stack
+              cards: 
+
+              - type: custom:mini-graph-card
+                style: |
+                  ha-card {
+                    background: var(--paper-card-background-color);
+                    border-radius: {{ states('input_select.border_radius') }};
+                    --paper-item-icon-color: var(--paper-item-icon-color);
+                    box-shadow: {{ states('input_select.box_shadow') }};
+                    font-weight: bold;
+                    opacity: 0.8;
+                    height: 242px;                  
+                  }
+                entities:
+                  - entity: sensor.home_assistant_db_size
+                    line_colour: '"#ffb414"'
+                name: Database Size
+                hours_to_show: 24
+                update_interval: 30
+                aggregate_func: max
+                line_width: 2
+                smoothing: true
+                font_size: 65
+                font_size_header: 9
+                show:
+                  average: true
+                  extrema: true
+                tap_action: none
 
 - type: horizontal-stack
   cards:
@@ -322,6 +397,7 @@
         font-size: 10px
       columns: 1
       align: split
+      tap_action: none
 # Disk Size (250GB)
       max: 233
       min: 0
@@ -360,86 +436,387 @@
         font-size: 10px
       columns: 1
       align: split
+      tap_action: none
 # Disk Size (750GB)
       max: 687
       min: 0
 
+# Containers
 - !include
   - '../../lovelace/templates/header_text.yaml'
-  - content: '##### Internet'
-- type: horizontal-stack
-  cards:
-    - !include
-      - '../../lovelace/templates/mini_graph.yaml'
-      - entity: sensor.cloudflare_dns_ping
-        name: Cloudflare Ping
-        line_color: '"#ffb414"'
-        graph_type: line
-        show_extrema: true
-        decimals: 0
-        font_size: 65
-    - !include
-      - '../../lovelace/templates/mini_graph.yaml'
-      - entity: sensor.google_dns_ping
-        name: Google Ping
-        line_color: '"#ffb414"'
-        graph_type: line
-        show_extrema: true
-        decimals: 0
-        font_size: 65
+  - content: '##### Home Assistant Addons'
 
 - type: horizontal-stack
   cards:
-    - type: custom:mini-graph-card
-      style: |
-        ha-card {
-          background: var(--paper-card-background-color);
-          border-radius: {{ states('input_select.border_radius') }};
-          --paper-item-icon-color: var(--paper-item-icon-color);
-          box-shadow: {{ states('input_select.box_shadow') }};
-          font-weight: bold;
-          opacity: 0.8;
-        }
-      entities:
-        - entity: sensor.speedtest_download
-      name: Download
-      hours_to_show: 24
-      points_per_hour: 10
-      update_interval: 30
-      aggregate_func: max
-      line_width: 2
-      smoothing: false
-      font_size: 65
-      font_size_header: 9
-      show:
-        average: true
-        extrema: true
-      color_thresholds:
-        - value: 300
-          color: "#29cf45"
-        - value: 200
-          color: "#e7ff14"
-        - value: 180
-          color: "#ff1414"
-    - type: custom:mini-graph-card
-      entities:
-        - entity: sensor.speedtest_upload
-      name: Upload
-      hours_to_show: 24
-      points_per_hour: 10
-      update_interval: 30
-      aggregate_func: max
-      line_width: 2
-      smoothing: false
-      font_size: 65
-      font_size_header: 9
-      show:
-        average: true
-        extrema: true
-      color_thresholds:
-        - value: 30
-          color: "#29cf45"
-        - value: 20
-          color: "#e7ff14"
-        - value: 10
-          color: "#ff1414"
+    - type: custom:swipe-card
+      parameters:
+        spaceBetween: 8
+        touchEventsTarget: 'container'
+        pagination:
+          type: 'bullets'
+          dynamicBullets: false
+#        scrollbar:
+#          hide: true
+#          draggable: true
+#          snapOnRelease: true
+      cards:
+    # ADB Addon
+        - type: picture-entity
+          style: |
+            ha-card {
+              background: var(--paper-card-background-color);
+              border-radius: {{ states('input_select.border_radius') }};
+              --paper-item-icon-color: var(--paper-item-icon-color);
+              box-shadow: {{ states('input_select.box_shadow') }};
+              font-weight: bold;
+              opacity: 0.8;
+            }
+          entity: switch.adb_addon
+          image: /local/images/software/containers/adb_bar.png
+          aspect_ratio: 4:9
+          show_name: false
+          show_state: false
+          tap_action:
+            action: none
+          hold_action:
+            action: toggle
+            service: switch.toggle
+            service_data:
+              entity_id: switch.adb_addon
+    # AdGaurd
+        - type: picture-entity
+          style: |
+            ha-card {
+              background: var(--paper-card-background-color);
+              border-radius: {{ states('input_select.border_radius') }};
+              --paper-item-icon-color: var(--paper-item-icon-color);
+              box-shadow: {{ states('input_select.box_shadow') }};
+              font-weight: bold;
+              opacity: 0.8;
+            }
+          entity: switch.adguard_addon
+          image: /local/images/software/containers/adguard_bar.png
+          aspect_ratio: 4:9
+          show_name: false
+          show_state: false
+          tap_action:
+            action: none
+          hold_action:
+            action: toggle
+            service: switch.toggle
+            service_data:
+              entity_id: switch.adguard_addon
+    # Deconz Addon
+        - type: picture-entity
+          style: |
+            ha-card {
+              background: var(--paper-card-background-color);
+              border-radius: {{ states('input_select.border_radius') }};
+              --paper-item-icon-color: var(--paper-item-icon-color);
+              box-shadow: {{ states('input_select.box_shadow') }};
+              font-weight: bold;
+              opacity: 0.8;
+            }
+          entity: switch.deconz_addon
+          image: /local/images/software/containers/deconz_bar.png
+          aspect_ratio: 4:9
+          show_name: false
+          show_state: false
+          tap_action:
+            action: none
+          hold_action:
+            action: toggle
+            service: switch.toggle
+            service_data:
+              entity_id: switch.deconz_addon
+    # ESPHome Addon
+        - type: picture-entity
+          style: |
+            ha-card {
+              background: var(--paper-card-background-color);
+              border-radius: {{ states('input_select.border_radius') }};
+              --paper-item-icon-color: var(--paper-item-icon-color);
+              box-shadow: {{ states('input_select.box_shadow') }};
+              font-weight: bold;
+              opacity: 0.8;
+            }
+          entity: switch.esphome_addon
+          image: /local/images/software/containers/esphome_bar.png
+          aspect_ratio: 4:9
+          show_name: false
+          show_state: false
+          tap_action:
+            action: none
+          hold_action:
+            action: toggle
+            service: switch.toggle
+            service_data:
+              entity_id: switch.esphome_addon
+    # Glances Addon
+        - type: picture-entity
+          style: |
+            ha-card {
+              background: var(--paper-card-background-color);
+              border-radius: {{ states('input_select.border_radius') }};
+              --paper-item-icon-color: var(--paper-item-icon-color);
+              box-shadow: {{ states('input_select.box_shadow') }};
+              font-weight: bold;
+              opacity: 0.8;
+            }
+          entity: switch.glances_addon
+          image: /local/images/software/containers/glances_bar.png
+          aspect_ratio: 4:9
+          show_name: false
+          show_state: false
+          tap_action:
+            action: none
+          hold_action:
+            action: toggle
+            service: switch.toggle
+            service_data:
+              entity_id: switch.glances_addon
+    # MariaDB Addon
+        - type: picture-entity
+          style: |
+            ha-card {
+              background: var(--paper-card-background-color);
+              border-radius: {{ states('input_select.border_radius') }};
+              --paper-item-icon-color: var(--paper-item-icon-color);
+              box-shadow: {{ states('input_select.box_shadow') }};
+              font-weight: bold;
+              opacity: 0.8;
+            }
+          entity: switch.mariadb_addon
+          image: /local/images/software/containers/mariadb_bar.png
+          aspect_ratio: 4:9
+          show_name: false
+          show_state: false
+          tap_action:
+            action: none
+          hold_action:
+            action: toggle
+            service: switch.toggle
+            service_data:
+              entity_id: switch.mariadb_addon
+    # Mosquitto Addon
+        - type: picture-entity
+          style: |
+            ha-card {
+              background: var(--paper-card-background-color);
+              border-radius: {{ states('input_select.border_radius') }};
+              --paper-item-icon-color: var(--paper-item-icon-color);
+              box-shadow: {{ states('input_select.box_shadow') }};
+              font-weight: bold;
+              opacity: 0.8;
+            }
+          entity: switch.mosquitto_addon
+          image: /local/images/software/containers/mosquitto_bar.png
+          aspect_ratio: 4:9
+          show_name: false
+          show_state: false
+          tap_action:
+            action: none
+          hold_action:
+            action: toggle
+            service: switch.toggle
+            service_data:
+              entity_id: switch.mosquitto_addon
+    # Node-Red Addon
+        - type: picture-entity
+          style: |
+            ha-card {
+              background: var(--paper-card-background-color);
+              border-radius: {{ states('input_select.border_radius') }};
+              --paper-item-icon-color: var(--paper-item-icon-color);
+              box-shadow: {{ states('input_select.box_shadow') }};
+              font-weight: bold;
+              opacity: 0.8;
+            }
+          entity: switch.node_red_addon
+          image: /local/images/software/containers/node_red_bar.png
+          aspect_ratio: 4:9
+          show_name: false
+          show_state: false
+          tap_action:
+            action: none
+          hold_action:
+            action: toggle
+            service: switch.toggle
+            service_data:
+              entity_id: switch.node_red_addon
+    # PHPMyAdmin Addon
+        - type: picture-entity
+          style: |
+            ha-card {
+              background: var(--paper-card-background-color);
+              border-radius: {{ states('input_select.border_radius') }};
+              --paper-item-icon-color: var(--paper-item-icon-color);
+              box-shadow: {{ states('input_select.box_shadow') }};
+              font-weight: bold;
+              opacity: 0.8;
+            }
+          entity: switch.phpmyadmin_addon
+          image: /local/images/software/containers/phpmyadmin_bar.png
+          aspect_ratio: 4:9
+          show_name: false
+          show_state: false
+          tap_action:
+            action: none
+          hold_action:
+            action: toggle
+            service: switch.toggle
+            service_data:
+              entity_id: switch.phpmyadmin_addon
+    # SSH & Terminal Addon
+        - type: picture-entity
+          style: |
+            ha-card {
+              background: var(--paper-card-background-color);
+              border-radius: {{ states('input_select.border_radius') }};
+              --paper-item-icon-color: var(--paper-item-icon-color);
+              box-shadow: {{ states('input_select.box_shadow') }};
+              font-weight: bold;
+              opacity: 0.8;
+            }
+          entity: switch.ssh_and_terminal_addon
+          image: /local/images/software/containers/terminal_and_ssh_bar.png
+          aspect_ratio: 4:9
+          show_name: false
+          show_state: false
+          tap_action:
+            action: none
+          hold_action:
+            action: toggle
+            service: switch.toggle
+            service_data:
+              entity_id: switch.ssh_and_terminal_addon
+    # VSCode Addon
+        - type: picture-entity
+          style: |
+            ha-card {
+              background: var(--paper-card-background-color);
+              border-radius: {{ states('input_select.border_radius') }};
+              --paper-item-icon-color: var(--paper-item-icon-color);
+              box-shadow: {{ states('input_select.box_shadow') }};
+              font-weight: bold;
+              opacity: 0.8;
+            }
+          entity: switch.vscode_addon
+          image: /local/images/software/containers/vscode_bar.png
+          aspect_ratio: 4:9
+          show_name: false
+          show_state: false
+          tap_action:
+            action: none
+          hold_action:
+            action: toggle
+            service: switch.toggle
+            service_data:
+              entity_id: switch.vscode_addon
+
+
+- !include
+  - '../../lovelace/templates/header_text.yaml'
+  - content: '##### Internet'
+
+- type: horizontal-stack
+  cards:
+    - type: custom:swipe-card
+      parameters:
+        spaceBetween: 8
+        touchEventsTarget: 'container'
+        pagination:
+          type: 'bullets'
+          dynamicBullets: true
+#        scrollbar:
+#          hide: true
+#          draggable: true
+#          snapOnRelease: true
+      cards:
+
+        - type: vertical-stack
+          cards:
+            - type: horizontal-stack
+              cards: 
+
+              - !include
+                - '../../lovelace/templates/mini_graph.yaml'
+                - entity: sensor.cloudflare_dns_ping
+                  name: Cloudflare Ping
+                  line_color: '"#ffb414"'
+                  graph_type: line
+                  show_extrema: true
+                  decimals: 0
+                  font_size: 65
+                  tap_action: none
+              - !include
+                - '../../lovelace/templates/mini_graph.yaml'
+                - entity: sensor.google_dns_ping
+                  name: Google Ping
+                  line_color: '"#ffb414"'
+                  graph_type: line
+                  show_extrema: true
+                  decimals: 0
+                  font_size: 65
+                  tap_action: none
+
+        - type: vertical-stack
+          cards:
+            - type: horizontal-stack
+              cards: 
+
+                - type: custom:mini-graph-card
+                  style: |
+                    ha-card {
+                      background: var(--paper-card-background-color);
+                      border-radius: {{ states('input_select.border_radius') }};
+                      --paper-item-icon-color: var(--paper-item-icon-color);
+                      box-shadow: {{ states('input_select.box_shadow') }};
+                      font-weight: bold;
+                      opacity: 0.8;
+                    }
+                  entities:
+                    - entity: sensor.speedtest_download
+                  name: Download
+                  hours_to_show: 24
+                  points_per_hour: 10
+                  update_interval: 30
+                  aggregate_func: max
+                  line_width: 2
+                  smoothing: false
+                  font_size: 65
+                  font_size_header: 9
+                  tap_action: none
+                  show:
+                    average: true
+                    extrema: true
+                  color_thresholds:
+                    - value: 300
+                      color: "#29cf45"
+                    - value: 200
+                      color: "#e7ff14"
+                    - value: 180
+                      color: "#ff1414"
+                - type: custom:mini-graph-card
+                  entities:
+                    - entity: sensor.speedtest_upload
+                  name: Upload
+                  hours_to_show: 24
+                  points_per_hour: 10
+                  update_interval: 30
+                  aggregate_func: max
+                  line_width: 2
+                  smoothing: false
+                  font_size: 65
+                  font_size_header: 9
+                  tap_action: none
+                  show:
+                    average: true
+                    extrema: true
+                  color_thresholds:
+                    - value: 30
+                      color: "#29cf45"
+                    - value: 20
+                      color: "#e7ff14"
+                    - value: 10
+                      color: "#ff1414"

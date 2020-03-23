@@ -11,8 +11,8 @@ lovelace:
 # Configure a default setup of Home Assistant (frontend, api, etc)
 default_config:
 
-hacs:
-  token: !secret access_token
+#hacs:
+#  token: !secret access_token
 
 api:
 
