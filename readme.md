@@ -90,7 +90,9 @@ Version 1.2
 
 ### Home Assistant Core Addon Support
 
- HKI System view can be found [here](https://github.com/noodlemctwoodle/homeassistant/tree/master/configuration/sensors/monitoring/home_assistant)
+ HKI System view can be found [here](https://github.com/noodlemctwoodle/homeassistant/blob/master/user_content/views/system_user_content.yaml)
+     
+Configuration instructions can be found [here](https://github.com/noodlemctwoodle/homeassistant/tree/master/configuration/sensors/monitoring/home_assistant)
 
 
  #### Credits
