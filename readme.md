@@ -1,7 +1,7 @@
 # Home Asssistant Configuration
 
 ![](https://github.com/noodlemctwoodle/homeassistant/workflows/Home-Assistant-CI/badge.svg) 
-[![Star](https://img.shields.io/github/stars/noodlemctwoodle/homeassistant?style=plastic)](https://github.com/noodlemctwoodle/homeassistant/stargazers)
+[![Star](https://img.shields.io/github/stars/noodlemctwoodle/homeassistant?style=plastic)](https://github.com/noodlemctwoodle/homeassistant/stargazers) 
 [![Star](https://img.shields.io/github/forks/noodlemctwoodle/homeassistant?style=plastic)](https://github.com/noodlemctwoodle/homeassistant/network/members)
 [![Star](https://img.shields.io/github/issues/noodlemctwoodle/homeassistant?style=plastic)](https://github.com/noodlemctwoodle/homeassistant/issues)
 
@@ -71,7 +71,7 @@ Version 1.2
 
 # Home Assistant Monitoring View for HKI
 
-![hasswo-monitor](https://github.com/noodlemctwoodle/homeassistant/blob/master/www/images/github/views/ha-core.gif)
+![hassio-monitor](https://github.com/noodlemctwoodle/homeassistant/blob/master/www/images/github/views/ha-core.png)
 
 ## Version 0.1
 
