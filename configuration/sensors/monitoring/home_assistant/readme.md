@@ -29,6 +29,8 @@ The rest sensor pulls the state of the add-on (if its running or not) and then a
       - last_version
 ```
 
+Further examples can be found in my configuration [here](https://github.com/noodlemctwoodle/homeassistant/blob/master/configuration/sensors/monitoring/home_assistant/monitor.yaml)
+
 The rest sensor may throw errors on startup if Homeassistant can’t pull the data on startup. I just ignore these as the sensor will continue to try to update and usually does on the second try.
 
 ### Switch Template
@@ -47,6 +49,8 @@ Create a switch to show/control the add-on state and an automation to turn the o
           data:
             addon: a0d7b954_glances
 ```
+
+Further examples can be found in my configuration [here](https://github.com/noodlemctwoodle/homeassistant/blob/master/configuration/switch/hassio_addons.yaml)
 
 ## SNMP
 
