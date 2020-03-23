@@ -194,6 +194,7 @@
       show:
         average: true
         extrema: true
+      tap_action: none
 
 # Motherboard Temps
     - type: custom:mini-graph-card
@@ -231,6 +232,7 @@
           color: "#d35400"
         - value: 70
           color: "#c0392b"
+      tap_action: none
 
 
 
@@ -277,9 +279,11 @@
                       name: Containers
                       line_color: '"#2814ff"'
                   name: CPU Usage
-                  hours_to_show: 1
-                  points_per_hour: 60
+                  icon: mdi:cpu-64-bit
+                  hours_to_show: 7
+                  points_per_hour: 10
                   update_interval: 30
+                  height: 150
                   aggregate_func: max
                   line_width: 2
                   smoothing: false
@@ -288,6 +292,7 @@
                   show:
                     average: true
                     extrema: true
+                  tap_action: none
 
                 - type: custom:mini-graph-card
                   style: |
@@ -308,9 +313,10 @@
                       name: Containers
                       line_color: '"#2814ff"'
                   name: RAM Usage
-                  hours_to_show: 1
-                  points_per_hour: 60
+                  hours_to_show: 7
+                  points_per_hour: 10
                   update_interval: 30
+                  height: 150
                   aggregate_func: max
                   line_width: 2
                   smoothing: false
@@ -319,6 +325,8 @@
                   show:
                     average: true
                     extrema: true
+                  tap_action: none
+
 
         - type: vertical-stack
           cards:
@@ -341,9 +349,7 @@
                     line_colour: '"#ffb414"'
                 name: Database Size
                 hours_to_show: 24
-          #      points_per_hour: 60
                 update_interval: 30
-          #      decimals: 0
                 aggregate_func: max
                 line_width: 2
                 smoothing: true
@@ -352,6 +358,7 @@
                 show:
                   average: true
                   extrema: true
+                tap_action: none
 
 - type: horizontal-stack
   cards:
@@ -390,6 +397,7 @@
         font-size: 10px
       columns: 1
       align: split
+      tap_action: none
 # Disk Size (250GB)
       max: 233
       min: 0
@@ -428,6 +436,7 @@
         font-size: 10px
       columns: 1
       align: split
+      tap_action: none
 # Disk Size (750GB)
       max: 687
       min: 0
@@ -739,6 +748,7 @@
                   show_extrema: true
                   decimals: 0
                   font_size: 65
+                  tap_action: none
               - !include
                 - '../../lovelace/templates/mini_graph.yaml'
                 - entity: sensor.google_dns_ping
@@ -748,6 +758,7 @@
                   show_extrema: true
                   decimals: 0
                   font_size: 65
+                  tap_action: none
 
         - type: vertical-stack
           cards:
@@ -775,6 +786,7 @@
                   smoothing: false
                   font_size: 65
                   font_size_header: 9
+                  tap_action: none
                   show:
                     average: true
                     extrema: true
@@ -797,6 +809,7 @@
                   smoothing: false
                   font_size: 65
                   font_size_header: 9
+                  tap_action: none
                   show:
                     average: true
                     extrema: true
