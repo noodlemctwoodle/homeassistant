@@ -1,110 +1,85 @@
-# This is the file you can use to add your own cards, they are already in a vertical stack.
-# You can simply put cards under each other, easy huh? :P. You can even use this file to 
-# customize your entire view (just turn off the other elements except for user content)!
-# The first card is an example, you can safely remove it!
 
-#- type: markdown
-#  style: |
-#    ha-card {
-#      border-radius: {{ states('input_select.border_radius') }};
-#      box-shadow: {{ states('input_select.box_shadow') }};
-#    }              
-#  content: >
-#    User Cards Here!
+- !include
+  - '../../lovelace/templates/header_text.yaml'
+  - content: '##### Power'
 
- - !include
-   - '../../lovelace/templates/header_text.yaml'
-   - content: '##### Current'
- - type: horizontal-stack
-   cards:
-     - !include
-       - '../../lovelace/templates/mini_graph.yaml'
-       - entity: sensor.sp_lr_amp_amperage
-         name: AV Reciever Amps
-         line_color: '"#ffb414"'
-         graph_type: bar
-         show_extrema: true
-         decimals: 0
-         font_size: 65
-     - !include
-       - '../../lovelace/templates/mini_graph.yaml'
-       - entity: sensor.sp_of_cab_amperage
-         name: Cabinet Amps
-         line_color: '"#ffb414"'
-         graph_type: bar
-         show_extrema: true
-         decimals: 0
-         font_size: 65
-#     - !include
-#       - '../../lovelace/templates/mini_graph.yaml'
-#       - entity: sensor.vaatwasser_current
-#         name: Vaatwasser
-#         line_color: '"#ffb414"'
-#         graph_type: bar
-#         show_extrema: true
-#         decimals: 0
-#         font_size: 65
- - !include
-   - '../../lovelace/templates/header_text.yaml'
-   - content: '##### Power'
- - type: horizontal-stack
-   cards:
-     - !include
-       - '../../lovelace/templates/mini_graph.yaml'
-       - entity: sensor.sp_lr_amp_wattage
-         name: AV Reciever Watts
-         line_color: '"#1427ff"'
-         graph_type: bar
-         show_extrema: true
-         decimals: 0
-         font_size: 65
-     - !include
-       - '../../lovelace/templates/mini_graph.yaml'
-       - entity: sensor.sp_of_cab_wattage
-         name: Cabinet Watts
-         line_color: '"#1427ff"'
-         graph_type: bar
-         show_extrema: true
-         decimals: 0
-         font_size: 65
-#     - !include
-#       - '../../lovelace/templates/mini_graph.yaml'
-#       - entity: sensor.vaatwasser_power
-#         name: Vaatwasser
-#         line_color: '"#1427ff"'
-#         graph_type: bar
-#         show_extrema: true
-#         decimals: 0
-#         font_size: 65
- - !include
-   - '../../lovelace/templates/header_text.yaml'
-   - content: '##### Voltage'
- - type: horizontal-stack
-   cards:
-     - !include
-       - '../../lovelace/templates/mini_graph.yaml'
-       - entity: sensor.sp_lr_amp_voltage
-         name: AV Reciever Volts
-         line_color: '"#00d8ff"'
-         graph_type: bar
-         show_extrema: true
-         decimals: 0
-         font_size: 65
-     - !include
-       - '../../lovelace/templates/mini_graph.yaml'
-       - entity: sensor.sp_of_cab_voltage
-         name: Server Cabinet Volts
-         line_color: '"#00d8ff"'
-         graph_type: bar
-         show_extrema: true
-         decimals: 0
-         font_size: 65
-#     - !include
-#       - '../../lovelace/templates/mini_graph.yaml'
-#       - entity: sensor.vaatwasser_voltage
-#         name: Vaatwasser
-#         line_color: '"#00d8ff"'
-#         graph_type: bar
-#         show_extrema: true
-#         decimals: 0
-#         font_size: 65 
+- type: vertical-stack
+  cards:
+
+    - type: gauge
+      name: Power
+      unit: W
+      max: 1500
+      entity: sensor.power_total_usage
+      severity:
+        green: 100
+        yellow: 150
+        red: 300
+
+- type: horizontal-stack
+  cards:
+
+    - type: custom:mini-graph-card
+      style: |
+        ha-card {
+          background: var(--paper-card-background-color);
+          border-radius: {{ states('input_select.border_radius') }};
+          --paper-item-icon-color: var(--paper-item-icon-color);
+          box-shadow: {{ states('input_select.box_shadow') }};
+          font-weight: bold;
+          opacity: 0.8;
+        }
+      name: Energy Daily
+      entities:
+        - sensor.daily_energy_w
+
+    - type: custom:mini-graph-card
+      style: |
+        ha-card {
+          background: var(--paper-card-background-color);
+          border-radius: {{ states('input_select.border_radius') }};
+          --paper-item-icon-color: var(--paper-item-icon-color);
+          box-shadow: {{ states('input_select.box_shadow') }};
+          font-weight: bold;
+          opacity: 0.8;
+        }
+      name: Energy Monthly
+      entities:
+        - sensor.monthly_energy_w
+
+- type: horizontal-stack
+  cards:
+
+    - type: custom:mini-graph-card
+      style: |
+        ha-card {
+          background: var(--paper-card-background-color);
+          border-radius: {{ states('input_select.border_radius') }};
+          --paper-item-icon-color: var(--paper-item-icon-color);
+          box-shadow: {{ states('input_select.box_shadow') }};
+          font-weight: bold;
+          opacity: 0.8;
+        }
+      name: Total
+      icon: mdi:flash
+      entities: 
+        - sensor.power_total_usage
+      show:
+        graph: bar
+
+    - type: custom:mini-graph-card
+      style: |
+        ha-card {
+          background: var(--paper-card-background-color);
+          border-radius: {{ states('input_select.border_radius') }};
+          --paper-item-icon-color: var(--paper-item-icon-color);
+          box-shadow: {{ states('input_select.box_shadow') }};
+          font-weight: bold;
+          opacity: 0.8;
+        }
+      name: Total
+      icon: mdi:flash
+      entities: 
+        - sensor.energy_total_usage
+      show:
+        graph: bar

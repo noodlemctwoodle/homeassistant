@@ -83,12 +83,19 @@ nest:
 
 # Utility Meter
 utility_meter:
-  monthly_cabinet:
-    source: sensor.cabinet_consumption
+  monthly_energy_kwh:
+    source: sensor.energy_total_usage
     cycle: monthly
-  monthly_xmas_lights:
-    source: sensor.xmas_lights_consumption
+  monthly_energy_w:
+    source: sensor.power_total_usage
     cycle: monthly
+  daily_energy_kwh:
+    source: sensor.energy_total_usage
+    cycle: daily
+  daily_energy_w:
+    source: sensor.power_total_usage
+    cycle: daily
+
 
 # LG WebOS
 webostv:
