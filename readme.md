@@ -23,6 +23,12 @@ The [Hassio](https://github.com/noodlemctwoodle/hassio/wiki/Install-Hass.io) gui
 ## HKI Documentation can be found here
 [Documentation](https://jimz011.github.io/homekit-infused/)
 
+
+## Donations are always welcome
+
+<a href="https://www.buymeacoffee.com/noodlemctwoodle" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
+
+
 # UnRAID Monitoring View for HKI
 ## Version 1.2
 
@@ -73,7 +79,7 @@ Version 1.2
 
 ![hassio-monitor](https://github.com/noodlemctwoodle/homeassistant/blob/master/www/images/github/views/ha-core.png)
 
-## Version 0.1
+## Version 0.1 - Initial release (work in progress)
 
  - Reload, Snapshot, Restart, Reboot buttons added
  - System Temperatures added
@@ -86,13 +92,9 @@ Version 1.2
 
  HKI System view can be found [here](https://github.com/noodlemctwoodle/homeassistant/tree/master/configuration/sensors/monitoring/home_assistant)
 
-### Setup 
 
-## Check out my Wiki
+ #### Credits
+ - [SilvrrGIT](https://github.com/SilvrrGIT/HomeAssistant) Excellent post on the community [forum](https://community.home-assistant.io/t/get-notified-of-available-hassio-addon-updates/176626) outlining how to create rest senosr to start/restart Home Assistant Core Addons, Create the switches used in my HKI System view and the post also describes how write automations for addon update available notifications.
+
+### Check out my Wiki
 Further information and guides can be found on my [wiki](https://github.com/noodlemctwoodle/hassio/wiki)
-
-# If you want to buy me a coffee you can. 
-I don't expect anything for my work and if you are thinking of donating you should consider donating the main developers of HKI or UNRAID-API. 
-I don't drink beer, I don't like going outside because I might catch something, so if you want to buy me a coffee I would greatly appreciate it. 
-
-<a href="https://www.buymeacoffee.com/noodlemctwoodle" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
