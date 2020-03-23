@@ -83,11 +83,70 @@
   cards:
 
     - type: custom:button-card
+      style: |
+        ha-card {
+          background: var(--paper-card-background-color);
+          border-radius: {{ states('input_select.border_radius') }};
+          --paper-item-icon-color: var(--paper-item-icon-color);
+          box-shadow: {{ states('input_select.box_shadow') }};
+          font-weight: bold;
+          opacity: 0.8;
+        }
       name: Reload
       icon: mdi:heart
       tap_action:
         action: call-service
-        service_data: browser_mod.lovelace_reload
+        service: browser_mod.lovelace_reload
+
+    - type: custom:button-card
+      style: |
+        ha-card {
+          background: var(--paper-card-background-color);
+          border-radius: {{ states('input_select.border_radius') }};
+          --paper-item-icon-color: var(--paper-item-icon-color);
+          box-shadow: {{ states('input_select.box_shadow') }};
+          font-weight: bold;
+          opacity: 0.8;
+        }
+      name: Snapshot
+      icon: mdi:backup-restore
+      tap_action:
+        action: call-service
+        service: hassio.snapshot_full
+
+    - type: custom:button-card
+      style: |
+        ha-card {
+          background: var(--paper-card-background-color);
+          border-radius: {{ states('input_select.border_radius') }};
+          --paper-item-icon-color: var(--paper-item-icon-color);
+          box-shadow: {{ states('input_select.box_shadow') }};
+          font-weight: bold;
+          opacity: 0.8;
+        }
+      name: Restart
+      icon: mdi:home-assistant
+      tap_action:
+        action: call-service
+        service: homeassistant.restart
+
+    - type: custom:button-card
+      style: |
+        ha-card {
+          background: var(--paper-card-background-color);
+          border-radius: {{ states('input_select.border_radius') }};
+          --paper-item-icon-color: var(--paper-item-icon-color);
+          box-shadow: {{ states('input_select.box_shadow') }};
+          font-weight: bold;
+          opacity: 0.8;
+        }
+      name: Reboot
+      icon: mdi:server-network
+      tap_action:
+        action: call-service
+        service: hassio.host_reboot
+
+
 
 
 # System Temperatures Card
@@ -178,101 +237,121 @@
 - !include
   - '../../lovelace/templates/header_text.yaml'
   - content: '##### Resources'
-  
+
 - type: horizontal-stack
   cards:
-    - type: custom:mini-graph-card
-      style: |
-        ha-card {
-          background: var(--paper-card-background-color);
-          border-radius: {{ states('input_select.border_radius') }};
-          --paper-item-icon-color: var(--paper-item-icon-color);
-          box-shadow: {{ states('input_select.box_shadow') }};
-          font-weight: bold;
-          opacity: 0.8;
-        }
-      entities:
-        - entity: sensor.glances_homeassistant_cpu_used
-          name: System
-          line_color: '"#14ff8d"'
-        - entity: sensor.glances_homeassistant_containers_cpu_used
-          name: Containers
-          line_color: '"#2814ff"'
-      name: CPU Usage
-      hours_to_show: 1
-      points_per_hour: 60
-      update_interval: 30
-      aggregate_func: max
-      line_width: 2
-      smoothing: false
-      font_size: 65
-      font_size_header: 9
-      show:
-        average: true
-        extrema: true
+    - type: custom:swipe-card
+      parameters:
+        spaceBetween: 8
+        touchEventsTarget: 'container'
+        pagination:
+          type: 'bullets'
+          dynamicBullets: true
+#        scrollbar:
+#          hide: true
+#          draggable: true
+#          snapOnRelease: true
+      cards:
 
-    - type: custom:mini-graph-card
-      style: |
-        ha-card {
-          background: var(--paper-card-background-color);
-          border-radius: {{ states('input_select.border_radius') }};
-          --paper-item-icon-color: var(--paper-item-icon-color);
-          box-shadow: {{ states('input_select.box_shadow') }};
-          font-weight: bold;
-          opacity: 0.8;
-        }
-      entities:
-        - entity: sensor.glances_homeassistant_ram_used
-          name: System
-          line_color: '"#14ff8d"'
-        - entity: sensor.glances_homeassistant_containers_ram_used
-          name: Containers
-          line_color: '"#2814ff"'
-      name: RAM Usage
-      hours_to_show: 1
-      points_per_hour: 60
-      update_interval: 30
-      aggregate_func: max
-      line_width: 2
-      smoothing: false
-      font_size: 65
-      font_size_header: 9
-      show:
-        average: true
-        extrema: true
+        - type: vertical-stack
+          cards:
+            - type: horizontal-stack
+              cards: 
 
-- type: vertical-stack
-  cards:
-    - type: custom:mini-graph-card
-      style: |
-        ha-card {
-          background: var(--paper-card-background-color);
-          border-radius: {{ states('input_select.border_radius') }};
-          --paper-item-icon-color: var(--paper-item-icon-color);
-          box-shadow: {{ states('input_select.box_shadow') }};
-          font-weight: bold;
-          opacity: 0.8;
-        }
-      entities:
-        - entity: sensor.home_assistant_db_size
-          line_colour: '"#ffb414"'
-      name: Database Size
-      hours_to_show: 24
-#      points_per_hour: 60
-      update_interval: 30
-#      decimals: 0
-      aggregate_func: max
-      line_width: 2
-      smoothing: true
-      font_size: 65
-      font_size_header: 9
-      show:
-        average: true
-        extrema: true
+                - type: custom:mini-graph-card
+                  style: |
+                    ha-card {
+                      background: var(--paper-card-background-color);
+                      border-radius: {{ states('input_select.border_radius') }};
+                      --paper-item-icon-color: var(--paper-item-icon-color);
+                      box-shadow: {{ states('input_select.box_shadow') }};
+                      font-weight: bold;
+                      opacity: 0.8;
+                      height: 242px;                
+                    }
+                  entities:
+                    - entity: sensor.glances_homeassistant_cpu_used
+                      name: System
+                      line_color: '"#14ff8d"'
+                    - entity: sensor.glances_homeassistant_containers_cpu_used
+                      name: Containers
+                      line_color: '"#2814ff"'
+                  name: CPU Usage
+                  hours_to_show: 1
+                  points_per_hour: 60
+                  update_interval: 30
+                  aggregate_func: max
+                  line_width: 2
+                  smoothing: false
+                  font_size: 65
+                  font_size_header: 9
+                  show:
+                    average: true
+                    extrema: true
 
-- !include
-  - '../../lovelace/templates/header_text.yaml'
-  - content: '##### Storage'
+                - type: custom:mini-graph-card
+                  style: |
+                    ha-card {
+                      background: var(--paper-card-background-color);
+                      border-radius: {{ states('input_select.border_radius') }};
+                      --paper-item-icon-color: var(--paper-item-icon-color);
+                      box-shadow: {{ states('input_select.box_shadow') }};
+                      font-weight: bold;
+                      opacity: 0.8;
+                      height: 242px;                
+                    }
+                  entities:
+                    - entity: sensor.glances_homeassistant_ram_used
+                      name: System
+                      line_color: '"#14ff8d"'
+                    - entity: sensor.glances_homeassistant_containers_ram_used
+                      name: Containers
+                      line_color: '"#2814ff"'
+                  name: RAM Usage
+                  hours_to_show: 1
+                  points_per_hour: 60
+                  update_interval: 30
+                  aggregate_func: max
+                  line_width: 2
+                  smoothing: false
+                  font_size: 65
+                  font_size_header: 9
+                  show:
+                    average: true
+                    extrema: true
+
+        - type: vertical-stack
+          cards:
+            - type: horizontal-stack
+              cards: 
+
+              - type: custom:mini-graph-card
+                style: |
+                  ha-card {
+                    background: var(--paper-card-background-color);
+                    border-radius: {{ states('input_select.border_radius') }};
+                    --paper-item-icon-color: var(--paper-item-icon-color);
+                    box-shadow: {{ states('input_select.box_shadow') }};
+                    font-weight: bold;
+                    opacity: 0.8;
+                    height: 242px;                  
+                  }
+                entities:
+                  - entity: sensor.home_assistant_db_size
+                    line_colour: '"#ffb414"'
+                name: Database Size
+                hours_to_show: 24
+          #      points_per_hour: 60
+                update_interval: 30
+          #      decimals: 0
+                aggregate_func: max
+                line_width: 2
+                smoothing: true
+                font_size: 65
+                font_size_header: 9
+                show:
+                  average: true
+                  extrema: true
 
 - type: horizontal-stack
   cards:
@@ -384,7 +463,7 @@
               opacity: 0.8;
             }
           entity: switch.adb_addon
-          image: /local/images/software/containers/sonarr_bar.png
+          image: /local/images/software/containers/adb_bar.png
           aspect_ratio: 4:9
           show_name: false
           show_state: false
@@ -407,7 +486,7 @@
               opacity: 0.8;
             }
           entity: switch.adguard_addon
-          image: /local/images/software/containers/adgaurd_bar.png
+          image: /local/images/software/containers/adguard_bar.png
           aspect_ratio: 4:9
           show_name: false
           show_state: false
@@ -430,7 +509,7 @@
               opacity: 0.8;
             }
           entity: switch.deconz_addon
-          image: /local/images/software/containers/lidarr_bar.png
+          image: /local/images/software/containers/deconz_bar.png
           aspect_ratio: 4:9
           show_name: false
           show_state: false
@@ -453,7 +532,7 @@
               opacity: 0.8;
             }
           entity: switch.esphome_addon
-          image: /local/images/software/containers/unraid-api_bar.png
+          image: /local/images/software/containers/esphome_bar.png
           aspect_ratio: 4:9
           show_name: false
           show_state: false
@@ -522,7 +601,7 @@
               opacity: 0.8;
             }
           entity: switch.mosquitto_addon
-          image: /local/images/software/containers/tautulli_bar.png
+          image: /local/images/software/containers/mosquitto_bar.png
           aspect_ratio: 4:9
           show_name: false
           show_state: false
@@ -545,7 +624,7 @@
               opacity: 0.8;
             }
           entity: switch.node_red_addon
-          image: /local/images/software/containers/diskspeed_bar.png
+          image: /local/images/software/containers/node_red_bar.png
           aspect_ratio: 4:9
           show_name: false
           show_state: false
@@ -591,7 +670,7 @@
               opacity: 0.8;
             }
           entity: switch.ssh_and_terminal_addon
-          image: /local/images/software/containers/netdata_bar.png
+          image: /local/images/software/containers/terminal_and_ssh_bar.png
           aspect_ratio: 4:9
           show_name: false
           show_state: false
@@ -614,7 +693,7 @@
               opacity: 0.8;
             }
           entity: switch.vscode_addon
-          image: /local/images/software/containers/netdata_bar.png
+          image: /local/images/software/containers/vscode_bar.png
           aspect_ratio: 4:9
           show_name: false
           show_state: false
@@ -630,79 +709,101 @@
 - !include
   - '../../lovelace/templates/header_text.yaml'
   - content: '##### Internet'
-- type: horizontal-stack
-  cards:
-    - !include
-      - '../../lovelace/templates/mini_graph.yaml'
-      - entity: sensor.cloudflare_dns_ping
-        name: Cloudflare Ping
-        line_color: '"#ffb414"'
-        graph_type: line
-        show_extrema: true
-        decimals: 0
-        font_size: 65
-    - !include
-      - '../../lovelace/templates/mini_graph.yaml'
-      - entity: sensor.google_dns_ping
-        name: Google Ping
-        line_color: '"#ffb414"'
-        graph_type: line
-        show_extrema: true
-        decimals: 0
-        font_size: 65
 
 - type: horizontal-stack
   cards:
-    - type: custom:mini-graph-card
-      style: |
-        ha-card {
-          background: var(--paper-card-background-color);
-          border-radius: {{ states('input_select.border_radius') }};
-          --paper-item-icon-color: var(--paper-item-icon-color);
-          box-shadow: {{ states('input_select.box_shadow') }};
-          font-weight: bold;
-          opacity: 0.8;
-        }
-      entities:
-        - entity: sensor.speedtest_download
-      name: Download
-      hours_to_show: 24
-      points_per_hour: 10
-      update_interval: 30
-      aggregate_func: max
-      line_width: 2
-      smoothing: false
-      font_size: 65
-      font_size_header: 9
-      show:
-        average: true
-        extrema: true
-      color_thresholds:
-        - value: 300
-          color: "#29cf45"
-        - value: 200
-          color: "#e7ff14"
-        - value: 180
-          color: "#ff1414"
-    - type: custom:mini-graph-card
-      entities:
-        - entity: sensor.speedtest_upload
-      name: Upload
-      hours_to_show: 24
-      points_per_hour: 10
-      update_interval: 30
-      aggregate_func: max
-      line_width: 2
-      smoothing: false
-      font_size: 65
-      font_size_header: 9
-      show:
-        average: true
-        extrema: true
-      color_thresholds:
-        - value: 30
-          color: "#29cf45"
-        - value: 20
-          color: "#e7ff14"
-        - value: 10
-          color: "#ff1414"
+    - type: custom:swipe-card
+      parameters:
+        spaceBetween: 8
+        touchEventsTarget: 'container'
+        pagination:
+          type: 'bullets'
+          dynamicBullets: true
+#        scrollbar:
+#          hide: true
+#          draggable: true
+#          snapOnRelease: true
+      cards:
+
+        - type: vertical-stack
+          cards:
+            - type: horizontal-stack
+              cards: 
+
+              - !include
+                - '../../lovelace/templates/mini_graph.yaml'
+                - entity: sensor.cloudflare_dns_ping
+                  name: Cloudflare Ping
+                  line_color: '"#ffb414"'
+                  graph_type: line
+                  show_extrema: true
+                  decimals: 0
+                  font_size: 65
+              - !include
+                - '../../lovelace/templates/mini_graph.yaml'
+                - entity: sensor.google_dns_ping
+                  name: Google Ping
+                  line_color: '"#ffb414"'
+                  graph_type: line
+                  show_extrema: true
+                  decimals: 0
+                  font_size: 65
+
+        - type: vertical-stack
+          cards:
+            - type: horizontal-stack
+              cards: 
+
+                - type: custom:mini-graph-card
+                  style: |
+                    ha-card {
+                      background: var(--paper-card-background-color);
+                      border-radius: {{ states('input_select.border_radius') }};
+                      --paper-item-icon-color: var(--paper-item-icon-color);
+                      box-shadow: {{ states('input_select.box_shadow') }};
+                      font-weight: bold;
+                      opacity: 0.8;
+                    }
+                  entities:
+                    - entity: sensor.speedtest_download
+                  name: Download
+                  hours_to_show: 24
+                  points_per_hour: 10
+                  update_interval: 30
+                  aggregate_func: max
+                  line_width: 2
+                  smoothing: false
+                  font_size: 65
+                  font_size_header: 9
+                  show:
+                    average: true
+                    extrema: true
+                  color_thresholds:
+                    - value: 300
+                      color: "#29cf45"
+                    - value: 200
+                      color: "#e7ff14"
+                    - value: 180
+                      color: "#ff1414"
+                - type: custom:mini-graph-card
+                  entities:
+                    - entity: sensor.speedtest_upload
+                  name: Upload
+                  hours_to_show: 24
+                  points_per_hour: 10
+                  update_interval: 30
+                  aggregate_func: max
+                  line_width: 2
+                  smoothing: false
+                  font_size: 65
+                  font_size_header: 9
+                  show:
+                    average: true
+                    extrema: true
+                  color_thresholds:
+                    - value: 30
+                      color: "#29cf45"
+                    - value: 20
+                      color: "#e7ff14"
+                    - value: 10
+                      color: "#ff1414"
