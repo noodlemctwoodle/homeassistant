@@ -48,7 +48,7 @@ Version 1.1
  - Container Support
 
 Version 1.2
- - Added SNMP [config](https://github.com/noodlemctwoodle/homeassistant/tree/unraid-view-1.2-dev/configuration/sensors/monitoring/unraid)
+ - Added SNMP [config](https://github.com/noodlemctwoodle/homeassistant/tree/master/configuration/sensors/monitoring/unraid)
  - Moved temperature cards to swipe-card to reduce screen real estate
  - combined disk usage into swipe card
  - Added HDD temperatures to temperatures swipe-card
@@ -70,7 +70,17 @@ Version 1.2
 
 
 # Home Assistant Monitoring View for HKI
-Coming Soon....
+
+![hasswo-monitor](https://github.com/noodlemctwoodle/homeassistant/blob/master/www/images/github/views/ha-core.gif)
+
+## Version 0.1
+
+ - Reload, Snapshot, Restart, Reboot buttons added
+ - System Temperatures added
+ - Added Resources to swipe-card
+ - Moved disk usage to resources
+ - Added Home Assistant Core Addon support start/stop
+ - Moved internet to swipe-card
 
 ## Check out my Wiki
 Further information and guides can be found on my [wiki](https://github.com/noodlemctwoodle/hassio/wiki)
