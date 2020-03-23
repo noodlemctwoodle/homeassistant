@@ -26,8 +26,8 @@
     unraid_array_space:
       friendly_name: UnRAID Array Space
       value_template: >
-        {% set s = state_attr("binary_sensor.chsunr01_server", "diskSpace") %} 
-        {{ 0 if s == None else s | regex_findall_index(".*\((\d+.?\d+) %\)") | float }}
+        {% set state = state_attr("switch.chsunr01_array", "diskSpace") %} 
+        {{ Offline if state == None else state | regex_findall_index(".*\((\d+.?\d+) %\)") | float }}
       unit_of_measurement: '%'
 
 
