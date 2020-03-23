@@ -90,8 +90,24 @@ Version 1.2
 
 ### Home Assistant Core Addon Support
 
- HKI System view can be found [here](https://github.com/noodlemctwoodle/homeassistant/tree/master/configuration/sensors/monitoring/home_assistant)
+HKI System view can be found [here](https://github.com/noodlemctwoodle/homeassistant/blob/master/user_content/views/system_user_content.yaml)
+     
+Configuration instructions can be found [here](https://github.com/noodlemctwoodle/homeassistant/tree/master/configuration/sensors/monitoring/home_assistant)
 
+# Energy Monitoring View for HKI
+
+![some-pictue](http://someurl.com)
+
+## Version 0.1 - Initial release (work in progress)
+
+ - picture-entity energy-comany
+ - Daily usage
+ - Monthy usage
+ - Daily cost
+ - Monthly cost
+ - Utility meter [support](https://www.home-assistant.io/integrations/utility_meter/)
+
+Configuration instructions can be found [here](https://github.com/noodlemctwoodle/homeassistant/tree/master/configuration/sensors/monitoring/energy)
 
  #### Credits
  - [SilvrrGIT](https://github.com/SilvrrGIT/HomeAssistant) Excellent post on the community [forum](https://community.home-assistant.io/t/get-notified-of-available-hassio-addon-updates/176626) outlining how to create rest senosr to start/restart Home Assistant Core Addons, Create the switches used in my HKI System view and the post also describes how write automations for addon update available notifications.
