@@ -7,10 +7,10 @@
     headers:
       Authorization: !secret access_token
       Content-Type: application/json
-#    json_attributes_path: "$.data"
-#    json_attributes:
-#      - version
-#      - last_version
+    json_attributes_path: "$.data"
+    json_attributes:
+      - version
+      - last_version
 
 # VSCode Addon
   - platform: rest
@@ -21,10 +21,10 @@
     headers:
       Authorization: !secret access_token
       Content-Type: application/json
-#    json_attributes_path: "$.data"
-#    json_attributes:
-#      - version
-#      - last_version
+    json_attributes_path: "$.data"
+    json_attributes:
+      - version
+      - last_version
 
 # ESPHome Addon
   - platform: rest
@@ -35,10 +35,10 @@
     headers:
       Authorization: !secret access_token
       Content-Type: application/json
-#    json_attributes_path: "$.data"
-#    json_attributes:
-#      - version
-#      - last_version
+    json_attributes_path: "$.data"
+    json_attributes:
+      - version
+      - last_version
 
 # PHPMyAdmin Addon
   - platform: rest
@@ -49,10 +49,10 @@
     headers:
       Authorization: !secret access_token
       Content-Type: application/json
-#    json_attributes_path: "$.data"
-#    json_attributes:
-#      - version
-#      - last_version
+    json_attributes_path: "$.data"
+    json_attributes:
+      - version
+      - last_version
 
 # ADB Addon
   - platform: rest
@@ -63,10 +63,10 @@
     headers:
       Authorization: !secret access_token
       Content-Type: application/json
-#    json_attributes_path: "$.data"
-#    json_attributes:
-#      - version
-#      - last_version
+    json_attributes_path: "$.data"
+    json_attributes:
+      - version
+      - last_version
 
 # AdGaurd Addon
   - platform: rest
@@ -77,10 +77,10 @@
     headers:
       Authorization: !secret access_token
       Content-Type: application/json
-#    json_attributes_path: "$.data"
-#    json_attributes:
-#      - version
-#      - last_version
+    json_attributes_path: "$.data"
+    json_attributes:
+      - version
+      - last_version
 
 # Deconz Addon
   - platform: rest
@@ -91,10 +91,10 @@
     headers:
       Authorization: !secret access_token
       Content-Type: application/json
-#    json_attributes_path: "$.data"
-#    json_attributes:
-#      - version
-#      - last_version
+    json_attributes_path: "$.data"
+    json_attributes:
+      - version
+      - last_version
 
 # Mosquitto Addon
   - platform: rest
@@ -105,10 +105,10 @@
     headers:
       Authorization: !secret access_token
       Content-Type: application/json
-#    json_attributes_path: "$.data"
-#    json_attributes:
-#      - version
-#      - last_version
+    json_attributes_path: "$.data"
+    json_attributes:
+      - version
+      - last_version
 
 # SSH & Terminal Addon
   - platform: rest
@@ -119,10 +119,10 @@
     headers:
       Authorization: !secret access_token
       Content-Type: application/json
-#    json_attributes_path: "$.data"
-#    json_attributes:
-#      - version
-#      - last_version
+    json_attributes_path: "$.data"
+    json_attributes:
+      - version
+      - last_version
 
 # MariaDB Addon
   - platform: rest
@@ -133,10 +133,10 @@
     headers:
       Authorization: !secret access_token
       Content-Type: application/json
-#    json_attributes_path: "$.data"
-#    json_attributes:
-#      - version
-#      - last_version
+    json_attributes_path: "$.data"
+    json_attributes:
+      - version
+      - last_version
 
 # Node-Red Addon
   - platform: rest
@@ -147,7 +147,7 @@
     headers:
       Authorization: !secret access_token
       Content-Type: application/json
-#    json_attributes_path: "$.data"
-#    json_attributes:
-#      - version
-#      - last_version
+    json_attributes_path: "$.data"
+    json_attributes:
+      - version
+      - last_version

@@ -34,3 +34,8 @@ The rest sensor may throw errors on startup if Homeassistant can’t pull the da
       - last_version
 ```
 
+#### Uptime
+
+```
+snmpwalk -On -c public -v1 localhost HOST-RESOURCES-MIB::hrSystemUptime.0
+```
