@@ -79,12 +79,12 @@ Version 1.2
  - System Temperatures added
  - Added Resources to swipe-card
  - Moved disk usage to resources
- - Added Home Assistant Core [Addon support](https://github.com/noodlemctwoodle/homeassistant/tree/master/configuration/sensors/monitoring/home_assistant) start/stop
+ - Added Home Assistant Core Addon support start/stop
  - Moved internet to swipe-card
 
 ### Home Assistant Core Addon Support
 
- HKI System view can be found [here](https://github.com/noodlemctwoodle/homeassistant/blob/master/user_content/views/system_user_content.yaml)
+ HKI System view can be found [here](https://github.com/noodlemctwoodle/homeassistant/tree/master/configuration/sensors/monitoring/home_assistant)
 
 ### Setup 
 
