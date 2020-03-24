@@ -9,7 +9,8 @@ Open source home automation that puts local control and privacy first. Powered b
 
 #### Contents
 * [UnRAID View HKI](https://github.com/noodlemctwoodle/homeassistant#unraid-monitoring-view-for-hki)
-* [Home Assistand View](https://github.com/noodlemctwoodle/homeassistant#home-assistant-monitoring-view-for-hki)
+* [Home Assistant View](https://github.com/noodlemctwoodle/homeassistant#home-assistant-monitoring-view-for-hki)
+* [Energy Monitoring](https://github.com/noodlemctwoodle/homeassistant##energy-monitoring-view-for-hki)
 
 ## Home Assistant Hardware Configuration
 - Intel NUC i3 Gen 7
@@ -19,6 +20,9 @@ Open source home automation that puts local control and privacy first. Powered b
 
 ## Hassio Installation on Ubuntu Server and Docker CE
 The [Hassio](https://github.com/noodlemctwoodle/hassio/wiki/Install-Hass.io) guide describes how to install Hass.io on Ubuntu Server running Docker CE, configure custom storage paths using the pre-created script from [Home Assistant](https://github.com/home-assistant/hassio-installer) and exposed to the internet using Nabu Casa
+
+## Check out my Wiki
+Further information and guides can be found on my [wiki](https://github.com/noodlemctwoodle/hassio/wiki)
 
 ## HKI Documentation can be found here
 [Documentation](https://jimz011.github.io/homekit-infused/)
@@ -113,5 +117,3 @@ Configuration instructions can be found [here](https://github.com/noodlemctwoodl
 Configuration instructions can be found [here](https://github.com/noodlemctwoodle/homeassistant/tree/master/configuration/sensors/monitoring/energy)
 
 
-### Check out my Wiki
-Further information and guides can be found on my [wiki](https://github.com/noodlemctwoodle/hassio/wiki)

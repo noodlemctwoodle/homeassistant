@@ -751,8 +751,7 @@
                     --paper-item-icon-color: var(--paper-item-icon-color);
                     box-shadow: {{ states('input_select.box_shadow') }};
                     font-weight: bold;
-                    opacity: 0.8;
-                    height: 242px;                  
+                    opacity: 0.8;                 
                   }
                 entities:
                 - entity: sensor.cloudflare_dns_ping
@@ -772,8 +771,7 @@
                     --paper-item-icon-color: var(--paper-item-icon-color);
                     box-shadow: {{ states('input_select.box_shadow') }};
                     font-weight: bold;
-                    opacity: 0.8;
-                    height: 242px;                  
+                    opacity: 0.8;              
                   }
                 entities:
                 - entity: sensor.google_dns_ping

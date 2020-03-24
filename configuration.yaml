@@ -127,10 +127,13 @@ input_text:
   card_containers:
     initial: Containers
   software_version:
-    initial: Version
+    initial: Version'
   unraid_usb:
     initial: USB Storage
-
+  devices_on:
+    initial: Devices On
+  plugs_on:
+    initial: Plugs On
 
 # Text to speech
 tts:
@@ -146,6 +149,7 @@ binary_sensor: !include_dir_merge_list configuration/binary_sensors/
 group: !include_dir_merge_list configuration/group/
 #light: !include_dir_merge_list configuration/lights/
 #input_boolean: !include_dir_merge_named configuration/input_boolean/
+input_number: !include_dir_merge_named configuration/input_number/
 media_player: !include configuration/media_player/media_player.yaml
 scene: !include_dir_merge_list configuration/scenes/
 script: !include_dir_merge_named configuration/scripts/

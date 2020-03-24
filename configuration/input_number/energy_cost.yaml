@@ -1,0 +1,12 @@
+electricity_rate:
+  name: "Electricity Rate per kWh"
+  min: 0.0000
+  max: 25.0000
+  mode: box
+  step: .001
+daily_service_charge:
+  name: "Daily Service Charge"
+  min: 0.0000
+  max: 50.0000
+  mode: box
+  step: .001

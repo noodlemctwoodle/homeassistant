@@ -28,9 +28,12 @@
       entity_id: sensor.daily_energy_kwh
       friendly_name: 'Daily Cost'
       value_template: >-
-        {% if (states.sensor.daily_energy_kwh.state|float > 0) %}
-          {{ (states.sensor.daily_energy_kwh.state|float * 0.2420)|round(2) }}
+        {% if (states.sensor.daily_energy_kwh.state | float > 0) %}
+          {{ ((states.sensor.daily_energy_kwh.state) | float) * (states('input_number.electricity_rate') | float ) + (states('input_number.daily_service_charge') | float | round(2)) }}
         {% endif %}
+#        {% if (states.sensor.daily_energy_kwh.state|float > 0) %}
+#          {{ (states.sensor.daily_energy_kwh.state|float * 0.2420)|round(2) }}
+#        {% endif %}
 
     monthly_energy_cost:
       entity_id: sensor.monthly_energy_kwh
@@ -40,36 +43,33 @@
           {{ (states.sensor.monthly_energy_kwh.state|float * 0.2420)|round(2) }}
         {% endif %}
 
-#    monthly_power:
-#      friendly_name: Monthly Power
-#      unit_of_measurement: kWh
-#      value_template: >
-#        {{ states("sensor.monthly_power_offpeak")|float + states("sensor.monthly_power_peak")|float }}
-
-#    daily_power_cost:
-#      friendly_name: Daily Power
-#      unit_of_measurement: £
-#      value_template: >
-#        {{ (states("sensor.daily_power_offpeak")|float * 0.2307
-#            + states("sensor.daily_power_peak")|float * 0.2479) | round(2) }}
-
-#    monthly_power_cost:
-#      friendly_name: Monthly Power
-#      unit_of_measurement: £
-#      value_template: >
-#        {{ (states("sensor.monthly_power_offpeak")|float * 0.2307
-#            + states("sensor.monthly_power_peak")|float * 0.2479) | round(2) }}
-
-#    daily_energy_fixed_cost:
-#      friendly_name: Fixed daily energy cost (gas and power)
-#      unit_of_measurement: £
-#      entity_id: sensor.date  # To get rid of the warning
-#      value_template: >
-#        {{ (0.1480 + 0.3554) + (0.1480 + 0.6293) }}
-
-#    monthly_energy_fixed_cost:
-#      friendly_name: Fixed daily energy cost (gas and power)
-#      unit_of_measurement: £
-#      entity_id: sensor.date
-#      value_template: >
-#        {{ states("sensor.daily_energy_fixed_cost")|float * now().day }}
+    electricity_cost_yesterday:
+      friendly_name: "Electricity Cost Yesterday"
+      unit_of_measurement: '£'
+      icon_template: mdi:currency-usd
+      value_template: >-
+        {% if states('sensor.kwh_usage_yesterday') | float < states('input_number.current_first_block_size') | float /30 %}
+          {{ ((states('sensor.kwh_usage_yesterday') | float) * (states('input_number.first_block') | float) + (states('input_number.daily_service_charge') | float)) | round(2) }}
+        {%- else -%}
+          {{ (((states('sensor.kwh_usage_yesterday') | float) - states('input_number.current_first_block_size') | float /30) * (states('input_number.end_block') | float) + (states('input_number.daily_service_charge') | float) + (states('input_number.current_first_block_size') | float /30 * (states('input_number.first_block') | float))) | round(2)}}
+        {%- endif %}
+    electricity_cost_today:
+      friendly_name: "Electricity Cost So Far Today"
+      value_template: >-
+        {% if states('sensor.kwh_usage_today') | float < states('input_number.current_first_block_size') | float /30 %}
+          {{ ((states('sensor.kwh_usage_today') | float) * (states('input_number.first_block') | float) + (states('input_number.daily_service_charge') | float)) | round(2) }}
+        {%- else -%}
+          {{ (((states('sensor.kwh_usage_today') | float) - states('input_number.current_first_block_size') | float /30) * (states('input_number.end_block') | float) + (states('input_number.daily_service_charge') | float) + (states('input_number.current_first_block_size') | float /30 * (states('input_number.first_block') | float))) | round(2)}}
+        {%- endif %}
+      unit_of_measurement: '£'
+      icon_template: mdi:currency-usd
+    electricity_cost_month:
+      friendly_name: "Electricity Cost So Far This Month"
+      value_template: >-
+        {% if states('sensor.aeon_labs_dsb09104_home_energy_meter_energy') | float < states('input_number.current_first_block_size') | float %}
+          {{ ((states('sensor.aeon_labs_dsb09104_home_energy_meter_energy') | float) * (states('input_number.first_block') | float) + (states('input_number.daily_service_charge') | float)*30) | round(2) }}
+        {%- else -%}
+          {{ (((states('sensor.aeon_labs_dsb09104_home_energy_meter_energy') | float) - states('input_number.current_first_block_size') | float) * (states('input_number.end_block') | float) + (states('input_number.current_first_block_size') | float * (states('input_number.first_block') | float)) + (states('input_number.daily_service_charge') | float)*30) | round(2)}}
+        {%- endif %}
+      unit_of_measurement: '£'
+      icon_template: mdi:currency-usd
