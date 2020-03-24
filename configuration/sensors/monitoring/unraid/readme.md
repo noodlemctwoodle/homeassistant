@@ -111,55 +111,55 @@ In this example they all belong to Core 0
     value_template: '{{((value | float) / 1000) | round(2) }}'
 ```
 
-Some of the sensor I have created can be found in my config [here](https://github.com/noodlemctwoodle/homeassistant/blob/unraid-view-1.2-dev/configuration/sensors/monitoring/unraid/unraid.yaml) from Line 30 onwards.
+Some of the sensor I have created can be found in my config [here](https://github.com/noodlemctwoodle/homeassistant/blob/master/configuration/sensors/monitoring/unraid/unraid.yaml) from Line 36 onwards.
 
 ## Some of the sensors discovered to far...
 
 I'll add more sensors here as time goes on and as I go through and discover them. If you find any good ones please contact me on the HKI discord and I'll be sure to add them. 
 
+Running the command without the `-On` switch gives you an idea what numerical value links to each physical piece of hardware as shown in the commands below for `Temperature`, `Fan`, `Disk/Share`. 
+
+
 #### Temperature Sensors
-```
-snmpwalk -v 2c -On -c public localhost LM-SENSORS-MIB::lmTempSensorsTable
-```
+
+    snmpwalk -v 2c -c public localhost LM-SENSORS-MIB::lmTempSensorsTable
+    snmpwalk -On -v 2c -c public localhost LM-SENSORS-MIB::lmTempSensorsTable
+
 
 #### Fan RPM
-```
-snmpwalk -v 2c -On -c public localhost LM-SENSORS-MIB::lmFanSensorsTable
-```
+
+    snmpwalk -v 2c -c public localhost LM-SENSORS-MIB::lmFanSensorsTable
+    snmpwalk -On -v 2c -c public localhost LM-SENSORS-MIB::lmFanSensorsTable
+
 
 #### Disk/Share Info
-```
-snmpwalk -v 2c -On -c public localhost NET-SNMP-EXTEND-MIB::nsExtendOutLine
-```
+    snmpwalk -v 2c -c public localhost NET-SNMP-EXTEND-MIB::nsExtendOutLine
+    snmpwalk -On -v 2c -c public localhost NET-SNMP-EXTEND-MIB::nsExtendOutLine
+
 ### Network 
 
-Descriptiom
+To capture the network adaper vaules you need to use `::ifDescr` 
+
+Description
 
     snmpwalk -v 1 localhost -c public IF-MIB::ifDescr
 
 Upload
 
-    snmpwalk -v 1 localhost -c public IF-MIB::ifOutOctets
     snmpwalk -On -v 1 localhost -c public IF-MIB::ifOutOctets
 
 
 Download
 
-    snmpwalk -v 1 localhost -c public IF-MIB::ifInOctets
     snmpwalk -On -v 1 localhost -c public IF-MIB::ifInOctets
 
+### Errors
 
-Errors
+Various system related errors
 
-    snmpwalk -v 2c localhost -c public systemStats
     snmpwalk -On -v 2c localhost -c public systemStats
 
-
-
-
-
-
-Linux SNMP OIDs for CPU,Memory and Disk Statistics
+## Linux SNMP OIDs for CPU,Memory and Disk Statistics
 
 
 ### CPU Statistics
@@ -206,17 +206,6 @@ includeAllDisks 10% for all partitions and disks
     Percentage of inodes used on disk: .1.3.6.1.4.1.2021.9.1.10.1
 
     System Uptime: .1.3.6.1.2.1.1.3.0
-
-
-
-
-
-
-
-
-
-
-
 
 
 
