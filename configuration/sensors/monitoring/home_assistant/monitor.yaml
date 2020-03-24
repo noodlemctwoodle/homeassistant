@@ -151,3 +151,16 @@
     json_attributes:
       - version
       - last_version
+
+  - platform: rest
+    resource: !secret vscode_rest_url
+    name: VSCode Addon
+    value_template: '{{ value_json.data.state }}'
+    scan_interval: 60
+    headers:
+      Authorization: !secret access_token
+      Content-Type: application/json
+#    json_attributes_path: "$.data"
+#    json_attributes:
+#      - version
+#      - last_version

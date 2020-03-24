@@ -9,8 +9,8 @@
           (states.sensor.sp_of_cab_total_daily_energy.state | float) +
           (states.sensor.office_pdu_smart_plug_total_daily_energy.state | float) +
           (states.sensor.living_room_tv_smart_plug_total_daily_energy.state | float)
-
         }}
+
     power_total_usage:
       friendly_name: Total Power Usage
       unit_of_measurement: W

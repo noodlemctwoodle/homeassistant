@@ -94,6 +94,9 @@ HKI System view can be found [here](https://github.com/noodlemctwoodle/homeassis
      
 Configuration instructions can be found [here](https://github.com/noodlemctwoodle/homeassistant/tree/master/configuration/sensors/monitoring/home_assistant)
 
+ #### Credits
+ - [SilvrrGIT](https://github.com/SilvrrGIT/HomeAssistant) Excellent post on the community [forum](https://community.home-assistant.io/t/get-notified-of-available-hassio-addon-updates/176626) outlining how to create rest senosr to start/restart Home Assistant Core Addons, Create the switches used in my HKI System view and the post also describes how write automations for addon update available notifications.
+
 # Energy Monitoring View for HKI
 
 ![some-pictue](http://someurl.com)
@@ -109,8 +112,6 @@ Configuration instructions can be found [here](https://github.com/noodlemctwoodl
 
 Configuration instructions can be found [here](https://github.com/noodlemctwoodle/homeassistant/tree/master/configuration/sensors/monitoring/energy)
 
- #### Credits
- - [SilvrrGIT](https://github.com/SilvrrGIT/HomeAssistant) Excellent post on the community [forum](https://community.home-assistant.io/t/get-notified-of-available-hassio-addon-updates/176626) outlining how to create rest senosr to start/restart Home Assistant Core Addons, Create the switches used in my HKI System view and the post also describes how write automations for addon update available notifications.
 
 ### Check out my Wiki
 Further information and guides can be found on my [wiki](https://github.com/noodlemctwoodle/hassio/wiki)
