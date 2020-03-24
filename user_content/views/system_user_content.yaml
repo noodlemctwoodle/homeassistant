@@ -743,8 +743,18 @@
             - type: horizontal-stack
               cards: 
 
-              - !include
-                - '../../lovelace/templates/mini_graph.yaml'
+              - type: custom:mini-graph-card
+                style: |
+                  ha-card {
+                    background: var(--paper-card-background-color);
+                    border-radius: {{ states('input_select.border_radius') }};
+                    --paper-item-icon-color: var(--paper-item-icon-color);
+                    box-shadow: {{ states('input_select.box_shadow') }};
+                    font-weight: bold;
+                    opacity: 0.8;
+                    height: 242px;                  
+                  }
+                entities:
                 - entity: sensor.cloudflare_dns_ping
                   name: Cloudflare Ping
                   line_color: '"#ffb414"'
@@ -753,8 +763,19 @@
                   decimals: 0
                   font_size: 65
                   tap_action: none
-              - !include
-                - '../../lovelace/templates/mini_graph.yaml'
+
+              - type: custom:mini-graph-card
+                style: |
+                  ha-card {
+                    background: var(--paper-card-background-color);
+                    border-radius: {{ states('input_select.border_radius') }};
+                    --paper-item-icon-color: var(--paper-item-icon-color);
+                    box-shadow: {{ states('input_select.box_shadow') }};
+                    font-weight: bold;
+                    opacity: 0.8;
+                    height: 242px;                  
+                  }
+                entities:
                 - entity: sensor.google_dns_ping
                   name: Google Ping
                   line_color: '"#ffb414"'

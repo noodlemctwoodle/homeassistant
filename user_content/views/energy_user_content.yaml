@@ -1,20 +1,102 @@
 
+- type: picture-elements
+  style: |
+    ha-card {
+      border-radius: {{ states('input_select.border_radius') }};
+      box-shadow: {{ states('input_select.box_shadow') }};
+      overflow: hidden;
+    }
+  image: '/local/images/views/energy/shell_energy.png'
+  elements:
+    - type: state-label
+      entity: sensor.daily_energy_w
+      style:
+        top: 60%
+        left: 6%
+        pointer-events: none
+        transform: initial
+        font-size: 12px
+        color: rgba(255,255,255,0.8)
+        line-height: 32px
+        padding: 0px 28px
+
 - !include
   - '../../lovelace/templates/header_text.yaml'
   - content: '##### Power'
 
-- type: vertical-stack
+- type: horizontal-stack
   cards:
 
     - type: gauge
-      name: Power
-      unit: W
-      max: 1500
-      entity: sensor.power_total_usage
+      style: |
+        ha-card {
+          background: var(--paper-card-background-color);
+          border-radius: {{ states('input_select.border_radius') }};
+          --paper-item-icon-color: var(--paper-item-icon-color);
+          box-shadow: {{ states('input_select.box_shadow') }};
+          font-weight: bold;
+          opacity: 0.8;
+        }
+      name: £ Daily 
+      max: 5.00
+      entity: sensor.daily_energy_cost
       severity:
-        green: 100
-        yellow: 150
-        red: 300
+        green: 1.25
+        yellow: 2.00
+        red: 3.00
+
+    - type: gauge
+      style: |
+        ha-card {
+          background: var(--paper-card-background-color);
+          border-radius: {{ states('input_select.border_radius') }};
+          --paper-item-icon-color: var(--paper-item-icon-color);
+          box-shadow: {{ states('input_select.box_shadow') }};
+          font-weight: bold;
+          opacity: 0.8;
+        }
+      name: £ Month
+      max: 30.00
+      entity: sensor.monthly_energy_cost
+      severity:
+        green: 15.00
+        yellow: 20.00
+        red: 30.00
+
+- type: horizontal-stack
+  cards:
+
+    - type: custom:mini-graph-card
+      style: |
+        ha-card {
+          background: var(--paper-card-background-color);
+          border-radius: {{ states('input_select.border_radius') }};
+          --paper-item-icon-color: var(--paper-item-icon-color);
+          box-shadow: {{ states('input_select.box_shadow') }};
+          font-weight: bold;
+          opacity: 0.8;
+        }
+      name: Now
+      icon: mdi:power-socket-uk
+      entities: 
+        - sensor.power_total_usage
+
+
+    - type: custom:mini-graph-card
+      style: |
+        ha-card {
+          background: var(--paper-card-background-color);
+          border-radius: {{ states('input_select.border_radius') }};
+          --paper-item-icon-color: var(--paper-item-icon-color);
+          box-shadow: {{ states('input_select.box_shadow') }};
+          font-weight: bold;
+          opacity: 0.8;
+        }
+      name: Now
+      icon: mdi:power-socket-uk
+      entities: 
+        - sensor.energy_total_usage
+
 
 - type: horizontal-stack
   cards:
@@ -30,40 +112,9 @@
           opacity: 0.8;
         }
       name: Energy Daily
+      icon: mdi:power
       entities:
-        - sensor.daily_energy_w
-
-    - type: custom:mini-graph-card
-      style: |
-        ha-card {
-          background: var(--paper-card-background-color);
-          border-radius: {{ states('input_select.border_radius') }};
-          --paper-item-icon-color: var(--paper-item-icon-color);
-          box-shadow: {{ states('input_select.box_shadow') }};
-          font-weight: bold;
-          opacity: 0.8;
-        }
-      name: Energy Monthly
-      entities:
-        - sensor.monthly_energy_w
-
-- type: horizontal-stack
-  cards:
-
-    - type: custom:mini-graph-card
-      style: |
-        ha-card {
-          background: var(--paper-card-background-color);
-          border-radius: {{ states('input_select.border_radius') }};
-          --paper-item-icon-color: var(--paper-item-icon-color);
-          box-shadow: {{ states('input_select.box_shadow') }};
-          font-weight: bold;
-          opacity: 0.8;
-        }
-      name: Total
-      icon: mdi:flash
-      entities: 
-        - sensor.power_total_usage
+        - sensor.daily_energy_kwh
       show:
         graph: bar
 
@@ -77,9 +128,9 @@
           font-weight: bold;
           opacity: 0.8;
         }
-      name: Total
-      icon: mdi:flash
-      entities: 
-        - sensor.energy_total_usage
+      name: Energy Monthly
+      icon: mdi:power
+      entities:
+        - sensor.monthly_energy_kwh
       show:
         graph: bar

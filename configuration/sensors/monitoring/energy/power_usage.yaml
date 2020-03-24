@@ -22,13 +22,23 @@
           (states.sensor.living_room_tv_smart_plug_wattage.state | float)
         }}
 
-    daily_power:
-      friendly_name: Daily Power
-      unit_of_measurement: £
-      value_template: >
-        {{ (sensor.daily_energy_kwh * 14.113) | float }}
 
 
+    daily_energy_cost:
+      entity_id: sensor.daily_energy_kwh
+      friendly_name: 'Daily Cost'
+      value_template: >-
+        {% if (states.sensor.daily_energy_kwh.state|float > 0) %}
+          {{ (states.sensor.daily_energy_kwh.state|float * 0.2420)|round(2) }}
+        {% endif %}
+
+    monthly_energy_cost:
+      entity_id: sensor.monthly_energy_kwh
+      friendly_name: 'Daily Cost'
+      value_template: >-
+        {% if (states.sensor.monthly_energy_kwh.state|float > 0) %}
+          {{ (states.sensor.monthly_energy_kwh.state|float * 0.2420)|round(2) }}
+        {% endif %}
 
 #    monthly_power:
 #      friendly_name: Monthly Power
