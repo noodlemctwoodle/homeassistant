@@ -52,7 +52,7 @@ global_config
 # Ignore Python
 #__pycache__
 #__init__.py
-#*.py
+*.py
 
 # Ignore Log Files
 *.log
