@@ -23,6 +23,13 @@
         }}
 
 
+    now_energy_cost:
+      entity_id: sensor.energy_total_usage
+      friendly_name: 'Now Cost'
+      value_template: >-
+        {% if (states.sensor.power_total_usage.state | float > 0) %}
+          {{ ((states.sensor.power_total_usage.state) | float) / 1000 * (states('input_number.electricity_rate') | float ) + (states('input_number.daily_service_charge') | float | round(2)) }}
+        {% endif %}
 
     daily_energy_cost:
       entity_id: sensor.daily_energy_kwh
