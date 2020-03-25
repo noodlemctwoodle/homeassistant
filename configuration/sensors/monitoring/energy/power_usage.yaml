@@ -39,37 +39,50 @@
       entity_id: sensor.monthly_energy_kwh
       friendly_name: 'Daily Cost'
       value_template: >-
-        {% if (states.sensor.monthly_energy_kwh.state|float > 0) %}
-          {{ (states.sensor.monthly_energy_kwh.state|float * 0.2420)|round(2) }}
+        {% if (states.sensor.monthly_energy_kwh.state | float > 0) %}
+          {{ ((states.sensor.monthly_energy_kwh.state) | float) * (states('input_number.electricity_rate') | float ) + (states('input_number.daily_service_charge') | float | round(2)) }}
         {% endif %}
+#        {% if (states.sensor.monthly_energy_kwh.state|float > 0) %}
+#          {{ (states.sensor.monthly_energy_kwh.state|float * 0.2420)|round(2) }}
+#        {% endif %}
 
-    electricity_cost_yesterday:
-      friendly_name: "Electricity Cost Yesterday"
-      unit_of_measurement: '£'
-      icon_template: mdi:currency-usd
-      value_template: >-
-        {% if states('sensor.kwh_usage_yesterday') | float < states('input_number.current_first_block_size') | float /30 %}
-          {{ ((states('sensor.kwh_usage_yesterday') | float) * (states('input_number.first_block') | float) + (states('input_number.daily_service_charge') | float)) | round(2) }}
-        {%- else -%}
-          {{ (((states('sensor.kwh_usage_yesterday') | float) - states('input_number.current_first_block_size') | float /30) * (states('input_number.end_block') | float) + (states('input_number.daily_service_charge') | float) + (states('input_number.current_first_block_size') | float /30 * (states('input_number.first_block') | float))) | round(2)}}
-        {%- endif %}
-    electricity_cost_today:
-      friendly_name: "Electricity Cost So Far Today"
-      value_template: >-
-        {% if states('sensor.kwh_usage_today') | float < states('input_number.current_first_block_size') | float /30 %}
-          {{ ((states('sensor.kwh_usage_today') | float) * (states('input_number.first_block') | float) + (states('input_number.daily_service_charge') | float)) | round(2) }}
-        {%- else -%}
-          {{ (((states('sensor.kwh_usage_today') | float) - states('input_number.current_first_block_size') | float /30) * (states('input_number.end_block') | float) + (states('input_number.daily_service_charge') | float) + (states('input_number.current_first_block_size') | float /30 * (states('input_number.first_block') | float))) | round(2)}}
-        {%- endif %}
-      unit_of_measurement: '£'
-      icon_template: mdi:currency-usd
-    electricity_cost_month:
-      friendly_name: "Electricity Cost So Far This Month"
-      value_template: >-
-        {% if states('sensor.aeon_labs_dsb09104_home_energy_meter_energy') | float < states('input_number.current_first_block_size') | float %}
-          {{ ((states('sensor.aeon_labs_dsb09104_home_energy_meter_energy') | float) * (states('input_number.first_block') | float) + (states('input_number.daily_service_charge') | float)*30) | round(2) }}
-        {%- else -%}
-          {{ (((states('sensor.aeon_labs_dsb09104_home_energy_meter_energy') | float) - states('input_number.current_first_block_size') | float) * (states('input_number.end_block') | float) + (states('input_number.current_first_block_size') | float * (states('input_number.first_block') | float)) + (states('input_number.daily_service_charge') | float)*30) | round(2)}}
-        {%- endif %}
-      unit_of_measurement: '£'
-      icon_template: mdi:currency-usd
+#    electricity_cost_yesterday:
+#      friendly_name: "Electricity Cost Yesterday"
+#      unit_of_measurement: '£'
+#      icon_template: mdi:currency-usd
+#      value_template: >-
+#        {% if states('sensor.kwh_usage_yesterday') | float < states('input_number.current_first_block_size') | float /30 %}
+#          {{ ((states('sensor.kwh_usage_yesterday') | float) * (states('input_number.first_block') | float) + (states('input_number.daily_service_charge') | float)) | round(2) }}
+#        {%- else -%}
+#          {{ (((states('sensor.kwh_usage_yesterday') | float) - states('input_number.current_first_block_size') | float /30) * (states('input_number.end_block') | float) + (states('input_number.daily_service_charge') | float) + (states('input_number.current_first_block_size') | float /30 * (states('input_number.first_block') | float))) | round(2)}}
+#        {%- endif %}
+#    electricity_cost_today:
+#      friendly_name: "Electricity Cost So Far Today"
+#      value_template: >-
+#        {% if states('sensor.kwh_usage_today') | float < states('input_number.current_first_block_size') | float /30 %}
+#          {{ ((states('sensor.kwh_usage_today') | float) * (states('input_number.first_block') | float) + (states('input_number.daily_service_charge') | float)) | round(2) }}
+#        {%- else -%}
+#          {{ (((states('sensor.kwh_usage_today') | float) - states('input_number.current_first_block_size') | float /30) * (states('input_number.end_block') | float) + (states('input_number.daily_service_charge') | float) + (states('input_number.current_first_block_size') | float /30 * (states('input_number.first_block') | float))) | round(2)}}
+#        {%- endif %}
+#      unit_of_measurement: '£'
+#      icon_template: mdi:currency-usd
+#    electricity_cost_month:
+#      friendly_name: "Electricity Cost So Far This Month"
+#      value_template: >-
+#        {% if states('sensor.aeon_labs_dsb09104_home_energy_meter_energy') | float < states('input_number.current_first_block_size') | float %}
+#          {{ ((states('sensor.aeon_labs_dsb09104_home_energy_meter_energy') | float) * (states('input_number.first_block') | float) + (states('input_number.daily_service_charge') | float)*30) | round(2) }}
+#        {%- else -%}
+#          {{ (((states('sensor.aeon_labs_dsb09104_home_energy_meter_energy') | float) - states('input_number.current_first_block_size') | float) * (states('input_number.end_block') | float) + (states('input_number.current_first_block_size') | float * (states('input_number.first_block') | float)) + (states('input_number.daily_service_charge') | float)*30) | round(2)}}
+#        {%- endif %}
+#      unit_of_measurement: '£'
+#      icon_template: mdi:currency-usd
+
+
+
+- platform: command_line
+  name: Power Usage
+  command: "python3 /config/shell-energy.py electricity"
+
+- platform: command_line
+  name: Gas Usage
+  command: "python3 /config/shell-energy.py gas"

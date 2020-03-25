@@ -120,7 +120,7 @@
             action: none
         - entity: sensor.daily_energy_cost
           attribute: Cost
-          decimals: 0
+          decimals: 2
           unit: '£ per day'
           icon: mdi:power-socket-uk
           tap_action:
@@ -171,21 +171,21 @@
             ypos: 95
       # Scale set to -10 to +40 degrees celcius
       horseshoe_scale:
-        min: -10
-        max: 40
+        min: 0
+        max: 10
       # color stop list with 10 colors defined in the theme. With the `lineargradient` fill style, only the
       # first (16:) and last (25:) colors are used. The thresholds are ignored with this setting.
       color_stops:
-        16: '#FFF6E3'
-        17: '#FFE9B9'
-        18: '#FFDA8A'
-        19: '#FFCB5B'
-        20: '#FFBF37'
-        21: '#ffb414'
-        22: '#FFAD12'
-        23: '#FFA40E'
-        24: '#FF9C0B' 
-        25: '#FF8C06' 
+        16: '#26c941'
+        17: '#6ac926'
+        18: '#85c926'
+        19: '#9ec926'
+        20: '#b9c926'
+        21: '#c9be26'
+        22: '#c9a626'
+        23: '#c99026'
+        24: '#c96f26' 
+        25: '#c92626' 
 
 # Monthly Energy Cost
     - type: 'custom:flex-horseshoe-card'
@@ -208,7 +208,7 @@
             action: none
         - entity: sensor.monthly_energy_cost
           attribute: Cost
-          decimals: 0
+          decimals: 2
           unit: '£ per month'
           icon: mdi:power-socket-uk
           tap_action:
@@ -259,21 +259,21 @@
             ypos: 95
       # Scale set to -10 to +40 degrees celcius
       horseshoe_scale:
-        min: -10
+        min: 0
         max: 40
       # color stop list with 10 colors defined in the theme. With the `lineargradient` fill style, only the
       # first (16:) and last (25:) colors are used. The thresholds are ignored with this setting.
       color_stops:
-        16: '#FFF6E3'
-        17: '#FFE9B9'
-        18: '#FFDA8A'
-        19: '#FFCB5B'
-        20: '#FFBF37'
-        21: '#ffb414'
-        22: '#FFAD12'
-        23: '#FFA40E'
-        24: '#FF9C0B' 
-        25: '#FF8C06' 
+        16: '#26c941'
+        17: '#6ac926'
+        18: '#85c926'
+        19: '#9ec926'
+        20: '#b9c926'
+        21: '#c9be26'
+        22: '#c9a626'
+        23: '#c99026'
+        24: '#c96f26' 
+        25: '#c92626' 
 
 - !include
   - '../../lovelace/templates/header_text.yaml'
