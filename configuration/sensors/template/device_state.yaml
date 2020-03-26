@@ -45,12 +45,11 @@
 
     current_powered_on_plugs:
       friendly_name: All Smart Plugs On
-#      entity_id: group.all_mediaplayers
       value_template: >
-          {{ states.media_player | rejectattr('entity_id','in', [
-              'switch.sp_lr_amp_relay',
-              'switch.sp_of_cab_relay',
-              'switch.subwoofer_smart_socket',
-              'switch.living_room_tv_smart_plug_relay',
-              'switch.office_pdu_smart_plug_relay'
-              ] ) |selectattr('state','eq','on') | list | count }}
+          {{ group.smart_plugs | rejectattr('entity_id','in', [
+            'switch.bedroom_tv_smart_plug_relay',
+            'switch.living_room_av_receiver_smart_plug_relay',
+            'switch.office_computer_smart_plug_relay',
+            'switch.living_room_subwoofer_smart_socket_relay',
+            'switch.sp_of_cab_relay'
+            ] ) |selectattr('state','eq','on') | list | count }}

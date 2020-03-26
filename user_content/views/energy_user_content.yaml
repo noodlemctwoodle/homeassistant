@@ -134,15 +134,14 @@
                     - entity: sensor.power_total_usage
             #          attribute: temperature
                       decimals: 0
-                      name: 'Now'
+                      name: 'Electricity'
                       unit: 'W'
                       tap_action:
                         action: none
                     - entity: sensor.now_energy_cost
                       attribute: Cost
                       decimals: 2
-                      unit: 'Pence'
-                      icon: mdi:power-socket-uk
+                      unit: '£ per hour'
                       tap_action:
                         action: none
                   show:
@@ -170,7 +169,7 @@
                       # States 1 refers to the second entity in the list, ie index 1
                       - id: 1
                         entity_index: 1
-                        xpos: 40
+                        xpos: 28
                         ypos: 69
                         styles:
                           - text-anchor: start;
@@ -188,7 +187,9 @@
                       - id: 0
                         entity_index: 0
                         xpos: 50
-                        ypos: 95
+                        ypos: 90
+                        styles:
+                          - font-size: 1em;
                   # Scale set to -10 to +40 degrees celcius
                   horseshoe_scale:
                     min: 20
@@ -222,15 +223,14 @@
                     - entity: sensor.daily_energy_kwh
             #          attribute: temperature
                       decimals: 0
-                      name: 'Today'
+                      name: 'Electricity'
                       unit: 'KwH'
                       tap_action:
                         action: none
                     - entity: sensor.daily_energy_cost
                       attribute: Cost
                       decimals: 2
-                      unit: '£  Cost Today'
-                      icon: mdi:power-socket-uk
+                      unit: '£ per day'
                       tap_action:
                         action: none
                   show:
@@ -258,7 +258,7 @@
                       # States 1 refers to the second entity in the list, ie index 1
                       - id: 1
                         entity_index: 1
-                        xpos: 40
+                        xpos: 29
                         ypos: 69
                         styles:
                           - text-anchor: start;
@@ -276,7 +276,9 @@
                       - id: 0
                         entity_index: 0
                         xpos: 50
-                        ypos: 95
+                        ypos: 90
+                        styles:
+                          - font-size: 1em;
                   # Scale set to -10 to +40 degrees celcius
                   horseshoe_scale:
                     min: 0
@@ -513,11 +515,11 @@
                       font-weight: bold;
                       opacity: 0.8;
                     }
-                  name: Now
-                  icon: mdi:power-socket-uk
+                  name: Bedroom TV
+                  icon: mdi:television
                   entities: 
-                    - sensor.power_total_usage
-
+                    - sensor.bedroom_tv_smart_plug_wattage
+                  tap_action: none
 
                 - type: custom:mini-graph-card
                   style: |
@@ -529,11 +531,50 @@
                       font-weight: bold;
                       opacity: 0.8;
                     }
-                  name: Now
-                  icon: mdi:power-socket-uk
+                  name: AV Receiver
+                  icon: mdi:speaker
                   entities: 
-                    - sensor.energy_total_usage
+                    - sensor.living_room_av_receiver_smart_plug_wattage
+                  tap_action:
+                    action: none
 
+            - type: horizontal-stack
+              cards: 
+
+                - type: custom:mini-graph-card
+                  style: |
+                    ha-card {
+                      background: var(--paper-card-background-color);
+                      border-radius: {{ states('input_select.border_radius') }};
+                      --paper-item-icon-color: var(--paper-item-icon-color);
+                      box-shadow: {{ states('input_select.box_shadow') }};
+                      font-weight: bold;
+                      opacity: 0.8;
+                    }
+                  name: Office Desktop
+                  icon: mdi:desktop-classic
+                  entities: 
+                    - sensor.office_computer_smart_plug_wattage
+                  tap_action: none
+
+                - type: custom:mini-graph-card
+                  style: |
+                    ha-card {
+                      background: var(--paper-card-background-color);
+                      border-radius: {{ states('input_select.border_radius') }};
+                      --paper-item-icon-color: var(--paper-item-icon-color);
+                      box-shadow: {{ states('input_select.box_shadow') }};
+                      font-weight: bold;
+                      opacity: 0.8;
+                    }
+                  name: Server Cabinet
+                  icon: mdi:server-network
+                  entities: 
+                    - sensor.sp_of_cab_wattage
+                  tap_action: none
+
+        - type: vertical-stack
+          cards:
             - type: horizontal-stack
               cards: 
 
@@ -570,35 +611,6 @@
                     - sensor.monthly_energy_kwh
                   show:
                     graph: bar
-
-        - type: vertical-stack
-          cards:
-
-            - type: entities
-              style: |
-                ha-card {
-                  background: var(--paper-card-background-color);
-                  border-radius: {{ states('input_select.border_radius') }};
-                  --paper-item-icon-color: var(--paper-item-icon-color);
-                  box-shadow: {{ states('input_select.box_shadow') }};
-                  font-weight: bold;
-                  opacity: 0.8;
-                }
-              title: Utility Rate Costs
-              show_header_toggle: false
-              entities:
-                - entity: input_number.daily_service_charge
-                  name: Daily Service Charge
-                  icon: mdi:currency-gbp
-                - entity: input_number.first_block
-                  name: First Block per KwH
-                  icon: mdi:currency-gbp                    
-                - entity: input_number.end_block
-                  name: End Block per Kwh
-                  icon: mdi:currency-gbp                    
-                - entity: input_number.current_first_block_size
-                  name: Current First Block Size
-                  icon: mdi:currency-gbp  
 
 
 

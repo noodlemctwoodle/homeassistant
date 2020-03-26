@@ -1,0 +1,8 @@
+  smart_plugs:
+    name: All Smart Plugs
+    entities:
+      - switch.bedroom_tv_smart_plug_relay
+      - switch.living_room_av_receiver_smart_plug_relay
+      - switch.office_computer_smart_plug_relay
+      - switch.living_room_subwoofer_smart_socket_relay
+      - switch.sp_of_cab_relay

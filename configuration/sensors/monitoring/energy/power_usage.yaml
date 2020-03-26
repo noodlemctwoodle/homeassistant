@@ -1,28 +1,42 @@
+# Energy Monitoring Sensros for HKI Energy Monitoring
+
+
+# Python Script to pull previous day energy usage from supplier
+#- platform: command_line
+#  name: Power Usage
+#  command: "python3 /config/shell-energy.py electricity"
+
+#- platform: command_line
+#  name: Gas Usage
+#  command: "python3 /config/shell-energy.py gas"
+
 - platform: template
   sensors: 
+  # All monnitored devices KwH  
     energy_total_usage:
       friendly_name: Total Energy Usage
       unit_of_measurement: kWh
       value_template: >-  
         {{ 
-          (states.sensor.sp_lr_amp_total_daily_energy.state | float) +
-          (states.sensor.sp_of_cab_total_daily_energy.state | float) +
-          (states.sensor.office_pdu_smart_plug_total_daily_energy.state | float) +
-          (states.sensor.living_room_tv_smart_plug_total_daily_energy.state | float)
+          (states.sensor.bedroom_tv_smart_plug_total_daily_energy.state | float) +
+          (states.sensor.living_room_av_receiver_smart_plug_total_daily_energy.state | float) +
+          (states.sensor.office_computer_smart_plug_total_daily_energy.state | float) +
+          (states.sensor.sp_of_cab_total_daily_energy.state | float)
         }}
 
+  # All monnitored devices W
     power_total_usage:
       friendly_name: Total Power Usage
       unit_of_measurement: W
       value_template: >-  
         {{ 
-          (states.sensor.sp_lr_amp_wattage.state | float) +
-          (states.sensor.sp_of_cab_wattage.state | float) +
-          (states.sensor.office_pdu_smart_plug_wattage.state | float) +
-          (states.sensor.living_room_tv_smart_plug_wattage.state | float)
+          (states.sensor.bedroom_tv_smart_plug_wattage.state | float) +
+          (states.sensor.living_room_av_receiver_smart_plug_wattage.state | float) +
+          (states.sensor.office_computer_smart_plug_wattage.state | float) +
+          (states.sensor.sp_of_cab_wattage.state | float)
         }}
 
-
+  # Energy Cost Now
     now_energy_cost:
       entity_id: sensor.energy_total_usage
       friendly_name: 'Now Cost'
@@ -31,6 +45,7 @@
           {{ ((states.sensor.power_total_usage.state) | float) / 1000 * (states('input_number.electricity_rate') | float ) + (states('input_number.daily_service_charge') | float | round(2)) }}
         {% endif %}
 
+  # Daily Energy Cost
     daily_energy_cost:
       entity_id: sensor.daily_energy_kwh
       friendly_name: 'Daily Cost'
@@ -42,6 +57,7 @@
 #          {{ (states.sensor.daily_energy_kwh.state|float * 0.2420)|round(2) }}
 #        {% endif %}
 
+  # Monthly Energy Cost
     monthly_energy_cost:
       entity_id: sensor.monthly_energy_kwh
       friendly_name: 'Daily Cost'
@@ -52,44 +68,3 @@
 #        {% if (states.sensor.monthly_energy_kwh.state|float > 0) %}
 #          {{ (states.sensor.monthly_energy_kwh.state|float * 0.2420)|round(2) }}
 #        {% endif %}
-
-#    electricity_cost_yesterday:
-#      friendly_name: "Electricity Cost Yesterday"
-#      unit_of_measurement: '£'
-#      icon_template: mdi:currency-usd
-#      value_template: >-
-#        {% if states('sensor.kwh_usage_yesterday') | float < states('input_number.current_first_block_size') | float /30 %}
-#          {{ ((states('sensor.kwh_usage_yesterday') | float) * (states('input_number.first_block') | float) + (states('input_number.daily_service_charge') | float)) | round(2) }}
-#        {%- else -%}
-#          {{ (((states('sensor.kwh_usage_yesterday') | float) - states('input_number.current_first_block_size') | float /30) * (states('input_number.end_block') | float) + (states('input_number.daily_service_charge') | float) + (states('input_number.current_first_block_size') | float /30 * (states('input_number.first_block') | float))) | round(2)}}
-#        {%- endif %}
-#    electricity_cost_today:
-#      friendly_name: "Electricity Cost So Far Today"
-#      value_template: >-
-#        {% if states('sensor.kwh_usage_today') | float < states('input_number.current_first_block_size') | float /30 %}
-#          {{ ((states('sensor.kwh_usage_today') | float) * (states('input_number.first_block') | float) + (states('input_number.daily_service_charge') | float)) | round(2) }}
-#        {%- else -%}
-#          {{ (((states('sensor.kwh_usage_today') | float) - states('input_number.current_first_block_size') | float /30) * (states('input_number.end_block') | float) + (states('input_number.daily_service_charge') | float) + (states('input_number.current_first_block_size') | float /30 * (states('input_number.first_block') | float))) | round(2)}}
-#        {%- endif %}
-#      unit_of_measurement: '£'
-#      icon_template: mdi:currency-usd
-#    electricity_cost_month:
-#      friendly_name: "Electricity Cost So Far This Month"
-#      value_template: >-
-#        {% if states('sensor.aeon_labs_dsb09104_home_energy_meter_energy') | float < states('input_number.current_first_block_size') | float %}
-#          {{ ((states('sensor.aeon_labs_dsb09104_home_energy_meter_energy') | float) * (states('input_number.first_block') | float) + (states('input_number.daily_service_charge') | float)*30) | round(2) }}
-#        {%- else -%}
-#          {{ (((states('sensor.aeon_labs_dsb09104_home_energy_meter_energy') | float) - states('input_number.current_first_block_size') | float) * (states('input_number.end_block') | float) + (states('input_number.current_first_block_size') | float * (states('input_number.first_block') | float)) + (states('input_number.daily_service_charge') | float)*30) | round(2)}}
-#        {%- endif %}
-#      unit_of_measurement: '£'
-#      icon_template: mdi:currency-usd
-
-
-
-- platform: command_line
-  name: Power Usage
-  command: "python3 /config/shell-energy.py electricity"
-
-- platform: command_line
-  name: Gas Usage
-  command: "python3 /config/shell-energy.py gas"
