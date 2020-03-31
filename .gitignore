@@ -15,6 +15,7 @@ tensorflow
 esphome
 glances
 custom_components
+CNAME
 
 # Ignore Directories
 www/community
