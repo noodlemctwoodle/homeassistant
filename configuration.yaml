@@ -7,121 +7,8 @@ frontend:
 
 lovelace:
   mode: yaml
+  resources: !include lovelace/resources/resources.yaml
 
-# Configure a default setup of Home Assistant (frontend, api, etc)
-default_config:
-
-#hacs:
-#  token: !secret access_token
-
-api:
-
-logger:
-  default: warning
-  logs:
-    plexwebsocket: critical
-    homeassistant.loader: error
-    homeassistant.components.sensor: error
-    homeassistant.helpers.entity: error
-    homeassistant.config_entries: error
-    homeassistant.components.plex: critical
-    homeassistant.components.radarr.sensor: error
-    homeassistant.components.sonarr.sensor: error
-    homeassistant.components.snmp.sensor: critical
-    custom_components.plex_recently_added.sensor: error
-    custom_components.sonarr_upcoming_media.sensor: error
-    custom_components.radarr_upcoming_media.sensor: error
-    
-recorder:
-  purge_keep_days: '5'
-  db_url: !secret db_url
-  exclude:
-    domains:
-      - automation
-      - weblink
-      - updater
-    entities:
-      - sun.sun # Don't record sun data
-      - sensor.last_boot # Comes from 'systemmonitor' sensor platform
-      - sensor.date
-    event_types:
-      - call_service # Don't record service calls
-
-#Browser Mod
-browser_mod:
-  devices:
-    f53a47d6-c0e82f5f:
-      name: 'Desktop'
-#    51f611b0-e9cbafa9:
-#      name: 'Pixel 4 XL'
-
-# Camera Streams
-
-stream:
-
-camera:
-  - platform: unifiprotect
-
-# UniFI Protect - Custom Component
-# https://github.com/briis/unifiprotect
-
-unifiprotect:
-  host: !secret cloud_key_ip
-  username: !secret unifi_protect_username
-  password: !secret unifi_protect_password
-
-# WEATHER - Component
-weather:
-  - platform: darksky
-    api_key: !secret dark_sky_api
-
-sun:
-
-# NEST SMART HOME - Intergration
-nest:
-  client_id: !secret nest_client_id
-  client_secret: !secret nest_client_secret
-
-# Utility Meter
-utility_meter:
-  monthly_energy_kwh:
-    source: sensor.energy_total_usage
-    cycle: monthly
-  monthly_energy_w:
-    source: sensor.power_total_usage
-    cycle: monthly
-  daily_energy_kwh:
-    source: sensor.energy_total_usage
-    cycle: daily
-  daily_energy_w:
-    source: sensor.power_total_usage
-    cycle: daily
-
-
-# LG WebOS
-webostv:
-  host: !secret living_room_tv_ip
-  name: Living Room TV
-  turn_on_action:
-    service: wake_on_lan.send_magic_packet
-    data:
-      mac: !secret living_room_tv_mac
-  customize:
-    sources:
-      - Amazon Prime Video
-      - Denon AVR
-      - Live TV
-      - Netflix
-      - YouTube
-
-# Speedtest.net
-speedtestdotnet:
-  server_id: 17970
-  scan_interval:
-    minutes: 480
-  monitored_conditions:
-    - download
-    - upload
 
 input_text:
   card_containers:
@@ -135,23 +22,23 @@ input_text:
   plugs_on:
     initial: Plugs On
 
-# Text to speech
-tts:
-  - platform: google_translate
-    cache: true
-    cache_dir: /config/tts
-    time_memory: 300
-    base_url: !secret homeassistant_url
-    service_name: google_say
-  
-automation: !include_dir_merge_list configuration/automations/
-binary_sensor: !include_dir_merge_list configuration/binary_sensors/
-group: !include_dir_merge_list configuration/group/
+
+automation: !include_dir_merge_list ../../../areas/
+binary_sensor: !include_dir_merge_list ../../../areas/
+input_number: !include_dir_merge_list ../../../areas/
+sensor: !include_dir_merge_list ../../../areas/
+switch: !include_dir_merge_list ../../../areas/
+media_player: !include_dir_merge_list ../../../areas/
+script: !include_dir_merge_list ../../../areas/
+scene: !include_dir_merge_list ../../../areas/
+group: !include_dir_merge_list ../../../areas/
+
+
+
+
+
+
+#input_boolean: !include_dir_list ../../../areas/
+
 #light: !include_dir_merge_list configuration/lights/
-#input_boolean: !include_dir_merge_named configuration/input_boolean/
-input_number: !include_dir_merge_named configuration/input_number/
-media_player: !include configuration/media_player/media_player.yaml
-scene: !include_dir_merge_list configuration/scenes/
-script: !include_dir_merge_named configuration/scripts/
-sensor: !include_dir_merge_list configuration/sensors/
-switch: !include_dir_merge_list configuration/switch/
+

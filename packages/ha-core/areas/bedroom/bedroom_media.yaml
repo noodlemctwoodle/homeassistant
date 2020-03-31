@@ -1,0 +1,9 @@
+media_player:
+  - platform: samsungtv
+    host: !secret bedroom_tv_ip
+
+  - platform: androidtv
+    host: !secret bedroom_shield_tv_ip
+    name: "Bedroom Shield"
+    adb_server_ip: 127.0.0.1
+    adb_server_port: 5037

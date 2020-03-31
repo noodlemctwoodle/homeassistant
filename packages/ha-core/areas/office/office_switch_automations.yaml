@@ -1,0 +1,101 @@
+automation:
+
+  #  Office - Philips Hue Dimmer
+
+  - alias: 'Office turn-on from dimmer normal'
+    initial_state: 'on'
+    trigger:
+      platform: event
+      event_type: deconz_event
+      event_data:
+        id: office_switch
+        event: 1002
+    action:
+      - service: light.turn_on
+        data:
+          entity_id:
+            - light.office
+          brightness_pct: 50
+
+
+  - alias: 'Office turn-on from dimmer bright'
+    initial_state: 'on'
+    trigger:
+      platform: event
+      event_type: deconz_event
+      event_data:
+        id: office_switch
+        event: 1001
+    action:
+      - service: light.turn_on
+        data:
+          entity_id:
+            - light.office
+          brightness_pct: 100
+
+  - alias: 'Office increase brightness from dimmer'
+    initial_state: 'on'
+    trigger:
+      platform: event
+      event_type: deconz_event
+      event_data:
+        id: office_switch
+        event: 2002
+    action:
+      - service: light.turn_on
+        data_template:
+          entity_id: light.office
+          brightness: >
+            {% set bri = state_attr
+            ('light.office', 'brightness') | int %}
+            {{ [bri+15, 249] | min }}
+
+  - alias: 'Office decrease brightness from dimmer'
+    initial_state: 'on'
+    trigger:
+      platform: event
+      event_type: deconz_event
+      event_data:
+        id: office_switch
+        event: 3002
+    action:
+      - service: light.turn_on
+        data_template:
+          entity_id: light.office
+          brightness: >
+            {% set bri = state_attr
+            ('light.office', 'brightness') | int %}
+            {{ [bri-15, 10] | max }}
+
+  - alias: 'Office stop brightness from dimmer'
+    initial_state: 'on'
+    trigger:
+      - platform: event
+        event_type: deconz_event
+        event_data:
+          id: office_switch
+          event: 2003
+      - platform: event
+        event_type: deconz_event
+        event_data:
+          id: office_switch
+          event: 3003
+    action:
+      - service: deconz.configure
+        data:
+          entity: light.office
+          field: "/action"
+          data: {"bri_inc":0}
+
+  - alias: 'Office turn-off from dimmer'
+    initial_state: 'on'
+    trigger:
+      platform: event
+      event_type: deconz_event
+      event_data:
+        id: office_switch
+        event: 4002
+    action:
+      - service: light.turn_off
+        entity_id:
+            - light.office

@@ -1,0 +1,95 @@
+automation:
+
+  #  Kitchen - Philips Hue Motion
+  - alias: 'Kithen lights turn-on day'
+    trigger:
+      platform: state
+      entity_id: binary_sensor.kitchen_motion
+      to: 'on'
+    condition:
+      - condition: numeric_state
+        entity_id: sensor.kitchen_lux
+        below: '9.5'
+      - condition: or
+        conditions:
+        - condition: state
+          entity_id: person.abi
+          state: 'home'
+        - condition: state
+          entity_id: person.toby
+          state: 'home'
+    action:
+      service: light.turn_on
+      data:
+        entity_id: 
+        - light.kitchen_spot_03
+        - light.kitchen_spot_10
+        brightness: 249
+
+  - alias: 'Kithen lights turn-on night'
+    trigger:
+      platform: state
+      entity_id: binary_sensor.kitchen_motion
+      to: 'on'
+    condition:
+      - condition: numeric_state
+        entity_id: sensor.kitchen_lux
+        below: '2.0'
+      - condition: or
+        conditions:
+        - condition: state
+          entity_id: person.abi
+          state: 'home'
+        - condition: state
+          entity_id: person.toby
+          state: 'home'
+    action:
+      service: light.turn_on
+      data:
+        entity_id: light.kitchen
+        brightness: 249
+
+  - alias: 'Kitchen lights delay turn-off on deconz event'
+    trigger:
+      platform: event
+      event_type: deconz_event
+      event_data:
+        id: kitchen_switch
+        event: 1002
+    action:
+      - service: automation.turn_off
+        data:
+          entity_id: automation.kitchen_lights_turn_off
+      - delay: '01:00:00'
+      - service: automation.turn_on
+        data:
+          entity_id: automation.kitchen_lights_turn_off
+
+  - alias: 'Kitchen lights enable turn-off on deconz event'
+    trigger:
+      platform: event
+      event_type: deconz_event
+      event_data:
+        id: kitchen_switch
+        event: 4000
+    action:
+      - service: automation.turn_on
+        data:
+          entity_id: automation.kitchen_lights_turn_off
+
+  - alias: 'Kitchen lights turn-off'
+    trigger:
+      platform: state
+      entity_id: binary_sensor.kitchen_motion
+      to: 'off'
+      for:
+        minutes: 5
+    condition:
+      - condition: state
+        entity_id: media_player.living_room_nvidia_shield_adb
+        state: 'off'
+    action:
+      service: light.turn_off
+      data:
+        entity_id: light.kitchen
+        transition: 10

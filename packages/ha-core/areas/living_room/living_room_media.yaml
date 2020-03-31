@@ -1,0 +1,11 @@
+media_player:
+  - platform: denonavr
+    host: !secret denon_avr_ip
+    name: Denon AVRX2300w
+    show_all_sources: false
+
+  - platform: androidtv
+    host: !secret living_room_shield_tv_ip
+    name: "Living Room Shield"
+    adb_server_ip: 127.0.0.1
+    adb_server_port: 5037

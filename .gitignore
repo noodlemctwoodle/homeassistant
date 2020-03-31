@@ -40,7 +40,8 @@ ui-lovelace_old.yaml
 ui-lovelace_original.yaml
 
 # Ignore HKI Structure
-packages
+packages/hki_languages
+packages/homekit_infused
 themes
 lovelace/custom_header
 lovelace/includes

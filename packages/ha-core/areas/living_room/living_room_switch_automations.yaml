@@ -1,0 +1,127 @@
+automation:
+
+  # Living Room - Philips Hue Dimmer
+
+  - alias: 'Living Room turn-on from dimmer normal'
+    initial_state: 'on'
+    trigger:
+      platform: event
+      event_type: deconz_event
+      event_data:
+        id: living_room_switch
+        event: 1002
+    action:
+      - service: light.turn_on
+        data:
+          entity_id:
+            - light.living_room_lamp_01
+          brightness_pct: 50
+      - service: light.turn_on
+        data:
+          entity_id:
+            - light.living_room_shadow
+          brightness_pct: 20
+
+  - alias: 'Living Room turn-on from dimmer bright'
+    initial_state: 'on'
+    trigger:
+      platform: event
+      event_type: deconz_event
+      event_data:
+        id: living_room_switch
+        event: 1001
+    action:
+      - service: light.turn_on
+        data:
+          entity_id:
+            - light.living_room
+          brightness_pct: 100
+
+  - alias: 'Living Room increase brightness from dimmer'
+    initial_state: 'on'
+    trigger:
+      platform: event
+      event_type: deconz_event
+      event_data:
+        id: living_room_switch
+        event: 2002
+    action:
+      - service: light.turn_on
+        data_template:
+          entity_id: light.living_room_lamp_01
+          brightness: >
+            {% set bri = state_attr
+            ('light.living_room_lamp_01', 'brightness') | int %}
+            {{ [bri+15, 249] | min }}
+      - service: light.turn_on
+        data_template:
+          entity_id: light.living_room_shadow
+          brightness: >
+            {% set bri = state_attr
+            ('light.living_room_shadow', 'brightness') | int %}
+            {{ [bri+5, 249] | min }}
+
+  - alias: 'Living Room decrease brightness from dimmer'
+    initial_state: 'on'
+    trigger:
+      platform: event
+      event_type: deconz_event
+      event_data:
+        id: living_room_switch
+        event: 3002
+    action:
+      - service: light.turn_off
+        data_template:
+          entity_id: light.living_room_pendant
+      - service: light.turn_on
+        data_template:
+          entity_id: light.living_room_lamp_01
+          brightness: >
+            {% set bri = state_attr
+            ('light.living_room_lamp_01', 'brightness') | int %}
+            {{ [bri-15, 10] | max }}
+      - service: light.turn_on
+        data_template:
+          entity_id: light.living_room_shadow
+          brightness: >
+            {% set bri = state_attr
+            ('light.living_room_shadow', 'brightness') | int %}
+            {{ [bri-15, 10] | max }}
+
+  - alias: 'Living Room stop brightness from dimmer'
+    initial_state: 'on'
+    trigger:
+      - platform: event
+        event_type: deconz_event
+        event_data:
+          id: living_room_switch
+          event: 2003
+      - platform: event
+        event_type: deconz_event
+        event_data:
+          id: living_room_switch
+          event: 3003
+    action:
+      - service: deconz.configure
+        data:
+          entity: light.living_room_lamp_01
+          field: "/action"
+          data: {"bri_inc":0}
+      - service: deconz.configure
+        data:
+          entity: light.living_room_shadow
+          field: "/action"
+          data: {"bri_inc":0}
+
+  - alias: 'Living Room turn-off from dimmer'
+    initial_state: 'on'
+    trigger:
+      platform: event
+      event_type: deconz_event
+      event_data:
+        id: living_room_switch
+        event: 4002
+    action:
+      - service: light.turn_off
+        entity_id:
+            - light.living_room

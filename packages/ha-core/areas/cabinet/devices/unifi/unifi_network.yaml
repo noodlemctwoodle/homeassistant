@@ -1,0 +1,13 @@
+sensor:
+
+# UNIFI MONITORING - CUSTOM COMPONENT
+# https://github.com/custom-components/sensor.unifigateway
+  - platform: unifigateway
+    host: !secret unifi_host
+    username: !secret unifi_username
+    password: !secret unifi_password
+    monitored_conditions:
+      - lan
+      - wlan
+      - alerts
+      - firmware

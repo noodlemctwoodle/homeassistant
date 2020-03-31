@@ -1,0 +1,21 @@
+sensor:
+
+# Downstairs Average LUX
+  - platform: min_max
+    type: mean
+    name: downstairs_average_lux
+    entity_ids:
+      - sensor.kitchen_lux
+      - sensor.living_room_lux
+      - sensor.bathroom_lux
+      - sensor.hall_lux
+
+# Upstairs Average LUX
+  - platform: min_max
+    type: mean
+    name: upstairs_average_lux
+    entity_ids:
+      - sensor.landing_lux
+      - sensor.office_lux
+      - sensor.bedroom_lux
+      - sensor.craft_room_lux
