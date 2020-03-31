@@ -27,6 +27,7 @@ logger:
     homeassistant.components.plex: critical
     homeassistant.components.radarr.sensor: error
     homeassistant.components.sonarr.sensor: error
+    homeassistant.components.snmp.sensor: critical
     custom_components.plex_recently_added.sensor: error
     custom_components.sonarr_upcoming_media.sensor: error
     custom_components.radarr_upcoming_media.sensor: error
@@ -83,12 +84,19 @@ nest:
 
 # Utility Meter
 utility_meter:
-  monthly_cabinet:
-    source: sensor.cabinet_consumption
+  monthly_energy_kwh:
+    source: sensor.energy_total_usage
     cycle: monthly
-  monthly_xmas_lights:
-    source: sensor.xmas_lights_consumption
+  monthly_energy_w:
+    source: sensor.power_total_usage
     cycle: monthly
+  daily_energy_kwh:
+    source: sensor.energy_total_usage
+    cycle: daily
+  daily_energy_w:
+    source: sensor.power_total_usage
+    cycle: daily
+
 
 # LG WebOS
 webostv:
@@ -119,10 +127,13 @@ input_text:
   card_containers:
     initial: Containers
   software_version:
-    initial: Version
+    initial: Version'
   unraid_usb:
     initial: USB Storage
-
+  devices_on:
+    initial: Devices On
+  plugs_on:
+    initial: Plugs On
 
 # Text to speech
 tts:
@@ -138,6 +149,7 @@ binary_sensor: !include_dir_merge_list configuration/binary_sensors/
 group: !include_dir_merge_list configuration/group/
 #light: !include_dir_merge_list configuration/lights/
 #input_boolean: !include_dir_merge_named configuration/input_boolean/
+input_number: !include_dir_merge_named configuration/input_number/
 media_player: !include configuration/media_player/media_player.yaml
 scene: !include_dir_merge_list configuration/scenes/
 script: !include_dir_merge_named configuration/scripts/

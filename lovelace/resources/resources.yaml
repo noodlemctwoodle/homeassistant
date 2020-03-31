@@ -124,6 +124,14 @@
   - url: /hacsfiles/banner-card/banner-card.js
     type: module
 
+# Fold Entity Row
+  - url: /hacsfiles/lovelace-fold-entity-row/fold-entity-row.js
+    type: module
+
+# Flexible Horseshoe Card
+  - url: /hacsfiles/flex-horseshoe-card/flex-horseshoe-card.js
+    type: module
+
 ### *note: Deep-Press is known to have issues when used on an Android device,
 ###        if it does not work, please remove the mod and remove all deep_press
 ###        lines in every template/lovelace view.

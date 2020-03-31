@@ -1,110 +1,617 @@
-# This is the file you can use to add your own cards, they are already in a vertical stack.
-# You can simply put cards under each other, easy huh? :P. You can even use this file to 
-# customize your entire view (just turn off the other elements except for user content)!
-# The first card is an example, you can safely remove it!
+- type: picture-elements
+  style: |
+    ha-card {
+      border-radius: {{ states('input_select.border_radius') }};
+      box-shadow: {{ states('input_select.box_shadow') }};
+      overflow: hidden;
+    }
+  image: '/local/images/views/energy/shell_energy.png'
+  elements:
 
-#- type: markdown
-#  style: |
-#    ha-card {
-#      border-radius: {{ states('input_select.border_radius') }};
-#      box-shadow: {{ states('input_select.box_shadow') }};
-#    }              
-#  content: >
-#    User Cards Here!
+# Devices Currently On
+    - type: state-label
+      entity: input_text.devices_on
+      style:
+        top: 15%
+        left: -2%
+        pointer-events: none
+        transform: initial
+        font-size: 12px
+        color: rgba(255,255,255,0.8)
+        line-height: 32px
+        padding: 0px 28px
+    - type: icon
+      icon: mdi:flash
+      style:
+        top: 35%
+        left: 9%
+        pointer-events: none
+        transform: scale(1.0)
+        color: rgba(255,255,255,0.8)
+        line-height: 32px
+        padding: 7px 7px
+        font-size: 15px
+    - type: state-label
+      entity: sensor.current_powered_on_devices
+      style:
+        top: 60%
+        left: 4%
+        pointer-events: none
+        transform: initial
+        font-size: 12px
+        color: rgba(255,255,255,0.8)
+        line-height: 32px
+        padding: 0px 28px
 
- - !include
-   - '../../lovelace/templates/header_text.yaml'
-   - content: '##### Current'
- - type: horizontal-stack
-   cards:
-     - !include
-       - '../../lovelace/templates/mini_graph.yaml'
-       - entity: sensor.sp_lr_amp_amperage
-         name: AV Reciever Amps
-         line_color: '"#ffb414"'
-         graph_type: bar
-         show_extrema: true
-         decimals: 0
-         font_size: 65
-     - !include
-       - '../../lovelace/templates/mini_graph.yaml'
-       - entity: sensor.sp_of_cab_amperage
-         name: Cabinet Amps
-         line_color: '"#ffb414"'
-         graph_type: bar
-         show_extrema: true
-         decimals: 0
-         font_size: 65
-#     - !include
-#       - '../../lovelace/templates/mini_graph.yaml'
-#       - entity: sensor.vaatwasser_current
-#         name: Vaatwasser
-#         line_color: '"#ffb414"'
-#         graph_type: bar
-#         show_extrema: true
-#         decimals: 0
-#         font_size: 65
- - !include
-   - '../../lovelace/templates/header_text.yaml'
-   - content: '##### Power'
- - type: horizontal-stack
-   cards:
-     - !include
-       - '../../lovelace/templates/mini_graph.yaml'
-       - entity: sensor.sp_lr_amp_wattage
-         name: AV Reciever Watts
-         line_color: '"#1427ff"'
-         graph_type: bar
-         show_extrema: true
-         decimals: 0
-         font_size: 65
-     - !include
-       - '../../lovelace/templates/mini_graph.yaml'
-       - entity: sensor.sp_of_cab_wattage
-         name: Cabinet Watts
-         line_color: '"#1427ff"'
-         graph_type: bar
-         show_extrema: true
-         decimals: 0
-         font_size: 65
-#     - !include
-#       - '../../lovelace/templates/mini_graph.yaml'
-#       - entity: sensor.vaatwasser_power
-#         name: Vaatwasser
-#         line_color: '"#1427ff"'
-#         graph_type: bar
-#         show_extrema: true
-#         decimals: 0
-#         font_size: 65
- - !include
-   - '../../lovelace/templates/header_text.yaml'
-   - content: '##### Voltage'
- - type: horizontal-stack
-   cards:
-     - !include
-       - '../../lovelace/templates/mini_graph.yaml'
-       - entity: sensor.sp_lr_amp_voltage
-         name: AV Reciever Volts
-         line_color: '"#00d8ff"'
-         graph_type: bar
-         show_extrema: true
-         decimals: 0
-         font_size: 65
-     - !include
-       - '../../lovelace/templates/mini_graph.yaml'
-       - entity: sensor.sp_of_cab_voltage
-         name: Server Cabinet Volts
-         line_color: '"#00d8ff"'
-         graph_type: bar
-         show_extrema: true
-         decimals: 0
-         font_size: 65
-#     - !include
-#       - '../../lovelace/templates/mini_graph.yaml'
-#       - entity: sensor.vaatwasser_voltage
-#         name: Vaatwasser
-#         line_color: '"#00d8ff"'
-#         graph_type: bar
-#         show_extrema: true
-#         decimals: 0
-#         font_size: 65 
+# Smart Plugs Powered On
+    - type: state-label
+      entity: input_text.plugs_on
+      style:
+        top: 15%
+        left: 77%
+        pointer-events: none
+        transform: initial
+        font-size: 12px
+        color: rgba(255,255,255,0.8)
+        line-height: 32px
+        padding: 0px 28px
+    - type: icon
+      icon: mdi:power-socket-uk
+      style:
+        top: 38%
+        left: 86%
+        pointer-events: none
+        transform: scale(0.8)
+        line-height: 32px
+        padding: 7px 7px
+        font-size: 15px
+    - type: state-label
+      entity: sensor.current_powered_on_plugs
+      style:
+        top: 60%
+        left: 82%
+        pointer-events: none
+        transform: initial
+        font-size: 12px
+        color: rgba(255,255,255,0.8)
+        line-height: 32px
+        padding: 0px 28px
+
+# Energy Pricing Input
+- type: custom:fold-entity-row
+  style: |
+    ha-card {
+      background: var(--paper-card-background-color);
+      border-radius: {{ states('input_select.border_radius') }};
+      --paper-item-icon-color: var(--paper-item-icon-color);
+      box-shadow: {{ states('input_select.box_shadow') }};
+      font-weight: bold;
+      opacity: 0.8;
+    }
+  head:
+    type: section
+    label: Power Rate Costs (Pence)
+  entities:
+  - entity: input_number.daily_service_charge
+    icon: mdi:cash
+  - entity: input_number.electricity_rate
+    icon: mdi:cash
+
+
+- type: horizontal-stack
+  cards:
+    - type: custom:swipe-card
+      parameters:
+        spaceBetween: 8
+        touchEventsTarget: 'container'
+        pagination:
+          type: 'bullets'
+          dynamicBullets: true
+#        scrollbar:
+#          hide: true
+#          draggable: true
+#          snapOnRelease: true
+
+      cards:
+
+        - type: vertical-stack
+          cards:
+            - type: horizontal-stack
+              cards: 
+
+            # Now Energy Cost
+                - type: 'custom:flex-horseshoe-card'
+                  style: |
+                    ha-card {
+                      background: var(--paper-card-background-color);
+                      border-radius: {{ states('input_select.border_radius') }};
+                      --paper-item-icon-color: var(--paper-item-icon-color);
+                      box-shadow: {{ states('input_select.box_shadow') }};
+                      font-weight: bold;
+                      opacity: 0.8;
+                    }
+                  entities:
+                    - entity: sensor.power_total_usage
+            #          attribute: temperature
+                      decimals: 0
+                      name: 'Electricity'
+                      unit: 'W'
+                      tap_action:
+                        action: none
+                    - entity: sensor.now_energy_cost
+                      attribute: Cost
+                      decimals: 2
+                      unit: '£ per hour'
+                      tap_action:
+                        action: none
+                  show:
+                    horseshoe_style: 'lineargradient'
+                  layout:
+                    hlines:
+                      # A horizontal line. Not connected to an entity
+                      - id: 0
+                        xpos: 50
+                        ypos: 55
+                        length: 40
+                        styles:
+                          - stroke: var(--primary-text-color);
+                          - stroke-width: 5;
+                          - stroke-linecap: round;
+                          - opacity: 0.7;
+                    states:
+                      # States 0 refers to the first entity in the list, ie index 0
+                      - id: 0
+                        entity_index: 0
+                        xpos: 50
+                        ypos: 45
+                        styles:
+                          - font-size: 3em;
+                      # States 1 refers to the second entity in the list, ie index 1
+                      - id: 1
+                        entity_index: 1
+                        xpos: 28
+                        ypos: 69
+                        styles:
+                          - text-anchor: start;
+                          - font-size: 1.5em;
+                    icons:
+                      # Icons 0 refers to the second entity in the list, ie index 1
+                      - id: 0
+                        entity_index: 1
+                        xpos: 37
+                        ypos: 69
+                        align: end
+                        size: 1.3
+                    names:
+                      # Names 0 refers to the first entity in the list, ie index 0
+                      - id: 0
+                        entity_index: 0
+                        xpos: 50
+                        ypos: 90
+                        styles:
+                          - font-size: 1em;
+                  # Scale set to -10 to +40 degrees celcius
+                  horseshoe_scale:
+                    min: 20
+                    max: 600
+                  # color stop list with 10 colors defined in the theme. With the `lineargradient` fill style, only the
+                  # first (16:) and last (25:) colors are used. The thresholds are ignored with this setting.
+                  color_stops:
+                    16: '#26c941'
+                    17: '#6ac926'
+                    18: '#85c926'
+                    19: '#9ec926'
+                    20: '#b9c926'
+                    21: '#c9be26'
+                    22: '#c9a626'
+                    23: '#c99026'
+                    24: '#c96f26' 
+                    25: '#c92626' 
+
+            # Daily Energy Cost
+                - type: 'custom:flex-horseshoe-card'
+                  style: |
+                    ha-card {
+                      background: var(--paper-card-background-color);
+                      border-radius: {{ states('input_select.border_radius') }};
+                      --paper-item-icon-color: var(--paper-item-icon-color);
+                      box-shadow: {{ states('input_select.box_shadow') }};
+                      font-weight: bold;
+                      opacity: 0.8;
+                    }
+                  entities:
+                    - entity: sensor.daily_energy_kwh
+            #          attribute: temperature
+                      decimals: 0
+                      name: 'Electricity'
+                      unit: 'KwH'
+                      tap_action:
+                        action: none
+                    - entity: sensor.daily_energy_cost
+                      attribute: Cost
+                      decimals: 2
+                      unit: '£ per day'
+                      tap_action:
+                        action: none
+                  show:
+                    horseshoe_style: 'lineargradient'
+                  layout:
+                    hlines:
+                      # A horizontal line. Not connected to an entity
+                      - id: 0
+                        xpos: 50
+                        ypos: 55
+                        length: 40
+                        styles:
+                          - stroke: var(--primary-text-color);
+                          - stroke-width: 5;
+                          - stroke-linecap: round;
+                          - opacity: 0.7;
+                    states:
+                      # States 0 refers to the first entity in the list, ie index 0
+                      - id: 0
+                        entity_index: 0
+                        xpos: 50
+                        ypos: 45
+                        styles:
+                          - font-size: 3em;
+                      # States 1 refers to the second entity in the list, ie index 1
+                      - id: 1
+                        entity_index: 1
+                        xpos: 29
+                        ypos: 69
+                        styles:
+                          - text-anchor: start;
+                          - font-size: 1.5em;
+                    icons:
+                      # Icons 0 refers to the second entity in the list, ie index 1
+                      - id: 0
+                        entity_index: 1
+                        xpos: 37
+                        ypos: 69
+                        align: end
+                        size: 1.3
+                    names:
+                      # Names 0 refers to the first entity in the list, ie index 0
+                      - id: 0
+                        entity_index: 0
+                        xpos: 50
+                        ypos: 90
+                        styles:
+                          - font-size: 1em;
+                  # Scale set to -10 to +40 degrees celcius
+                  horseshoe_scale:
+                    min: 0
+                    max: 10
+                  # color stop list with 10 colors defined in the theme. With the `lineargradient` fill style, only the
+                  # first (16:) and last (25:) colors are used. The thresholds are ignored with this setting.
+                  color_stops:
+                    16: '#26c941'
+                    17: '#6ac926'
+                    18: '#85c926'
+                    19: '#9ec926'
+                    20: '#b9c926'
+                    21: '#c9be26'
+                    22: '#c9a626'
+                    23: '#c99026'
+                    24: '#c96f26' 
+                    25: '#c92626' 
+
+        - type: vertical-stack
+          cards:
+            - type: horizontal-stack
+              cards: 
+
+            # Daily Energy Cost
+                - type: 'custom:flex-horseshoe-card'
+                  style: |
+                    ha-card {
+                      background: var(--paper-card-background-color);
+                      border-radius: {{ states('input_select.border_radius') }};
+                      --paper-item-icon-color: var(--paper-item-icon-color);
+                      box-shadow: {{ states('input_select.box_shadow') }};
+                      font-weight: bold;
+                      opacity: 0.8;
+                    }
+                  entities:
+                    - entity: sensor.daily_energy_kwh
+            #          attribute: temperature
+                      decimals: 0
+                      name: 'Daily'
+                      unit: 'KwH'
+                      tap_action:
+                        action: none
+                    - entity: sensor.daily_energy_cost
+                      attribute: Cost
+                      decimals: 2
+                      unit: '£ per day'
+                      icon: mdi:power-socket-uk
+                      tap_action:
+                        action: none
+                  show:
+                    horseshoe_style: 'lineargradient'
+                  layout:
+                    hlines:
+                      # A horizontal line. Not connected to an entity
+                      - id: 0
+                        xpos: 50
+                        ypos: 55
+                        length: 40
+                        styles:
+                          - stroke: var(--primary-text-color);
+                          - stroke-width: 5;
+                          - stroke-linecap: round;
+                          - opacity: 0.7;
+                    states:
+                      # States 0 refers to the first entity in the list, ie index 0
+                      - id: 0
+                        entity_index: 0
+                        xpos: 50
+                        ypos: 45
+                        styles:
+                          - font-size: 3em;
+                      # States 1 refers to the second entity in the list, ie index 1
+                      - id: 1
+                        entity_index: 1
+                        xpos: 40
+                        ypos: 69
+                        styles:
+                          - text-anchor: start;
+                          - font-size: 1.5em;
+                    icons:
+                      # Icons 0 refers to the second entity in the list, ie index 1
+                      - id: 0
+                        entity_index: 1
+                        xpos: 37
+                        ypos: 69
+                        align: end
+                        size: 1.3
+                    names:
+                      # Names 0 refers to the first entity in the list, ie index 0
+                      - id: 0
+                        entity_index: 0
+                        xpos: 50
+                        ypos: 95
+                  # Scale set to -10 to +40 degrees celcius
+                  horseshoe_scale:
+                    min: 0
+                    max: 10
+                  # color stop list with 10 colors defined in the theme. With the `lineargradient` fill style, only the
+                  # first (16:) and last (25:) colors are used. The thresholds are ignored with this setting.
+                  color_stops:
+                    16: '#26c941'
+                    17: '#6ac926'
+                    18: '#85c926'
+                    19: '#9ec926'
+                    20: '#b9c926'
+                    21: '#c9be26'
+                    22: '#c9a626'
+                    23: '#c99026'
+                    24: '#c96f26' 
+                    25: '#c92626' 
+
+            # Monthly Energy Cost
+                - type: 'custom:flex-horseshoe-card'
+                  style: |
+                    ha-card {
+                      background: var(--paper-card-background-color);
+                      border-radius: {{ states('input_select.border_radius') }};
+                      --paper-item-icon-color: var(--paper-item-icon-color);
+                      box-shadow: {{ states('input_select.box_shadow') }};
+                      font-weight: bold;
+                      opacity: 0.8;
+                    }
+                  entities:
+                    - entity: sensor.monthly_energy_kwh
+            #          attribute: temperature
+                      decimals: 0
+                      name: 'Monthly'
+                      unit: 'KwH'
+                      tap_action:
+                        action: none
+                    - entity: sensor.monthly_energy_cost
+                      attribute: Cost
+                      decimals: 2
+                      unit: '£ per month'
+                      icon: mdi:power-socket-uk
+                      tap_action:
+                        action: none
+                  show:
+                    horseshoe_style: 'lineargradient'
+                  layout:
+                    hlines:
+                      # A horizontal line. Not connected to an entity
+                      - id: 0
+                        xpos: 50
+                        ypos: 55
+                        length: 40
+                        styles:
+                          - stroke: var(--primary-text-color);
+                          - stroke-width: 5;
+                          - stroke-linecap: round;
+                          - opacity: 0.7;
+                    states:
+                      # States 0 refers to the first entity in the list, ie index 0
+                      - id: 0
+                        entity_index: 0
+                        xpos: 50
+                        ypos: 45
+                        styles:
+                          - font-size: 3em;
+                      # States 1 refers to the second entity in the list, ie index 1
+                      - id: 1
+                        entity_index: 1
+                        xpos: 40
+                        ypos: 69
+                        styles:
+                          - text-anchor: start;
+                          - font-size: 1.5em;
+                    icons:
+                      # Icons 0 refers to the second entity in the list, ie index 1
+                      - id: 0
+                        entity_index: 1
+                        xpos: 37
+                        ypos: 69
+                        align: end
+                        size: 1.3
+                    names:
+                      # Names 0 refers to the first entity in the list, ie index 0
+                      - id: 0
+                        entity_index: 0
+                        xpos: 50
+                        ypos: 95
+                  # Scale set to -10 to +40 degrees celcius
+                  horseshoe_scale:
+                    min: 0
+                    max: 40
+                  # color stop list with 10 colors defined in the theme. With the `lineargradient` fill style, only the
+                  # first (16:) and last (25:) colors are used. The thresholds are ignored with this setting.
+                  color_stops:
+                    16: '#26c941'
+                    17: '#6ac926'
+                    18: '#85c926'
+                    19: '#9ec926'
+                    20: '#b9c926'
+                    21: '#c9be26'
+                    22: '#c9a626'
+                    23: '#c99026'
+                    24: '#c96f26' 
+                    25: '#c92626' 
+
+
+
+
+- !include
+  - '../../lovelace/templates/header_text.yaml'
+  - content: '##### Power'
+
+- type: horizontal-stack
+  cards:
+    - type: custom:swipe-card
+      parameters:
+        spaceBetween: 8
+        touchEventsTarget: 'container'
+        pagination:
+          type: 'bullets'
+          dynamicBullets: true
+#        scrollbar:
+#          hide: true
+#          draggable: true
+#          snapOnRelease: true
+      cards:
+
+        - type: vertical-stack
+          cards:
+            - type: horizontal-stack
+              cards: 
+
+                - type: custom:mini-graph-card
+                  style: |
+                    ha-card {
+                      background: var(--paper-card-background-color);
+                      border-radius: {{ states('input_select.border_radius') }};
+                      --paper-item-icon-color: var(--paper-item-icon-color);
+                      box-shadow: {{ states('input_select.box_shadow') }};
+                      font-weight: bold;
+                      opacity: 0.8;
+                    }
+                  name: Bedroom TV
+                  icon: mdi:television
+                  entities: 
+                    - sensor.bedroom_tv_smart_plug_wattage
+                  tap_action: none
+
+                - type: custom:mini-graph-card
+                  style: |
+                    ha-card {
+                      background: var(--paper-card-background-color);
+                      border-radius: {{ states('input_select.border_radius') }};
+                      --paper-item-icon-color: var(--paper-item-icon-color);
+                      box-shadow: {{ states('input_select.box_shadow') }};
+                      font-weight: bold;
+                      opacity: 0.8;
+                    }
+                  name: AV Receiver
+                  icon: mdi:speaker
+                  entities: 
+                    - sensor.living_room_av_receiver_smart_plug_wattage
+                  tap_action:
+                    action: none
+
+            - type: horizontal-stack
+              cards: 
+
+                - type: custom:mini-graph-card
+                  style: |
+                    ha-card {
+                      background: var(--paper-card-background-color);
+                      border-radius: {{ states('input_select.border_radius') }};
+                      --paper-item-icon-color: var(--paper-item-icon-color);
+                      box-shadow: {{ states('input_select.box_shadow') }};
+                      font-weight: bold;
+                      opacity: 0.8;
+                    }
+                  name: Office Desktop
+                  icon: mdi:desktop-classic
+                  entities: 
+                    - sensor.office_computer_smart_plug_wattage
+                  tap_action: none
+
+                - type: custom:mini-graph-card
+                  style: |
+                    ha-card {
+                      background: var(--paper-card-background-color);
+                      border-radius: {{ states('input_select.border_radius') }};
+                      --paper-item-icon-color: var(--paper-item-icon-color);
+                      box-shadow: {{ states('input_select.box_shadow') }};
+                      font-weight: bold;
+                      opacity: 0.8;
+                    }
+                  name: Server Cabinet
+                  icon: mdi:server-network
+                  entities: 
+                    - sensor.sp_of_cab_wattage
+                  tap_action: none
+
+        - type: vertical-stack
+          cards:
+            - type: horizontal-stack
+              cards: 
+
+                - type: custom:mini-graph-card
+                  style: |
+                    ha-card {
+                      background: var(--paper-card-background-color);
+                      border-radius: {{ states('input_select.border_radius') }};
+                      --paper-item-icon-color: var(--paper-item-icon-color);
+                      box-shadow: {{ states('input_select.box_shadow') }};
+                      font-weight: bold;
+                      opacity: 0.8;
+                    }
+                  name: Energy Daily
+                  icon: mdi:power
+                  entities:
+                    - sensor.daily_energy_kwh
+                  show:
+                    graph: bar
+
+                - type: custom:mini-graph-card
+                  style: |
+                    ha-card {
+                      background: var(--paper-card-background-color);
+                      border-radius: {{ states('input_select.border_radius') }};
+                      --paper-item-icon-color: var(--paper-item-icon-color);
+                      box-shadow: {{ states('input_select.box_shadow') }};
+                      font-weight: bold;
+                      opacity: 0.8;
+                    }
+                  name: Energy Monthly
+                  icon: mdi:power
+                  entities:
+                    - sensor.monthly_energy_kwh
+                  show:
+                    graph: bar
+
+
+
+
