@@ -4,7 +4,6 @@
 * [UnRAID SNMP](https://github.com/noodlemctwoodle/homeassistant/blob/master/packages/ha-core/areas/cabinet/devices/unraid/readme.md#unraid-snmp-configuration)
 
 <br />
-<br />
 
 ### Buy me a coffee?. 
 I don't expect anything for my work and if you are thinking of donating you should consider donating the main developers of HKI or UNRAID-API. 
@@ -14,8 +13,6 @@ I don't drink beer, I don't like going outside because I might catch something a
 
 <br />
 <br />
-<br />
-<br /> 
 
 # UnRAID-API Configuration
 
