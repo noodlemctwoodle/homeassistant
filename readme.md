@@ -58,7 +58,7 @@ Version 1.1
  - Container Support
 
 Version 1.2
- - Added SNMP [config](https://github.com/noodlemctwoodle/homeassistant/tree/master/configuration/sensors/monitoring/unraid)
+ - Added SNMP [config](https://github.com/noodlemctwoodle/homeassistant/blob/master/packages/ha-core/areas/cabinet/devices/unraid/unraid_monitoring.yaml) Line 36 onwards
  - Moved temperature cards to swipe-card to reduce screen real estate
  - combined disk usage into swipe card
  - Added HDD temperatures to temperatures swipe-card
@@ -78,6 +78,10 @@ Version 1.2
  - [Avi](https://github.com/abeksis/My-HomeAssistant-Config) Thanks for creating the awesome graphics used in v1.2 containers swipe-card and also providing code snips. 
  - [OnlyMe](https://github.com/Holewijn/home-assistant-config) Thanks for adding the additional container images
 
+<br />
+<br />
+<br />
+<br /> 
 
 # Home Assistant Monitoring View for HKI
 
@@ -96,7 +100,7 @@ Version 1.2
 
 HKI System view can be found [here](https://github.com/noodlemctwoodle/homeassistant/blob/master/user_content/views/system_user_content.yaml)
      
-Configuration instructions can be found [here](https://github.com/noodlemctwoodle/homeassistant/tree/master/configuration/sensors/monitoring/home_assistant)
+Configuration instructions can be found [here](https://github.com/noodlemctwoodle/homeassistant/blob/master/packages/ha-core/areas/cabinet/devices/home_assistant/ha_monitor.yaml)
 
  #### Credits
  - [SilvrrGIT](https://github.com/SilvrrGIT/HomeAssistant) Excellent post on the community [forum](https://community.home-assistant.io/t/get-notified-of-available-hassio-addon-updates/176626) outlining how to create rest senosr to start/restart Home Assistant Core Addons, Create the switches used in my HKI System view and the post also describes how write automations for addon update available notifications.
@@ -114,6 +118,6 @@ Configuration instructions can be found [here](https://github.com/noodlemctwoodl
  - Monthly cost
  - Utility meter [support](https://www.home-assistant.io/integrations/utility_meter/)
 
-Configuration instructions can be found [here](https://github.com/noodlemctwoodle/homeassistant/tree/master/configuration/sensors/monitoring/energy)
+Configuration instructions can be found [here](https://github.com/noodlemctwoodle/homeassistant/blob/master/packages/ha-core/areas/home/energy/power_usage.yaml)
 
 
