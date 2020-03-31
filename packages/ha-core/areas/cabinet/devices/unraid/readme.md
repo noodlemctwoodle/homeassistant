@@ -5,7 +5,7 @@
 
 &nbsp;   &nbsp;   
 
-### Buy me a toilet roll?. 
+### Buy me a coffee?. 
 I don't expect anything for my work and if you are thinking of donating you should consider donating the main developers of HKI or UNRAID-API. 
 I don't drink beer, I don't like going outside because I might catch something and we cant buy toilet roll!!! If you want to buy me one I would greatly appreciate it. 
 
@@ -111,9 +111,8 @@ You need the following [Sensors](https://github.com/noodlemctwoodle/homeassistan
  - arrayProtection
  - diskSpace
  - latestRelease
-  
-  
-  
+
+&nbsp;   &nbsp;   &nbsp;   &nbsp;   &nbsp;  
 
 # UnRAID SNMP Configuration
  
