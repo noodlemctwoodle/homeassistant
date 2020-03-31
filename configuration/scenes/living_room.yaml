@@ -1,0 +1,134 @@
+- id: '1577552539806'
+  name: Living Room Lamps Dim
+  entities:
+    light.living_room_bookshelf:
+      brightness: 69
+      effect_list:
+      - colorloop
+      friendly_name: Living Room Bookshelf
+      hs_color:
+      - 38.824
+      - 53.333
+      is_deconz_group: false
+      rgb_color:
+      - 255
+      - 207
+      - 119
+      state: 'on'
+      supported_features: 61
+      xy_color:
+      - 0.458
+      - 0.411
+    light.living_room_lamp:
+      brightness: 49
+      color_temp: 369
+      effect_list:
+      - colorloop
+      friendly_name: Living Room Lamp
+      is_deconz_group: false
+      max_mireds: 500
+      min_mireds: 153
+      state: 'on'
+      supported_features: 63
+    light.living_room_strip:
+      brightness: 75
+      effect_list:
+      - colorloop
+      friendly_name: Living Room Strip
+      hs_color:
+      - 269.86
+      - 84.314
+      is_deconz_group: false
+      max_mireds: 500
+      min_mireds: 153
+      rgb_color:
+      - 146
+      - 39
+      - 255
+      state: 'on'
+      supported_features: 63
+      xy_color:
+      - 0.24
+      - 0.096
+- id: '1577552652513'
+  name: Living Room Lamps Bright
+  entities:
+    light.living_room_bookshelf:
+      brightness: 254
+      effect_list:
+      - colorloop
+      friendly_name: Living Room Bookshelf
+      hs_color:
+      - 39.416
+      - 53.725
+      is_deconz_group: false
+      rgb_color:
+      - 255
+      - 208
+      - 118
+      state: 'on'
+      supported_features: 61
+      xy_color:
+      - 0.457
+      - 0.413
+    light.living_room_lamp:
+      brightness: 70
+      color_temp: 369
+      effect_list:
+      - colorloop
+      friendly_name: Living Room Lamp
+      is_deconz_group: false
+      max_mireds: 500
+      min_mireds: 153
+      state: 'on'
+      supported_features: 63
+- id: '1577553172753'
+  name: Movie Time
+  entities:
+    light.living_room_bookshelf:
+      brightness: 19
+      effect_list:
+      - colorloop
+      friendly_name: Living Room Bookshelf
+      hs_color:
+      - 40.986
+      - 55.686
+      is_deconz_group: false
+      rgb_color:
+      - 255
+      - 210
+      - 113
+      state: 'on'
+      supported_features: 61
+      xy_color:
+      - 0.459
+      - 0.419
+    light.living_room_lamp:
+      brightness: 26
+      color_temp: 369
+      effect_list:
+      - colorloop
+      friendly_name: Living Room Lamp
+      is_deconz_group: false
+      max_mireds: 500
+      min_mireds: 153
+      state: 'on'
+      supported_features: 63
+    light.living_room_pendant:
+      effect_list:
+      - colorloop
+      friendly_name: Living Room Pendant
+      is_deconz_group: false
+      max_mireds: 500
+      min_mireds: 153
+      state: 'off'
+      supported_features: 63
+    light.living_room_strip:
+      effect_list:
+      - colorloop
+      friendly_name: Living Room Strip
+      is_deconz_group: false
+      max_mireds: 500
+      min_mireds: 153
+      state: 'off'
+      supported_features: 63

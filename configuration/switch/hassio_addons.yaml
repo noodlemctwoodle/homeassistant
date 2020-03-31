@@ -1,0 +1,123 @@
+  - platform: template
+    switches:
+
+      glances_addon:
+        value_template: "{{ is_state('sensor.glances_addon', 'started') }}"
+        turn_on:
+          service: hassio.addon_start
+          data:
+            addon: a0d7b954_glances
+        turn_off:
+          service: hassio.addon_stop
+          data:
+            addon: a0d7b954_glances
+
+      vscode_addon:
+        value_template: "{{ is_state('sensor.vscode_addon', 'started') }}"
+        turn_on:
+          service: hassio.addon_start
+          data:
+            addon: a0d7b954_vscode
+        turn_off:
+          service: hassio.addon_stop
+          data:
+            addon: a0d7b954_vscode
+
+      esphome_addon:
+        value_template: "{{ is_state('sensor.esphome_addon', 'started') }}"
+        turn_on:
+          service: hassio.addon_start
+          data:
+            addon: 15ef4d2f_esphome
+        turn_off:
+          service: hassio.addon_stop
+          data:
+            addon: 15ef4d2f_esphome
+
+      phpmyadmin_addon:
+        value_template: "{{ is_state('sensor.phpmyadmin_addon', 'started') }}"
+        turn_on:
+          service: hassio.addon_start
+          data:
+            addon: a0d7b954_phpmyadmin
+        turn_off:
+          service: hassio.addon_stop
+          data:
+            addon: a0d7b954_phpmyadmin
+
+      adb_addon:
+        value_template: "{{ is_state('sensor.adb_addon', 'started') }}"
+        turn_on:
+          service: hassio.addon_start
+          data:
+            addon: a0d7b954_adb
+        turn_off:
+          service: hassio.addon_stop
+          data:
+            addon: a0d7b954_adb
+
+      adguard_addon:
+        value_template: "{{ is_state('sensor.adguard_addon', 'started') }}"
+        turn_on:
+          service: hassio.addon_start
+          data:
+            addon: a0d7b954_adguard
+        turn_off:
+          service: hassio.addon_stop
+          data:
+            addon: a0d7b954_adguard
+
+      deconz_addon:
+        value_template: "{{ is_state('sensor.deconz_addon', 'started') }}"
+        turn_on:
+          service: hassio.addon_start
+          data:
+            addon: core_deconz
+        turn_off:
+          service: hassio.addon_stop
+          data:
+            addon: core_deconz
+
+      mosquitto_addon:
+        value_template: "{{ is_state('sensor.mosquitto_addon', 'started') }}"
+        turn_on:
+          service: hassio.addon_start
+          data:
+            addon: core_mosquitto
+        turn_off:
+          service: hassio.addon_stop
+          data:
+            addon: core_mosquitto
+
+      ssh_and_terminal_addon:
+        value_template: "{{ is_state('sensor.ssh_and_terminal_addon', 'started') }}"
+        turn_on:
+          service: hassio.addon_start
+          data:
+            addon: core_ssh
+        turn_off:
+          service: hassio.addon_stop
+          data:
+            addon: core_ssh
+
+      mariadb_addon:
+        value_template: "{{ is_state('sensor.mariadb_addon', 'started') }}"
+        turn_on:
+          service: hassio.addon_start
+          data:
+            addon: core_mariadb
+        turn_off:
+          service: hassio.addon_stop
+          data:
+            addon: core_mariadb
+
+      node_red_addon:
+        value_template: "{{ is_state('sensor.node_red_addon', 'started') }}"
+        turn_on:
+          service: hassio.addon_start
+          data:
+            addon: a0d7b954_nodered
+        turn_off:
+          service: hassio.addon_stop
+          data:
+            addon: a0d7b954_nodered
