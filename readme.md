@@ -40,7 +40,7 @@ Further information and guides can be found on my [wiki](https://github.com/nood
 
 ### UnRAID Data Monitoring Feeds
 
-| [UnRAID-API](https://github.com/noodlemctwoodle/homeassistant/tree/master/user_content) | [UnRAID-SNMP](https://github.com/noodlemctwoodle/homeassistant/tree/master/configuration/sensors/monitoring/unraid) | [UnRAID Glances Container](https://github.com/nicolargo/glances) |
+| [UnRAID-API](https://github.com/noodlemctwoodle/homeassistant/tree/master/user_content) | [UnRAID-SNMP](https://github.com/noodlemctwoodle/homeassistant/tree/master/packages/ha-core/areas/cabinet/devices/unraid) | [UnRAID Glances Container](https://github.com/nicolargo/glances) |
 |-----------------------|-----------------|--------------------------------|
 | View arrayStatus      | HDD Array Temps | View total per disk used space |
 | View arrayProtection  | LAN Throughput  | View total per disk free space |
