@@ -19,6 +19,10 @@ custom_components
 # Ignore Directories
 www/community
 www/upcoming-media-card
+www/images/afvalbeheer
+www/images/users
+www/images/wallpapers
+www/images/hki
 
 # Pictures Ignore
 upstairs.svg
@@ -35,9 +39,7 @@ google_calendars.yaml
 ip_bans.yaml
 known_devices.yaml
 secrets.yaml
-ui-lovelace.yaml
-ui-lovelace_old.yaml
-ui-lovelace_original.yaml
+
 
 # Ignore HKI Structure
 packages/hki_languages
@@ -48,7 +50,6 @@ lovelace/includes
 lovelace/templates
 lovelace/views
 global_config
-
 
 # Ignore Python
 #__pycache__
