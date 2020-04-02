@@ -7,6 +7,10 @@
   style: |
     :host {
       --ha-card-border-radius: 10px;
+      --mini-media-player-background-opacity: 0.4;
+      --mini-media-player-media-cover-info-color: white;
+      --mini-media-player-artwork-opacity: 0.4;
+      --mini-media-player-base-color: white;
     }
   card:
     type: vertical-stack
@@ -14,7 +18,7 @@
       - type: custom:mini-media-player
         entity: media_player.denon_avrx2300w
         name: Denon AVRX
-        background: /local/images/hardware/denon-avrx-small.png
+        background: /local/images/hardware/denon.png
         icon: mdi:radio
         artwork: cover
         hide:
@@ -63,16 +67,26 @@
           style: |
             :host {
               --ha-card-border-radius: 10px;
+              --mini-media-player-background-opacity: 0.3;
+              --mini-media-player-media-cover-info-color: white;
+              --mini-media-player-artwork-opacity: 0.4;
+              --mini-media-player-base-color: white;
             }
           card:
             type: vertical-stack
             cards:
               - type: custom:mini-media-player
+                style: |
+                  ha-card {
+                    height: 205px;
+                    box-shadow: {{ states('input_select.box_shadow') }};          
+                  }
                 entity: media_player.living_room_shield_adb
                 name: Living Room Shield TV
-                background: /local/images/hardware/shield-android-tv.png
+                background: /local/images/hardware/shield-tv.png
                 icon: mdi:radio
                 artwork: cover
+                tap_action: none
                 hide:
                   source: true
                 shortcuts:
@@ -80,7 +94,7 @@
                   buttons:
                     - icon: mdi:shield-home-outline
                       type: script
-                      id: 'SHIELD TV'
+                      id: script.adb_open_living_room_leanback
 
                     - icon: mdi:plex
                       type: script
@@ -94,27 +108,55 @@
                       type: script
                       id: script.adb_open_living_room_youtube
 
+                    - icon: mdi:amazon
+                      type: script
+                      id: script.adb_open_living_room_amazon
+
+                    - icon: mdi:alpha-i-circle
+                      type: script
+                      id: script.adb_open_living_room_iplayer
+
+                    - icon: mdi:newspaper
+                      type: script
+                      id: script.adb_open_living_room_bbc_news
+
+                    - icon: mdi:high-definition-box
+                      type: script
+                      id: script.adb_open_living_room_hd_hr
+
 
 
         - type: custom:mod-card
           style: |
             :host {
-              --ha-card-border-radius: 5px;
+              --ha-card-border-radius: 10px;
+              --mini-media-player-background-opacity: 0.3;
+              --mini-media-player-media-cover-info-color: white;
+              --mini-media-player-artwork-opacity: 0.4;
+              --mini-media-player-base-color: white;
+              height: 242px;   
             }
           card:
             type: vertical-stack
             cards:
               - type: custom:mini-media-player
+                style: |
+                  ha-card {
+                    height: 205px;
+                    box-shadow: {{ states('input_select.box_shadow') }};                 
+                  }
                 entity: media_player.bedroom_shield_adb
                 name: Bedroom Shield TV
-                #background: /local/images/hardware/shield-android-tv.png
+                background: /local/images/hardware/shield-tv.png
                 icon: mdi:radio
                 artwork: cover
                 tap_action: none
+                idle_view:
+                  when_idle: true
                 hide:
                   source: true
                 shortcuts:
-                  columns: 3 # Max buttons per row
+                  columns: 4 # Max buttons per row
                   buttons:
                     - icon: mdi:shield-home-outline
                       type: script
@@ -140,6 +182,15 @@
                       type: script
                       id: script.adb_open_bedroom_iplayer
 
+                    - icon: mdi:newspaper
+                      type: script
+                      id: script.adb_open_bedroom_bbc_news
+
+                    - icon: mdi:high-definition-box
+                      type: script
+                      id: script.adb_open_bedroom_hd_hr
+
+
 - type: horizontal-stack
   cards:
     - type: custom:swipe-card
@@ -149,71 +200,152 @@
         pagination:
           type: 'bullets'
           dynamicBullets: false
-#        scrollbar:
-#          hide: true
-#          draggable: true
-#          snapOnRelease: true
+
       cards:
 
-        - type: media-control
+        - type: custom:mod-card
           style: |
-            ha-card {
-              background: var(--paper-card-background-color);
-              border-radius: {{ states('input_select.border_radius') }};
-              --paper-item-icon-color: var(--paper-item-icon-color);
-              box-shadow: {{ states('input_select.box_shadow') }};
-              font-weight: bold;
-              opacity: 0.8;
+            :host {
+              --ha-card-border-radius: 10px;
+              --mini-media-player-background-opacity: 0.4;
+              --mini-media-player-media-cover-info-color: white;
+              --mini-media-player-artwork-opacity: 0.4;
+              --mini-media-player-base-color: white;
             }
-          entity: media_player.office_speaker
+          card:
+            type: vertical-stack
+            cards:
+              - type: custom:mini-media-player
+                entity: media_player.office_speaker
+                name: Office Google Home
+                icon: mdi:google-home
+                artwork: cover
+                tap_action: none
+                hide:
+                  source: true
+                tts:
+                  platform: google
+                  entity_id: media_player.office_speaker
 
-        - type: media-control
+        - type: custom:mod-card
           style: |
-            ha-card {
-              background: var(--paper-card-background-color);
-              border-radius: {{ states('input_select.border_radius') }};
-              --paper-item-icon-color: var(--paper-item-icon-color);
-              box-shadow: {{ states('input_select.box_shadow') }};
-              font-weight: bold;
-              opacity: 0.8;
+            :host {
+              --ha-card-border-radius: 10px;
+              --mini-media-player-background-opacity: 0.4;
+              --mini-media-player-media-cover-info-color: white;
+              --mini-media-player-artwork-opacity: 0.4;
+              --mini-media-player-base-color: white;
             }
-          entity: media_player.craft_room_speaker
+          card:
+            type: vertical-stack
+            cards:
+              - type: custom:mini-media-player
+                entity: media_player.craft_room_speaker
+                name: Craft Room Google Home
+                icon: mdi:google-home
+                artwork: cover
+                tap_action: none
+                hide:
+                  source: true
+                tts:
+                  platform: google
+                  entity_id: media_player.craft_room_speaker
 
-        - type: media-control
+        - type: custom:mod-card
           style: |
-            ha-card {
-              background: var(--paper-card-background-color);
-              border-radius: {{ states('input_select.border_radius') }};
-              --paper-item-icon-color: var(--paper-item-icon-color);
-              box-shadow: {{ states('input_select.box_shadow') }};
-              font-weight: bold;
-              opacity: 0.8;
+            :host {
+              --ha-card-border-radius: 10px;
+              --mini-media-player-background-opacity: 0.4;
+              --mini-media-player-media-cover-info-color: white;
+              --mini-media-player-artwork-opacity: 0.4;
+              --mini-media-player-base-color: white;
             }
-          entity: media_player.bedroom_speaker
+          card:
+            type: vertical-stack
+            cards:
+              - type: custom:mini-media-player
+                entity: media_player.bedroom_speaker
+                name: Bedroom Google Home
+                icon: mdi:google-home
+                artwork: cover
+                tap_action: none
+                hide:
+                  source: true
+                tts:
+                  platform: google
+                  entity_id: media_player.bedroom_speaker
 
-        - type: media-control
+        - type: custom:mod-card
           style: |
-            ha-card {
-              background: var(--paper-card-background-color);
-              border-radius: {{ states('input_select.border_radius') }};
-              --paper-item-icon-color: var(--paper-item-icon-color);
-              box-shadow: {{ states('input_select.box_shadow') }};
-              font-weight: bold;
-              opacity: 0.8;
+            :host {
+              --ha-card-border-radius: 10px;
+              --mini-media-player-background-opacity: 0.4;
+              --mini-media-player-media-cover-info-color: white;
+              --mini-media-player-artwork-opacity: 0.4;
+              --mini-media-player-base-color: white;
             }
-          entity: media_player.living_room_display
+          card:
+            type: vertical-stack
+            cards:
+              - type: custom:mini-media-player
+                entity: media_player.bedroom_speaker
+                name: Bedroom Google Home
+                icon: mdi:google-home
+                artwork: cover
+                tap_action: none
+                hide:
+                  source: true
+                tts:
+                  platform: google
+                  entity_id: media_player.bedroom_speaker
 
-        - type: media-control
+        - type: custom:mod-card
           style: |
-            ha-card {
-              background: var(--paper-card-background-color);
-              border-radius: {{ states('input_select.border_radius') }};
-              --paper-item-icon-color: var(--paper-item-icon-color);
-              box-shadow: {{ states('input_select.box_shadow') }};
-              font-weight: bold;
-              opacity: 0.8;
+            :host {
+              --ha-card-border-radius: 10px;
+              --mini-media-player-background-opacity: 0.4;
+              --mini-media-player-media-cover-info-color: white;
+              --mini-media-player-artwork-opacity: 0.4;
+              --mini-media-player-base-color: white;
             }
-          entity: media_player.kitchen_display
+          card:
+            type: vertical-stack
+            cards:
+              - type: custom:mini-media-player
+                entity: media_player.living_room_display
+                name: Living Room Google Home
+                icon: mdi:google-home
+                artwork: cover
+                tap_action: none
+                hide:
+                  source: true
+                tts:
+                  platform: google
+                  entity_id: media_player.living_room_display
+
+        - type: custom:mod-card
+          style: |
+            :host {
+              --ha-card-border-radius: 10px;
+              --mini-media-player-background-opacity: 0.4;
+              --mini-media-player-media-cover-info-color: white;
+              --mini-media-player-artwork-opacity: 0.4;
+              --mini-media-player-base-color: white;
+            }
+          card:
+            type: vertical-stack
+            cards:
+              - type: custom:mini-media-player
+                entity: media_player.kitchen_display
+                name: Kitchen Google Home
+                icon: mdi:google-home
+                artwork: cover
+                tap_action: none
+                hide:
+                  source: true
+                tts:
+                  platform: google
+                  entity_id: media_player.kitchen_display
 
 
 - !include

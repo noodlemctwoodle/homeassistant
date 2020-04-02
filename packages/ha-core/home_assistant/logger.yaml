@@ -4,6 +4,7 @@ logger:
     plexwebsocket: critical
     homeassistant.loader: error
     homeassistant.components.sensor: error
+    homeassistant.components.rest.sensor: critical
     homeassistant.helpers.entity: error
     homeassistant.config_entries: error
     homeassistant.components.plex: critical
@@ -13,3 +14,4 @@ logger:
     custom_components.plex_recently_added.sensor: error
     custom_components.sonarr_upcoming_media.sensor: error
     custom_components.radarr_upcoming_media.sensor: error
+    #homeassistant.components.websocket_api: critical

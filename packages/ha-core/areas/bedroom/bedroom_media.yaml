@@ -13,6 +13,8 @@ media_player:
       "com.amazon.amazonvideo.livingroom": "Amazon Video"
       "com.plexapp.android": "Plex"
       "com.nvidia.bbciplayer": "iPlayer"
+      "com.nvidia.bbciplayer.launch": "BBC News"
+      "com.silicondust.view": "HD HomeRun"
 
 
 script:
@@ -55,8 +57,7 @@ script:
       - service: androidtv.adb_command
         data:
           entity_id: media_player.bedroom_shield_adb
-          command: |
-            { "entity_id": "media_player.bedroom_shield_adb", "intent": "-n com.amazon.amazonvideo.livingroom/com.amazon.ignition.IgnitionActivity"}
+          command: "am start -a android.intent.action.VIEW -d -n com.amazon.amazonvideo.livingroom/com.amazon.ignition.IgnitionActivity"
 
 ## iPlayer
   adb_open_bedroom_iplayer:
@@ -64,14 +65,22 @@ script:
       - service: androidtv.adb_command
         data:
           entity_id: media_player.bedroom_shield_adb
-          command: "iPlayer"
+          command:  "am start -a android.intent.action.VIEW -d -n com.nvidia.bbciplayer/.MainPlayerActivity"
 
+## BBC News
+  adb_open_bedroom_bbc_news:
+    sequence:
+      - service: androidtv.adb_command
+        data:
+          entity_id: media_player.bedroom_shield_adb
+          command: "am start -a android.intent.action.VIEW -d -n com.nvidia.bbciplayer.launch/com.nvidia.bbciplayer.LaunchNewsActivity"
 
+## HD Homerun
+  adb_open_bedroom_hd_hr:
+    sequence:
+      - service: androidtv.adb_command
+        data:
+          entity_id: media_player.bedroom_shield_adb
+          command: "am start -a android.intent.action.VIEW -d -n com.silicondust.view/.App"
 
-
-
-# {"entity_id" :"media_player.bedroom_shield_adb", "command": "am start -a android.intent.action.VIEW -d -n com.google.android.tvlauncher/.MainActivity"}
-
-
-# Live Channels { "entity_id": "media_player.bedroom_shield_adb", "intent": "-n com.google.android.tv/com.android.tv.MainActivity"}
-# Amazon { "entity_id": "media_player.bedroom_shield_adb", "intent": "-n com.amazon.amazonvideo.livingroom/com.amazon.ignition.IgnitionActivity"}
+          

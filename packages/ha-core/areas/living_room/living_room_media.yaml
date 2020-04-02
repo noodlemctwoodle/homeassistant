@@ -1,4 +1,5 @@
 media_player:
+
   - platform: denonavr
     host: !secret denon_avr_ip
     name: Denon AVRX2300w
@@ -10,17 +11,27 @@ media_player:
     adb_server_ip: 127.0.0.1
     adb_server_port: 5037
     apps:
-      "com.google.android.tvlauncher": "Homescreen"
+      "com.google.android.tvlauncher": "Home"
       "com.netflix.ninja": "Netflix"
       "com.google.android.youtube.tv": "Youtube"
       "com.google.android.tv": "Live Channels"
       "com.amazon.amazonvideo.livingroom": "Amazon Video"
       "com.plexapp.android": "Plex"
       "com.nvidia.bbciplayer": "iPlayer"
+      "com.nvidia.bbciplayer.launch": "BBC News"
+      "com.silicondust.view": "HD HomeRun"
 
 script:
 
-# Living Room Media Player
+## Leanback Launcher
+  adb_open_living_room_leanback:
+    sequence:
+      - service: androidtv.adb_command
+        data:
+          entity_id: media_player.living_room_shield_adb
+          command: HOME
+
+## Plex
   adb_open_living_room_plex:
     sequence:
       - service: androidtv.adb_command
@@ -28,6 +39,7 @@ script:
           entity_id: media_player.living_room_shield_adb
           command: "monkey -p com.plexapp.android -c android.intent.category.LAUNCHER 1"
 
+## Netflix
   adb_open_living_room_netflix:
     sequence:
       - service: androidtv.adb_command
@@ -35,6 +47,7 @@ script:
           entity_id: media_player.living_room_shield_adb
           command: "am start -a android.intent.action.VIEW -d -n com.netflix.ninja/.MainActivity"
 
+## Youtube
   adb_open_living_room_youtube:
     sequence:
       - service: androidtv.adb_command
@@ -42,9 +55,35 @@ script:
           entity_id: media_player.living_room_shield_adb
           command: "am start -a android.intent.action.VIEW -d -n com.google.android.youtube.tv/com.google.android.apps.youtube.tv.activity.ShellActivity"
 
-  adb_open_living_room_home:
+## Amazon Video
+  adb_open_living_room_amazon:
     sequence:
       - service: androidtv.adb_command
         data:
           entity_id: media_player.living_room_shield_adb
-          command: "am start -a android.intent.action.VIEW -d -n com.google.android.tvlauncher/com.google.android.apps.tvlauncher.tv.activity.ShellActivity"
+          command: "am start -a android.intent.action.VIEW -d -n com.amazon.amazonvideo.livingroom/com.amazon.ignition.IgnitionActivity"
+
+## iPlayer
+  adb_open_living_room_iplayer:
+    sequence:
+      - service: androidtv.adb_command
+        data:
+          entity_id: media_player.living_room_shield_adb
+          command:  "am start -a android.intent.action.VIEW -d -n com.nvidia.bbciplayer/.MainPlayerActivity"
+
+## BBC News
+  adb_open_living_room_bbc_news:
+    sequence:
+      - service: androidtv.adb_command
+        data:
+          entity_id: media_player.living_room_shield_adb
+          command: "am start -a android.intent.action.VIEW -d -n com.nvidia.bbciplayer.launch/com.nvidia.bbciplayer.LaunchNewsActivity"
+
+## HD Homerun
+  adb_open_living_room_hd_hr:
+    sequence:
+      - service: androidtv.adb_command
+        data:
+          entity_id: media_player.living_room_shield_adb
+          command: "am start -a android.intent.action.VIEW -d -n com.silicondust.view/.App"
+
