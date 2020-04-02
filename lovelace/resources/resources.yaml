@@ -76,10 +76,6 @@
   - url: /hacsfiles/mini-graph-card/mini-graph-card-bundle.js
     type: module
 
-# Xiaomi Vacuum Map Card (Requires Xiaomi Robot Vacuum)
-  - url: /hacsfiles/lovelace-xiaomi-vacuum-map-card/xiaomi-vacuum-map-card.js
-    type: module
-
 # Swipe Card
   - url: /hacsfiles/swipe-card/swipe-card.js
     type: module
@@ -118,10 +114,6 @@
 
 # Bar Card
   - url: /hacsfiles/bar-card/bar-card.js
-    type: module
-
-# Banner Card
-  - url: /hacsfiles/banner-card/banner-card.js
     type: module
 
 # Fold Entity Row

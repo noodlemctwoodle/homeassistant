@@ -3,120 +3,256 @@
 # customize your entire view (just turn off the other elements except for user content)!
 # The first card is an example, you can safely remove it!
 
-#- type: markdown
-#  style: |
-#    ha-card {
-#      border-radius: {{ states('input_select.border_radius') }};
-#      box-shadow: {{ states('input_select.box_shadow') }};
-#    }              
-#  content: >
-#    User Cards Here!
-
-  - entity: media_player.denon_avrx2300w
-    type: "custom:mini-media-player"
-    icon: mdi:radio
-
-  - type: horizontal-stack
+- type: custom:mod-card
+  style: |
+    :host {
+      --ha-card-border-radius: 10px;
+    }
+  card:
+    type: vertical-stack
     cards:
-      - entity: media_player.living_room_nvidia_shield_adb
-        type: custom:mini-media-player
-        info: short
+      - type: custom:mini-media-player
+        entity: media_player.denon_avrx2300w
+        name: Denon AVRX
+        background: /local/images/hardware/denon-avrx-small.png
+        icon: mdi:radio
         artwork: cover
         hide:
-          mute: true
-          icon: true
-          power_state: false
-      - entity: media_player.bedroom_nvidia_shield_adb
-        type: custom:mini-media-player
-        info: short
-        artwork: cover
-        hide:
-          mute: true
-          icon: true
-          power_state: false
+          source: true
+        shortcuts:
+          columns: 3 # Max buttons per row
+          buttons:
+            - icon: mdi:android
+              type: source
+              id: 'SHIELD TV'
 
-  - type: vertical-stack
-    cards:
-      - entity: media_player.office_speaker
-        type: custom:mini-media-player
-        info: short
-        artwork: cover
-        hide:
-          mute: true
-          icon: true
-          power_state: false
-      - entity: media_player.craft_room_speaker
-        type: custom:mini-media-player
-        info: short
-        artwork: cover
-        hide:
-          mute: true
-          icon: true
-          power_state: false
-      - entity: media_player.bedroom_speaker
-        type: custom:mini-media-player
-        info: short
-        artwork: cover
-        hide:
-          mute: true
-          icon: true
-          power_state: false
-      - entity: media_player.living_room_display
-        type: custom:mini-media-player
-        info: short
-        artwork: cover
-        hide:
-          mute: true
-          icon: true
-          power_state: false
-      - entity: media_player.kitchen_display
-        type: custom:mini-media-player
-        info: short
-        artwork: cover
-        hide:
-          mute: true
-          icon: true
-          power_state: false
+            - icon: mdi:alpha-x
+              type: source
+              id: 'XBOX'
+
+            - icon: mdi:television
+              type: source
+              id: TV Audio
+
+            - icon: mdi:radio
+              type: source
+              id: 'Internet Radio'
+
+            - icon: mdi:spotify
+              type: source
+              id: 'Spotify'
+
+            - icon: mdi:bluetooth-connect
+              type: source
+              id: 'Bluetooth'
 
 
+- type: horizontal-stack
+  cards:
+    - type: custom:swipe-card
+      parameters:
+        spaceBetween: 8
+        touchEventsTarget: 'container'
+        pagination:
+          type: 'bullets'
+          dynamicBullets: false
 
-  - !include
-    - '../../lovelace/templates/header_text.yaml'
-    - content: "##### Recently Added Series"
-  - type: 'custom:upcoming-media-card'
-    style: |
-      ha-card {
-        border-radius: {{ states('input_select.border_radius') }};
-        box-shadow: {{ states('input_select.box_shadow') }};
-      }
-    entity: sensor.plex_recently_added
-  # - !include
-  #   - '../../lovelace/templates/header_text.yaml'
-  #   - content: "##### Recently Added Movies"
-  # - type: 'custom:upcoming-media-card'
-  #   style: |
-  #     ha-card {
-  #       border-radius: {{ states('input_select.border_radius') }};
-  #       box-shadow: {{ states('input_select.box_shadow') }};
-  #     }
-  #   entity: sensor.recently_added_movies 
-  - !include
-    - '../../lovelace/templates/header_text.yaml'
-    - content: "##### Upcoming Series"
-  - type: 'custom:upcoming-media-card'
-    style: |
-      ha-card {
-        border-radius: {{ states('input_select.border_radius') }};
-        box-shadow: {{ states('input_select.box_shadow') }};
-      }
-    entity: sensor.sonarr_upcoming_media
-  - !include
-    - '../../lovelace/templates/header_text.yaml'
-    - content: "##### Upcoming Movies"
-  - type: 'custom:upcoming-media-card'
-    style: |
-      ha-card {
-        border-radius: {{ states('input_select.border_radius') }};
-        box-shadow: {{ states('input_select.box_shadow') }};
-      }
-    entity: sensor.radarr_upcoming_media
+      cards:
+
+        - type: custom:mod-card
+          style: |
+            :host {
+              --ha-card-border-radius: 10px;
+            }
+          card:
+            type: vertical-stack
+            cards:
+              - type: custom:mini-media-player
+                entity: media_player.living_room_shield_adb
+                name: Living Room Shield TV
+                background: /local/images/hardware/shield-android-tv.png
+                icon: mdi:radio
+                artwork: cover
+                hide:
+                  source: true
+                shortcuts:
+                  columns: 4 # Max buttons per row
+                  buttons:
+                    - icon: mdi:shield-home-outline
+                      type: script
+                      id: 'SHIELD TV'
+
+                    - icon: mdi:plex
+                      type: script
+                      id: script.adb_open_living_room_plex
+
+                    - icon: mdi:netflix
+                      type: script
+                      id: script.adb_open_living_room_netflix
+
+                    - icon: mdi:youtube
+                      type: script
+                      id: script.adb_open_living_room_youtube
+
+
+
+        - type: custom:mod-card
+          style: |
+            :host {
+              --ha-card-border-radius: 5px;
+            }
+          card:
+            type: vertical-stack
+            cards:
+              - type: custom:mini-media-player
+                entity: media_player.bedroom_shield_adb
+                name: Bedroom Shield TV
+                #background: /local/images/hardware/shield-android-tv.png
+                icon: mdi:radio
+                artwork: cover
+                tap_action: none
+                hide:
+                  source: true
+                shortcuts:
+                  columns: 3 # Max buttons per row
+                  buttons:
+                    - icon: mdi:shield-home-outline
+                      type: script
+                      id: script.adb_open_bedroom_leanback
+
+                    - icon: mdi:plex
+                      type: script
+                      id: script.adb_open_bedroom_plex
+
+                    - icon: mdi:netflix
+                      type: script
+                      id: script.adb_open_bedroom_netflix
+
+                    - icon: mdi:youtube
+                      type: script
+                      id: script.adb_open_bedroom_youtube
+
+                    - icon: mdi:amazon
+                      type: script
+                      id: script.adb_open_bedroom_amazon
+
+                    - icon: mdi:alpha-i-circle
+                      type: script
+                      id: script.adb_open_bedroom_iplayer
+
+- type: horizontal-stack
+  cards:
+    - type: custom:swipe-card
+      parameters:
+        spaceBetween: 8
+        touchEventsTarget: 'container'
+        pagination:
+          type: 'bullets'
+          dynamicBullets: false
+#        scrollbar:
+#          hide: true
+#          draggable: true
+#          snapOnRelease: true
+      cards:
+
+        - type: media-control
+          style: |
+            ha-card {
+              background: var(--paper-card-background-color);
+              border-radius: {{ states('input_select.border_radius') }};
+              --paper-item-icon-color: var(--paper-item-icon-color);
+              box-shadow: {{ states('input_select.box_shadow') }};
+              font-weight: bold;
+              opacity: 0.8;
+            }
+          entity: media_player.office_speaker
+
+        - type: media-control
+          style: |
+            ha-card {
+              background: var(--paper-card-background-color);
+              border-radius: {{ states('input_select.border_radius') }};
+              --paper-item-icon-color: var(--paper-item-icon-color);
+              box-shadow: {{ states('input_select.box_shadow') }};
+              font-weight: bold;
+              opacity: 0.8;
+            }
+          entity: media_player.craft_room_speaker
+
+        - type: media-control
+          style: |
+            ha-card {
+              background: var(--paper-card-background-color);
+              border-radius: {{ states('input_select.border_radius') }};
+              --paper-item-icon-color: var(--paper-item-icon-color);
+              box-shadow: {{ states('input_select.box_shadow') }};
+              font-weight: bold;
+              opacity: 0.8;
+            }
+          entity: media_player.bedroom_speaker
+
+        - type: media-control
+          style: |
+            ha-card {
+              background: var(--paper-card-background-color);
+              border-radius: {{ states('input_select.border_radius') }};
+              --paper-item-icon-color: var(--paper-item-icon-color);
+              box-shadow: {{ states('input_select.box_shadow') }};
+              font-weight: bold;
+              opacity: 0.8;
+            }
+          entity: media_player.living_room_display
+
+        - type: media-control
+          style: |
+            ha-card {
+              background: var(--paper-card-background-color);
+              border-radius: {{ states('input_select.border_radius') }};
+              --paper-item-icon-color: var(--paper-item-icon-color);
+              box-shadow: {{ states('input_select.box_shadow') }};
+              font-weight: bold;
+              opacity: 0.8;
+            }
+          entity: media_player.kitchen_display
+
+
+- !include
+  - '../../lovelace/templates/header_text.yaml'
+  - content: "##### Recently Added Series"
+- type: 'custom:upcoming-media-card'
+  style: |
+    ha-card {
+      border-radius: {{ states('input_select.border_radius') }};
+      box-shadow: {{ states('input_select.box_shadow') }};
+    }
+  entity: sensor.plex_recently_added
+# - !include
+#   - '../../lovelace/templates/header_text.yaml'
+#   - content: "##### Recently Added Movies"
+# - type: 'custom:upcoming-media-card'
+#   style: |
+#     ha-card {
+#       border-radius: {{ states('input_select.border_radius') }};
+#       box-shadow: {{ states('input_select.box_shadow') }};
+#     }
+#   entity: sensor.recently_added_movies 
+- !include
+  - '../../lovelace/templates/header_text.yaml'
+  - content: "##### Upcoming Series"
+- type: 'custom:upcoming-media-card'
+  style: |
+    ha-card {
+      border-radius: {{ states('input_select.border_radius') }};
+      box-shadow: {{ states('input_select.box_shadow') }};
+    }
+  entity: sensor.sonarr_upcoming_media
+- !include
+  - '../../lovelace/templates/header_text.yaml'
+  - content: "##### Upcoming Movies"
+- type: 'custom:upcoming-media-card'
+  style: |
+    ha-card {
+      border-radius: {{ states('input_select.border_radius') }};
+      box-shadow: {{ states('input_select.box_shadow') }};
+    }
+  entity: sensor.radarr_upcoming_media

@@ -25,6 +25,7 @@
   # Kitchen
   room_1_lights_default:
     entities:
+      - light.kitchen
   room_1_lights_rgb:
     entities:
   room_1_lights_color_temp:
@@ -47,14 +48,15 @@
     entities:
   room_2_lights_rgb:
     entities:
-      - light.back_door_spot_01
+      - light.utility_backdoor_spot_1
   room_2_lights_color_temp:
     entities: 
-      - light.utility_cupboard_01
+      - light.utility_cupboard_spot_01
   room_2_all_devices:
     entities:
-      - switch.utility_light_switch_on_off
-      - switch.utility_light
+      - switch.utility_light_switch
+      - switch.utility_light_switch_on_off_01
+      - switch.utility_light_switch_on_off_02
 
   # Living Room
   room_3_lights_default:
@@ -192,7 +194,7 @@
     entities:
       - light.office_spot_01
       - light.office_spot_02
-      - light.server_cabinet_colour
+      - light.cabinet
   room_14_lights_color_temp:
     entities:
       - light.server_cabinet_white
@@ -310,19 +312,19 @@
   # Window Sensors
   all_window_sensors:
     entities:
-      - binary_sensor.kitchen_window_open_close
-      - binary_sensor.living_room_window_left_open_close
-      - binary_sensor.living_room_window_right_open_close
-      - binary_sensor.bathroom_window_open_close
-      - binary_sensor.landing_window_open_close
-      - binary_sensor.office_window_open_close
-      - binary_sensor.craft_room_window_open_close
+      - binary_sensor.kitchen_window
+      - binary_sensor.living_room_window_left
+      - binary_sensor.living_room_window_right
+      - binary_sensor.bathroom_window
+      - binary_sensor.landing_window
+      - binary_sensor.office_window
+      - binary_sensor.craft_room_window
 
   # Door Sensors
   all_door_sensors:
     entities:
-      - binary_sensor.front_door_open_close
-      - binary_sensor.patio_door_open_close
+      - binary_sensor.front_door
+      - binary_sensor.patio_door
 #      - binary_sensor.bathroom_door
   
   # Motion Sensors

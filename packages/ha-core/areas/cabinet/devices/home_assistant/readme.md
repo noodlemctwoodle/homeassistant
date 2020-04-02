@@ -50,8 +50,8 @@ Create a switch to show/control the add-on state and an automation to turn the o
             addon: a0d7b954_glances
 ```
 
-Further examples can be found in my configuration [here](https://github.com/noodlemctwoodle/homeassistant/blob/master/configuration/switch/hassio_addons.yaml)
+Further examples can be found in my configuration [here](https://github.com/noodlemctwoodle/homeassistant/blob/master/packages/ha-core/areas/cabinet/devices/home_assistant/ha_monitor.yaml)
 
 ## SNMP
 
-More information can be found [here](https://github.com/noodlemctwoodle/homeassistant/tree/master/configuration/sensors/monitoring/unraid#some-of-the-sensors-discovered-to-far)
+More information can be found [here](https://github.com/noodlemctwoodle/homeassistant/tree/master/packages/ha-core/areas/cabinet/devices/unraid#linux-snmp-oids-for-cpumemory-and-disk-statistics)

@@ -6,6 +6,7 @@
 .HA_VERSION
 .uuid
 .vscode
+.androidkeys
 deps
 tts
 assets
