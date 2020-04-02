@@ -29,7 +29,7 @@ The rest sensor pulls the state of the add-on (if its running or not) and then a
       - last_version
 ```
 
-Further examples can be found in my configuration [here](https://github.com/noodlemctwoodle/homeassistant/blob/master/configuration/sensors/monitoring/home_assistant/monitor.yaml)
+Further examples can be found in my configuration from [line](https://github.com/noodlemctwoodle/homeassistant/blob/master/configuration/sensors/monitoring/home_assistant/monitor.yaml) 1
 
 The rest sensor may throw errors on startup if Homeassistant can’t pull the data on startup. I just ignore these as the sensor will continue to try to update and usually does on the second try.
 
@@ -50,7 +50,7 @@ Create a switch to show/control the add-on state and an automation to turn the o
             addon: a0d7b954_glances
 ```
 
-Further examples can be found in my configuration [here](https://github.com/noodlemctwoodle/homeassistant/blob/master/packages/ha-core/areas/cabinet/devices/home_assistant/ha_monitor.yaml)
+Further examples can be found in my configuration from [line](https://github.com/noodlemctwoodle/homeassistant/blob/master/packages/ha-core/areas/cabinet/devices/home_assistant/ha_monitor.yaml) 170
 
 ## SNMP
 
