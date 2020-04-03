@@ -1,7 +1,7 @@
 # Media Monitoring View for HKI
 
 
-![Image](http://image.com)
+![media-view](https://github.com/noodlemctwoodle/homeassistant/blob/master/www/images/github/views/media_monitor.png)
 
 
 ## Version 0.1
