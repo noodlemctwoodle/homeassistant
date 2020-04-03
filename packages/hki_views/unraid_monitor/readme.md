@@ -38,7 +38,7 @@ Version 0.4
  - Fixed icon colours to match the rest of HKI views
  - Fixed issue with bar-card border radius
  - Fixed Mini-Graph-Card line colours
- - Fixed Font Size
+ - Fixed Font Size Bar-Card Colour overlap issue
 
 
  HKI UnRAID view can be found [here](https://github.com/noodlemctwoodle/homeassistant/blob/master/user_content/views/computers_user_content.yaml)
