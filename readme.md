@@ -8,7 +8,7 @@ Open source home automation that puts local control and privacy first. Powered b
 
 
 ## Contents
-* [Energy Monitoring View](http://work-in-progress..com..) (work in progress)
+* [Energy Monitoring View]() (work in progress)
 * [Home Assistant View](https://github.com/noodlemctwoodle/homeassistant/tree/master/packages/hki_views/ha_monitor)
 * [Media Monitoring View](https://github.com/noodlemctwoodle/homeassistant/tree/master/packages/hki_views/media_monitor)
 * [UnRAID View](https://github.com/noodlemctwoodle/homeassistant/tree/master/packages/hki_views/unraid_monitor)
