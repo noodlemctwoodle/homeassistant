@@ -23,7 +23,7 @@ Version 0.2
  - Container Support
 
 Version 0.3
- - Added SNMP [config](https://github.com/noodlemctwoodle/homeassistant/blob/master/packages/ha-core/areas/cabinet/devices/unraid/unraid_monitoring.yaml) Line 36 onwards
+ - Added SNMP [config](https://github.com/noodlemctwoodle/homeassistant/blob/b2b1bed306b16d1366f25835d2840cea42f72352/packages/ha-core/areas/cabinet/devices/unraid/unraid_monitoring.yaml#L36)
  - Moved temperature cards to swipe-card to reduce screen real estate
  - combined disk usage into swipe card
  - Added HDD temperatures to temperatures swipe-card
