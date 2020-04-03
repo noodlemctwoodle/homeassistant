@@ -11,7 +11,7 @@ Open source home automation that puts local control and privacy first. Powered b
 * [UnRAID View HKI](https://github.com/noodlemctwoodle/homeassistant#unraid-monitoring-view-for-hki)
 * [Home Assistant View](https://github.com/noodlemctwoodle/homeassistant#home-assistant-monitoring-view-for-hki)
 * [Energy Monitoring](https://github.com/noodlemctwoodle/homeassistant#energy-monitoring-view-for-hki)
-
+* [Media Monitoring]()
 ## Home Assistant Hardware Configuration
 - Intel NUC i3 Gen 7
 - Ubunbu Server 19.10
@@ -31,26 +31,4 @@ Further information and guides can be found on my [wiki](https://github.com/nood
 ## Donations are always welcome
 
 <a href="https://www.buymeacoffee.com/noodlemctwoodle" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
-
-
-<br />
-<br />
-<br />
-<br /> 
-
-#### Contents
-* [UnRAID View HKI](https://github.com/noodlemctwoodle/homeassistant#unraid-monitoring-view-for-hki)
-* [Home Assistant View](https://github.com/noodlemctwoodle/homeassistant#home-assistant-monitoring-view-for-hki)
-* [Energy Monitoring](https://github.com/noodlemctwoodle/homeassistant#energy-monitoring-view-for-hki)
-
-
-
-
-<br />
-<br />
-<br />
-<br /> 
-
-
-
 
