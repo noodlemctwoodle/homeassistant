@@ -50,3 +50,9 @@ Version 0.4
  - [123](https://community.home-assistant.io/u/123/summary) Thanks for solving the problem with parenthesis
  - [Avi](https://github.com/abeksis/My-HomeAssistant-Config) Thanks for creating the awesome graphics used in v1.2 containers swipe-card and also providing code snips. 
  - [OnlyMe](https://github.com/Holewijn/home-assistant-config) Thanks for adding the additional container images
+
+### Donations
+
+If you like my work please feel free to buy me a coffee
+
+<a href="https://www.buymeacoffee.com/noodlemctwoodle" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>

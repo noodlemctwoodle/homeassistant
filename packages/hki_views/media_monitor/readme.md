@@ -217,23 +217,8 @@ This section is work in progress and will be completed shortly.
     com.google.android.youtube.tv/com.google.android.apps.youtube.tv.activity.ShellActivity
 
 
+### Donations
 
+If you like my work please feel free to buy me a coffee
 
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
-
-
+<a href="https://www.buymeacoffee.com/noodlemctwoodle" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
