@@ -1,5 +1,25 @@
 # Media Monitoring View for HKI
+
+
+![Image](http://image.com)
+
+
 ## Version 0.1
+ - AV Receiver Source control
+ - Nvidia Shield App Control
+    - Launch Home Screen
+    - Launch Plex
+    - Launch Netflix
+    - Launch YouTube
+    - Launch Amazon Video
+    - Launch iPlayer
+    - Launch BBC News
+    - Launch HDHomeRun
+ - Google Home Support (Swipe Card
+    - Google TTS from card
+ - Download Stats from you favorite client
+ - Download Queue Size
+ - Upcoming Media Swipe card
 
 
 
@@ -11,7 +31,11 @@
 
 
 
-## Setup Guide
+
+
+## ADB Setup Guide 
+
+This section is work in progress and will be completed shortly. 
 
 ### List all installed Packages and Activities
 
