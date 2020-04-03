@@ -1,4 +1,4 @@
-# Home Asssistant Configuration
+# Home Assistant Configuration
 
 [![Star](https://img.shields.io/github/stars/noodlemctwoodle/homeassistant?style=plastic)](https://github.com/noodlemctwoodle/homeassistant/stargazers) 
 [![Fork](https://img.shields.io/github/forks/noodlemctwoodle/homeassistant?style=plastic)](https://github.com/noodlemctwoodle/homeassistant/network/members)
@@ -6,11 +6,12 @@
 
 Open source home automation that puts local control and privacy first. Powered by a worldwide community of tinkerers and DIY enthusiasts. 
 
+
 ## Contents
-* [UnRAID View HKI](https://github.com/noodlemctwoodle/homeassistant/tree/master/packages/hki_views/unraid_monitor)
+* [Energy Monitoring View](http://work-in-progress..com..) (work in progress)
 * [Home Assistant View](https://github.com/noodlemctwoodle/homeassistant/tree/master/packages/hki_views/ha_monitor)
-* [Energy Monitoring](https://github.com/noodlemctwoodle/homeassistant/tree/master/packages/hki_views/energy_monitor)
-* [Media Monitoring](https://github.com/noodlemctwoodle/homeassistant/tree/master/packages/hki_views/media_monitor)
+* [Media Monitoring View](https://github.com/noodlemctwoodle/homeassistant/tree/master/packages/hki_views/media_monitor)
+* [UnRAID View](https://github.com/noodlemctwoodle/homeassistant/tree/master/packages/hki_views/unraid_monitor)
 
 
 ### Home Assistant Hardware Configuration
@@ -19,11 +20,14 @@ Open source home automation that puts local control and privacy first. Powered b
 - Docker CE
 - [Home Kit Infused](https://github.com/jimz011/homekit-infused)
 
-### Hassio Installation on Ubuntu Server and Docker CE
-The [Hassio](https://github.com/noodlemctwoodle/hassio/wiki/Install-Hass.io) guide describes how to install Hass.io on Ubuntu Server running Docker CE, configure custom storage paths using the pre-created script from [Home Assistant](https://github.com/home-assistant/hassio-installer) and exposed to the internet using Nabu Casa
+
+### Home Assistant Core Installation on Ubuntu Server and Docker CE
+The [Home Assistant Core](https://github.com/noodlemctwoodle/hassio/wiki/Install-Hass.io) guide describes how to install Home Assistant Core (Hass.io) on Ubuntu Server running Docker CE, configure custom storage paths using the pre-created script from [Home Assistant](https://github.com/home-assistant/hassio-installer) and exposed to the internet using Nabu Casa
+
 
 ### Check out my Wiki
 Further information and guides can be found on my [wiki](https://github.com/noodlemctwoodle/hassio/wiki)
+
 
 ### HKI Documentation can be found here
 [Documentation](https://jimz011.github.io/homekit-infused/)
