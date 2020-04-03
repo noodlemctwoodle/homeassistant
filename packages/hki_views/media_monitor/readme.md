@@ -21,17 +21,35 @@
  - Download Queue Size
  - Upcoming Media Swipe card
 
+## Media view 
+
+### Requirements: 
+
+Mini Media Player Card
+
+    - url: /hacsfiles/mini-media-player/mini-media-player-bundle.js
+      type: module
+
+Upcoming Media Card (Plex, Sonarr and/or Radarr required)
+
+    - url: /hacsfiles/upcoming-media-card/upcoming-media-card.js
+      type: js
+
+Home Assistant Core (Supervisor) [addon](https://github.com/hassio-addons/addon-adb)
+
+
+### Mini Media Player Setup instructions 
+
+The [Media monitoring](https://github.com/noodlemctwoodle/homeassistant/blob/master/user_content/views/media_user_content.yaml) view for HKI can be found here. I have added `#comments` for people using Dwains Theme to remove sections of code that are not needed. 
+
+Nvidia Shield ADB requires some scripts to be created which can be found [here](https://github.com/noodlemctwoodle/homeassistant/blob/89d4268f29c5b997aacb96c7ba8a1b30562bf0e5/packages/ha-core/areas/living_room/living_room_media.yaml#L24) 
+
+The scripts are used to open apps on your shield when the button is tapped on Mini-Media-Player and can also be used in automation. If you have an application that is not supported by my view, I have written a guide on how to [query](https://github.com/noodlemctwoodle/homeassistant/tree/master/packages/hki_views/media_monitor#adb-setup-guide) ADB for any application you have on the shield. 
 
 
 
-
-
-
-
-
-
-
-
+<br/>
+<br/>
 
 ## ADB Setup Guide 
 
