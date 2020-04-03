@@ -1,3 +1,9 @@
+# Home Assistant Montitoring for HKI. 
+## Version 0.1 by noodlemctwoodle
+
+# Please view the set up guide for this view on GitHub
+## https://github.com/noodlemctwoodle/homeassistant/tree/master/user_content
+
 
 # Home Assistant Picture Card
 - type: picture-elements
@@ -82,12 +88,12 @@
 - type: horizontal-stack
   cards:
 
+# Reload Lovelace
     - type: custom:button-card
       style: |
         ha-card {
           background: var(--paper-card-background-color);
           border-radius: {{ states('input_select.border_radius') }};
-          --paper-item-icon-color: var(--paper-item-icon-color);
           box-shadow: {{ states('input_select.box_shadow') }};
           font-weight: bold;
           opacity: 0.8;
@@ -98,12 +104,12 @@
         action: call-service
         service: browser_mod.lovelace_reload
 
+# Take Home Assistant Snapshot
     - type: custom:button-card
       style: |
         ha-card {
           background: var(--paper-card-background-color);
           border-radius: {{ states('input_select.border_radius') }};
-          --paper-item-icon-color: var(--paper-item-icon-color);
           box-shadow: {{ states('input_select.box_shadow') }};
           font-weight: bold;
           opacity: 0.8;
@@ -114,12 +120,12 @@
         action: call-service
         service: hassio.snapshot_full
 
+# Restart Home Assistant
     - type: custom:button-card
       style: |
         ha-card {
           background: var(--paper-card-background-color);
           border-radius: {{ states('input_select.border_radius') }};
-          --paper-item-icon-color: var(--paper-item-icon-color);
           box-shadow: {{ states('input_select.box_shadow') }};
           font-weight: bold;
           opacity: 0.8;
@@ -132,12 +138,12 @@
       confirmation: 
         text: 'Are you sure you want to restart Home Assistant?'
 
+# Reboot Home Assistant Host
     - type: custom:button-card
       style: |
         ha-card {
           background: var(--paper-card-background-color);
           border-radius: {{ states('input_select.border_radius') }};
-          --paper-item-icon-color: var(--paper-item-icon-color);
           box-shadow: {{ states('input_select.box_shadow') }};
           font-weight: bold;
           opacity: 0.8;
@@ -151,12 +157,11 @@
         text: 'Are you sure you want to restart the host?'
 
 
-
-
 # System Temperatures Card
 - !include
   - '../../lovelace/templates/header_text.yaml'
   - content: '##### System Temperatures'
+# ^^^ These lines can be removed for Dwains Theme
 
 - type: horizontal-stack
   cards:
@@ -167,7 +172,6 @@
         ha-card {
           background: var(--paper-card-background-color);
           border-radius: {{ states('input_select.border_radius') }};
-          --paper-item-icon-color: var(--paper-item-icon-color);
           box-shadow: {{ states('input_select.box_shadow') }};
           font-weight: bold;
           opacity: 0.8;
@@ -206,7 +210,6 @@
         ha-card {
           background: var(--paper-card-background-color);
           border-radius: {{ states('input_select.border_radius') }};
-          --paper-item-icon-color: var(--paper-item-icon-color);
           box-shadow: {{ states('input_select.box_shadow') }};
           font-weight: bold;
           opacity: 0.8;
@@ -239,10 +242,12 @@
       tap_action: none
 
 
-
+# Resources 
 - !include
   - '../../lovelace/templates/header_text.yaml'
   - content: '##### Resources'
+# ^^^ These lines can be removed for Dwains Theme
+
 
 - type: horizontal-stack
   cards:
@@ -253,10 +258,7 @@
         pagination:
           type: 'bullets'
           dynamicBullets: true
-#        scrollbar:
-#          hide: true
-#          draggable: true
-#          snapOnRelease: true
+
       cards:
 
         - type: vertical-stack
@@ -264,12 +266,12 @@
             - type: horizontal-stack
               cards: 
 
+# Host Machine CPU Used
                 - type: custom:mini-graph-card
                   style: |
                     ha-card {
                       background: var(--paper-card-background-color);
                       border-radius: {{ states('input_select.border_radius') }};
-                      --paper-item-icon-color: var(--paper-item-icon-color);
                       box-shadow: {{ states('input_select.box_shadow') }};
                       font-weight: bold;
                       opacity: 0.8;
@@ -278,10 +280,10 @@
                   entities:
                     - entity: sensor.glances_homeassistant_cpu_used
                       name: System
-                      line_color: '"#14ff8d"'
+                      color: '#14ff8d' # Light Green
                     - entity: sensor.glances_homeassistant_containers_cpu_used
                       name: Containers
-                      line_color: '"#2814ff"'
+                      color: '#0293fa' # Sky Blue
                   name: CPU Usage
                   icon: mdi:cpu-64-bit
                   hours_to_show: 7
@@ -298,12 +300,12 @@
                     extrema: true
                   tap_action: none
 
+# Host Machine RAM Used
                 - type: custom:mini-graph-card
                   style: |
                     ha-card {
                       background: var(--paper-card-background-color);
-                      border-radius: {{ states('input_select.border_radius') }};
-                      --paper-item-icon-color: var(--paper-item-icon-color);
+                      border-radius: {{ states('input_select.border_radius') }};    
                       box-shadow: {{ states('input_select.box_shadow') }};
                       font-weight: bold;
                       opacity: 0.8;
@@ -312,10 +314,10 @@
                   entities:
                     - entity: sensor.glances_homeassistant_ram_used
                       name: System
-                      line_color: '"#14ff8d"'
+                      color: '#14ff8d' # Light Green
                     - entity: sensor.glances_homeassistant_containers_ram_used
                       name: Containers
-                      line_color: '"#2814ff"'
+                      color: '#0293fa' # Sky Blue
                   name: RAM Usage
                   hours_to_show: 7
                   points_per_hour: 10
@@ -337,12 +339,12 @@
             - type: horizontal-stack
               cards: 
 
+# Home Assistant Database Size
               - type: custom:mini-graph-card
                 style: |
                   ha-card {
                     background: var(--paper-card-background-color);
                     border-radius: {{ states('input_select.border_radius') }};
-                    --paper-item-icon-color: var(--paper-item-icon-color);
                     box-shadow: {{ states('input_select.box_shadow') }};
                     font-weight: bold;
                     opacity: 0.8;
@@ -350,7 +352,7 @@
                   }
                 entities:
                   - entity: sensor.home_assistant_db_size
-                    line_colour: '"#ffb414"'
+                    colour: '#17fa02' # Bright Green
                 name: Database Size
                 hours_to_show: 24
                 update_interval: 30
@@ -367,16 +369,21 @@
 - type: horizontal-stack
   cards:
 
-# NVMe System
+# NVMe System Disk Free
     - type: custom:bar-card
       style: |
+        :host {
+          --ha-card-background: var(--paper-card-background-color);
+          --ha-card-border-radius: {{ states('input_select.border_radius') }};
+          --ha-card-box-shadow: {{ states('input_select.box_shadow') }};
+          --ha-card-font-weight: bold;
+          --ha-card-opacity: 0.8;
+        }
         ha-card {
-          background: var(--paper-card-background-color);
-          border-radius: {{ states('input_select.border_radius') }};
-          --paper-item-icon-color: var(--paper-item-icon-color);
-          box-shadow: {{ states('input_select.box_shadow') }};
-          font-weight: bold;
-          opacity: 0.8;
+          font-size: 10px;                 
+        }
+        bar-card-value {
+          font-size: 10px;
         }
       entities: 
         - sensor.glances_homeassistant_etc_hostname_free
@@ -395,10 +402,6 @@
       title_position: 'inside'
       icon_position: inside
       direction: right
-      title_style:
-        font-size: 10px
-      value_style:
-        font-size: 10px
       columns: 1
       align: split
       tap_action: none
@@ -406,16 +409,21 @@
       max: 233
       min: 0
 
-# SSD Data Disk
+# SSD Data Disk Free
     - type: custom:bar-card
       style: |
+        :host {
+          --ha-card-background: var(--paper-card-background-color);
+          --ha-card-border-radius: {{ states('input_select.border_radius') }};
+          --ha-card-box-shadow: {{ states('input_select.box_shadow') }};
+          --ha-card-font-weight: bold;
+          --ha-card-opacity: 0.8;
+        }
         ha-card {
-          background: var(--paper-card-background-color);
-          border-radius: {{ states('input_select.border_radius') }};
-          --paper-item-icon-color: var(--paper-item-icon-color);
-          box-shadow: {{ states('input_select.box_shadow') }};
-          font-weight: bold;
-          opacity: 0.8;
+          font-size: 10px;                 
+        }
+        bar-card-value {
+          font-size: 10px;
         }
       entities: 
         - sensor.glances_homeassistant_data_free
@@ -434,10 +442,6 @@
       title_position: 'inside'
       icon_position: inside
       direction: right
-      title_style:
-        font-size: 10px
-      value_style:
-        font-size: 10px
       columns: 1
       align: split
       tap_action: none
@@ -459,18 +463,15 @@
         pagination:
           type: 'bullets'
           dynamicBullets: false
-#        scrollbar:
-#          hide: true
-#          draggable: true
-#          snapOnRelease: true
+
       cards:
-    # ADB Addon
+
+# ADB Addon
         - type: picture-entity
           style: |
             ha-card {
               background: var(--paper-card-background-color);
               border-radius: {{ states('input_select.border_radius') }};
-              --paper-item-icon-color: var(--paper-item-icon-color);
               box-shadow: {{ states('input_select.box_shadow') }};
               font-weight: bold;
               opacity: 0.8;
@@ -487,13 +488,13 @@
             service: switch.toggle
             service_data:
               entity_id: switch.adb_addon
-    # AdGaurd
+
+# AdGaurd
         - type: picture-entity
           style: |
             ha-card {
               background: var(--paper-card-background-color);
               border-radius: {{ states('input_select.border_radius') }};
-              --paper-item-icon-color: var(--paper-item-icon-color);
               box-shadow: {{ states('input_select.box_shadow') }};
               font-weight: bold;
               opacity: 0.8;
@@ -510,13 +511,13 @@
             service: switch.toggle
             service_data:
               entity_id: switch.adguard_addon
-    # Deconz Addon
+
+# Deconz Addon
         - type: picture-entity
           style: |
             ha-card {
               background: var(--paper-card-background-color);
               border-radius: {{ states('input_select.border_radius') }};
-              --paper-item-icon-color: var(--paper-item-icon-color);
               box-shadow: {{ states('input_select.box_shadow') }};
               font-weight: bold;
               opacity: 0.8;
@@ -533,13 +534,13 @@
             service: switch.toggle
             service_data:
               entity_id: switch.deconz_addon
-    # ESPHome Addon
+
+# ESPHome Addon
         - type: picture-entity
           style: |
             ha-card {
               background: var(--paper-card-background-color);
               border-radius: {{ states('input_select.border_radius') }};
-              --paper-item-icon-color: var(--paper-item-icon-color);
               box-shadow: {{ states('input_select.box_shadow') }};
               font-weight: bold;
               opacity: 0.8;
@@ -556,13 +557,13 @@
             service: switch.toggle
             service_data:
               entity_id: switch.esphome_addon
-    # Glances Addon
+
+# Glances Addon
         - type: picture-entity
           style: |
             ha-card {
               background: var(--paper-card-background-color);
               border-radius: {{ states('input_select.border_radius') }};
-              --paper-item-icon-color: var(--paper-item-icon-color);
               box-shadow: {{ states('input_select.box_shadow') }};
               font-weight: bold;
               opacity: 0.8;
@@ -579,13 +580,13 @@
             service: switch.toggle
             service_data:
               entity_id: switch.glances_addon
-    # MariaDB Addon
+
+# MariaDB Addon
         - type: picture-entity
           style: |
             ha-card {
               background: var(--paper-card-background-color);
               border-radius: {{ states('input_select.border_radius') }};
-              --paper-item-icon-color: var(--paper-item-icon-color);
               box-shadow: {{ states('input_select.box_shadow') }};
               font-weight: bold;
               opacity: 0.8;
@@ -602,13 +603,13 @@
             service: switch.toggle
             service_data:
               entity_id: switch.mariadb_addon
-    # Mosquitto Addon
+
+# Mosquitto Addon
         - type: picture-entity
           style: |
             ha-card {
               background: var(--paper-card-background-color);
               border-radius: {{ states('input_select.border_radius') }};
-              --paper-item-icon-color: var(--paper-item-icon-color);
               box-shadow: {{ states('input_select.box_shadow') }};
               font-weight: bold;
               opacity: 0.8;
@@ -625,13 +626,13 @@
             service: switch.toggle
             service_data:
               entity_id: switch.mosquitto_addon
-    # Node-Red Addon
+
+# Node-Red Addon
         - type: picture-entity
           style: |
             ha-card {
               background: var(--paper-card-background-color);
               border-radius: {{ states('input_select.border_radius') }};
-              --paper-item-icon-color: var(--paper-item-icon-color);
               box-shadow: {{ states('input_select.box_shadow') }};
               font-weight: bold;
               opacity: 0.8;
@@ -648,13 +649,13 @@
             service: switch.toggle
             service_data:
               entity_id: switch.node_red_addon
-    # PHPMyAdmin Addon
+
+# PHPMyAdmin Addon
         - type: picture-entity
           style: |
             ha-card {
               background: var(--paper-card-background-color);
               border-radius: {{ states('input_select.border_radius') }};
-              --paper-item-icon-color: var(--paper-item-icon-color);
               box-shadow: {{ states('input_select.box_shadow') }};
               font-weight: bold;
               opacity: 0.8;
@@ -671,13 +672,13 @@
             service: switch.toggle
             service_data:
               entity_id: switch.phpmyadmin_addon
-    # SSH & Terminal Addon
+
+# SSH & Terminal Addon
         - type: picture-entity
           style: |
             ha-card {
               background: var(--paper-card-background-color);
               border-radius: {{ states('input_select.border_radius') }};
-              --paper-item-icon-color: var(--paper-item-icon-color);
               box-shadow: {{ states('input_select.box_shadow') }};
               font-weight: bold;
               opacity: 0.8;
@@ -694,13 +695,13 @@
             service: switch.toggle
             service_data:
               entity_id: switch.ssh_and_terminal_addon
-    # VSCode Addon
+
+# VSCode Addon
         - type: picture-entity
           style: |
             ha-card {
               background: var(--paper-card-background-color);
               border-radius: {{ states('input_select.border_radius') }};
-              --paper-item-icon-color: var(--paper-item-icon-color);
               box-shadow: {{ states('input_select.box_shadow') }};
               font-weight: bold;
               opacity: 0.8;
@@ -718,10 +719,11 @@
             service_data:
               entity_id: switch.vscode_addon
 
-
+# Internet Usage and Statistics 
 - !include
   - '../../lovelace/templates/header_text.yaml'
   - content: '##### Internet'
+# ^^^ These lines can be removed for Dwains Theme
 
 - type: horizontal-stack
   cards:
@@ -732,10 +734,7 @@
         pagination:
           type: 'bullets'
           dynamicBullets: true
-#        scrollbar:
-#          hide: true
-#          draggable: true
-#          snapOnRelease: true
+
       cards:
 
         - type: vertical-stack
@@ -743,12 +742,12 @@
             - type: horizontal-stack
               cards: 
 
+# Cloudflare Ping Times
               - type: custom:mini-graph-card
                 style: |
                   ha-card {
                     background: var(--paper-card-background-color);
                     border-radius: {{ states('input_select.border_radius') }};
-                    --paper-item-icon-color: var(--paper-item-icon-color);
                     box-shadow: {{ states('input_select.box_shadow') }};
                     font-weight: bold;
                     opacity: 0.8;                 
@@ -763,12 +762,12 @@
                   font_size: 65
                   tap_action: none
 
+# Google Ping Times
               - type: custom:mini-graph-card
                 style: |
                   ha-card {
                     background: var(--paper-card-background-color);
-                    border-radius: {{ states('input_select.border_radius') }};
-                    --paper-item-icon-color: var(--paper-item-icon-color);
+                    border-radius: {{ states('input_select.border_radius') }};  
                     box-shadow: {{ states('input_select.box_shadow') }};
                     font-weight: bold;
                     opacity: 0.8;              
@@ -788,12 +787,12 @@
             - type: horizontal-stack
               cards: 
 
+# Speedtest.net Download
                 - type: custom:mini-graph-card
                   style: |
                     ha-card {
                       background: var(--paper-card-background-color);
                       border-radius: {{ states('input_select.border_radius') }};
-                      --paper-item-icon-color: var(--paper-item-icon-color);
                       box-shadow: {{ states('input_select.box_shadow') }};
                       font-weight: bold;
                       opacity: 0.8;
@@ -820,6 +819,8 @@
                       color: "#e7ff14"
                     - value: 180
                       color: "#ff1414"
+
+# Speedtest.net Upload
                 - type: custom:mini-graph-card
                   entities:
                     - entity: sensor.speedtest_upload

@@ -1,4 +1,13 @@
 ---
+
+nzbget:
+  host: !secret host_ip_address
+  username: !secret nzbgetuser
+  password: !secret nzbgetpass
+  port: !secret nzbget_port
+  name: NZBGet
+
+
 sensor:
 ## RADARR - COMPONENT
 # https://www.home-assistant.io/integrations/radarr/
@@ -51,8 +60,8 @@ sensor:
 # https://github.com/custom-components/sensor.plex_recently_added
 
   - platform: plex_recently_added
-    host: !secret plex_public_ip
-    port: !secret plex_public_port
+    host: !secret plex_host
+    port: !secret plex_port
     token: !secret plex_token
     download_images: true
     img_dir: '/upcoming-media-card/images/plex/'
@@ -60,3 +69,7 @@ sensor:
     section_types:
     - movie
     - show
+
+
+
+

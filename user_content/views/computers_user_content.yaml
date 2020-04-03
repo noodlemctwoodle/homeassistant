@@ -1,5 +1,5 @@
 # UnRAID Montitoring for HKI. 
-## Version 1.1 by noodlemctwoodle
+## Version 0.4 by noodlemctwoodle
 
 # Please view the set up guide for this view on GitHub
 ## https://github.com/noodlemctwoodle/homeassistant/tree/master/user_content
@@ -90,13 +90,18 @@
 # UnRAID Array Status
     - type: custom:bar-card
       style: |
+        :host {
+          --ha-card-background: var(--paper-card-background-color);
+          --ha-card-border-radius: {{ states('input_select.border_radius') }};
+          --ha-card-box-shadow: {{ states('input_select.box_shadow') }};
+          --ha-card-font-weight: bold;
+          --ha-card-opacity: 0.8;
+        }
         ha-card {
-          background: var(--paper-card-background-color);
-          border-radius: {{ states('input_select.border_radius') }};
-          --paper-item-icon-color: var(--paper-item-icon-color);
-          box-shadow: {{ states('input_select.box_shadow') }};
-          font-weight: bold;
-          opacity: 0.8;
+          font-size: 10px;                 
+        }
+        bar-card-value {
+          font-size: 10px;
         }
       entities: 
         - sensor.unraid_array_status
@@ -111,10 +116,6 @@
       title_position: 'inside'
       icon_position: inside
       direction: right
-      title_style:
-        font-size: 10px
-      value_style:
-        font-size: 10px
       columns: 1
       align: split
       tap_action: none
@@ -122,13 +123,18 @@
 # UnRAID Array Protection
     - type: custom:bar-card
       style: |
+        :host {
+          --ha-card-background: var(--paper-card-background-color);
+          --ha-card-border-radius: {{ states('input_select.border_radius') }};
+          --ha-card-box-shadow: {{ states('input_select.box_shadow') }};
+          --ha-card-font-weight: bold;
+          --ha-card-opacity: 0.8;
+        }
         ha-card {
-          background: var(--paper-card-background-color);
-          border-radius: {{ states('input_select.border_radius') }};
-          --paper-item-icon-color: var(--paper-item-icon-color);
-          box-shadow: {{ states('input_select.box_shadow') }};
-          font-weight: bold;
-          opacity: 0.8;
+          font-size: 10px;                 
+        }
+        bar-card-value {
+          font-size: 10px;
         }
       entities: 
         - sensor.unraid_array_protection
@@ -143,10 +149,6 @@
       title_position: 'inside'
       icon_position: inside
       direction: right
-      title_style:
-        font-size: 10px
-      value_style:
-        font-size: 10px
       columns: 1
       align: split
       tap_action: none
@@ -157,13 +159,18 @@
 # UnRAID Array Total Space
     - type: custom:bar-card
       style: |
+        :host {
+          --ha-card-background: var(--paper-card-background-color);
+          --ha-card-border-radius: {{ states('input_select.border_radius') }};
+          --ha-card-box-shadow: {{ states('input_select.box_shadow') }};
+          --ha-card-font-weight: bold;
+          --ha-card-opacity: 0.8;
+        }
         ha-card {
-          background: var(--paper-card-background-color);
-          border-radius: {{ states('input_select.border_radius') }};
-          --paper-item-icon-color: var(--paper-item-icon-color);
-          box-shadow: {{ states('input_select.box_shadow') }};
-          font-weight: bold;
-          opacity: 0.8;
+          font-size: 10px;                 
+        }
+        bar-card-value {
+          font-size: 10px;
         }
       entities: 
         - sensor.unraid_array_space
@@ -186,10 +193,6 @@
       title_position: 'inside'
       icon_position: inside
       direction: right
-      title_style:
-        font-size: 10px
-      value_style:
-        font-size: 10px
       columns: 1
       align: split
       tap_action: none
@@ -208,10 +211,7 @@
         pagination:
           type: 'bullets'
           dynamicBullets: true
-#        scrollbar:
-#          hide: true
-#          draggable: true
-#          snapOnRelease: true
+
       cards:
 
         - type: vertical-stack
@@ -219,13 +219,12 @@
             - type: horizontal-stack
               cards: 
 
-          # CPU Temps
+# CPU Temps
               - type: custom:mini-graph-card
                 style: |
                   ha-card {
                     background: var(--paper-card-background-color);
                     border-radius: {{ states('input_select.border_radius') }};
-                    --paper-item-icon-color: var(--paper-item-icon-color);
                     box-shadow: {{ states('input_select.box_shadow') }};
                     font-weight: bold;
                     opacity: 0.8;
@@ -234,21 +233,22 @@
                 entities:
                   - entity: sensor.glances_unraid_core_0_temp
                     name: CPU0
-                    line_color: '"#14ff8d"'
+                    color: '#40ed21' # Greem
                   - entity: sensor.glances_unraid_core_1_temp
                     name: CPU1
-                    line_color: '"#2814ff"'
+                    color: '#051df7' # Blue
                   - entity: sensor.glances_unraid_core_2_temp
                     name: CPU2
-                    line_color: '"#2814ff"'
+                    color: '#f302f7' # Pink
                   - entity: sensor.glances_unraid_core_3_temp
                     name: CPU3
-                    line_color: '"#2814ff"'
+                    color: '#fa0000' # Red
                 name: Intel i7 6700k
                 hours_to_show: 7
                 points_per_hour: 10
                 update_interval: 30
                 aggregate_func: max
+                fill: false
                 line_width: 2
                 smoothing: false
                 font_size: 65
@@ -261,13 +261,12 @@
         - type: vertical-stack
           cards:
 
-        # Motherboard Temps
+# Motherboard Temps
             - type: custom:mini-graph-card
               style: |
                 ha-card {
                   background: var(--paper-card-background-color);
                   border-radius: {{ states('input_select.border_radius') }};
-                  --paper-item-icon-color: var(--paper-item-icon-color);
                   box-shadow: {{ states('input_select.box_shadow') }};
                   font-weight: bold;
                   opacity: 0.8;
@@ -302,13 +301,12 @@
         - type: vertical-stack
           cards:
 
-        # HDD Temps
+# HDD Temps
             - type: custom:mini-graph-card
               style: |
                 ha-card {
                   background: var(--paper-card-background-color);
                   border-radius: {{ states('input_select.border_radius') }};
-                  --paper-item-icon-color: var(--paper-item-icon-color);
                   box-shadow: {{ states('input_select.box_shadow') }};
                   font-weight: bold;
                   opacity: 0.8;
@@ -317,35 +315,37 @@
               entities:
                 - entity: sensor.unraid_parity_temperature
                   name: Parity
-                  line_color: "#14ff8d"
+                  color: '#14ff8d' # Aqua
                 - entity: sensor.unraid_disk1_temperature
                   name: Disk 1
-                  line_color: "#2814ff"
+                  color: '#2814ff' # Blue
                 - entity: sensor.unraid_disk2_temperature
                   name: Disk 2
-                  line_color: "#2814ff"
+                  color: '#ff9100' # Orange
                 - entity: sensor.unraid_disk3_temperature
                   name: Disk 3
-                  line_color: "#2814ff"
+                  color: '#fbff00' # Yellow
                 - entity: sensor.unraid_disk4_temperature
                   name: Disk 4
-                  line_color: '"#14ff8d"'
+                  color: '#34f205' # Green
                 - entity: sensor.unraid_disk5_temperature
                   name: Disk 5
-                  line_color: '"#2814ff"'
+                  color: '#9705f2' # Purple
                 - entity: sensor.unraid_disk6_temperature
                   name: Disk 6
-                  line_color: '"#2814ff"'
+                  color: '#f205b3' # Pink
               name: UnRAID Storage Pool
+              fill: false
               hours_to_show: 7
               points_per_hour: 10
               update_interval: 30
               aggregate_func: max
-              line_width: 2
+              line_width: 4
               smoothing: false
               font_size: 65
               font_size_header: 9
               show:
+                graph: bar
                 average: true
                 extrema: true
               tap_action: none
@@ -354,6 +354,7 @@
 - !include
   - '../../lovelace/templates/header_text.yaml'
   - content: '##### Resources'
+# ^^^ These lines can be removed for Dwains Theme
 
 - type: horizontal-stack
   cards:
@@ -364,10 +365,7 @@
         pagination:
           type: 'bullets'
           dynamicBullets: true
-#        scrollbar:
-#          hide: true
-#          draggable: true
-#          snapOnRelease: true
+
       cards:
 
         - type: vertical-stack
@@ -375,13 +373,12 @@
             - type: horizontal-stack
               cards: 
 
-            # CPU Useage
+# CPU Useage
                 - type: custom:mini-graph-card
                   style: |
                     ha-card {
                       background: var(--paper-card-background-color);
-                      border-radius: {{ states('input_select.border_radius') }};
-                      --paper-item-icon-color: var(--paper-item-icon-color);
+                      border-radius: {{ states('input_select.border_radius') }};      
                       box-shadow: {{ states('input_select.box_shadow') }};
                       font-weight: bold;
                       opacity: 0.8;
@@ -390,10 +387,10 @@
                   entities:
                     - entity: sensor.glances_unraid_cpu_used
                       name: System
-                      line_color: '"#14ff8d"'
+                      color: '#14ff8d' # Light Green
                     - entity: sensor.glances_unraid_containers_cpu_used
                       name: Containers
-                      line_color: '"#2814ff"'
+                      color: '#0293fa' # Sky Blue
                   name: CPU Usage
                   icon: mdi:cpu-64-bit
                   hours_to_show: 7
@@ -410,13 +407,12 @@
                     extrema: true
                   tap_action: none
 
-            # Ram Usage
+# Ram Usage
                 - type: custom:mini-graph-card
                   style: |
                     ha-card {
                       background: var(--paper-card-background-color);
-                      border-radius: {{ states('input_select.border_radius') }};
-                      --paper-item-icon-color: var(--paper-item-icon-color);
+                      border-radius: {{ states('input_select.border_radius') }};       
                       box-shadow: {{ states('input_select.box_shadow') }};
                       font-weight: bold;
                       opacity: 0.8;
@@ -425,10 +421,10 @@
                   entities:
                     - entity: sensor.glances_unraid_ram_used
                       name: System
-                      line_color: '"#14ff8d"'
+                      color: '#14ff8d' # Light Green
                     - entity: sensor.glances_unraid_containers_ram_used
                       name: Containers
-                      line_color: '"#2814ff"'
+                      color: '#0293fa' # Sky Blue
                   name: RAM Usage
                   hours_to_show: 7
                   points_per_hour: 10
@@ -447,13 +443,12 @@
         - type: vertical-stack
           cards:
 
-        # LAN Download
+# LAN Download
             - type: custom:mini-graph-card
               style: |
                 ha-card {
                   background: var(--paper-card-background-color);
                   border-radius: {{ states('input_select.border_radius') }};
-                  --paper-item-icon-color: var(--paper-item-icon-color);
                   box-shadow: {{ states('input_select.box_shadow') }};
                   font-weight: bold;
                   opacity: 0.8;
@@ -462,19 +457,19 @@
               entities:
                 - entity: sensor.unraid_lan0_download_vlan10
                   name: LAN 0
-                  line_color: '"#14ff8d"'
+                  color: '#f205b3' # Pink
                 - entity: sensor.unraid_lan1_download_lagg0
                   name: LAN 1
-                  line_color: '"#2814ff"'
+                  color: '#f20505' # Red
                 - entity: sensor.unraid_lan2_download_lagg0
                   name: LAN 2
-                  line_color: '"#2814ff"'
+                  color: '#05f248' # Green
                 - entity: sensor.unraid_lan3_download_lagg0
                   name: LAN 3
-                  line_color: '"#2814ff"'
+                  color: '#e9fa02' # Yellow
                 - entity: sensor.unraid_lan4_download_lagg0
                   name: LAN 4
-                  line_color: '"#14ff8d"'
+                  color: '#0293fa' # Sky Blue
               name: UnRAID LAN Traffic (Download)
               icon: mdi:download-network
               hours_to_show: 7
@@ -494,13 +489,12 @@
         - type: vertical-stack
           cards:
 
-        # LAN Upload
+# LAN Upload
             - type: custom:mini-graph-card
               style: |
                 ha-card {
                   background: var(--paper-card-background-color);
                   border-radius: {{ states('input_select.border_radius') }};
-                  --paper-item-icon-color: var(--paper-item-icon-color);
                   box-shadow: {{ states('input_select.box_shadow') }};
                   font-weight: bold;
                   opacity: 0.8;
@@ -509,19 +503,19 @@
               entities:
                 - entity: sensor.unraid_lan0_upload_vlan10
                   name: LAN 0
-                  line_color: '"#14ff8d"'
+                  color: '#f205b3' # Pink
                 - entity: sensor.unraid_lan1_upload_lagg0
                   name: LAN 1
-                  line_color: '"#2814ff"'
+                  color: '#f20505' # Red
                 - entity: sensor.unraid_lan2_upload_lagg0
                   name: LAN 2
-                  line_color: '"#2814ff"'
+                  color: '#05f248' # Green
                 - entity: sensor.unraid_lan3_upload_lagg0
                   name: LAN 3
-                  line_color: '"#2814ff"'
+                  color: '#e9fa02' # Yellow
                 - entity: sensor.unraid_lan4_upload_lagg0
                   name: LAN 4
-                  line_color: '"#14ff8d"'
+                  color: '#0293fa' # Sky Blue
               name: UnRAID LAN Traffic (Upload)
               icon: mdi:upload-network
               hours_to_show: 7
@@ -544,24 +538,29 @@
 # USB Flash Drive
     - type: custom:bar-card
       style: |
+        :host {
+          --ha-card-background: var(--paper-card-background-color);
+          --ha-card-border-radius: {{ states('input_select.border_radius') }};
+          --ha-card-box-shadow: {{ states('input_select.box_shadow') }};
+          --ha-card-font-weight: bold;
+          --ha-card-opacity: 0.8;
+        }
         ha-card {
-          background: var(--paper-card-background-color);
-          border-radius: {{ states('input_select.border_radius') }};
-          --paper-item-icon-color: var(--paper-item-icon-color);
-          box-shadow: {{ states('input_select.box_shadow') }};
-          font-weight: bold;
-          opacity: 0.8;
+          font-size: 10px;                 
+        }
+        bar-card-value {
+          font-size: 10px;
         }
       entities: 
         - sensor.glances_unraid_etc_hostname_free
       severity:
-      - value: 900
+      - value: 32
         color: '#3ed11d'
-      - value: 700
+      - value: 20
         color: '#bf9540'
-      - value: 300
+      - value: 10
         color: '#e69422'
-      - value: 100
+      - value: 5
         color: '#bf4040'
       title: USB Boot Drive (Free)
       show_icon: true
@@ -569,10 +568,6 @@
       title_position: 'inside'
       icon_position: inside
       direction: right
-      title_style:
-        font-size: 10px
-      value_style:
-        font-size: 10px
       columns: 1
       align: split
 # Disk Size (40GB)
@@ -583,13 +578,18 @@
 # Appdata Backup Storage
     - type: custom:bar-card
       style: |
+        :host {
+          --ha-card-background: var(--paper-card-background-color);
+          --ha-card-border-radius: {{ states('input_select.border_radius') }};
+          --ha-card-box-shadow: {{ states('input_select.box_shadow') }};
+          --ha-card-font-weight: bold;
+          --ha-card-opacity: 0.8;
+        }
         ha-card {
-          background: var(--paper-card-background-color);
-          border-radius: {{ states('input_select.border_radius') }};
-          --paper-item-icon-color: var(--paper-item-icon-color);
-          box-shadow: {{ states('input_select.box_shadow') }};
-          font-weight: bold;
-          opacity: 0.8;
+          font-size: 10px;                 
+        }
+        bar-card-value {
+          font-size: 10px;
         }
       entities: 
         - sensor.glances_unraid_mnt_disks_backups_free
@@ -608,10 +608,6 @@
       title_position: 'inside'
       icon_position: inside
       direction: right
-      title_style:
-        font-size: 10px
-      value_style:
-        font-size: 10px
       columns: 1
       align: split
 # Disk Size (240GB)
@@ -625,13 +621,18 @@
 # SSD Cache
     - type: custom:bar-card
       style: |
+        :host {
+          --ha-card-background: var(--paper-card-background-color);
+          --ha-card-border-radius: {{ states('input_select.border_radius') }};
+          --ha-card-box-shadow: {{ states('input_select.box_shadow') }};
+          --ha-card-font-weight: bold;
+          --ha-card-opacity: 0.8;
+        }
         ha-card {
-          background: var(--paper-card-background-color);
-          border-radius: {{ states('input_select.border_radius') }};
-          --paper-item-icon-color: var(--paper-item-icon-color);
-          box-shadow: {{ states('input_select.box_shadow') }};
-          font-weight: bold;
-          opacity: 0.8;
+          font-size: 10px;                 
+        }
+        bar-card-value {
+          font-size: 10px;
         }
       entities: 
         - sensor.glances_unraid_mnt_cache_free
@@ -650,10 +651,6 @@
       title_position: 'inside'
       icon_position: inside
       direction: right
-      title_style:
-        font-size: 10px
-      value_style:
-        font-size: 10px
       columns: 1
       align: split
 # Disk Size (1TB)
@@ -675,18 +672,15 @@
         pagination:
           type: 'bullets'
           dynamicBullets: false
-#        scrollbar:
-#          hide: true
-#          draggable: true
-#          snapOnRelease: true
+
       cards:
-    # Plex Container
+
+# Plex Container
         - type: picture-entity
           style: |
             ha-card {
               background: var(--paper-card-background-color);
               border-radius: {{ states('input_select.border_radius') }};
-              --paper-item-icon-color: var(--paper-item-icon-color);
               box-shadow: {{ states('input_select.box_shadow') }};
               font-weight: bold;
               opacity: 0.8;
@@ -703,13 +697,13 @@
             service: switch.toggle
             service_data:
               entity_id: switch.chsunr01_docker_binhex_plexpass
-    # Sonarr Container
+
+# Sonarr Container
         - type: picture-entity
           style: |
             ha-card {
               background: var(--paper-card-background-color);
               border-radius: {{ states('input_select.border_radius') }};
-              --paper-item-icon-color: var(--paper-item-icon-color);
               box-shadow: {{ states('input_select.box_shadow') }};
               font-weight: bold;
               opacity: 0.8;
@@ -726,13 +720,13 @@
             service: switch.toggle
             service_data:
               entity_id: switch.chsunr01_docker_sonarr
-    # Radar Container
+
+# Radar Container
         - type: picture-entity
           style: |
             ha-card {
               background: var(--paper-card-background-color);
               border-radius: {{ states('input_select.border_radius') }};
-              --paper-item-icon-color: var(--paper-item-icon-color);
               box-shadow: {{ states('input_select.box_shadow') }};
               font-weight: bold;
               opacity: 0.8;
@@ -749,13 +743,13 @@
             service: switch.toggle
             service_data:
               entity_id: switch.chsunr01_docker_radarr
-    # Lidarr Container
+
+# Lidarr Container
         - type: picture-entity
           style: |
             ha-card {
               background: var(--paper-card-background-color);
               border-radius: {{ states('input_select.border_radius') }};
-              --paper-item-icon-color: var(--paper-item-icon-color);
               box-shadow: {{ states('input_select.box_shadow') }};
               font-weight: bold;
               opacity: 0.8;
@@ -772,13 +766,13 @@
             service: switch.toggle
             service_data:
               entity_id: switch.chsunr01_docker_lidarr
-    # UnRAID-API Container
+
+# UnRAID-API Container
         - type: picture-entity
           style: |
             ha-card {
               background: var(--paper-card-background-color);
               border-radius: {{ states('input_select.border_radius') }};
-              --paper-item-icon-color: var(--paper-item-icon-color);
               box-shadow: {{ states('input_select.box_shadow') }};
               font-weight: bold;
               opacity: 0.8;
@@ -795,13 +789,13 @@
             service: switch.toggle
             service_data:
               entity_id: switch.chsunr01_docker_unraid_api
-    # NZBGet Container
+
+# NZBGet Container
         - type: picture-entity
           style: |
             ha-card {
               background: var(--paper-card-background-color);
               border-radius: {{ states('input_select.border_radius') }};
-              --paper-item-icon-color: var(--paper-item-icon-color);
               box-shadow: {{ states('input_select.box_shadow') }};
               font-weight: bold;
               opacity: 0.8;
@@ -818,13 +812,13 @@
             service: switch.toggle
             service_data:
               entity_id: switch.chsunr01_docker_nzbget
-    # NZBHydra Container
+
+# NZBHydra Container
         - type: picture-entity
           style: |
             ha-card {
               background: var(--paper-card-background-color);
               border-radius: {{ states('input_select.border_radius') }};
-              --paper-item-icon-color: var(--paper-item-icon-color);
               box-shadow: {{ states('input_select.box_shadow') }};
               font-weight: bold;
               opacity: 0.8;
@@ -841,13 +835,13 @@
             service: switch.toggle
             service_data:
               entity_id: switch.chsunr01_docker_binhex_nzbhydra2
-    # Tautulli Container
+
+# Tautulli Container
         - type: picture-entity
           style: |
             ha-card {
               background: var(--paper-card-background-color);
               border-radius: {{ states('input_select.border_radius') }};
-              --paper-item-icon-color: var(--paper-item-icon-color);
               box-shadow: {{ states('input_select.box_shadow') }};
               font-weight: bold;
               opacity: 0.8;
@@ -864,13 +858,13 @@
             service: switch.toggle
             service_data:
               entity_id: switch.chsunr01_docker_tautulli
-    # DiskSpeed Container
+
+# DiskSpeed Container
         - type: picture-entity
           style: |
             ha-card {
               background: var(--paper-card-background-color);
-              border-radius: {{ states('input_select.border_radius') }};
-              --paper-item-icon-color: var(--paper-item-icon-color);
+              border-radius: {{ states('input_select.border_radius') }}; 
               box-shadow: {{ states('input_select.box_shadow') }};
               font-weight: bold;
               opacity: 0.8;
@@ -887,13 +881,13 @@
             service: switch.toggle
             service_data:
               entity_id: switch.chsunr01_docker_diskspeed
-    # DiskSpeed Container
+
+# Glances Container
         - type: picture-entity
           style: |
             ha-card {
               background: var(--paper-card-background-color);
-              border-radius: {{ states('input_select.border_radius') }};
-              --paper-item-icon-color: var(--paper-item-icon-color);
+              border-radius: {{ states('input_select.border_radius') }}; 
               box-shadow: {{ states('input_select.box_shadow') }};
               font-weight: bold;
               opacity: 0.8;
@@ -910,13 +904,13 @@
             service: switch.toggle
             service_data:
               entity_id: switch.chsunr01_docker_glances
-    # Netdata Container
+
+# Netdata Container
         - type: picture-entity
           style: |
             ha-card {
               background: var(--paper-card-background-color);
               border-radius: {{ states('input_select.border_radius') }};
-              --paper-item-icon-color: var(--paper-item-icon-color);
               box-shadow: {{ states('input_select.box_shadow') }};
               font-weight: bold;
               opacity: 0.8;
@@ -939,6 +933,7 @@
 - !include
   - '../../lovelace/templates/header_text.yaml'
   - content: '##### Disk Space'
+# ^^^ These lines can be removed for Dwains Theme
 
 - type: horizontal-stack
   cards:
@@ -949,10 +944,7 @@
         pagination:
           type: 'bullets'
           dynamicBullets: true
-#        scrollbar:
-#          hide: true
-#          draggable: true
-#          snapOnRelease: true
+
       cards:
 
         - type: vertical-stack
@@ -960,16 +952,21 @@
             - type: horizontal-stack
               cards: 
 
-## Disk 1 Used %
+# Disk 1 Used %
                 - type: custom:bar-card
                   style: |
+                    :host {
+                      --ha-card-background: var(--paper-card-background-color);
+                      --ha-card-border-radius: {{ states('input_select.border_radius') }};
+                      --ha-card-box-shadow: {{ states('input_select.box_shadow') }};
+                      --ha-card-font-weight: bold;
+                      --ha-card-opacity: 0.8;
+                    }
                     ha-card {
-                      background: var(--paper-card-background-color);
-                      border-radius: {{ states('input_select.border_radius') }};
-                      --paper-item-icon-color: var(--paper-item-icon-color);
-                      box-shadow: {{ states('input_select.box_shadow') }};
-                      font-weight: bold;
-                      opacity: 0.8;
+                      font-size: 10px;                 
+                    }
+                    bar-card-value {
+                      font-size: 8px;
                     }
                   entities: 
                     - sensor.glances_unraid_mnt_disk1_used_percent
@@ -988,24 +985,27 @@
                   title_position: 'inside'
                   icon_position: inside
                   direction: up
-                  title_style:
-                    font-size: 10px
                   columns: 1
                   height: 160px
                   width: 100px
                   align: center
                   tap_action: none
 
-            ## Disk 2 Used %
+# Disk 2 Used %
                 - type: custom:bar-card
                   style: |
+                    :host {
+                      --ha-card-background: var(--paper-card-background-color);
+                      --ha-card-border-radius: {{ states('input_select.border_radius') }};
+                      --ha-card-box-shadow: {{ states('input_select.box_shadow') }};
+                      --ha-card-font-weight: bold;
+                      --ha-card-opacity: 0.8;
+                    }
                     ha-card {
-                      background: var(--paper-card-background-color);
-                      border-radius: {{ states('input_select.border_radius') }};
-                      --paper-item-icon-color: var(--paper-item-icon-color);
-                      box-shadow: {{ states('input_select.box_shadow') }};
-                      font-weight: bold;
-                      opacity: 0.8;
+                      font-size: 10px;                 
+                    }
+                    bar-card-value {
+                      font-size: 8px;
                     }
                   entities: 
                     - sensor.glances_unraid_mnt_disk2_used_percent
@@ -1024,24 +1024,27 @@
                   title_position: 'inside'
                   icon_position: inside
                   direction: up
-                  title_style:
-                    font-size: 10px
                   columns: 1
                   height: 160px
                   width: 100px
                   align: center
                   tap_action: none
 
-            ## Disk 3 Used %
+# Disk 3 Used %
                 - type: custom:bar-card
                   style: |
+                    :host {
+                      --ha-card-background: var(--paper-card-background-color);
+                      --ha-card-border-radius: {{ states('input_select.border_radius') }};
+                      --ha-card-box-shadow: {{ states('input_select.box_shadow') }};
+                      --ha-card-font-weight: bold;
+                      --ha-card-opacity: 0.8;
+                    }
                     ha-card {
-                      background: var(--paper-card-background-color);
-                      border-radius: {{ states('input_select.border_radius') }};
-                      --paper-item-icon-color: var(--paper-item-icon-color);
-                      box-shadow: {{ states('input_select.box_shadow') }};
-                      font-weight: bold;
-                      opacity: 0.8;
+                      font-size: 10px;                 
+                    }
+                    bar-card-value {
+                      font-size: 8px;
                     }
                   entities: 
                     - sensor.glances_unraid_mnt_disk3_used_percent
@@ -1060,24 +1063,27 @@
                   title_position: 'inside'
                   icon_position: inside
                   direction: up
-                  title_style:
-                    font-size: 10px
                   columns: 1
                   height: 160px
                   width: 100px
                   align: center
                   tap_action: none
 
-            ## Disk 4 Used %
+# Disk 4 Used %
                 - type: custom:bar-card
                   style: |
+                    :host {
+                      --ha-card-background: var(--paper-card-background-color);
+                      --ha-card-border-radius: {{ states('input_select.border_radius') }};
+                      --ha-card-box-shadow: {{ states('input_select.box_shadow') }};
+                      --ha-card-font-weight: bold;
+                      --ha-card-opacity: 0.8;
+                    }
                     ha-card {
-                      background: var(--paper-card-background-color);
-                      border-radius: {{ states('input_select.border_radius') }};
-                      --paper-item-icon-color: var(--paper-item-icon-color);
-                      box-shadow: {{ states('input_select.box_shadow') }};
-                      font-weight: bold;
-                      opacity: 0.8;
+                      font-size: 10px;                 
+                    }
+                    bar-card-value {
+                      font-size: 8px;
                     }
                   entities: 
                     - sensor.glances_unraid_mnt_disk4_used_percent
@@ -1096,24 +1102,27 @@
                   title_position: 'inside'
                   icon_position: inside
                   direction: up
-                  title_style:
-                    font-size: 10px
                   columns: 1
                   height: 160px
                   width: 100px
                   align: center
                   tap_action: none
 
-            ## Disk 5 Used %
+# Disk 5 Used %
                 - type: custom:bar-card
                   style: |
+                    :host {
+                      --ha-card-background: var(--paper-card-background-color);
+                      --ha-card-border-radius: {{ states('input_select.border_radius') }};
+                      --ha-card-box-shadow: {{ states('input_select.box_shadow') }};
+                      --ha-card-font-weight: bold;
+                      --ha-card-opacity: 0.8;
+                    }
                     ha-card {
-                      background: var(--paper-card-background-color);
-                      border-radius: {{ states('input_select.border_radius') }};
-                      --paper-item-icon-color: var(--paper-item-icon-color);
-                      box-shadow: {{ states('input_select.box_shadow') }};
-                      font-weight: bold;
-                      opacity: 0.8;
+                      font-size: 10px;                 
+                    }
+                    bar-card-value {
+                      font-size: 8px;
                     }
                   entities: 
                     - sensor.glances_unraid_mnt_disk5_used_percent
@@ -1132,24 +1141,27 @@
                   title_position: 'inside'
                   icon_position: inside
                   direction: up
-                  title_style:
-                    font-size: 10px
                   columns: 1
                   height: 160px
                   width: 100px
                   align: center
                   tap_action: none
 
-            ## Disk 6 Used %
+# Disk 6 Used %
                 - type: custom:bar-card
                   style: |
+                    :host {
+                      --ha-card-background: var(--paper-card-background-color);
+                      --ha-card-border-radius: {{ states('input_select.border_radius') }};
+                      --ha-card-box-shadow: {{ states('input_select.box_shadow') }};
+                      --ha-card-font-weight: bold;
+                      --ha-card-opacity: 0.8;
+                    }
                     ha-card {
-                      background: var(--paper-card-background-color);
-                      border-radius: {{ states('input_select.border_radius') }};
-                      --paper-item-icon-color: var(--paper-item-icon-color);
-                      box-shadow: {{ states('input_select.box_shadow') }};
-                      font-weight: bold;
-                      opacity: 0.8;
+                      font-size: 10px;                 
+                    }
+                    bar-card-value {
+                      font-size: 8px;
                     }
                   entities: 
                     - sensor.glances_unraid_mnt_disk6_used_percent
@@ -1168,8 +1180,6 @@
                   title_position: 'inside'
                   icon_position: inside
                   direction: up
-                  title_style:
-                    font-size: 10px
                   columns: 1
                   height: 160px
                   width: 110px
@@ -1181,16 +1191,21 @@
             - type: horizontal-stack
               cards: 
 
-## Disk 1 Free
+# Disk 1 Free
                 - type: custom:bar-card
                   style: |
+                    :host {
+                      --ha-card-background: var(--paper-card-background-color);
+                      --ha-card-border-radius: {{ states('input_select.border_radius') }};
+                      --ha-card-box-shadow: {{ states('input_select.box_shadow') }};
+                      --ha-card-font-weight: bold;
+                      --ha-card-opacity: 0.8;
+                    }
                     ha-card {
-                      background: var(--paper-card-background-color);
-                      border-radius: {{ states('input_select.border_radius') }};
-                      --paper-item-icon-color: var(--paper-item-icon-color);
-                      box-shadow: {{ states('input_select.box_shadow') }};
-                      font-weight: bold;
-                      opacity: 0.8;
+                      font-size: 10px;                 
+                    }
+                    bar-card-value {
+                      font-size: 8px;
                     }
                   entities: 
                     - sensor.glances_unraid_mnt_disk1_free
@@ -1213,29 +1228,31 @@
                   title_position: 'inside'
                   icon_position: inside
                   direction: up
-                  title_style:
-                    font-size: 10px
-                  value_style:
-                    font-size: 10px
                   columns: 1
                   height: 160px
                   width: 100px
                   align: center
-            # Disk Size (6TB)
-                  max: 5460
-                  min: 0
                   tap_action: none
+                # Specify the size of the disk in GB 
+                  max: 5460 # 6 TB Disk
+                  min: 0
 
-            ## Disk 2 Free
+
+# Disk 2 Free
                 - type: custom:bar-card
                   style: |
+                    :host {
+                      --ha-card-background: var(--paper-card-background-color);
+                      --ha-card-border-radius: {{ states('input_select.border_radius') }};
+                      --ha-card-box-shadow: {{ states('input_select.box_shadow') }};
+                      --ha-card-font-weight: bold;
+                      --ha-card-opacity: 0.8;
+                    }
                     ha-card {
-                      background: var(--paper-card-background-color);
-                      border-radius: {{ states('input_select.border_radius') }};
-                      --paper-item-icon-color: var(--paper-item-icon-color);
-                      box-shadow: {{ states('input_select.box_shadow') }};
-                      font-weight: bold;
-                      opacity: 0.8;
+                      font-size: 10px;                 
+                    }
+                    bar-card-value {
+                      font-size: 8px;
                     }
                   entities: 
                     - sensor.glances_unraid_mnt_disk2_free
@@ -1258,29 +1275,30 @@
                   title_position: 'inside'
                   icon_position: inside
                   direction: up
-                  title_style:
-                    font-size: 10px
-                  value_style:
-                    font-size: 10px
                   columns: 1
                   height: 160px
                   width: 100px
                   align: center
-            # Disk Size (6TB)
-                  max: 5460
-                  min: 0
                   tap_action: none
+                # Specify the size of the disk in GB 
+                  max: 5460 # 6 TB Disk
+                  min: 0
 
-            ## Disk 3 Free
+# Disk 3 Free
                 - type: custom:bar-card
                   style: |
+                    :host {
+                      --ha-card-background: var(--paper-card-background-color);
+                      --ha-card-border-radius: {{ states('input_select.border_radius') }};
+                      --ha-card-box-shadow: {{ states('input_select.box_shadow') }};
+                      --ha-card-font-weight: bold;
+                      --ha-card-opacity: 0.8;
+                    }
                     ha-card {
-                      background: var(--paper-card-background-color);
-                      border-radius: {{ states('input_select.border_radius') }};
-                      --paper-item-icon-color: var(--paper-item-icon-color);
-                      box-shadow: {{ states('input_select.box_shadow') }};
-                      font-weight: bold;
-                      opacity: 0.8;
+                      font-size: 10px;                 
+                    }
+                    bar-card-value {
+                      font-size: 8px;
                     }
                   entities: 
                     - sensor.glances_unraid_mnt_disk3_free
@@ -1303,29 +1321,31 @@
                   title_position: 'inside'
                   icon_position: inside
                   direction: up
-                  title_style:
-                    font-size: 10px
-                  value_style:
-                    font-size: 10px
                   columns: 1
                   height: 160px
                   width: 100px
                   align: center
-            # Disk Size (6TB)
-                  max: 5460
-                  min: 0
                   tap_action: none
+                # Specify the size of the disk in GB 
+                  max: 5460 # 6 TB Disk
+                  min: 0
 
-            ## Disk 4 Free
+
+# Disk 4 Free
                 - type: custom:bar-card
                   style: |
+                    :host {
+                      --ha-card-background: var(--paper-card-background-color);
+                      --ha-card-border-radius: {{ states('input_select.border_radius') }};
+                      --ha-card-box-shadow: {{ states('input_select.box_shadow') }};
+                      --ha-card-font-weight: bold;
+                      --ha-card-opacity: 0.8;
+                    }
                     ha-card {
-                      background: var(--paper-card-background-color);
-                      border-radius: {{ states('input_select.border_radius') }};
-                      --paper-item-icon-color: var(--paper-item-icon-color);
-                      box-shadow: {{ states('input_select.box_shadow') }};
-                      font-weight: bold;
-                      opacity: 0.8;
+                      font-size: 10px;                 
+                    }
+                    bar-card-value {
+                      font-size: 8px;
                     }
                   entities: 
                     - sensor.glances_unraid_mnt_disk4_free
@@ -1348,29 +1368,30 @@
                   title_position: 'inside'
                   icon_position: inside
                   direction: up
-                  title_style:
-                    font-size: 10px
-                  value_style:
-                    font-size: 10px
                   columns: 1
                   height: 160px
                   width: 100px
                   align: center
-            # Disk Size (3TB)
-                  max: 2730
-                  min: 0
                   tap_action: none
+                # Specify the size of the disk in GB 
+                  max: 2730 # 3 TB Disk
+                  min: 0
 
-            ## Disk 5 Free
+# Disk 5 Free
                 - type: custom:bar-card
                   style: |
+                    :host {
+                      --ha-card-background: var(--paper-card-background-color);
+                      --ha-card-border-radius: {{ states('input_select.border_radius') }};
+                      --ha-card-box-shadow: {{ states('input_select.box_shadow') }};
+                      --ha-card-font-weight: bold;
+                      --ha-card-opacity: 0.8;
+                    }
                     ha-card {
-                      background: var(--paper-card-background-color);
-                      border-radius: {{ states('input_select.border_radius') }};
-                      --paper-item-icon-color: var(--paper-item-icon-color);
-                      box-shadow: {{ states('input_select.box_shadow') }};
-                      font-weight: bold;
-                      opacity: 0.8;
+                      font-size: 10px;                 
+                    }
+                    bar-card-value {
+                      font-size: 8px;
                     }
                   entities: 
                     - sensor.glances_unraid_mnt_disk5_free
@@ -1393,29 +1414,30 @@
                   title_position: 'inside'
                   icon_position: inside
                   direction: up
-                  title_style:
-                    font-size: 10px
-                  value_style:
-                    font-size: 10px
                   columns: 1
                   height: 160px
                   width: 100px
                   align: center
-            # Disk Size (6TB)
-                  max: 5460
-                  min: 0
                   tap_action: none
+                # Specify the size of the disk in GB 
+                  max: 5460 # 6 TB Disk
+                  min: 0
 
-            ## Disk 6 Free
+# Disk 6 Free
                 - type: custom:bar-card
                   style: |
+                    :host {
+                      --ha-card-background: var(--paper-card-background-color);
+                      --ha-card-border-radius: {{ states('input_select.border_radius') }};
+                      --ha-card-box-shadow: {{ states('input_select.box_shadow') }};
+                      --ha-card-font-weight: bold;
+                      --ha-card-opacity: 0.8;
+                    }
                     ha-card {
-                      background: var(--paper-card-background-color);
-                      border-radius: {{ states('input_select.border_radius') }};
-                      --paper-item-icon-color: var(--paper-item-icon-color);
-                      box-shadow: {{ states('input_select.box_shadow') }};
-                      font-weight: bold;
-                      opacity: 0.8;
+                      font-size: 10px;                 
+                    }
+                    bar-card-value {
+                      font-size: 8px;
                     }
                   entities: 
                     - sensor.glances_unraid_mnt_disk6_free
@@ -1438,17 +1460,11 @@
                   title_position: 'inside'
                   icon_position: inside
                   direction: up
-                  title_style:
-                    font-size: 10px
-                  value_style:
-                    font-size: 10px
                   columns: 1
                   height: 160px
                   width: 100px
                   align: center
-            # Disk Size (6TB)
-                  max: 5460
-                  min: 0
                   tap_action: none
-
-
+                # Specify the size of the disk in GB 
+                  max: 5460 # 6 TB Disk
+                  min: 0
