@@ -21,7 +21,10 @@ CNAME
 # Dwains Theme
 www/dwains-theme
 dwains-theme
-packages/dwains-theme
+packages/dwains-theme/plugins
+packages/dwains-theme/translations
+packages/dwains-theme/views
+packages/dwains-theme/configs/persons.yaml
 
 # Ignore Directories
 www/community
