@@ -1,0 +1,14 @@
+# https://dwainscheeren.github.io/lovelace-dwains-theme/configuration/house_information.html
+
+#house_information:
+favorites:
+  - entity: binary_sensor.front_door
+    icon_on: fas:door-open
+    icon_off: fas:door-closed
+  - entity: binary_sensor.patio_door
+    icon_on: fas:door-open
+    icon_off: fas:door-closed
+
+  # calendar:
+  #   - calendar.trash
+  #   - calendar.birthdays

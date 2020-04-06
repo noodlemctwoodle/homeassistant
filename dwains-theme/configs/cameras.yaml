@@ -1,0 +1,6 @@
+# https://dwainscheeren.github.io/lovelace-dwains-theme/configuration/cameras.html
+
+cameras:
+  - entity: camera.back_garden
+  - entity: camera.front_door
+  - entity: camera.office

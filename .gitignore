@@ -20,11 +20,12 @@ CNAME
 
 # Dwains Theme
 www/dwains-theme
-dwains-theme
-packages/dwains-theme/plugins
-packages/dwains-theme/translations
-packages/dwains-theme/views
-packages/dwains-theme/configs/persons.yaml
+packages/dwains-theme
+dwains-theme/plugins
+dwains-theme/translations
+dwains-theme/views
+dwains-theme/configs/persons.yaml
+dwains-theme/resources/main.yaml
 
 # Ignore Directories
 www/community
@@ -105,3 +106,5 @@ ssh
 unraid.pub
 hassio.code-workspace
 home-assistant_v2.7z
+*.7z
+configuration.old

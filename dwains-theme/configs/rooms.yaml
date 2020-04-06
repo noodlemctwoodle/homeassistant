@@ -1,0 +1,87 @@
+# https://dwainscheeren.github.io/lovelace-dwains-theme/configuration/rooms.html
+
+rooms:
+  - name: Kitchen
+    icon: mdi:pot
+    light: group.kitchen_lights
+    temperature: sensor.kitchen_temperature
+    motion: binary_sensor.kitchen_motion
+    window: binary_sensor.kitchen_window
+    media_player: media_player.kitchen_display
+    more_entities:
+      entities:
+        - entity: sensor.kitchen_nest_protect_co_status
+        - entity: sensor.kitchen_nest_protect_smoke_status
+
+  - name: Utility Room
+    icon: mdi:washing-machine
+    light: group.utility_lights
+    device: switch.utility_light_switch
+    door: binary_sensor.patio_door
+
+  - name: Living Room
+    icon: mdi:sofa
+    light: group.living_room_lights
+    device: group.living_room_switches
+    temperature: sensor.living_room_temperature
+    climate: climate.living_room
+    humidity: sensor.living_room_thermostat_humidity
+    motion: binary_sensor.living_room_motion
+    window: group.living_room_window_sensors
+    media_player: group.living_room_media
+
+
+  - name: Hall
+    icon: mdi:door
+    light: group.hall_lights
+    temperature: sensor.hall_temperature
+    motion: binary_sensor.hall_motion
+    door: binary_sensor.front_door
+
+
+  - name: Bathroom
+    icon: mdi:toilet
+    light: light.bathroom
+    door: binary_sensor.bathroom_door
+    window: binary_sensor.bathroom_window
+    motion: binary_sensor.bathroom_motion
+    temperature: sensor.bathroom_temperature
+
+  - name: Landing
+    icon: mdi:stairs
+    light: light.landing
+    motion: binary_sensor.landing_motion
+    temperature: sensor.landing_temperature
+    more_entities:
+      entities:
+        - entity: sensor.upstairs_nest_protect_landing_co_status
+        - entity: sensor.upstairs_nest_protect_landing_smoke_status
+
+  - name: Bedroom
+    icon: mdi:bed-double
+    light: group.bedroom_lights
+    device: group.bedroom_switches
+    temperature: sensor.bedroom_temperature
+    motion: binary_sensor.bedroom_motion
+    media_player: group.bedroom_media
+
+
+  - name: Office
+    icon: mdi:desktop-classic
+    light: group.office_lights
+    device: group.office_switches
+    temperature: sensor.office_temperature
+    motion: binary_sensor.office_motion
+    media_player: media_player.office_speaker
+
+  - name: Server Cabinet
+    icon: mdi:server
+    light: group.cabinet_lights
+    device: switch.home_server
+
+  - name: Craft Room
+    icon: mdi:format-color-fill
+    light: group.craft_room_lights
+    temperature: sensor.craft_room_temperature
+    motion: binary_sensor.craft_room_motion
+    media_player: media_player.craft_room_speaker
