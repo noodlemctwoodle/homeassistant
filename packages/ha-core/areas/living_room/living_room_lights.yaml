@@ -104,3 +104,11 @@ automation:
         transition: 10
 
 
+# Dwains Theme Group
+group:
+  living_room_lights:
+    name: Living Room Lights
+    entities:
+      - light.living_room_pendant_01
+      - light.living_room_lamp_01
+      - light.living_room_shadow

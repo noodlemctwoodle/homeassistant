@@ -59,3 +59,13 @@ automation:
       data:
         entity_id: light.craft_room_shadow
         transition: 10
+
+
+# Dwains Theme Group
+group:
+  craft_room_lights:
+    name: Craft Room Lights
+    entities:
+      - light.craft_room_spot_01
+      - light.craft_room_spot_02
+      - light.craft_room_shadow

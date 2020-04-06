@@ -5,3 +5,14 @@ api:
 
 sun:
 
+input_text:
+  card_containers:
+    initial: Containers
+  software_version:
+    initial: Version'
+  unraid_usb:
+    initial: USB Storage
+  devices_on:
+    initial: Devices On
+  plugs_on:
+    initial: Plugs On

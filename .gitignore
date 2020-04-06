@@ -18,6 +18,11 @@ glances
 custom_components
 CNAME
 
+# Dwains Theme
+www/dwains-theme
+dwains-theme
+packages/dwains-theme
+
 # Ignore Directories
 www/community
 www/upcoming-media-card

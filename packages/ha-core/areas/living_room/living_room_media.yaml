@@ -87,3 +87,12 @@ script:
           entity_id: media_player.living_room_shield_adb
           command: "am start -a android.intent.action.VIEW -d -n com.silicondust.view/.App"
 
+# Dwains Theme Group
+group:
+  living_room_media:
+    name: Living Room Media Players
+    entities:
+      - media_player.living_room_display
+      - media_player.living_room_tv
+      - media_player.denon_avrx2300w
+      - media_player.living_room_shield_adb

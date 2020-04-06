@@ -36,3 +36,12 @@ automation:
       data:
         entity_id: light.office
         transition: 10
+
+
+# Dwains Theme Group
+group:
+  office_lights:
+    name: Office Lights
+    entities:
+      - light.office_spot_01
+      - light.office_spot_02

@@ -1,0 +1,7 @@
+# Dwains Theme Group
+group:
+  cabinet_lights:
+    name: Cabinet Lights
+    entities:
+      - light.sever_cabinet_w
+      - light.sever_cabinet_rgb

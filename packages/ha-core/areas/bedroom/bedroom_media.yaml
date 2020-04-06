@@ -83,4 +83,12 @@ script:
           entity_id: media_player.bedroom_shield_adb
           command: "am start -a android.intent.action.VIEW -d -n com.silicondust.view/.App"
 
-          
+
+# Dwains Theme Group
+group:
+  bedroom_media:
+    name: Bedroom Media Players
+    entities:
+      - media_player.bedroom_speaker
+      - media_player.bedroom_tv
+      - media_player.bedroom_shield_adb

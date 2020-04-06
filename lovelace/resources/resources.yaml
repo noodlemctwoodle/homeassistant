@@ -112,6 +112,8 @@
   - url: /hacsfiles/lovelace-gui-sandbox/gui-sandbox.js
     type: module
 
+## Custom Cards
+
 # Bar Card
   - url: /hacsfiles/bar-card/bar-card.js
     type: module
