@@ -1,7 +1,7 @@
 # Contents
 
-* [UnRAID API](https://github.com/noodlemctwoodle/homeassistant/blob/master/packages/ha-core/areas/cabinet/devices/unraid/readme.md#unraid-api-configuration)
-* [UnRAID SNMP](https://github.com/noodlemctwoodle/homeassistant/blob/master/packages/ha-core/areas/cabinet/devices/unraid/readme.md#unraid-snmp-configuration)
+* [UnRAID API](https://github.com/noodlemctwoodle/homeassistant/tree/master/.github/wiki/guides/unraid#unraid-api-configuration)
+* [UnRAID SNMP](https://github.com/noodlemctwoodle/homeassistant/tree/master/.github/wiki/guides/unraid#unraid-snmp-configuration)
 
 <br />
 
@@ -28,16 +28,17 @@ input_text:
 
 ### Picture Elements Card
 
-This [image](https://github.com/noodlemctwoodle/homeassistant/tree/master/www/images/hardware) is used in the view
+Both HKI and Dwains require this [image](https://github.com/noodlemctwoodle/homeassistant/blob/master/www/images/lovelace-themes/hardware/unraid_logo.png)
  
-![unraid](https://github.com/noodlemctwoodle/homeassistant/blob/master/www/images/hardware/unraid_logo.png)
+![unraid](https://github.com/noodlemctwoodle/homeassistant/blob/master/www/images/lovelace-themes/hardware/unraid_logo.png
 
 
 ### Containers Swipe-Card
 
-These [images](https://github.com/noodlemctwoodle/homeassistant/tree/master/www/images/software/containers) can be used for the containers, please use bar.psd to create your own.
+ * HKI - These [images](https://github.com/noodlemctwoodle/homeassistant/tree/master/www/images/lovelace-themes/homekit-infused/containers) can be used for the containers, please use bar.psd to create your own.
+ * DWAINS -These [images](https://github.com/noodlemctwoodle/homeassistant/tree/master/www/images/lovelace-themes/dwains-theme/containers) can be used for the containers, please use bar.psd to create your own.
 
-![containers](https://github.com/noodlemctwoodle/homeassistant/blob/unraid-view-1.2-dev/www/images/github/views/container-badges.png)
+![containers](https://github.com/noodlemctwoodle/homeassistant/blob/master/.github/wiki/images/unraid-api/containers.png)
 
 ### Install Bar-Card
 Bar-Card is required to be installed from HACs and added to lovelace/views/resources.yaml
@@ -77,7 +78,7 @@ Requirements:
 
 Install the [UnRAID-API](https://github.com/ElectricBrainUK/UnraidAPI) on your UnRAID server, this can alo be installed from the UnRAID App Store.
 
-![unraid-api-container](https://github.com/noodlemctwoodle/homeassistant/blob/master/www/images/github/unraid-api/unraid-api.png)
+![unraid-api-container](https://github.com/noodlemctwoodle/homeassistant/blob/master/.github/wiki/images/unraid-api/unraid-api.png)
 
 When you get to the configuration screen for the container following keys need to be added to the default container configuration
 
@@ -88,24 +89,24 @@ When you get to the configuration screen for the container following keys need t
 
 As an example this is the value for key 7, you will need to replicate it for key 8 found in the table above. 
 
-![Container Key](https://github.com/noodlemctwoodle/homeassistant/blob/master/www/images/github/unraid-api/key-7.png)
+![Container Key](https://github.com/noodlemctwoodle/homeassistant/blob/master/.github/wiki/images/unraid-api/key-7.png)
 
 You will also need to configure your MQTT Broker, replacing the fields marked in Yellow.
 
-![Container MQTT](https://github.com/noodlemctwoodle/homeassistant/blob/master/www/images/github/unraid-api/container-configuration.png)
+![Container MQTT](https://github.com/noodlemctwoodle/homeassistant/blob/master/.github/wiki/images/unraid-api/container-configuration.png)
 
 ### Starting The Container
 When you start the container for the first time you must browse to the login screen of the UnRAID-API Web-UI and login with your UnRAID credentials. If this step is missed the API will not work. 
 
-![Web-UI](https://github.com/noodlemctwoodle/homeassistant/blob/master/www/images/github/unraid-api/web-ui.png)
+![Web-UI](https://github.com/noodlemctwoodle/homeassistant/blob/master/.github/wiki/images/unraid-api/web-ui.png)
 
 ### Check Home Assistant
 Once the UnRAID-API container is up and running check the mqtt integration, you should now have some UnRAID entities. If not please reboot your Home Assistant instance, once your Home Assistant instance has rebooted wait at least 3 minutes for entities to appear in the integration. 
 
-![mqtt-integration](https://github.com/noodlemctwoodle/homeassistant/blob/master/www/images/github/unraid-api/mqtt.png)
+![mqtt-integration](https://github.com/noodlemctwoodle/homeassistant/blob/master/.github/wiki/images/unraid-api/mqtt.png)
 
 ### Setting Up Sensors
-You need the following [Sensors](https://github.com/noodlemctwoodle/homeassistant/blob/master/configuration/sensors/monitoring/unraid/unraid.yaml) to be configured in Home Assistant for the view to to collect:
+You need the following [Sensors](https://github.com/noodlemctwoodle/homeassistant/blob/60178be33f0945e7d3ba9ca5afc58a201efae866/packages/ha-core/areas/cabinet/devices/unraid/unraid_monitoring.yaml#L12) to be configured in Home Assistant for the view to to collect:
 
  - arrayStatus
  - arrayProtection
@@ -130,17 +131,17 @@ You need the following [Sensors](https://github.com/noodlemctwoodle/homeassistan
 
 Install NerdPack GUI from the UnRAID community store
 
-![nerd-pack-gui](https://github.com/noodlemctwoodle/homeassistant/blob/master/www/images/github/unraid-snmp/nerdpack-gui.png)
+![nerd-pack-gui](https://github.com/noodlemctwoodle/homeassistant/blob/master/.github/wiki/images/unraid-snmp/nerdpack-gui.png)
 
 Next go to plugins and click on the NerdPack plugin icon, scroll down the list and enable 'perl-5.30.1-x86_64-1.txz'
 
-![nerd-pack-perl](https://github.com/noodlemctwoodle/homeassistant/blob/master/www/images/github/unraid-snmp/enable-perl.png)
+![nerd-pack-perl](https://github.com/noodlemctwoodle/homeassistant/blob/master/.github/wiki/images/unraid-snmp/enable-perl.png)
 
 ## Install the UnRAID SNMP Plugin
 
 Install 'SNMP' from the community store
 
-![plugin-install](https://github.com/noodlemctwoodle/homeassistant/blob/master/www/images/github/unraid-snmp/install-plugin.png)
+![plugin-install](https://github.com/noodlemctwoodle/homeassistant/blob/master/.github/wiki/images/unraid-snmp/install-plugin.png)
 
 ## Run a test query to confirm SNMP is working correctly
 
@@ -150,7 +151,7 @@ Make sure you run these queries to ensure the plugin is working correctly.
 
     snmpwalk -On -v 2c localhost -c public 'NET-SNMP-EXTEND-MIB::nsExtendOutLine."disktemp"'
 
-![test-query](https://github.com/noodlemctwoodle/homeassistant/blob/master/www/images/github/unraid-snmp/test-query.png)
+![test-query](https://github.com/noodlemctwoodle/homeassistant/blob/master/.github/wiki/images/unraid-snmp/test-query.png)
 
 Make a note of the OID 
 
@@ -160,7 +161,7 @@ Make a note of the disk serial numbers and match it to the disk number in UnRAID
 
     STRING: **ST6000VN0033-2EE110_ZAD4BDGE**
 
-![disk-sn](https://github.com/noodlemctwoodle/homeassistant/blob/master/www/images/github/unraid-snmp/disk-sn.png)
+![disk-sn](https://github.com/noodlemctwoodle/homeassistant/blob/master/.github/wiki/images/unraid-snmp/disk-sn.png)
 
 ## Create a SNMP sensor in your config
 
@@ -187,7 +188,7 @@ All the SNMP Mib values can be found on your UnRAID sever in:
 
 You need to 'cat' the '.txt' file and locate the sensors
 
-![mib-txt](https://github.com/noodlemctwoodle/homeassistant/blob/master/www/images/github/unraid-snmp/mib-file.png)
+![mib-txt](https://github.com/noodlemctwoodle/homeassistant/blob/master/.github/wiki/images/unraid-snmp/mib-file.png)
 
 You can then string together the 'snmpwalk' commad
 
@@ -195,7 +196,7 @@ You can then string together the 'snmpwalk' commad
 |---|---|---|
 |snmpwalk -v 2c -On -c public localhost | LM-SENSORS-MIB::|lmTempSensorsTable|
 
-![mib-query](https://github.com/noodlemctwoodle/homeassistant/blob/master/www/images/github/unraid-snmp/sensor-query.png)
+![mib-query](https://github.com/noodlemctwoodle/homeassistant/blob/master/.github/wiki/images/unraid-snmp/sensor-query.png)
 
     snmpwalk -v 2c -On -c public localhost LM-SENSORS-MIB::lmTempSensorsTable
 
@@ -230,7 +231,7 @@ In this example they all belong to Core 0
     value_template: '{{((value | float) / 1000) | round(2) }}'
 ```
 
-Some of the sensor I have created can be found in my config [here](https://github.com/noodlemctwoodle/homeassistant/blob/master/configuration/sensors/monitoring/unraid/unraid.yaml) from Line 36 onwards.
+Some of the sensor I have created can be found in my config [here](https://github.com/noodlemctwoodle/homeassistant/blob/60178be33f0945e7d3ba9ca5afc58a201efae866/packages/ha-core/areas/cabinet/devices/unraid/unraid_monitoring.yaml#L36).
 
 ## Some of the sensors discovered to far...
 

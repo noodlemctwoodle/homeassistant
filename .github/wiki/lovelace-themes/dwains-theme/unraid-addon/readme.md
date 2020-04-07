@@ -32,7 +32,7 @@ Version 0.1
  - Fixed Font Size Bar-Card Colour overlap issue
 
 
- Dwains-Theme UnRAID add-on can be found [here](https://github.com/noodlemctwoodle/homeassistant/blob/master/dwains-theme/addons/unraid_view/unraid_monitoring.yaml)
+ Dwains-Theme UnRAID add-on can be found [here](https://github.com/noodlemctwoodle/homeassistant/blob/master/dwains-theme/addons/unraid_addon/unraid_monitoring.yaml)
 
 
  ```yaml

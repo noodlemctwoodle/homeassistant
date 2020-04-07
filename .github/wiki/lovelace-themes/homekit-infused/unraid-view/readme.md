@@ -1,11 +1,11 @@
 # UnRAID Monitoring View for HKI
 #### Version 0.4
 
-![unraid-monitor](https://github.com/noodlemctwoodle/homeassistant/blob/master/www/images/github/views/unraid.png)
+![unraid-monitor](https://github.com/noodlemctwoodle/homeassistant/blob/master/.github/wiki/images/views/unraid.png)
 
 ### UnRAID Data Monitoring Feeds
 
-| [UnRAID-API](https://github.com/noodlemctwoodle/homeassistant/blob/master/packages/ha-core/areas/cabinet/devices/unraid/readme.md#unraid-api-configuration) | [UnRAID-SNMP](https://github.com/noodlemctwoodle/homeassistant/blob/master/packages/ha-core/areas/cabinet/devices/unraid/readme.md#unraid-snmp-configuration) | [UnRAID Glances Container](https://github.com/nicolargo/glances) |
+| [UnRAID-API](https://github.com/noodlemctwoodle/homeassistant/tree/master/.github/wiki/guides/unraid#unraid-api-configuration) | [UnRAID-SNMP](https://github.com/noodlemctwoodle/homeassistant/tree/master/.github/wiki/guides/unraid#unraid-snmp-configuration) | [UnRAID Glances Container](https://github.com/hassio-addons/addon-glances/blob/v0.7.1/README.md) |
 |-----------------------|-----------------|--------------------------------|
 | View arrayStatus      | HDD Array Temps | View total per disk used space |
 | View arrayProtection  | LAN Throughput  | View total per disk free space |
@@ -23,7 +23,7 @@ Version 0.2
  - Container Support
 
 Version 0.3
- - Added SNMP [config](https://github.com/noodlemctwoodle/homeassistant/blob/b2b1bed306b16d1366f25835d2840cea42f72352/packages/ha-core/areas/cabinet/devices/unraid/unraid_monitoring.yaml#L36)
+ - Added SNMP [config](https://github.com/noodlemctwoodle/homeassistant/blob/44ac457117f173fa1bf1e47ce832566b36ba5ddb/packages/ha-core/areas/cabinet/devices/unraid/unraid_monitoring.yaml#L34)
  - Moved temperature cards to swipe-card to reduce screen real estate
  - combined disk usage into swipe card
  - Added HDD temperatures to temperatures swipe-card
