@@ -9,7 +9,7 @@ input_text:
   card_containers:
     initial: Containers
   software_version:
-    initial: Version'
+    initial: Version
   unraid_usb:
     initial: USB Storage
   devices_on:

@@ -2,5 +2,5 @@
 
 cameras:
   - entity: camera.back_garden
-  - entity: camera.front_door
   - entity: camera.office
+  - entity: camera.front_door

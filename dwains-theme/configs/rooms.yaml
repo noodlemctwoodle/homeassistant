@@ -29,7 +29,10 @@ rooms:
     motion: binary_sensor.living_room_motion
     window: group.living_room_window_sensors
     media_player: group.living_room_media
-
+    addons:
+      - name: Media Control
+        icon: mdi:television-classic
+        path: 'dwains-theme/addons/media_players/media.yaml'
 
   - name: Hall
     icon: mdi:door
@@ -65,6 +68,12 @@ rooms:
     motion: binary_sensor.bedroom_motion
     media_player: group.bedroom_media
 
+  - name: Craft Room
+    icon: mdi:format-color-fill
+    light: group.craft_room_lights
+    temperature: sensor.craft_room_temperature
+    motion: binary_sensor.craft_room_motion
+    media_player: media_player.craft_room_speaker
 
   - name: Office
     icon: mdi:desktop-classic
@@ -78,10 +87,16 @@ rooms:
     icon: mdi:server
     light: group.cabinet_lights
     device: switch.home_server
+    addons:
+      - name: Unraid Monitoring
+        icon: mdi:server-network
+        path: 'dwains-theme/addons/unraid_view/unraid_monitoring_desktop.yaml'
 
-  - name: Craft Room
-    icon: mdi:format-color-fill
-    light: group.craft_room_lights
-    temperature: sensor.craft_room_temperature
-    motion: binary_sensor.craft_room_motion
-    media_player: media_player.craft_room_speaker
+  - name: Home Assistant Monitor
+    icon: mdi:home-assistant
+    addons:
+      - name: Home Assistant Monitoring
+        icon: mdi:desktop-classic
+        path: 'dwains-theme/addons/ha_view/ha_monitoring_desktop.yaml'
+
+

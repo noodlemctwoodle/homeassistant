@@ -75,6 +75,5 @@ group:
   hall_lights:
     name: Hall Lights
     entities:
-      - light.hall
       - light.hall_spot_01
       - light.hall_spot_02
