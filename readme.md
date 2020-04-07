@@ -9,16 +9,25 @@ Open source home automation that puts local control and privacy first. Powered b
 
 ## Addons for Dwains-Theme
 * Energy Monitoring View | (coming soon)
-* [Home Assistant View](https://github.com/noodlemctwoodle/homeassistant/tree/master/packages/hki_views/ha_monitor)
-* [Media Monitoring View](https://github.com/noodlemctwoodle/homeassistant/tree/master/packages/hki_views/media_monitor)
-* [UnRAID View](https://github.com/noodlemctwoodle/homeassistant/tree/master/packages/hki_views/unraid_monitor)
+* [Home Assistant View](https://github.com/noodlemctwoodle/homeassistant/tree/master/.github/wiki/lovelace-themes/dwains-theme/home-assistant-addon)
+* [Media Monitoring View](https://github.com/noodlemctwoodle/homeassistant/tree/master/.github/wiki/lovelace-themes/dwains-theme/media-addon)
+* [UnRAID View](https://github.com/noodlemctwoodle/homeassistant/tree/master/.github/wiki/lovelace-themes/dwains-theme/unraid-addon)
+
+### Dwain-Theme
+[Documentation](https://github.com/dwainscheeren/lovelace-dwains-theme)
+
+<br/>
 
 ## Views For Home Kit Infused 
 * Energy Monitoring View | (coming soon)
-* [Home Assistant View](https://github.com/noodlemctwoodle/homeassistant/tree/master/packages/hki_views/ha_monitor)
-* [Media Monitoring View](https://github.com/noodlemctwoodle/homeassistant/tree/master/packages/hki_views/media_monitor)
-* [UnRAID View](https://github.com/noodlemctwoodle/homeassistant/tree/master/packages/hki_views/unraid_monitor)
+* [Home Assistant View](https://github.com/noodlemctwoodle/homeassistant/tree/master/.github/wiki/lovelace-themes/homekit-infused/home-assistant-view)
+* [Media Monitoring View](https://github.com/noodlemctwoodle/homeassistant/tree/master/.github/wiki/lovelace-themes/homekit-infused/media-view)
+* [UnRAID View](https://github.com/noodlemctwoodle/homeassistant/tree/master/.github/wiki/lovelace-themes/homekit-infused/unraid-view)
 
+### HKI Documentation can be found here
+[Documentation](https://jimz011.github.io/homekit-infused/)
+
+<br/>
 
 ### Home Assistant Hardware Configuration
 - Intel NUC i3 Gen 7
@@ -35,8 +44,8 @@ The [Home Assistant Core](https://github.com/noodlemctwoodle/hassio/wiki/Install
 Further information and guides can be found on my [wiki](https://github.com/noodlemctwoodle/hassio/wiki)
 
 
-### HKI Documentation can be found here
-[Documentation](https://jimz011.github.io/homekit-infused/)
+
+
 
 
 ### Donations are always welcome
