@@ -371,7 +371,7 @@
                   item_classes: 'col-lg-3 col-md-3'
                   style: |
                     :host {
-                      --ha-card-background: varvar(--dwains-theme-primary);
+                      --ha-card-background: var(--dwains-theme-primary);
                       --ha-card-border-radius: 10px;
                       --ha-card-box-shadow: 10px;
                       --ha-card-font-weight: bold;
@@ -405,7 +405,7 @@
                   item_classes: 'col-lg-3 col-md-3'
                   style: |
                     :host {
-                      --ha-card-background: varvar(--dwains-theme-primary);
+                      --ha-card-background: var(--dwains-theme-primary);
                       --ha-card-border-radius: 10px;
                       --ha-card-box-shadow: 10px;
                       --ha-card-font-weight: bold;
@@ -442,7 +442,7 @@
                   item_classes: 'col-lg-3 col-md-3'
                   style: |
                     :host {
-                      --ha-card-background: varvar(--dwains-theme-primary);
+                      --ha-card-background: var(--dwains-theme-primary);
                       --ha-card-border-radius: 10px;
                       --ha-card-box-shadow: 10px;
                       --ha-card-font-weight: bold;
@@ -1227,7 +1227,6 @@
                         --ha-card-box-shadow: 10px;
                         --ha-card-font-weight: bold;
                         --ha-card-opacity: 0.8;
-                        padding-top: 25px;
                       }
                       ha-card {
                         font-size: 10px;                 
@@ -1268,7 +1267,6 @@
                         --ha-card-box-shadow: 10px;
                         --ha-card-font-weight: bold;
                         --ha-card-opacity: 0.8;
-                        padding-top: 25px;
                       }
                       ha-card {
                         font-size: 10px;                 
@@ -1309,10 +1307,9 @@
                         --ha-card-box-shadow: 10px;
                         --ha-card-font-weight: bold;
                         --ha-card-opacity: 0.8;
-                        padding-top: 25px;
                       }
                       ha-card {
-                        font-size: 10px;                 
+                        font-size: 10px;
                       }
                       bar-card-value {
                         font-size: 10px;
@@ -1340,3 +1337,85 @@
                     max: 932
                     min: 0
                     tap_action: none
+
+
+            - type: horizontal-stack
+              cards:
+                - type: custom:swipe-card
+                  parameters:
+                    spaceBetween: 8
+                    touchEventsTarget: 'container'
+                    pagination:
+                      type: 'bullets'
+                      dynamicBullets: true
+
+                  cards:
+                    - type: horizontal-stack
+                      cards:
+
+                  # Cache Monitor
+                        - type: custom:mini-graph-card
+                          item_classes: 'col-lg-6 col-md-6'
+                          style: |
+                            ha-card {
+                              background: var(--paper-card-background-color);
+                              border-radius: 10px;
+                              box-shadow: 10px;
+                              font-weight: bold;
+                              opacity: 0.8;
+                            }
+                          entities:
+                            - entity: sensor.glances_unraid_mnt_cache_used
+                              name: Cache
+                              color: '#f205b3' # Pink
+                          name: Cache Used Space
+                          icon: mdi:harddisk-plus
+                          hours_to_show: 168
+                          points_per_hour: 1
+                          update_interval: 120
+                          aggregate_func: avg
+                          line_width: 2
+                          height: 88
+                          smoothing: false
+                          font_size: 65
+                          font_size_header: 9
+                          show:
+                            graph: line
+                            average: true
+                            extrema: true
+                          tap_action: none
+
+                    - type: vertical-stack
+                      cards:
+
+                  # USB Monitor
+                        - type: custom:mini-graph-card
+                          item_classes: 'col-lg-6 col-md-6'
+                          style: |
+                            ha-card {
+                              background: var(--paper-card-background-color);
+                              border-radius: 10px;
+                              box-shadow: 10px;
+                              font-weight: bold;
+                              opacity: 0.8;
+                            }
+                          entities:
+                            - entity: sensor.glances_unraid_mnt_disks_backups_used
+                              name: Backups Disk
+                              color: '#0293fa' # Sky Blue
+                          name: Backups Used Spcace
+                          icon: mdi:upload-network
+                          hours_to_show: 168
+                          points_per_hour: 1
+                          update_interval: 120
+                          aggregate_func: avg
+                          line_width: 2
+                          height: 88
+                          smoothing: true
+                          font_size: 65
+                          font_size_header: 9
+                          show:
+                            graph: line
+                            average: true
+                            extrema: true
+                          tap_action: none

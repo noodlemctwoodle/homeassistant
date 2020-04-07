@@ -90,7 +90,7 @@ rooms:
     addons:
       - name: Unraid Monitoring
         icon: mdi:server-network
-        path: 'dwains-theme/addons/unraid_view/unraid_monitoring_desktop.yaml'
+        path: 'dwains-theme/addons/unraid_view/unraid_monitoring.yaml'
 
   - name: Home Assistant Monitor
     icon: mdi:home-assistant
