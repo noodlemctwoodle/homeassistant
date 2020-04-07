@@ -54,4 +54,4 @@ Further examples can be found in my configuration [here](https://github.com/nood
 
 ## SNMP
 
-More information can be found [here](https://github.com/noodlemctwoodle/homeassistant/tree/master/packages/ha-core/areas/cabinet/devices/unraid#linux-snmp-oids-for-cpumemory-and-disk-statistics)
+More information can be found [here](https://github.com/noodlemctwoodle/homeassistant/tree/master/.github/wiki/guides/unraid#some-of-the-sensors-discovered-to-far)
