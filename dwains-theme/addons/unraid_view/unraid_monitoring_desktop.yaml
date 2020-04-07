@@ -1,3 +1,9 @@
+# UnRAID Server Montitoring for Dwains-Theme
+## Version 0.1 by noodlemctwoodle
+
+# Please view the set up guide for this view on GitHub
+## https://github.com/noodlemctwoodle/homeassistant/tree/master/user_content
+
 - type: custom:dwains-flexbox-card
   padding: true
   items_classes: 'col-lg-6 col-md-6 col-sm-12 col-xs-12'
