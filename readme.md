@@ -7,7 +7,13 @@
 Open source home automation that puts local control and privacy first. Powered by a worldwide community of tinkerers and DIY enthusiasts. 
 
 
-## Contents
+## Addons for Dwains-Theme
+* Energy Monitoring View | (coming soon)
+* [Home Assistant View](https://github.com/noodlemctwoodle/homeassistant/tree/master/packages/hki_views/ha_monitor)
+* [Media Monitoring View](https://github.com/noodlemctwoodle/homeassistant/tree/master/packages/hki_views/media_monitor)
+* [UnRAID View](https://github.com/noodlemctwoodle/homeassistant/tree/master/packages/hki_views/unraid_monitor)
+
+## Views For Home Kit Infused 
 * Energy Monitoring View | (coming soon)
 * [Home Assistant View](https://github.com/noodlemctwoodle/homeassistant/tree/master/packages/hki_views/ha_monitor)
 * [Media Monitoring View](https://github.com/noodlemctwoodle/homeassistant/tree/master/packages/hki_views/media_monitor)
