@@ -21,3 +21,5 @@
  - Download Queue Size
  - Upcoming Media Swipe card
 
+## Version 0.2
+ - Fixed issue with Bar-Card 3.0.5

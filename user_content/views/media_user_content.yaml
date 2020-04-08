@@ -448,36 +448,50 @@
 # NZBGet Queue Size
           - type: custom:bar-card
             style: |
+              :host {
+                --ha-card-background: var(--paper-card-background-color);
+                --ha-card-border-radius: {{ states('input_select.border_radius') }};
+                --ha-card-box-shadow: {{ states('input_select.box_shadow') }};
+                --ha-card-font-weight: bold;
+                --ha-card-opacity: 0.8;
+              }
               ha-card {
                 font-size: 10px;                 
               }
               bar-card-value {
-                font-size: 10px;
+                font-size: 8px;
               }
             entities: 
-              - sensor.nzbget_queue_size
-            severity:
-            - value: 100000
-              color: '#3ed11d'
-            - value: 200000
-              color: '#bf9540'
-            - value: 400000
-              color: '#e69422'
-            - value: 500000
-              color: '#bf4040'
-            title: Download Queue Size
+              - entity: sensor.nzbget_queue_size
+                name: Download Queue Size
             show_icon: true
-            icon: mdi:harddisk
-            title_position: 'inside'
-            icon_position: inside
+            height: 40px
+            stack: horizontal
+            positions:
+              title: inside
+              value: inside
+              icon: inside
+            severity:
+              - color: '#fa0505'
+                from: 100000
+                to: 90000
+              - color: '#de4314'
+                from: 90000
+                to: 50000
+              - color: '#d1861d'
+                from: 50000
+                to: 1000
+              - color: '#d4c11c'
+                from: 1000
+                to: 500
+              - color: '#64c91c'
+                from: 500
+                to: 0
             direction: right
-            columns: 1
-            align: split
             tap_action: none
       # Disk Size (750GB)
-            max: 687
+            max: 100000
             min: 0
-
 
 - type: horizontal-stack
   cards:
