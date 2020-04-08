@@ -40,6 +40,12 @@ Version 0.4
  - Fixed Mini-Graph-Card line colours
  - Fixed Font Size Bar-Card Colour overlap issue
 
+Version 0.5
+ - Fixed issue with Bar-Card 3.0.5
+ - Merged features from Dwains-Theme UnRAID Addon
+    - Added disk usagew percentages for Cache, USB, Backups
+ - Added Graph card for Cache & Backup usage
+
 
  HKI UnRAID view can be found [here](https://github.com/noodlemctwoodle/homeassistant/blob/master/user_content/views/computers_user_content.yaml)
 
