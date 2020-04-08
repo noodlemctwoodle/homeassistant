@@ -17,7 +17,7 @@ Version 0.1
  - Glances container support
  - Glances Home Assistant Integration
  - Container Support
-    - Added swipe card for docker containers (Start/Stop Containers)
+    - Start/Stop Containers
  - UnRAID-API added
  - Added SNMP [config](https://github.com/noodlemctwoodle/homeassistant/blob/44ac457117f173fa1bf1e47ce832566b36ba5ddb/packages/ha-core/areas/cabinet/devices/unraid/unraid_monitoring.yaml#L34)
 
