@@ -45,6 +45,7 @@ Version 0.5
  - Merged features from Dwains-Theme UnRAID Addon
     - Added disk usagew percentages for Cache, USB, Backups
  - Added Graph card for Cache & Backup usage
+ - Added an additional [sensor](https://github.com/noodlemctwoodle/homeassistant/blob/91df874eefe97b9d5a7af42f193e986eba787b3d/packages/ha-core/areas/cabinet/devices/unraid/unraid_monitoring.yaml#L14) as a workaround for Bar-Card severity
 
 
  HKI UnRAID view can be found [here](https://github.com/noodlemctwoodle/homeassistant/blob/master/user_content/views/computers_user_content.yaml)
