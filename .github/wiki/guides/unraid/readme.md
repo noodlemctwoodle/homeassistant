@@ -40,8 +40,8 @@ Both HKI and Dwains require this [image](https://github.com/noodlemctwoodle/home
 
 ![containers](https://github.com/noodlemctwoodle/homeassistant/blob/master/.github/wiki/images/unraid-api/containers.png)
 
-### Install Bar-Card
-Bar-Card is required to be installed from HACs and added to lovelace/views/resources.yaml
+### Install Bar-Card > 3.0.5
+Bar-Card 3.0.5 and above is required to be installed from HACs and added to your resources file for either Dwains-Theme or Homekit-Infused
 
 ```yaml
 # Bar Card
