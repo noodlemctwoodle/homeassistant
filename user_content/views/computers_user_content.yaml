@@ -97,60 +97,46 @@
           --ha-card-font-weight: bold;
           --ha-card-opacity: 0.8;
         }
-        ha-card {
-          font-size: 10px;                 
+        bar-card-title {
+          margin-bottom: 0px;
+        }
+        bar-card-divider {
+          display: none;
         }
         bar-card-value {
-          font-size: 10px;
+          margin-right: auto;
+          margin-left: 20px;
+          margin-bottom: auto;
+          margin-top: 0px;
+        }
+        bar-card-title {
+          margin-bottom: 3px;
+          margin-top: 3px;
         }
       entities: 
-        - sensor.unraid_array_status
-      severity:
-      - value: Started
-        color: '#3ed11d'
-      - value: unknown
-        color: '#bf4040'
-      title: Array Status
+        - entity: sensor.unraid_array_status_numerical
+          name: Array Status
+          icon: mdi:code-array
+        - entity: sensor.unraid_array_protection_numerical
+          name: Array Protection
+          icon: mdi:harddisk-plus
       show_icon: true
-      icon: mdi:code-array
-      title_position: 'inside'
-      icon_position: inside
-      direction: right
-      columns: 1
-      align: split
-      tap_action: none
-
-# UnRAID Array Protection
-    - type: custom:bar-card
-      style: |
-        :host {
-          --ha-card-background: var(--paper-card-background-color);
-          --ha-card-border-radius: {{ states('input_select.border_radius') }};
-          --ha-card-box-shadow: {{ states('input_select.box_shadow') }};
-          --ha-card-font-weight: bold;
-          --ha-card-opacity: 0.8;
-        }
-        ha-card {
-          font-size: 10px;                 
-        }
-        bar-card-value {
-          font-size: 10px;
-        }
-      entities: 
-        - sensor.unraid_array_protection
+      positions:
+        title: inside
+        value: 'off'
+        icon: inside
       severity:
-      - value: 'Parity is valid.'
-        color: '#3ed11d'
-      - value: unknown
-        color: '#bf4040'
-      title: Parity Status
-      show_icon: true
-      icon: mdi:harddisk-plus
-      title_position: 'inside'
-      icon_position: inside
+        - color: Green
+          from: 0
+          to: 1
+        - color: Red
+          from: 1
+          to: 0
       direction: right
+      stack: horizontal
       columns: 1
-      align: split
+      max: 1
+      min: 0
       tap_action: none
 
 - type: vertical-stack
@@ -172,29 +158,42 @@
         bar-card-value {
           font-size: 10px;
         }
-      entities: 
-        - sensor.unraid_array_space
-      severity:
-      - value: '30'
-        color: '#3cff00'
-      - value: '40'
-        color: '#ccff00'
-      - value: '50'
-        color: '#d9d21c'
-      - value: '60'
-        color: '#f7da00'
-      - value: '70'
-        color: '#ffa408'
-      - value: '90'
-        color: '#ed0909'
-      title: Array Usage
-      show_icon: true
+      entity: sensor.unraid_array_space
       icon: mdi:database-settings
-      title_position: 'inside'
-      icon_position: inside
+      show_icon: true
+      positions:
+        title: inside
+        value: inside
+        icon: inside
+      severity:
+        - color: '#3cff00'
+          from: 0
+          to: 30
+        - color: '#ccff00'
+          from: 31
+          to: 40
+        - color: '#d9d21c'
+          from: 41
+          to: 50
+        - color: '#f7da00'
+          from: 51
+          to: 60
+        - color: '#edac09'
+          from: 61
+          to: 70
+        - color: '#ffa408'
+          from: 71
+          to: 80
+        - color: '#ff5e08'
+          from: 81
+          to: 90
+        - color: '#ed0909'
+          from: 91
+          to: 100
       direction: right
       columns: 1
-      align: split
+      max: 100
+      min: 0
       tap_action: none
 
 # System Temperatures Card
@@ -552,68 +551,46 @@
           font-size: 10px;
         }
       entities: 
-        - sensor.glances_unraid_etc_hostname_free
-      severity:
-      - value: 32
-        color: '#3ed11d'
-      - value: 20
-        color: '#bf9540'
-      - value: 10
-        color: '#e69422'
-      - value: 5
-        color: '#bf4040'
-      title: USB Boot Drive (Free)
+        - entity: sensor.glances_unraid_etc_resolv_conf_used_percent
+          name: USB Boot Drive Usage
+        - entity: sensor.glances_unraid_mnt_cache_used_percent
+          name: Backups SSD Usage
       show_icon: true
-      icon: mdi:harddisk-remove
-      title_position: 'inside'
-      icon_position: inside
+      height: 40px
+      stack: horizontal
+      positions:
+        title: inside
+        value: inside
+        icon: inside
+      severity:
+        - color: '#3cff00'
+          from: 0
+          to: 30
+        - color: '#ccff00'
+          from: 31
+          to: 40
+        - color: '#d9d21c'
+          from: 41
+          to: 50
+        - color: '#f7da00'
+          from: 51
+          to: 60
+        - color: '#edac09'
+          from: 61
+          to: 70
+        - color: '#ffa408'
+          from: 71
+          to: 80
+        - color: '#ff5e08'
+          from: 81
+          to: 90
+        - color: '#ed0909'
+          from: 91
+          to: 100
       direction: right
-      columns: 1
-      align: split
-# Disk Size (40GB)
-      max: 40
-      min: 0
+      stack: horizontal
       tap_action: none
 
-# Appdata Backup Storage
-    - type: custom:bar-card
-      style: |
-        :host {
-          --ha-card-background: var(--paper-card-background-color);
-          --ha-card-border-radius: {{ states('input_select.border_radius') }};
-          --ha-card-box-shadow: {{ states('input_select.box_shadow') }};
-          --ha-card-font-weight: bold;
-          --ha-card-opacity: 0.8;
-        }
-        ha-card {
-          font-size: 10px;                 
-        }
-        bar-card-value {
-          font-size: 10px;
-        }
-      entities: 
-        - sensor.glances_unraid_mnt_disks_backups_free
-      severity:
-      - value: 210
-        color: '#3ed11d'
-      - value: 150
-        color: '#bf9540'
-      - value: 100
-        color: '#e69422'
-      - value: 50
-        color: '#bf4040'
-      title: Backups SSD (Free)
-      show_icon: true
-      icon: mdi:harddisk
-      title_position: 'inside'
-      icon_position: inside
-      direction: right
-      columns: 1
-      align: split
-# Disk Size (240GB)
-      max: 233
-      min: 0
-      tap_action: none
 
 - type: vertical-stack
   cards:
@@ -635,28 +612,129 @@
           font-size: 10px;
         }
       entities: 
-        - sensor.glances_unraid_mnt_cache_free
-      severity:
-      - value: 900
-        color: '#3ed11d'
-      - value: 700
-        color: '#bf9540'
-      - value: 300
-        color: '#e69422'
-      - value: 100
-        color: '#bf4040'
-      title: SSD Cache (Free)
+        - entity: sensor.glances_unraid_mnt_cache_used_percent
+          name: SSD Cache Usage
       show_icon: true
-      icon: mdi:harddisk
-      title_position: 'inside'
-      icon_position: inside
+      height: 40px
+      stack: horizontal
+      positions:
+        title: inside
+        value: inside
+        icon: inside
+      severity:
+        - color: '#3cff00'
+          from: 0
+          to: 30
+        - color: '#ccff00'
+          from: 31
+          to: 40
+        - color: '#d9d21c'
+          from: 41
+          to: 50
+        - color: '#f7da00'
+          from: 51
+          to: 60
+        - color: '#edac09'
+          from: 61
+          to: 70
+        - color: '#ffa408'
+          from: 71
+          to: 80
+        - color: '#ff5e08'
+          from: 81
+          to: 90
+        - color: '#ed0909'
+          from: 91
+          to: 100
       direction: right
-      columns: 1
-      align: split
-# Disk Size (1TB)
-      max: 932
-      min: 0
+      stack: horizontal
       tap_action: none
+
+    - type: horizontal-stack
+      cards:
+        - type: custom:swipe-card
+          parameters:
+            spaceBetween: 8
+            touchEventsTarget: 'container'
+            pagination:
+              type: 'bullets'
+              dynamicBullets: true
+
+          cards:
+            - type: horizontal-stack
+              cards:
+
+          # Cache Disk Usage
+                - type: custom:mini-graph-card
+                  item_classes: 'col-lg-6 col-md-6'
+                  style: |
+                    ha-card {
+                      background: var(--paper-card-background-color);
+                      border-radius: 10px;
+                      box-shadow: 10px;
+                      font-weight: bold;
+                      opacity: 0.8;
+                    }
+                  entities:
+                    - entity: sensor.glances_unraid_mnt_cache_used
+                      name: Cache
+                      color: '#f205b3' # Pink
+                  name: Cache Used Space
+                  icon: mdi:harddisk-plus
+                  hours_to_show: 168
+                  points_per_hour: 1
+                  update_interval: 120
+                  aggregate_func: avg
+                  line_width: 2
+                  height: 120
+                  smoothing: false
+                  font_size: 65
+                  font_size_header: 9
+                  show:
+                    graph: line
+                    average: true
+                    extrema: true
+                  tap_action: none
+
+            - type: vertical-stack
+              cards:
+
+          # Backups Disk Usage
+                - type: custom:mini-graph-card
+                  item_classes: 'col-lg-6 col-md-6'
+                  style: |
+                    ha-card {
+                      background: var(--paper-card-background-color);
+                      border-radius: 10px;
+                      box-shadow: 10px;
+                      font-weight: bold;
+                      opacity: 0.8;
+                    }
+                  entities:
+                    - entity: sensor.glances_unraid_mnt_disks_backups_used
+                      name: Backups Disk
+                      color: '#0293fa' # Sky Blue
+                  name: Backups Used Spcace
+                  icon: mdi:upload-network
+                  hours_to_show: 168
+                  points_per_hour: 1
+                  update_interval: 120
+                  aggregate_func: avg
+                  line_width: 2
+                  height: 120
+                  smoothing: true
+                  font_size: 65
+                  font_size_header: 9
+                  show:
+                    graph: line
+                    average: true
+                    extrema: true
+                  tap_action: none
+
+
+
+
+
 
 # Containers
 - !include
@@ -686,7 +764,7 @@
               opacity: 0.8;
             }
           entity: switch.chsunr01_docker_binhex_plexpass
-          image: /local/images/software/containers/plex_bar.png
+          image: /local/images/lovelace-themes/homekit-infused/containers/plex_bar.png
           aspect_ratio: 4:9
           show_name: false
           show_state: false
@@ -709,7 +787,7 @@
               opacity: 0.8;
             }
           entity: switch.chsunr01_docker_sonarr
-          image: /local/images/software/containers/sonarr_bar.png
+          image: /local/images/lovelace-themes/homekit-infused/containers/sonarr_bar.png
           aspect_ratio: 4:9
           show_name: false
           show_state: false
@@ -732,7 +810,7 @@
               opacity: 0.8;
             }
           entity: switch.chsunr01_docker_radarr
-          image: /local/images/software/containers/radarr_bar.png
+          image: /local/images/lovelace-themes/homekit-infused/containers/radarr_bar.png
           aspect_ratio: 4:9
           show_name: false
           show_state: false
@@ -755,7 +833,7 @@
               opacity: 0.8;
             }
           entity: switch.chsunr01_docker_lidarr
-          image: /local/images/software/containers/lidarr_bar.png
+          image: /local/images/lovelace-themes/homekit-infused/containers/lidarr_bar.png
           aspect_ratio: 4:9
           show_name: false
           show_state: false
@@ -778,7 +856,7 @@
               opacity: 0.8;
             }
           entity: switch.chsunr01_docker_unraid_api
-          image: /local/images/software/containers/unraid-api_bar.png
+          image: /local/images/lovelace-themes/homekit-infused/containers/unraid-api_bar.png
           aspect_ratio: 4:9
           show_name: false
           show_state: false
@@ -801,7 +879,7 @@
               opacity: 0.8;
             }
           entity: switch.chsunr01_docker_nzbget
-          image: /local/images/software/containers/nzbget_bar.png
+          image: /local/images/lovelace-themes/homekit-infused/containers/nzbget_bar.png
           aspect_ratio: 4:9
           show_name: false
           show_state: false
@@ -824,7 +902,7 @@
               opacity: 0.8;
             }
           entity: switch.chsunr01_docker_binhex_nzbhydra2
-          image: /local/images/software/containers/nzbhydra_bar.png
+          image: /local/images/lovelace-themes/homekit-infused/containers/nzbhydra_bar.png
           aspect_ratio: 4:9
           show_name: false
           show_state: false
@@ -847,7 +925,7 @@
               opacity: 0.8;
             }
           entity: switch.chsunr01_docker_tautulli
-          image: /local/images/software/containers/tautulli_bar.png
+          image: /local/images/lovelace-themes/homekit-infused/containers/tautulli_bar.png
           aspect_ratio: 4:9
           show_name: false
           show_state: false
@@ -870,7 +948,7 @@
               opacity: 0.8;
             }
           entity: switch.chsunr01_docker_diskspeed
-          image: /local/images/software/containers/diskspeed_bar.png
+          image: /local/images/lovelace-themes/homekit-infused/containers/diskspeed_bar.png
           aspect_ratio: 4:9
           show_name: false
           show_state: false
@@ -893,7 +971,7 @@
               opacity: 0.8;
             }
           entity: switch.chsunr01_docker_glances
-          image: /local/images/software/containers/glances_bar.png
+          image: /local/images/lovelace-themes/homekit-infused/containers/glances_bar.png
           aspect_ratio: 4:9
           show_name: false
           show_state: false
@@ -916,7 +994,7 @@
               opacity: 0.8;
             }
           entity: switch.chsunr01_docker_netdata
-          image: /local/images/software/containers/netdata_bar.png
+          image: /local/images/lovelace-themes/homekit-infused/containers/netdata_bar.png
           aspect_ratio: 4:9
           show_name: false
           show_state: false
@@ -952,7 +1030,7 @@
             - type: horizontal-stack
               cards: 
 
-# Disk 1 Used %
+# Disk Useage %
                 - type: custom:bar-card
                   style: |
                     :host {
@@ -969,221 +1047,54 @@
                       font-size: 8px;
                     }
                   entities: 
-                    - sensor.glances_unraid_mnt_disk1_used_percent
-                  severity:
-                  - value: 20
-                    color: '#40bf40'
-                  - value: 50
-                    color: '#bf9540'
-                  - value: 80
-                    color: '#e69422'
-                  - value: 90
-                    color: '#bf4040'
-                  title: Disk 1 Used
+                    - entity: sensor.glances_unraid_mnt_disk1_used_percent
+                      name: Disk 1 Usage
+                    - entity: sensor.glances_unraid_mnt_disk2_used_percent
+                      name: Disk 2 Usage
+                    - entity: sensor.glances_unraid_mnt_disk3_used_percent
+                      name: Disk 3 Usage
+                    - entity: sensor.glances_unraid_mnt_disk4_used_percent
+                      name: Disk 4 Usage
+                    - entity: sensor.glances_unraid_mnt_disk5_used_percent
+                      name: Disk 5 Usage
+                    - entity: sensor.glances_unraid_mnt_disk6_used_percent
+                      name: Disk 6 Usage
                   show_icon: true
-                  icon: mdi:harddisk
-                  title_position: 'inside'
-                  icon_position: inside
+                  height: 200px
+                  stack: horizontal
+                  positions:
+                    title: inside
+                    value: inside
+                    icon: inside
+                  severity:
+                    - color: '#3cff00'
+                      from: 0
+                      to: 30
+                    - color: '#ccff00'
+                      from: 30
+                      to: 40
+                    - color: '#f1f505'
+                      from: 40
+                      to: 50
+                    - color: '#f7da00'
+                      from: 50
+                      to: 60
+                    - color: '#edac09'
+                      from: 60
+                      to: 70
+                    - color: '#ffa408'
+                      from: 70
+                      to: 80
+                    - color: '#ff5e08'
+                      from: 80
+                      to: 90
+                    - color: '#ed0909'
+                      from: 90
+                      to: 100
                   direction: up
                   columns: 1
-                  height: 160px
-                  width: 100px
-                  align: center
-                  tap_action: none
-
-# Disk 2 Used %
-                - type: custom:bar-card
-                  style: |
-                    :host {
-                      --ha-card-background: var(--paper-card-background-color);
-                      --ha-card-border-radius: {{ states('input_select.border_radius') }};
-                      --ha-card-box-shadow: {{ states('input_select.box_shadow') }};
-                      --ha-card-font-weight: bold;
-                      --ha-card-opacity: 0.8;
-                    }
-                    ha-card {
-                      font-size: 10px;                 
-                    }
-                    bar-card-value {
-                      font-size: 8px;
-                    }
-                  entities: 
-                    - sensor.glances_unraid_mnt_disk2_used_percent
-                  severity:
-                  - value: 20
-                    color: '#40bf40'
-                  - value: 50
-                    color: '#bf9540'
-                  - value: 80
-                    color: '#e69422'
-                  - value: 90
-                    color: '#bf4040'
-                  title: Disk 2 Used
-                  show_icon: true
-                  icon: mdi:harddisk
-                  title_position: 'inside'
-                  icon_position: inside
-                  direction: up
-                  columns: 1
-                  height: 160px
-                  width: 100px
-                  align: center
-                  tap_action: none
-
-# Disk 3 Used %
-                - type: custom:bar-card
-                  style: |
-                    :host {
-                      --ha-card-background: var(--paper-card-background-color);
-                      --ha-card-border-radius: {{ states('input_select.border_radius') }};
-                      --ha-card-box-shadow: {{ states('input_select.box_shadow') }};
-                      --ha-card-font-weight: bold;
-                      --ha-card-opacity: 0.8;
-                    }
-                    ha-card {
-                      font-size: 10px;                 
-                    }
-                    bar-card-value {
-                      font-size: 8px;
-                    }
-                  entities: 
-                    - sensor.glances_unraid_mnt_disk3_used_percent
-                  severity:
-                  - value: 20
-                    color: '#40bf40'
-                  - value: 50
-                    color: '#bf9540'
-                  - value: 80
-                    color: '#e69422'
-                  - value: 90
-                    color: '#bf4040'
-                  title: Disk 3 Used
-                  show_icon: true
-                  icon: mdi:harddisk
-                  title_position: 'inside'
-                  icon_position: inside
-                  direction: up
-                  columns: 1
-                  height: 160px
-                  width: 100px
-                  align: center
-                  tap_action: none
-
-# Disk 4 Used %
-                - type: custom:bar-card
-                  style: |
-                    :host {
-                      --ha-card-background: var(--paper-card-background-color);
-                      --ha-card-border-radius: {{ states('input_select.border_radius') }};
-                      --ha-card-box-shadow: {{ states('input_select.box_shadow') }};
-                      --ha-card-font-weight: bold;
-                      --ha-card-opacity: 0.8;
-                    }
-                    ha-card {
-                      font-size: 10px;                 
-                    }
-                    bar-card-value {
-                      font-size: 8px;
-                    }
-                  entities: 
-                    - sensor.glances_unraid_mnt_disk4_used_percent
-                  severity:
-                  - value: 20
-                    color: '#40bf40'
-                  - value: 50
-                    color: '#bf9540'
-                  - value: 80
-                    color: '#e69422'
-                  - value: 90
-                    color: '#bf4040'
-                  title: Disk 4 Used
-                  show_icon: true
-                  icon: mdi:harddisk
-                  title_position: 'inside'
-                  icon_position: inside
-                  direction: up
-                  columns: 1
-                  height: 160px
-                  width: 100px
-                  align: center
-                  tap_action: none
-
-# Disk 5 Used %
-                - type: custom:bar-card
-                  style: |
-                    :host {
-                      --ha-card-background: var(--paper-card-background-color);
-                      --ha-card-border-radius: {{ states('input_select.border_radius') }};
-                      --ha-card-box-shadow: {{ states('input_select.box_shadow') }};
-                      --ha-card-font-weight: bold;
-                      --ha-card-opacity: 0.8;
-                    }
-                    ha-card {
-                      font-size: 10px;                 
-                    }
-                    bar-card-value {
-                      font-size: 8px;
-                    }
-                  entities: 
-                    - sensor.glances_unraid_mnt_disk5_used_percent
-                  severity:
-                  - value: 20
-                    color: '#40bf40'
-                  - value: 50
-                    color: '#bf9540'
-                  - value: 80
-                    color: '#e69422'
-                  - value: 90
-                    color: '#bf4040'
-                  title: Disk 5 Used
-                  show_icon: true
-                  icon: mdi:harddisk
-                  title_position: 'inside'
-                  icon_position: inside
-                  direction: up
-                  columns: 1
-                  height: 160px
-                  width: 100px
-                  align: center
-                  tap_action: none
-
-# Disk 6 Used %
-                - type: custom:bar-card
-                  style: |
-                    :host {
-                      --ha-card-background: var(--paper-card-background-color);
-                      --ha-card-border-radius: {{ states('input_select.border_radius') }};
-                      --ha-card-box-shadow: {{ states('input_select.box_shadow') }};
-                      --ha-card-font-weight: bold;
-                      --ha-card-opacity: 0.8;
-                    }
-                    ha-card {
-                      font-size: 10px;                 
-                    }
-                    bar-card-value {
-                      font-size: 8px;
-                    }
-                  entities: 
-                    - sensor.glances_unraid_mnt_disk6_used_percent
-                  severity:
-                  - value: 20
-                    color: '#40bf40'
-                  - value: 50
-                    color: '#bf9540'
-                  - value: 80
-                    color: '#e69422'
-                  - value: 90
-                    color: '#bf4040'
-                  title: Disk 6 Used
-                  show_icon: true
-                  icon: mdi:harddisk
-                  title_position: 'inside'
-                  icon_position: inside
-                  direction: up
-                  columns: 1
-                  height: 160px
-                  width: 110px
-                  align: center
+                  max: 100
+                  min: 0
                   tap_action: none
 
         - type: vertical-stack
@@ -1191,7 +1102,7 @@
             - type: horizontal-stack
               cards: 
 
-# Disk 1 Free
+# Disk Space Free
                 - type: custom:bar-card
                   style: |
                     :host {
@@ -1208,263 +1119,52 @@
                       font-size: 8px;
                     }
                   entities: 
-                    - sensor.glances_unraid_mnt_disk1_free
-                  severity:
-                  - value: 700
-                    color: '#fa0505'
-                  - value: 800
-                    color: '#de4314'
-                  - value: 900
-                    color: '#d1861d'
-                  - value: 1000
-                    color: '#d4c11c'
-                  - value: 5000
-                    color: '#64c91c'
-                  - value: 3000
-                    color: '#b9d11d'
-                  title: Disk 1 Free
+                    - entity: sensor.glances_unraid_mnt_disk1_free
+                      name: Disk 1 Free
+                      min: 0
+                      max: 5460
+                    - entity: sensor.glances_unraid_mnt_disk2_free
+                      name: Disk 2 Free
+                      min: 0
+                      max: 5460
+                    - entity: sensor.glances_unraid_mnt_disk3_free
+                      name: Disk 3 Free
+                      min: 0
+                      max: 5460
+                    - entity: sensor.glances_unraid_mnt_disk4_free # 3 TB Disk max: 2730mb 
+                      name: Disk 4 Free
+                      min: 0
+                      max: 2730
+                    - entity: sensor.glances_unraid_mnt_disk5_free
+                      name: Disk 5 Free
+                      min: 0
+                      max: 5460
+                    - entity: sensor.glances_unraid_mnt_disk6_free
+                      name: Disk 6 Free
+                      min: 0
+                      max: 5460
                   show_icon: true
-                  icon: mdi:harddisk
-                  title_position: 'inside'
-                  icon_position: inside
-                  direction: up
-                  columns: 1
-                  height: 160px
-                  width: 100px
-                  align: center
-                  tap_action: none
-                # Specify the size of the disk in GB 
-                  max: 5460 # 6 TB Disk
-                  min: 0
-
-
-# Disk 2 Free
-                - type: custom:bar-card
-                  style: |
-                    :host {
-                      --ha-card-background: var(--paper-card-background-color);
-                      --ha-card-border-radius: {{ states('input_select.border_radius') }};
-                      --ha-card-box-shadow: {{ states('input_select.box_shadow') }};
-                      --ha-card-font-weight: bold;
-                      --ha-card-opacity: 0.8;
-                    }
-                    ha-card {
-                      font-size: 10px;                 
-                    }
-                    bar-card-value {
-                      font-size: 8px;
-                    }
-                  entities: 
-                    - sensor.glances_unraid_mnt_disk2_free
+                  height: 200px
+                  stack: horizontal
+                  positions:
+                    title: inside
+                    value: inside
+                    icon: inside
                   severity:
-                  - value: 700
-                    color: '#fa0505'
-                  - value: 800
-                    color: '#de4314'
-                  - value: 900
-                    color: '#d1861d'
-                  - value: 1000
-                    color: '#d4c11c'
-                  - value: 5000
-                    color: '#64c91c'
-                  - value: 3000
-                    color: '#b9d11d'
-                  title: Disk 2 Free
-                  show_icon: true
-                  icon: mdi:harddisk
-                  title_position: 'inside'
-                  icon_position: inside
+                    - color: '#fa0505'
+                      from: 0
+                      to: 700
+                    - color: '#de4314'
+                      from: 700
+                      to: 800
+                    - color: '#d1861d'
+                      from: 800
+                      to: 900
+                    - color: '#d4c11c'
+                      from: 900
+                      to: 1000
+                    - color: '#64c91c'
+                      from: 1001
+                      to: 5560
                   direction: up
-                  columns: 1
-                  height: 160px
-                  width: 100px
-                  align: center
                   tap_action: none
-                # Specify the size of the disk in GB 
-                  max: 5460 # 6 TB Disk
-                  min: 0
-
-# Disk 3 Free
-                - type: custom:bar-card
-                  style: |
-                    :host {
-                      --ha-card-background: var(--paper-card-background-color);
-                      --ha-card-border-radius: {{ states('input_select.border_radius') }};
-                      --ha-card-box-shadow: {{ states('input_select.box_shadow') }};
-                      --ha-card-font-weight: bold;
-                      --ha-card-opacity: 0.8;
-                    }
-                    ha-card {
-                      font-size: 10px;                 
-                    }
-                    bar-card-value {
-                      font-size: 8px;
-                    }
-                  entities: 
-                    - sensor.glances_unraid_mnt_disk3_free
-                  severity:
-                  - value: 700
-                    color: '#fa0505'
-                  - value: 800
-                    color: '#de4314'
-                  - value: 900
-                    color: '#d1861d'
-                  - value: 1000
-                    color: '#d4c11c'
-                  - value: 5000
-                    color: '#64c91c'
-                  - value: 3000
-                    color: '#b9d11d'
-                  title: Disk 3 Free
-                  show_icon: true
-                  icon: mdi:harddisk
-                  title_position: 'inside'
-                  icon_position: inside
-                  direction: up
-                  columns: 1
-                  height: 160px
-                  width: 100px
-                  align: center
-                  tap_action: none
-                # Specify the size of the disk in GB 
-                  max: 5460 # 6 TB Disk
-                  min: 0
-
-
-# Disk 4 Free
-                - type: custom:bar-card
-                  style: |
-                    :host {
-                      --ha-card-background: var(--paper-card-background-color);
-                      --ha-card-border-radius: {{ states('input_select.border_radius') }};
-                      --ha-card-box-shadow: {{ states('input_select.box_shadow') }};
-                      --ha-card-font-weight: bold;
-                      --ha-card-opacity: 0.8;
-                    }
-                    ha-card {
-                      font-size: 10px;                 
-                    }
-                    bar-card-value {
-                      font-size: 8px;
-                    }
-                  entities: 
-                    - sensor.glances_unraid_mnt_disk4_free
-                  severity:
-                  - value: 500
-                    color: '#fa0505'
-                  - value: 600
-                    color: '#de4314'
-                  - value: 800
-                    color: '#d1861d'
-                  - value: 900
-                    color: '#d4c11c'
-                  - value: 1000
-                    color: '#64c91c'
-                  - value: 2000
-                    color: '#b9d11d'
-                  title: Disk 4 Free
-                  show_icon: true
-                  icon: mdi:harddisk
-                  title_position: 'inside'
-                  icon_position: inside
-                  direction: up
-                  columns: 1
-                  height: 160px
-                  width: 100px
-                  align: center
-                  tap_action: none
-                # Specify the size of the disk in GB 
-                  max: 2730 # 3 TB Disk
-                  min: 0
-
-# Disk 5 Free
-                - type: custom:bar-card
-                  style: |
-                    :host {
-                      --ha-card-background: var(--paper-card-background-color);
-                      --ha-card-border-radius: {{ states('input_select.border_radius') }};
-                      --ha-card-box-shadow: {{ states('input_select.box_shadow') }};
-                      --ha-card-font-weight: bold;
-                      --ha-card-opacity: 0.8;
-                    }
-                    ha-card {
-                      font-size: 10px;                 
-                    }
-                    bar-card-value {
-                      font-size: 8px;
-                    }
-                  entities: 
-                    - sensor.glances_unraid_mnt_disk5_free
-                  severity:
-                  - value: 700
-                    color: '#fa0505'
-                  - value: 800
-                    color: '#de4314'
-                  - value: 900
-                    color: '#d1861d'
-                  - value: 1000
-                    color: '#d4c11c'
-                  - value: 5000
-                    color: '#64c91c'
-                  - value: 3000
-                    color: '#b9d11d'
-                  title: Disk 5 Free
-                  show_icon: true
-                  icon: mdi:harddisk
-                  title_position: 'inside'
-                  icon_position: inside
-                  direction: up
-                  columns: 1
-                  height: 160px
-                  width: 100px
-                  align: center
-                  tap_action: none
-                # Specify the size of the disk in GB 
-                  max: 5460 # 6 TB Disk
-                  min: 0
-
-# Disk 6 Free
-                - type: custom:bar-card
-                  style: |
-                    :host {
-                      --ha-card-background: var(--paper-card-background-color);
-                      --ha-card-border-radius: {{ states('input_select.border_radius') }};
-                      --ha-card-box-shadow: {{ states('input_select.box_shadow') }};
-                      --ha-card-font-weight: bold;
-                      --ha-card-opacity: 0.8;
-                    }
-                    ha-card {
-                      font-size: 10px;                 
-                    }
-                    bar-card-value {
-                      font-size: 8px;
-                    }
-                  entities: 
-                    - sensor.glances_unraid_mnt_disk6_free
-                  severity:
-                  - value: 700
-                    color: '#fa0505'
-                  - value: 800
-                    color: '#de4314'
-                  - value: 900
-                    color: '#d1861d'
-                  - value: 1000
-                    color: '#d4c11c'
-                  - value: 5000
-                    color: '#64c91c'
-                  - value: 3000
-                    color: '#b9d11d'
-                  title: Disk 6 Free
-                  show_icon: true
-                  icon: mdi:harddisk
-                  title_position: 'inside'
-                  icon_position: inside
-                  direction: up
-                  columns: 1
-                  height: 160px
-                  width: 100px
-                  align: center
-                  tap_action: none
-                # Specify the size of the disk in GB 
-                  max: 5460 # 6 TB Disk
-                  min: 0
