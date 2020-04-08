@@ -9,8 +9,9 @@ sensor:
     command: /usr/bin/curl --insecure "https://s3.amazonaws.com/dnld.lime-technology.com/next/unRAIDServer.plg" 2>&1 | grep Version |awk '{print $3}'
 
 
-  ## API sensors
+# API sensors
 
+## UnRaid Array Started Bar-Card  > 3.1.0 
   - platform: template
     sensors:
       unraid_array_status:
@@ -18,11 +19,32 @@ sensor:
         value_template: >
           {{state_attr("binary_sensor.chsunr01_server", "arrayStatus")}}
 
+      unraid_array_status_numerical:
+        friendly_name: UnRAID Array Status
+        value_template: >
+          {% if is_state("sensor.unraid_array_status", "Started") %}
+            1
+          {% else %}
+            0
+          {% endif %}
+
+## UnRaid Array Protection Bar-Card  > 3.1.0 
       unraid_array_protection:
         friendly_name: UnRAID Array Protection
         value_template: >
           {{state_attr("binary_sensor.chsunr01_server", "arrayProtection")}}
 
+      unraid_array_protection_numerical:
+        friendly_name: UnRAID Array Protection
+        value_template: >
+          {% if is_state("sensor.unraid_array_protection", "Parity is valid.") %}
+            1
+          {% else %}
+            0
+          {% endif %}
+
+
+## UnRaid Array Usage
       unraid_array_space:
         friendly_name: UnRAID Array Space
         value_template: >
@@ -31,7 +53,7 @@ sensor:
         unit_of_measurement: '%'
 
 
-  ## HDD SNMP Temperatures
+## HDD SNMP Temperatures
 
   - platform: snmp
     name: 'UnRAID PARITY Temperature'  
@@ -117,7 +139,7 @@ sensor:
       {{ value.split(':')[1].strip() }}
     unit_of_measurement: '°C'
 
-  ## SNMP LAN Upload
+## SNMP LAN Upload
 
   - platform: snmp
     name: 'UnRAID LAN0 Upload (VLAN10)'
@@ -174,7 +196,7 @@ sensor:
     value_template: >
       {{((value | float ) / 1000000 ) | round(2) }}
 
-  ## SNMP LAN Download
+## SNMP LAN Download
 
   - platform: snmp
     name: 'UnRAID LAN0 Download (VLAN10)'
@@ -234,8 +256,8 @@ sensor:
 
 switch:
 
-  ## WAKE ON LAN SWITCH - COMPONENT
-  # https://www.home-assistant.io/integrations/wake_on_lan/
+## WAKE ON LAN SWITCH - COMPONENT
+# https://www.home-assistant.io/integrations/wake_on_lan/
 
   - platform: wake_on_lan
     mac: !secret server_mac_address
@@ -246,8 +268,8 @@ switch:
       service: switch.turn_off
       entity_id: switch.server_off
 
-  # COMMAND LINE SWITCH - COMPONENT
-  # https://www.home-assistant.io/integrations/switch.command_line/
+# COMMAND LINE SWITCH - COMPONENT
+# https://www.home-assistant.io/integrations/switch.command_line/
 
   - platform: command_line
     switches:
