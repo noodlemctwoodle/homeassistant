@@ -2,7 +2,7 @@
 
 ![hassio-monitor](https://github.com/noodlemctwoodle/homeassistant/blob/master/.github/wiki/images/views/ha-core.png)
 
-## Version 0.1 - Initial release (work in progress)
+## Version 0.1 - Initial release
 
  - Reload, Snapshot, Restart, Reboot buttons added
  - System Temperatures added
@@ -11,6 +11,11 @@
  - Added Home Assistant Core Addon support start/stop
  - Moved internet to swipe-card
  - Fixed issue with bar-card border radius
+
+## Version 0.2
+
+ - Fixed Bar-Card 3.0.5
+    - Bar-Card 3.0.5 is now required for this view
 
 ### Home Assistant Core Addon Support
 

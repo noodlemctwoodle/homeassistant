@@ -1,5 +1,5 @@
 # Home Assistant Montitoring for HKI. 
-## Version 0.1 by noodlemctwoodle
+## Version 0.2 by noodlemctwoodle
 
 # Please view the set up guide for this view on GitHub
 ## https://github.com/noodlemctwoodle/homeassistant/tree/master/user_content
@@ -383,27 +383,35 @@
           font-size: 10px;                 
         }
         bar-card-value {
-          font-size: 10px;
+          font-size: 8px;
         }
       entities: 
-        - sensor.glances_homeassistant_etc_hostname_free
-      severity:
-      - value: 900
-        color: '#3ed11d'
-      - value: 700
-        color: '#bf9540'
-      - value: 300
-        color: '#e69422'
-      - value: 100
-        color: '#bf4040'
-      title: NVMe System (Free)
+        - entity: sensor.glances_homeassistant_etc_hostname_free
+          name: NVME System (Free)
       show_icon: true
-      icon: mdi:harddisk
-      title_position: 'inside'
-      icon_position: inside
+      height: 40px
+      stack: horizontal
+      positions:
+        title: inside
+        value: inside
+        icon: inside
+      severity:
+        - color: '#fa0505'
+          from: 0
+          to: 20
+        - color: '#de4314'
+          from: 20
+          to: 100
+        - color: '#d1861d'
+          from: 100
+          to: 150
+        - color: '#d4c11c'
+          from: 150
+          to: 200
+        - color: '#64c91c'
+          from: 200
+          to: 233
       direction: right
-      columns: 1
-      align: split
       tap_action: none
 # Disk Size (250GB)
       max: 233
@@ -423,31 +431,40 @@
           font-size: 10px;                 
         }
         bar-card-value {
-          font-size: 10px;
+          font-size: 8px;
         }
       entities: 
-        - sensor.glances_homeassistant_data_free
-      severity:
-      - value: 900
-        color: '#3ed11d'
-      - value: 700
-        color: '#bf9540'
-      - value: 300
-        color: '#e69422'
-      - value: 100
-        color: '#bf4040'
-      title: SSD Data (Free)
+        - entity: sensor.glances_homeassistant_data_free
+          name: SSD Data (Free)
       show_icon: true
-      icon: mdi:harddisk
-      title_position: 'inside'
-      icon_position: inside
+      height: 40px
+      stack: horizontal
+      positions:
+        title: inside
+        value: inside
+        icon: inside
+      severity:
+        - color: '#fa0505'
+          from: 0
+          to: 20
+        - color: '#de4314'
+          from: 20
+          to: 100
+        - color: '#d1861d'
+          from: 100
+          to: 200
+        - color: '#d4c11c'
+          from: 200
+          to: 400
+        - color: '#64c91c'
+          from: 400
+          to: 687
       direction: right
-      columns: 1
-      align: split
       tap_action: none
 # Disk Size (750GB)
       max: 687
       min: 0
+
 
 # Containers
 - !include
