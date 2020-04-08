@@ -113,7 +113,7 @@
                   opacity: 0.8;
                 }
               entity: switch.chsunr01_docker_binhex_plexpass
-              image: /local/images/themes/dwains-theme/containers/plex_dwains.png
+              image: /local/images/lovelace-themes/dwains-theme/containers/plex_dwains.png
               aspect_ratio: 4:9
               show_name: false
               show_state: false
@@ -136,7 +136,7 @@
                   opacity: 0.8;
                 }
               entity: switch.chsunr01_docker_sonarr
-              image: /local/images/themes/dwains-theme/containers/sonarr_dwains.png
+              image: /local/images/lovelace-themes/dwains-theme/containers/sonarr_dwains.png
               aspect_ratio: 4:9
               show_name: false
               show_state: false
@@ -159,7 +159,7 @@
                   opacity: 0.8;
                 }
               entity: switch.chsunr01_docker_radarr
-              image: /local/images/themes/dwains-theme/containers/radarr_dwains.png
+              image: /local/images/lovelace-themes/dwains-theme/containers/radarr_dwains.png
               aspect_ratio: 4:9
               show_name: false
               show_state: false
@@ -182,7 +182,7 @@
                   opacity: 0.8;
                 }
               entity: switch.chsunr01_docker_lidarr
-              image: /local/images/themes/dwains-theme/containers/lidarr_dwains.png
+              image: /local/images/lovelace-themes/dwains-theme/containers/lidarr_dwains.png
               aspect_ratio: 4:9
               show_name: false
               show_state: false
@@ -205,7 +205,7 @@
                   opacity: 0.8;
                 }
               entity: switch.chsunr01_docker_unraid_api
-              image: /local/images/themes/dwains-theme/containers/unraid-api_dwains.png
+              image: /local/images/lovelace-themes/dwains-theme/containers/unraid-api_dwains.png
               aspect_ratio: 4:9
               show_name: false
               show_state: false
@@ -228,7 +228,7 @@
                   opacity: 0.8;
                 }
               entity: switch.chsunr01_docker_nzbget
-              image: /local/images/themes/dwains-theme/containers/nzbget_dwains.png
+              image: /local/images/lovelace-themes/dwains-theme/containers/nzbget_dwains.png
               aspect_ratio: 4:9
               show_name: false
               show_state: false
@@ -251,7 +251,7 @@
                   opacity: 0.8;
                 }
               entity: switch.chsunr01_docker_binhex_nzbhydra2
-              image: /local/images/themes/dwains-theme/containers/nzbhydra_dwains.png
+              image: /local/images/lovelace-themes/dwains-theme/containers/nzbhydra_dwains.png
               aspect_ratio: 4:9
               show_name: false
               show_state: false
@@ -274,7 +274,7 @@
                   opacity: 0.8;
                 }
               entity: switch.chsunr01_docker_tautulli
-              image: /local/images/themes/dwains-theme/containers/tautulli_dwains.png
+              image: /local/images/lovelace-themes/dwains-theme/containers/tautulli_dwains.png
               aspect_ratio: 4:9
               show_name: false
               show_state: false
@@ -297,7 +297,7 @@
                   opacity: 0.8;
                 }
               entity: switch.chsunr01_docker_diskspeed
-              image: /local/images/themes/dwains-theme/containers/diskspeed_dwains.png
+              image: /local/images/lovelace-themes/dwains-theme/containers/diskspeed_dwains.png
               aspect_ratio: 4:9
               show_name: false
               show_state: false
@@ -320,7 +320,7 @@
                   opacity: 0.8;
                 }
               entity: switch.chsunr01_docker_glances
-              image: /local/images/themes/dwains-theme/containers/glances_dwains.png
+              image: /local/images/lovelace-themes/dwains-theme/containers/glances_dwains.png
               aspect_ratio: 4:9
               show_name: false
               show_state: false
@@ -343,7 +343,7 @@
                   opacity: 0.8;
                 }
               entity: switch.chsunr01_docker_netdata
-              image: /local/images/themes/dwains-theme/containers/netdata_dwains.png
+              image: /local/images/lovelace-themes/dwains-theme/containers/netdata_dwains.png
               aspect_ratio: 4:9
               show_name: false
               show_state: false
