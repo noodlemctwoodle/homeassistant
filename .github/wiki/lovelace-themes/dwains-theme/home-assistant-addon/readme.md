@@ -30,7 +30,7 @@
 
 Dwains-Theme Addon can be found [here](https://github.com/noodlemctwoodle/homeassistant/blob/master/dwains-theme/addons/more_page/ha_view/ha_monitoring.yaml)
      
-Configuration instructions can be found [here](https://github.com/noodlemctwoodle/homeassistant/tree/master/.github/wiki/guides/ha-core)
+Configuration instructions can be found [here](https://github.com/noodlemctwoodle/homeassistant/blob/master/.github/wiki/guides/ha-core/HomeAssistant_Monitoting.md)
 
 ```yaml
     addons:

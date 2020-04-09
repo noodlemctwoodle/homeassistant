@@ -1,6 +1,6 @@
 # Home Assistant Core - Configuration for Homekit-Infused and Dwains-Theme
 
-## Contenets
+## Contents
 
  * [Requirements](https://github.com/noodlemctwoodle/homeassistant/blob/master/.github/wiki/guides/ha-core/HomeAssistant_Monitoting.md#requirements)
  * [Setting Up Glances addon and Integration](https://github.com/noodlemctwoodle/homeassistant/blob/master/.github/wiki/guides/ha-core/HomeAssistant_Monitoting.md#setting-up-glances-addon-and-integration)
