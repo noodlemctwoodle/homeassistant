@@ -1,5 +1,16 @@
 # Home Assistant Core - Configuration for Homekit-Infused and Dwains-Theme
 
+## Requirements
+
+ - Glances Home Assistant Addon
+    - Glances Home Assistant Integration
+
+![Glances-Configuration]()
+
+![Glances-Integration]()
+
+ - Home Assistant [image](https://github.com/noodlemctwoodle/homeassistant/blob/master/www/images/lovelace-themes/dwains-theme/software/home_assistant_logo.png)
+
 
 ### Home Assistant Update Sensor
 

@@ -20,6 +20,10 @@
     - Supervisor update notifications
     - Add-on update notifications
 
+## Version 0.2 - Code Cleanup
+
+ - Removed CSS heights and fixed them with Graph `height:`
+ - Added more documentation for card
  
 
 ### Home Assistant Core Addon Support
