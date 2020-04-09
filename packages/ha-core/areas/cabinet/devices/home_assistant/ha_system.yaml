@@ -6,15 +6,6 @@ sensor:
 
   - platform: yr
 
-# RESTful Sensor
-## https://www.home-assistant.io/integrations/rest/
-
-# HASSIO Version
-  - platform: rest
-    resource: https://s3.amazonaws.com/hassio-version/stable.json
-    name: Latest HA Version
-    value_template: "{{ value_json.homeassistant.default }}"
-    scan_interval: 3600
 
 ## SYSTEM DETAILS
 # Version Sensor
@@ -33,23 +24,3 @@ sensor:
       - time_date
       - time_utc
       - beat
-
-# MariaDB Size Sensor
-  - platform: sql
-    db_url: !secret db_url
-    queries:
-      - name: 'Home Assistant DB size'
-        query: 'SELECT table_schema "database", Round(Sum(data_length + index_length) / 1048576, 2) "value" FROM information_schema.tables WHERE table_schema="homeassistant_db" GROUP BY table_schema;'
-        column: 'value'
-        unit_of_measurement: MB
-
-
-input_boolean:
-## INPUT BOOLEAN
-# https://www.home-assistant.io/integrations/input_boolean/
-
-# Home Assistant Update Available
-  ha_update_available:
-    name: HA Update Avaiable
-    initial: false
-    icon: mdi:cloud-download

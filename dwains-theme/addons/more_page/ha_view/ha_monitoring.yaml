@@ -713,7 +713,7 @@
                         hours_to_show: 24
                         points_per_hour: 10
                         update_interval: 30
-                        height: 66
+                        height: 125
                         aggregate_func: max
                         line_width: 2
                         smoothing: false
@@ -748,7 +748,7 @@
                         hours_to_show: 24
                         points_per_hour: 10
                         update_interval: 30
-                        height: 66
+                        height: 125
                         aggregate_func: max
                         line_width: 2
                         smoothing: false
@@ -787,7 +787,7 @@
                           hours_to_show: 24
                           points_per_hour: 10
                           update_interval: 30
-                          height: 66
+                          height: 125
                           aggregate_func: max
                           line_width: 2
                           smoothing: false
@@ -821,7 +821,7 @@
                           hours_to_show: 24
                           points_per_hour: 10
                           update_interval: 30
-                          height: 66
+                          height: 125
                           aggregate_func: max
                           line_width: 2
                           smoothing: false
@@ -841,36 +841,97 @@
 
         - type: vertical-stack
           cards:
-            - type: horizontal-stack
-              cards: 
 
-                - type: entities
-                  items_classes: 'col-sm-12 col-xs-12'
-                  style: |
-                    ha-card {
-                      background: var(--paper-card-background-color);
-                      border-radius: 10px;
-                      box-shadow: 10px;
-                      font-weight: bold;
-                      opacity: 0.8;
-                    }
-                  show_header_toggle: false
-                  entities:
-                    - type: call-service
-                      name: Cameras
-                      icon: mdi:google-assistant
-                      service: cast.show_lovelace_view
-                      action_name: Cast to Display
-                      service_data:
-                        entity_id: media_player.living_room_display
-                        dashboard_path: 'dwains-theme'
-                        view_path: 'dynamic_page'
-                    - entity: sensor.count_device_trackers
-                      name: Unifi Connected Devices
-                      icon: mdi:wifi
-                      hide_if_unavailable: true
-                    - type: divider
-                    - type: weblink
-                      name: Donations
-                      url: https://www.buymeacoffee.com/noodlemctwoodle
-                      icon: mdi:coffee-outline
+            - type: horizontal-stack
+              cards:
+    # Internet Usage and Statistics 
+                - type: custom:swipe-card
+                  parameters:
+                    spaceBetween: 8
+                    touchEventsTarget: 'container'
+                    pagination:
+                      type: 'bullets'
+                      dynamicBullets: true
+
+                  cards:
+
+                    - type: vertical-stack
+                      cards:
+                        - type: horizontal-stack
+                          cards: 
+
+                            - type: entities
+                              items_classes: 'col-sm-12 col-xs-12'
+                              style: |
+                                ha-card {
+                                  background: var(--paper-card-background-color);
+                                  border-radius: 10px;
+                                  box-shadow: 10px;
+                                  font-weight: bold;
+                                  opacity: 0.8;
+                                }
+                              show_header_toggle: false
+                              entities:
+                                - type: call-service
+                                  name: Cast Camera
+                                  icon: mdi:google-assistant
+                                  service: cast.show_lovelace_view
+                                  action_name: Cast to Display
+                                  service_data:
+                                    entity_id: media_player.living_room_display
+                                    dashboard_path: 'lovelace'
+                                    view_path: 'default_view'
+                                - entity: sensor.count_device_trackers
+                                  name: Unifi Connected Devices
+                                  icon: mdi:wifi
+                                  hide_if_unavailable: true
+#                                - type: divider
+                                - entity: automation.check_config_for_update
+                                - type: weblink
+                                  name: Donations
+                                  url: https://www.buymeacoffee.com/noodlemctwoodle
+                                  icon: mdi:coffee-outline
+
+                    - type: vertical-stack
+                      cards:
+                        - type: horizontal-stack
+                          cards: 
+
+                            - type: entities
+                              items_classes: 'col-sm-12 col-xs-12'
+                              style: |
+                                ha-card {
+                                  background: var(--paper-card-background-color);
+                                  border-radius: 10px;
+                                  box-shadow: 10px;
+                                  font-weight: bold;
+                                  opacity: 0.8;
+                                }
+                              show_header_toggle: false
+                              entities:
+                              - sensor.supervisor_updates
+                              - binary_sensor.updater_addons
+                              - binary_sensor.updater_hacs
+                              - binary_sensor.updater_supervisor
+
+                    - type: vertical-stack
+                      cards:
+                        - type: horizontal-stack
+                          cards: 
+
+                            - type: entities
+                              items_classes: 'col-sm-12 col-xs-12'
+                              style: |
+                                ha-card {
+                                  background: var(--paper-card-background-color);
+                                  border-radius: 10px;
+                                  box-shadow: 10px;
+                                  font-weight: bold;
+                                  opacity: 0.8;
+                                }
+                              show_header_toggle: false
+                              entities:
+                              - alert.addon_update_available
+                              - alert.ha_update_available
+                              - alert.hacs_update_available
+                              - alert.supervisor_update_available
