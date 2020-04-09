@@ -10,7 +10,7 @@ Open source home automation that puts local control and privacy first. Powered b
 ## Addons for Dwains-Theme
 * Energy Monitoring View | (coming soon)
 * [Home Assistant View](https://github.com/noodlemctwoodle/homeassistant/tree/master/.github/wiki/lovelace-themes/dwains-theme/home-assistant-addon)
-* [Media Monitoring View](https://github.com/noodlemctwoodle/homeassistant/tree/master/.github/wiki/lovelace-themes/dwains-theme/media-addon)
+* [Media Monitoring View](https://github.com/noodlemctwoodle/homeassistant/tree/master/.github/wiki/lovelace-themes/dwains-theme/home-assistant-addon)
 * [UnRAID View](https://github.com/noodlemctwoodle/homeassistant/tree/master/.github/wiki/lovelace-themes/dwains-theme/unraid-addon)
 
 ### Dwain-Theme
