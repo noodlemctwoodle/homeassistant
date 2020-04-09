@@ -1,15 +1,31 @@
 # Home Assistant Core - Configuration for Homekit-Infused and Dwains-Theme
 
+## Contenets
+
+ * [Requirements](https://github.com/noodlemctwoodle/homeassistant/blob/master/.github/wiki/guides/ha-core/HomeAssistant_Monitoting.md#requirements)
+ * [Setting Up Glances addon and Integration](https://github.com/noodlemctwoodle/homeassistant/blob/master/.github/wiki/guides/ha-core/HomeAssistant_Monitoting.md#setting-up-glances-addon-and-integration)
+ * [Home Assistant Update Sensor](https://github.com/noodlemctwoodle/homeassistant/blob/master/.github/wiki/guides/ha-core/HomeAssistant_Monitoting.md#update-notifications-core-hacs-supervisor-and-addons)
+ * [Update notifications! Core, HACS, Supervisor and Addons](https://github.com/noodlemctwoodle/homeassistant/blob/master/.github/wiki/guides/ha-core/HomeAssistant_Monitoting.md#update-notifications-core-hacs-supervisor-and-addons)
+ * [Home Assistant Core Addon Support](https://github.com/noodlemctwoodle/homeassistant/blob/master/.github/wiki/guides/ha-core/HomeAssistant_Monitoting.md#home-assistant-core-addon-suppport)
+ * [SNMP](https://github.com/noodlemctwoodle/homeassistant/blob/master/.github/wiki/guides/ha-core/HomeAssistant_Monitoting.md#snmp)
+
+
 ## Requirements
 
- - Glances Home Assistant Addon
-    - Glances Home Assistant Integration
-
-![Glances-Configuration]()
-
-![Glances-Integration]()
-
  - Home Assistant [image](https://github.com/noodlemctwoodle/homeassistant/blob/master/www/images/lovelace-themes/dwains-theme/software/home_assistant_logo.png)
+
+### Setting Up Glances Addon and Integration
+
+
+Install the [Glances](https://github.com/hassio-addons/addon-glances#adding-glances-as-a-sensor-into-home-assistant) Home Assistant Addon from `Supervisor > Add-on Store`
+
+  ![Glances-Configuration](https://github.com/noodlemctwoodle/homeassistant/blob/master/.github/wiki/images/ha-core/glances_config_1.png)
+
+Once Glances is configured and running setup the Home Assistant Integration
+
+  ![Glances-Integration](https://github.com/noodlemctwoodle/homeassistant/blob/master/.github/wiki/images/ha-core/glances_config.png)
+
+Note: The port of 61209 is important as this is what is used by the addon.
 
 
 ### Home Assistant Update Sensor
@@ -24,7 +40,7 @@ sensor:
     value_template: "{{ value_json.homeassistant.default }}"
     scan_interval: 3600
 ```
-This sensor will check once an hour for new version. Adjust ‘scan_interval’ to change this timeframe. The interval is in seconds. (3600 seconds = 60 minutes = 1 hour)
+This sensor will check once an hour for new version. Adjust ‘scan_interval’ to change this time frame. The interval is in seconds. (3600 seconds = 60 minutes = 1 hour)
 
 You need to change "{{ value_json.info.default }}" to match your build type. The json output showing all the options is below.
 
@@ -69,7 +85,6 @@ Thanks to [CentralCommand](https://community.home-assistant.io/t/update-notifica
 
 To start we need sensors that tell us when updates are available. For Core and HACS we’re good to go since those come standard with binary_sensor.updater for Core and sensor.hacs for HACS. However there is no sensor for Supervisor and its addons so we need to make one.
 
-Took me a bit to figure out but you can call into the Supervisor’s API from a commandline sensor, doing that gave me everything I needed. Here’s the config I used for that sensor:
 
 ```YAML
 sensor:
@@ -193,7 +208,7 @@ alert:
       ttl: 21600
 ```
 
-## Home Assistant Core Addon Suppport
+## Home Assistant Core Addon Support
 
 'a0d7b954_adguard' is the add-on name hassio uses. To retrieve the name for your add-on, go to the supervisor panel, and then click on your addon. Once on the add-on page, look at the URL for that page in your browser. The name is at the end of the URL. For example this adguard add-on URL ends in '/hassio/addon/a0d7b954_adguard'
 
@@ -224,7 +239,7 @@ The rest sensor pulls the state of the add-on (if its running or not) and then a
 
 Further examples can be found in my configuration [here](https://github.com/noodlemctwoodle/homeassistant/blob/515880839aec18d3081431d9cf037985da848645/packages/ha-core/areas/cabinet/devices/home_assistant/ha_monitor.yaml#L4)
 
-The rest sensor may throw errors on startup if Homeassistant can’t pull the data on startup. I just ignore these as the sensor will continue to try to update and usually does on the second try.
+The rest sensor may throw errors on startup if Home Assistant can’t pull the data on startup. I just ignore these as the sensor will continue to try to update and usually does on the second try.
 
 ### Switch Template
 
