@@ -182,20 +182,6 @@ alert:
       ttl: 21600
 ```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## Home Assistant Core Addon Suppport
 
 'a0d7b954_adguard' is the add-on name hassio uses. To retrieve the name for your add-on, go to the supervisor panel, and then click on your addon. Once on the add-on page, look at the URL for that page in your browser. The name is at the end of the URL. For example this adguard add-on URL ends in '/hassio/addon/a0d7b954_adguard'
@@ -279,8 +265,6 @@ This automation to delay some automation and get a notification when Home Assist
         title: "New Home Assistant Version"
         message: "Version {{ states.sensor.latest_version.state }} is available!"
 ```
-
-
 
 ## SNMP
 

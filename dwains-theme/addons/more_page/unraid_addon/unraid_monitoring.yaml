@@ -786,7 +786,6 @@
                             from: 91
                             to: 100
                         direction: right
-                        stack: horizontal
                         tap_action: none
 
 
