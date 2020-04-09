@@ -1,5 +1,5 @@
 # Home Assistant Monitoring Addon for Dwains-Theme
-#### Version 0.1
+#### Version 0.2
 
 ![ha-monitor](https://github.com/noodlemctwoodle/homeassistant/blob/master/.github/wiki/images/dwains-theme/addons/ha-monitor/desktop_1.png)
 
