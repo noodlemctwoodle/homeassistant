@@ -245,7 +245,7 @@ The rest sensor pulls the state of the add-on (if its running or not) and then a
       - last_version
 ```
 
-Further examples can be found in my configuration [here](https://github.com/noodlemctwoodle/homeassistant/blob/515880839aec18d3081431d9cf037985da848645/packages/ha-core/areas/cabinet/devices/home_assistant/ha_monitor.yaml#L4)
+Further examples can be found in my configuration [here](https://github.com/noodlemctwoodle/homeassistant/blob/95830d15da5c52284cc1d9464f8a3111c66361ef/packages/ha-core/areas/cabinet/devices/home_assistant/ha_monitor.yaml#L65)
 
 The rest sensor may throw errors on startup if Home Assistant can’t pull the data on startup. I just ignore these as the sensor will continue to try to update and usually does on the second try.
 
@@ -266,7 +266,7 @@ Create a switch to show/control the add-on state and an automation to turn the o
             addon: a0d7b954_glances
 ```
 
-Further examples can be found in my configuration [here](https://github.com/noodlemctwoodle/homeassistant/blob/515880839aec18d3081431d9cf037985da848645/packages/ha-core/areas/cabinet/devices/home_assistant/ha_monitor.yaml#L170)
+Further examples can be found in my configuration [here](https://github.com/noodlemctwoodle/homeassistant/blob/95830d15da5c52284cc1d9464f8a3111c66361ef/packages/ha-core/areas/cabinet/devices/home_assistant/ha_monitor.yaml#L240)
 
 
 [Source](https://community.home-assistant.io/t/get-notified-of-available-hassio-addon-updates/176626)
