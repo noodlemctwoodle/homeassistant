@@ -1,3 +1,5 @@
+## Home Assistant Monitoring Configuration
+
 input_boolean:
 
 # Home Assistant Update Available
@@ -5,8 +7,6 @@ input_boolean:
     name: HA Update Avaiable
     initial: false
     icon: mdi:cloud-download
-
-
 
 binary_sensor:
 
@@ -49,16 +49,6 @@ sensor:
         column: 'value'
         unit_of_measurement: MB 
 
-# RESTful Sensor
-## https://www.home-assistant.io/integrations/rest/
-
-# HASSIO Version
-  - platform: rest
-    resource: https://s3.amazonaws.com/hassio-version/stable.json
-    name: Latest HA Version
-    value_template: "{{ value_json.homeassistant.intel-nuc }}"
-    scan_interval: 3600
-
   # Sensor to track available updates for supervisor & addons
   - platform: command_line
     name: Supervisor updates
@@ -69,6 +59,15 @@ sensor:
     - current_version
     - addons
 
+# RESTful Sensor
+## https://www.home-assistant.io/integrations/rest/
+
+# HASSIO Version
+  - platform: rest
+    resource: https://s3.amazonaws.com/hassio-version/stable.json
+    name: Latest HA Version
+    value_template: "{{ value_json.homeassistant.intel-nuc }}"
+    scan_interval: 3600
 
 # Glances Addon
   - platform: rest
@@ -238,14 +237,12 @@ sensor:
       - last_version
 
 
-
-
-
-
 switch:
+
   - platform: template
     switches:
 
+# Glances Switch Template
       glances_addon:
         value_template: "{{ is_state('sensor.glances_addon', 'started') }}"
         turn_on:
@@ -257,6 +254,7 @@ switch:
           data:
             addon: a0d7b954_glances
 
+# VSCode Switch Template
       vscode_addon:
         value_template: "{{ is_state('sensor.vscode_addon', 'started') }}"
         turn_on:
@@ -268,6 +266,7 @@ switch:
           data:
             addon: a0d7b954_vscode
 
+# ESPHome Switch Template
       esphome_addon:
         value_template: "{{ is_state('sensor.esphome_addon', 'started') }}"
         turn_on:
@@ -279,6 +278,7 @@ switch:
           data:
             addon: 15ef4d2f_esphome
 
+# PHP MyAdmin Switch Template
       phpmyadmin_addon:
         value_template: "{{ is_state('sensor.phpmyadmin_addon', 'started') }}"
         turn_on:
@@ -290,6 +290,7 @@ switch:
           data:
             addon: a0d7b954_phpmyadmin
 
+# ADB Switch Template
       adb_addon:
         value_template: "{{ is_state('sensor.adb_addon', 'started') }}"
         turn_on:
@@ -301,6 +302,7 @@ switch:
           data:
             addon: a0d7b954_adb
 
+# Adgaurd Switch Template
       adguard_addon:
         value_template: "{{ is_state('sensor.adguard_addon', 'started') }}"
         turn_on:
@@ -312,6 +314,7 @@ switch:
           data:
             addon: a0d7b954_adguard
 
+# Deconz Switch Template
       deconz_addon:
         value_template: "{{ is_state('sensor.deconz_addon', 'started') }}"
         turn_on:
@@ -323,6 +326,7 @@ switch:
           data:
             addon: core_deconz
 
+# Mosquitto Switch Template
       mosquitto_addon:
         value_template: "{{ is_state('sensor.mosquitto_addon', 'started') }}"
         turn_on:
@@ -334,6 +338,7 @@ switch:
           data:
             addon: core_mosquitto
 
+# SSH & Terminal Switch Template
       ssh_and_terminal_addon:
         value_template: "{{ is_state('sensor.ssh_and_terminal_addon', 'started') }}"
         turn_on:
@@ -345,6 +350,7 @@ switch:
           data:
             addon: core_ssh
 
+# Maria dB Switch Template
       mariadb_addon:
         value_template: "{{ is_state('sensor.mariadb_addon', 'started') }}"
         turn_on:
@@ -356,6 +362,7 @@ switch:
           data:
             addon: core_mariadb
 
+# Node Red Switch Template
       node_red_addon:
         value_template: "{{ is_state('sensor.node_red_addon', 'started') }}"
         turn_on:
@@ -369,6 +376,8 @@ switch:
 
 
 automation:
+
+# Check New Versions
   - alias: "New Home Assitant Version"
     trigger:
       - platform: state
@@ -415,7 +424,7 @@ alert:
       url: 'http://hassio.local/hassio/addon/core_check_config'
       ttl: 21600
 
-  # Supervisor update is available - un-acknowledgeable, auto-dismiss, me only
+# Supervisor update is available - un-acknowledgeable, auto-dismiss, me only
   supervisor_update_available:
     name: Supervisor has an update
     entity_id: binary_sensor.updater_supervisor
@@ -431,7 +440,7 @@ alert:
       url: 'http://hassio.local/hassio/dashboard'
       ttl: 21600
 
-  # HACS repos have updates available - unacknowledgeable, auto-dismiss, me only
+# HACS repos have updates available - unacknowledgeable, auto-dismiss, me only
   hacs_update_available:
     name: HACS repos have updates
     entity_id: binary_sensor.updater_hacs
@@ -447,7 +456,7 @@ alert:
       url: 'http://hassio.local/hacs/installed'
       ttl: 21600
 
-  # Addons have updates available - unacknowledgeable, auto-dismiss, me only
+# Addons have updates available - unacknowledgeable, auto-dismiss, me only
   addon_update_available:
     name: Addons have updates
     entity_id: binary_sensor.updater_addons
