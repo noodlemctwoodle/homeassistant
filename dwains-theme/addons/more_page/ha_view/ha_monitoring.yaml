@@ -294,9 +294,9 @@
       cards:
         - type: horizontal-stack
           cards:
-# Reload Lovelace
+
+          # Reload Lovelace
             - type: custom:button-card
-#                  item_classes: 'col-lg-3 col-md-3'
               style: |
                 ha-card {
                   background: var(--paper-card-background-color);
@@ -313,7 +313,6 @@
 
         # Take Home Assistant Snapshot
             - type: custom:button-card
-#                  item_classes: 'col-lg-3 col-md-3'
               style: |
                 ha-card {
                   background: var(--paper-card-background-color);
@@ -330,7 +329,6 @@
 
         # Restart Home Assistant
             - type: custom:button-card
-#                  item_classes: 'col-lg-3 col-md-3'
               style: |
                 ha-card {
                   background: var(--paper-card-background-color);
@@ -349,7 +347,6 @@
 
         # Reboot Home Assistant Host
             - type: custom:button-card
-#                  item_classes: 'col-lg-3 col-md-3'
               style: |
                 ha-card {
                   background: var(--paper-card-background-color);
@@ -369,7 +366,8 @@
 
         - type: horizontal-stack
           cards:
-# NVMe System Disk Free
+
+          # NVMe System Disk Free
             - type: custom:bar-card
               style: |
                 :host {

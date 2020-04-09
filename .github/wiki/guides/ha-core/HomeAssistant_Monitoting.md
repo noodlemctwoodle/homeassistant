@@ -2,7 +2,7 @@
 
 ## Contents
 
- * [Requirements](https://github.com/noodlemctwoodle/homeassistant/blob/master/.github/wiki/guides/ha-core/HomeAssistant_Monitoting.md#requirements)
+ * [Home Assistant Picture Entity Card](https://github.com/noodlemctwoodle/homeassistant/blob/master/.github/wiki/guides/ha-core/HomeAssistant_Monitoting.md#home-assistant-picture-entity-card)
  * [Setting Up Glances addon and Integration](https://github.com/noodlemctwoodle/homeassistant/blob/master/.github/wiki/guides/ha-core/HomeAssistant_Monitoting.md#setting-up-glances-addon-and-integration)
  * [Home Assistant Update Sensor](https://github.com/noodlemctwoodle/homeassistant/blob/master/.github/wiki/guides/ha-core/HomeAssistant_Monitoting.md#update-notifications-core-hacs-supervisor-and-addons)
  * [Update notifications! Core, HACS, Supervisor and Addons](https://github.com/noodlemctwoodle/homeassistant/blob/master/.github/wiki/guides/ha-core/HomeAssistant_Monitoting.md#update-notifications-core-hacs-supervisor-and-addons)
@@ -10,9 +10,17 @@
  * [SNMP](https://github.com/noodlemctwoodle/homeassistant/blob/master/.github/wiki/guides/ha-core/HomeAssistant_Monitoting.md#snmp)
 
 
-## Requirements
+## Home Assistant Picture Entity Card
 
- - Home Assistant [image](https://github.com/noodlemctwoodle/homeassistant/blob/master/www/images/lovelace-themes/dwains-theme/software/home_assistant_logo.png)
+The Home Assistant [image](https://github.com/noodlemctwoodle/homeassistant/blob/master/www/images/lovelace-themes/dwains-theme/software/home_assistant_logo.png) is required for the containers card and you will also need the following input text in you configuration
+
+```YAML
+input_text:
+  card_containers:
+    initial: Containers
+  software_version:
+    initial: Version
+```
 
 ### Setting Up Glances Addon and Integration
 
