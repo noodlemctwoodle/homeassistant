@@ -1,0 +1,604 @@
+# Media Montitoring for Dwains-Theme. 
+## Version 0.1 by noodlemctwoodle
+### Please view the set up guide for this view on GitHub
+
+- type: custom:dwains-flexbox-card
+  padding: true
+  items_classes: 'col-lg-6 col-md-6 col-sm-12 col-xs-12'
+  cards:
+
+    - type: custom:mod-card
+      style: |
+        :host {
+          --ha-card-background: var(--paper-card-background-color);
+          --ha-card-border-radius: 10px;
+          --ha-card-box-shadow: 10px;
+          --ha-card-font-weight: bold;
+          --ha-card-opacity: 0.8;
+          --mini-media-player-background-opacity: 0.4;
+          --mini-media-player-media-cover-info-color: white;
+          --mini-media-player-artwork-opacity: 0.4;
+          --mini-media-player-base-color: white;
+        }
+      card:
+        type: vertical-stack
+        cards:
+
+    # Denon AVR-X Receiver
+          - type: custom:mini-media-player
+            entity: media_player.denon_avrx2300w
+            name: Denon AVRX
+            background: /local/images/lovelace-themes/hardware/denon.png
+            icon: mdi:radio
+            artwork: cover
+            tap_action: none
+            hide:
+              source: true
+            shortcuts:
+              columns: 3 # Max buttons per row
+              buttons:
+                - icon: mdi:android
+                  type: source
+                  id: 'SHIELD TV'
+
+                - icon: mdi:alpha-x
+                  type: source
+                  id: 'XBOX'
+
+                - icon: mdi:television
+                  type: source
+                  id: TV Audio
+
+                - icon: mdi:radio
+                  type: source
+                  id: 'Internet Radio'
+
+                - icon: mdi:spotify
+                  type: source
+                  id: 'Spotify'
+
+                - icon: mdi:bluetooth-connect
+                  type: source
+                  id: 'Bluetooth'
+
+
+    - type: horizontal-stack
+      cards:
+        - type: custom:swipe-card
+          parameters:
+            spaceBetween: 8
+            touchEventsTarget: 'container'
+            pagination:
+              type: 'bullets'
+              dynamicBullets: false
+
+          cards:
+
+            - type: custom:mod-card
+              style: |
+                :host {
+                  --ha-card-background: var(--paper-card-background-color);
+                  --ha-card-border-radius: 10px;
+                  --ha-card-box-shadow: 10px;
+                  --ha-card-font-weight: bold;
+                  --ha-card-opacity: 0.8;
+                  --mini-media-player-background-opacity: 0.3;
+                  --mini-media-player-media-cover-info-color: white;
+                  --mini-media-player-artwork-opacity: 0.4;
+                  --mini-media-player-base-color: white;
+                  --ha-card-height: 242px;
+                }
+              card:
+                type: vertical-stack
+                cards:
+
+    # Shield TV 2019
+                  - type: custom:mini-media-player
+                    entity: media_player.living_room_shield_adb
+                    name: Living Room Shield TV
+                    background: /local/images/lovelace-themes/hardware/shield-tv.png
+                    icon: mdi:radio
+                    artwork: cover
+                    tap_action: none
+                    hide:
+                      source: true
+                    shortcuts:
+                      columns: 4 # Max buttons per row
+                      buttons:
+                        - icon: mdi:shield-home-outline
+                          type: script
+                          id: script.adb_open_living_room_leanback
+
+                        - icon: mdi:plex
+                          type: script
+                          id: script.adb_open_living_room_plex
+
+                        - icon: mdi:netflix
+                          type: script
+                          id: script.adb_open_living_room_netflix
+
+                        - icon: mdi:youtube
+                          type: script
+                          id: script.adb_open_living_room_youtube
+
+                        - icon: mdi:amazon
+                          type: script
+                          id: script.adb_open_living_room_amazon
+
+                        - icon: mdi:alpha-i-circle
+                          type: script
+                          id: script.adb_open_living_room_iplayer
+
+                        - icon: mdi:newspaper
+                          type: script
+                          id: script.adb_open_living_room_bbc_news
+
+                        - icon: mdi:high-definition-box
+                          type: script
+                          id: script.adb_open_living_room_hd_hr
+
+
+
+            - type: custom:mod-card
+              style: |
+                :host {
+                  --ha-card-background: var(--paper-card-background-color);
+                  --ha-card-border-radius: 10px;
+                  --ha-card-box-shadow: 10px;
+                  --ha-card-font-weight: bold;
+                  --ha-card-opacity: 0.8;
+                  --mini-media-player-background-opacity: 0.3;
+                  --mini-media-player-media-cover-info-color: white;
+                  --mini-media-player-artwork-opacity: 0.4;
+                  --mini-media-player-base-color: white;
+                }
+              card:
+                type: vertical-stack
+                cards:
+
+    # Shield TV 2015
+                  - type: custom:mini-media-player
+                    entity: media_player.bedroom_shield_adb
+                    name: Bedroom Shield TV
+                    background: /local/images/lovelace-themes/hardware/shield-tv.png
+                    icon: mdi:radio
+                    artwork: cover
+                    tap_action: none
+                    idle_view:
+                      when_idle: true
+                    hide:
+                      source: true
+                    shortcuts:
+                      columns: 4 # Max buttons per row
+                      buttons:
+                        - icon: mdi:shield-home-outline
+                          type: script
+                          id: script.adb_open_bedroom_leanback
+
+                        - icon: mdi:plex
+                          type: script
+                          id: script.adb_open_bedroom_plex
+
+                        - icon: mdi:netflix
+                          type: script
+                          id: script.adb_open_bedroom_netflix
+
+                        - icon: mdi:youtube
+                          type: script
+                          id: script.adb_open_bedroom_youtube
+
+                        - icon: mdi:amazon
+                          type: script
+                          id: script.adb_open_bedroom_amazon
+
+                        - icon: mdi:alpha-i-circle
+                          type: script
+                          id: script.adb_open_bedroom_iplayer
+
+                        - icon: mdi:newspaper
+                          type: script
+                          id: script.adb_open_bedroom_bbc_news
+
+                        - icon: mdi:high-definition-box
+                          type: script
+                          id: script.adb_open_bedroom_hd_hr
+
+- type: custom:dwains-flexbox-card
+  padding: true
+  items_classes: 'col-lg-6 col-md-6 col-sm-12 col-xs-12'
+  cards:
+
+# Google Home Swipe Card
+
+    - type: horizontal-stack
+      cards:
+        - type: custom:swipe-card
+          parameters:
+            spaceBetween: 8
+            touchEventsTarget: 'container'
+            pagination:
+              type: 'bullets'
+              dynamicBullets: false
+
+          cards:
+
+            - type: custom:mod-card
+              style: |
+                :host {
+                  --ha-card-background: var(--paper-card-background-color);
+                  --ha-card-border-radius: 10px;
+                  --ha-card-box-shadow: 10px;
+                  --ha-card-font-weight: bold;
+                  --ha-card-opacity: 0.8;
+                  --mini-media-player-background-opacity: 0.4;
+                  --mini-media-player-media-cover-info-color: white;
+                  --mini-media-player-artwork-opacity: 0.4;
+                  --mini-media-player-base-color: white;
+                }
+              card:
+                type: vertical-stack
+                cards:
+
+    # Google Home Living Room
+                  - type: custom:mini-media-player
+                    entity: media_player.living_room_display
+                    name: Living Room Google Home
+                    icon: mdi:google-home
+                    artwork: cover
+                    tap_action: none
+                    hide:
+                      source: true
+                    tts:
+                      platform: google
+                      entity_id: media_player.living_room_display
+
+            - type: custom:mod-card
+              style: |
+                :host {
+                  --ha-card-background: var(--paper-card-background-color);
+                  --ha-card-border-radius: 10px;
+                  --ha-card-box-shadow: 10px;
+                  --ha-card-font-weight: bold;
+                  --ha-card-opacity: 0.8;
+                  --mini-media-player-background-opacity: 0.4;
+                  --mini-media-player-media-cover-info-color: white;
+                  --mini-media-player-artwork-opacity: 0.4;
+                  --mini-media-player-base-color: white;
+                }
+              card:
+                type: vertical-stack
+                cards:
+
+    # Google Home Kitchen
+                  - type: custom:mini-media-player
+                    entity: media_player.kitchen_display
+                    name: Kitchen Google Home
+                    icon: mdi:google-home
+                    artwork: cover
+                    tap_action: none
+                    hide:
+                      source: true
+                    tts:
+                      platform: google
+                      entity_id: media_player.kitchen_display
+
+    - type: vertical-stack
+      cards:
+# Google Home Swipe Card
+        - type: horizontal-stack
+          cards:
+            - type: custom:swipe-card
+              parameters:
+                spaceBetween: 8
+                touchEventsTarget: 'container'
+                pagination:
+                  type: 'bullets'
+                  dynamicBullets: false
+
+              cards:
+
+                - type: custom:mod-card
+                  style: |
+                    :host {
+                      --ha-card-background: var(--paper-card-background-color);
+                      --ha-card-border-radius: 10px;
+                      --ha-card-box-shadow: 10px;
+                      --ha-card-font-weight: bold;
+                      --ha-card-opacity: 0.8;
+                      --mini-media-player-background-opacity: 0.4;
+                      --mini-media-player-media-cover-info-color: white;
+                      --mini-media-player-artwork-opacity: 0.4;
+                      --mini-media-player-base-color: white;
+                    }
+                  card:
+
+        # Google Home Office
+                    type: vertical-stack
+                    cards:
+                      - type: custom:mini-media-player
+                        entity: media_player.office_speaker
+                        name: Office Google Home
+                        icon: mdi:google-home
+                        artwork: cover
+                        tap_action: none
+                        hide:
+                          source: true
+                        tts:
+                          platform: google
+                          entity_id: media_player.office_speaker
+
+                - type: custom:mod-card
+                  style: |
+                    :host {
+                      --ha-card-background: var(--paper-card-background-color);
+                      --ha-card-border-radius: 10px;
+                      --ha-card-box-shadow: 10px;
+                      --ha-card-font-weight: bold;
+                      --ha-card-opacity: 0.8;
+                      --mini-media-player-background-opacity: 0.4;
+                      --mini-media-player-media-cover-info-color: white;
+                      --mini-media-player-artwork-opacity: 0.4;
+                      --mini-media-player-base-color: white;
+                    }
+                  card:
+                    type: vertical-stack
+                    cards:
+
+        # Google Home Craft Room
+                      - type: custom:mini-media-player
+                        entity: media_player.craft_room_speaker
+                        name: Craft Room Google Home
+                        icon: mdi:google-home
+                        artwork: cover
+                        tap_action: none
+                        hide:
+                          source: true
+                        tts:
+                          platform: google
+                          entity_id: media_player.craft_room_speaker
+
+                - type: custom:mod-card
+                  style: |
+                    :host {
+                      --ha-card-background: var(--paper-card-background-color);
+                      --ha-card-border-radius: 10px;
+                      --ha-card-box-shadow: 10px;
+                      --ha-card-font-weight: bold;
+                      --ha-card-opacity: 0.8;
+                      --mini-media-player-background-opacity: 0.4;
+                      --mini-media-player-media-cover-info-color: white;
+                      --mini-media-player-artwork-opacity: 0.4;
+                      --mini-media-player-base-color: white;
+                    }
+                  card:
+                    type: vertical-stack
+                    cards:
+
+        # Google Home Bedroom
+                      - type: custom:mini-media-player
+                        entity: media_player.bedroom_speaker
+                        name: Bedroom Google Home
+                        icon: mdi:google-home
+                        artwork: cover
+                        tap_action: none
+                        hide:
+                          source: true
+                        tts:
+                          platform: google
+                          entity_id: media_player.bedroom_speaker
+
+
+- type: custom:dwains-flexbox-card
+  padding: true
+  items_classes: 'col-lg-6 col-md-6 col-sm-12 col-xs-12'
+  cards:
+# Upcoming Media
+    - type: vertical-stack
+      cards:
+#        - type: horizontal-stack
+#          cards:
+
+# NZBGet Queue Size
+            - type: custom:bar-card
+              style: |
+                :host {
+                  --ha-card-background: var(--paper-card-background-color);
+                  --ha-card-border-radius: 10px;
+                  --ha-card-box-shadow: 10px;
+                  --ha-card-font-weight: bold;
+                  --ha-card-opacity: 0.8;
+                }
+                ha-card {
+                  font-size: 10px;                 
+                }
+                bar-card-value {
+                  font-size: 8px;
+                }
+              entities: 
+                - entity: sensor.nzbget_queue_size
+                  name: Download Queue Size
+                  icon: mdi:harddisk-plus
+              show_icon: true
+              height: 30px
+              stack: horizontal
+              positions:
+                title: inside
+                value: inside
+                icon: inside
+              severity:
+                - color: '#64c91c'
+                  from: 0
+                  to: 500
+                - color: '#d4c11c'
+                  from: 500
+                  to: 1000
+                - color: '#d1861d'
+                  from: 1000
+                  to: 50000
+                - color: '#de4314'
+                  from: 50000
+                  to: 90000
+                - color: '#fa0505'
+                  from: 90000
+                  to: 100000
+              direction: right
+              tap_action: none
+              min: 0
+              max: 100000
+
+
+# NZBGet Processing Size
+            - type: custom:bar-card
+              style: |
+                :host {
+                  --ha-card-background: var(--paper-card-background-color);
+                  --ha-card-border-radius: 10px;
+                  --ha-card-box-shadow: 10px;
+                  --ha-card-font-weight: bold;
+                  --ha-card-opacity: 0.8;
+                }
+                ha-card {
+                  font-size: 10px;                 
+                }
+                bar-card-value {
+                  font-size: 8px;
+                }
+              entities: 
+                - entity: sensor.nzbget_post_processing_jobs
+                  name: Processing Jobs
+                  icon: mdi:cpu-64-bit
+              show_icon: true
+              height: 30px
+              stack: horizontal
+              positions:
+                title: inside
+                value: inside
+                icon: inside
+              severity:
+                - color: '#64c91c'
+                  from: 0
+                  to: 1
+                - color: '#d4c11c'
+                  from: 1
+                  to: 2
+                - color: '#d1861d'
+                  from: 2
+                  to: 3
+                - color: '#de4314'
+                  from: 3
+                  to: 4
+                - color: '#fa0505'
+                  from: 4
+                  to: 10
+              direction: right
+              tap_action: none
+              min: 0
+              max: 20
+
+
+            # NZBGet Download Speed + Average Speed
+            - type: custom:mini-graph-card
+              style: |
+                ha-card {
+                  background: var(--paper-card-background-color);
+                  border-radius: 10px;
+                  box-shadow: 10px;
+                  font-weight: bold;
+                  opacity: 0.8;
+                }
+              entities:
+                - entity: sensor.nzbget_speed
+                  name: Actual
+                  color: '#ed1548'
+                - entity: sensor.nzbget_average_speed
+                  name: Average
+                  color: '#4f14d9'
+              name: Download Speed
+              icon: mdi:download-network
+              hours_to_show: 7
+              points_per_hour: 10
+              update_interval: 30
+              height: 60
+              aggregate_func: max
+              line_width: 2
+              smoothing: false
+              font_size: 65
+              font_size_header: 9
+              show:
+                average: true
+                extrema: true
+              tap_action: none
+
+    - type: vertical-stack
+      cards:
+      - type: horizontal-stack
+        cards:
+          - type: custom:swipe-card
+            parameters:
+              effect: 'coverflow'
+              grabCursor: true
+
+            cards:
+
+      # Sonarr Upcoming Media
+              - type: 'custom:upcoming-media-card'
+                style: |
+                  ha-card {
+                    background: var(--paper-card-background-color);
+                    border-radius: 10px;
+                    box-shadow: 10px;
+                    font-weight: bold;
+                    opacity: 0.8;
+                  }
+                entity: sensor.sonarr_upcoming_media
+                date: ddmm
+                clock: 24
+                max: 3
+                image_style: fanart
+                flag: false
+                hide_unflagged: false
+                hide_empty: false
+                icon: none
+                all_shadows: false
+
+      # Radarr Upcoming Media
+              - type: 'custom:upcoming-media-card'
+                style: |
+                  ha-card {
+                    background: var(--paper-card-background-color);
+                    border-radius: 10px;
+                    box-shadow: 10px;
+                    font-weight: bold;
+                    opacity: 0.8;
+                  }
+                entity: sensor.radarr_upcoming
+                date: ddmm
+                clock: 24
+                max: 3
+                image_style: fanart
+                flag: false
+                hide_unflagged: false
+                hide_empty: false
+                icon: none
+                all_shadows: false
+
+      # Plex New Media
+              - type: 'custom:upcoming-media-card'
+                style: |
+                  ha-card {
+                    background: var(--paper-card-background-color);
+                    border-radius: 10px;
+                    box-shadow: 10px;
+                    font-weight: bold;
+                    opacity: 0.8;
+                  }
+                entity: sensor.plex_recently_added
+                date: ddmm
+                clock: 24
+                max: 3
+                image_style: fanart
+                flag: false
+                hide_unflagged: false
+                hide_empty: false
+                icon: none
+                all_shadows: false
