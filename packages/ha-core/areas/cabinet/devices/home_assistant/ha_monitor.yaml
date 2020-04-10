@@ -194,7 +194,7 @@ sensor:
     - newest_version
     - current_version
 
-    - platform: command_line
+  - platform: command_line
     name: Updater DNS
     command: 'curl http://supervisor/dns/info -H "Authorization: Bearer $(printenv SUPERVISOR_TOKEN)" | jq ''{"newest_version":.data.version_latest,"current_version":.data.version}'''
     value_template: "{% if value_json.newest_version != value_json.current_version %}on{% else %}off{% endif %}"
@@ -202,7 +202,7 @@ sensor:
     - newest_version
     - current_version
 
-    - platform: command_line
+  - platform: command_line
     name: Updater CLI
     command: 'curl http://supervisor/cli/info -H "Authorization: Bearer $(printenv SUPERVISOR_TOKEN)" | jq ''{"newest_version":.data.version_latest,"current_version":.data.version}'''
     value_template: "{% if value_json.newest_version != value_json.current_version %}on{% else %}off{% endif %}"
