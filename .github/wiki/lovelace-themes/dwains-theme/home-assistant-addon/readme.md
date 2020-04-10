@@ -30,6 +30,8 @@
     - package + audio, dns, cli and core
  - Added configuration guide for Configuration [Checker](https://github.com/noodlemctwoodle/homeassistant/blob/master/.github/wiki/guides/ha-core/HomeAssistant_Monitoting.md#install-check-home-assistant-configuration)
  - Added configuration guide for HTML5 [notifications](https://github.com/noodlemctwoodle/homeassistant/blob/master/.github/wiki/guides/ha-core/HomeAssistant_Monitoting.md#setting-up-the-html5-notify-platform)
+ - [AVI](https://github.com/abeksis/My-HomeAssistant-Config) added template.dwains.psd for you to make your own conmtainer images
+ - [AVI](https://github.com/abeksis/My-HomeAssistant-Config) converted all the HKI container images to Dwians-Theme varients. 
 
 ### Home Assistant Core Addon Support
 
