@@ -1,5 +1,11 @@
 # Home Assistant Core - Configuration for Homekit-Infused and Dwains-Theme
 
+## Requirements 
+
+To get thit view working correctly you will require many aspects of [ha_monitor.yaml](https://github.com/noodlemctwoodle/homeassistant/blob/master/packages/ha-core/areas/cabinet/devices/home_assistant/ha_monitor.yaml)
+
+The Home Assistant Monoitoring Addon for Dwains-Theme can be found [here](https://github.com/noodlemctwoodle/homeassistant/blob/master/dwains-theme/addons/more_page/ha_view/ha_monitoring.yaml)
+
 ## Contents
 
  * [Home Assistant Picture Entity Card](https://github.com/noodlemctwoodle/homeassistant/blob/master/.github/wiki/guides/ha-core/HomeAssistant_Monitoting.md#home-assistant-picture-entity-card)
