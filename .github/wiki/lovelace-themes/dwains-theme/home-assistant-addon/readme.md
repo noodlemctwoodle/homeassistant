@@ -24,7 +24,12 @@
 
  - Removed CSS heights and fixed them with Graph `height:`
  - Added more documentation for card
- 
+
+## Version 0.3
+ - Added update sensors
+    - package + audio, dns, cli and core
+ - Added configuration guide for Configuration [Checker](https://github.com/noodlemctwoodle/homeassistant/blob/master/.github/wiki/guides/ha-core/HomeAssistant_Monitoting.md#install-check-home-assistant-configuration)
+ - Added configuration guide for HTML5 [notifications](https://github.com/noodlemctwoodle/homeassistant/blob/master/.github/wiki/guides/ha-core/HomeAssistant_Monitoting.md#setting-up-the-html5-notify-platform)
 
 ### Home Assistant Core Addon Support
 

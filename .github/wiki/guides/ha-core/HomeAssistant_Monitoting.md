@@ -3,9 +3,11 @@
 ## Contents
 
  * [Home Assistant Picture Entity Card](https://github.com/noodlemctwoodle/homeassistant/blob/master/.github/wiki/guides/ha-core/HomeAssistant_Monitoting.md#home-assistant-picture-entity-card)
+ * [Install Check Home Assistant configuration](https://github.com/noodlemctwoodle/homeassistant/blob/master/.github/wiki/guides/ha-core/HomeAssistant_Monitoting.md#install-check-home-assistant-configuration)
  * [Setting Up Glances addon and Integration](https://github.com/noodlemctwoodle/homeassistant/blob/master/.github/wiki/guides/ha-core/HomeAssistant_Monitoting.md#setting-up-glances-addon-and-integration)
  * [Home Assistant Update Sensor](https://github.com/noodlemctwoodle/homeassistant/blob/master/.github/wiki/guides/ha-core/HomeAssistant_Monitoting.md#update-notifications-core-hacs-supervisor-and-addons)
  * [Update notifications! Core, HACS, Supervisor and Addons](https://github.com/noodlemctwoodle/homeassistant/blob/master/.github/wiki/guides/ha-core/HomeAssistant_Monitoting.md#update-notifications-core-hacs-supervisor-and-addons)
+ * [Setting Up The HTML5 Notify Platform](#setting-up-the-html5-notify-platform)
  * [Home Assistant Core Addon Support](https://github.com/noodlemctwoodle/homeassistant/blob/master/.github/wiki/guides/ha-core/HomeAssistant_Monitoting.md#home-assistant-core-addon-suppport)
  * [SNMP](https://github.com/noodlemctwoodle/homeassistant/blob/master/.github/wiki/guides/ha-core/HomeAssistant_Monitoting.md#snmp)
 
@@ -22,7 +24,29 @@ input_text:
     initial: Version
 ```
 
-### Setting Up Glances Addon and Integration
+## Install Check Home Assistant Configuration
+
+Install the `Check Home Assistant configuration` from the Add-on store. You can use this add-on to check whether your configuration files are valid against the new version of Home Assistant before you actually update your Home Assistant installation. This add-on will help you avoid errors due to breaking changes, resulting in a smooth update.
+
+There is an automation created to run before a new update is installed 
+
+```YAML
+automation:
+  - id: '1585256741683'
+    alias: Check config with update
+    description: Starts the check config addon when an update becomes available
+    trigger:
+    - entity_id: binary_sensor.updater
+      platform: state
+      to: 'on'
+    condition: []
+    action:
+    - data:
+        addon: core_check_config
+      service: hassio.addon_start
+```
+
+## Setting Up Glances Addon and Integration
 
 
 Install the [Glances](https://github.com/hassio-addons/addon-glances#adding-glances-as-a-sensor-into-home-assistant) Home Assistant Addon from `Supervisor > Add-on Store`
@@ -36,7 +60,7 @@ Once Glances is configured and running setup the Home Assistant Integration
 Note: The port of 61209 is important as this is what is used by the addon.
 
 
-### Home Assistant Update Sensor
+## Home Assistant Update Sensor
 
 To find out when a new version is available for your specific Home Assistant build, create the following sensor.
 
@@ -87,7 +111,7 @@ You need to change "{{ value_json.info.default }}" to match your build type. The
 ```
 
 
-### Update notifications! Core, HACS, Supervisor and Addons
+## Update notifications! Core, HACS, Supervisor and Addons
 
 Thanks to [CentralCommand](https://community.home-assistant.io/t/update-notifications-core-hacs-supervisor-and-addons/182295) for the excellant write up. If you require any assistance or further configuration please refer back the the post on the Home Assistant Communiuty. I Take zero credit for any of this write up. 
 
@@ -143,6 +167,30 @@ binary_sensor:
 
 Just like `binary_sensor.updater` these will set themselves to on when the piece of HA they are tracking needs an update and be off otherwise.
 
+## Setting Up The HTML5 Notify Platform
+
+The html5 notification platform enables you to receive push notifications to Chrome or Firefox, no matter where you are in the world. html5 also supports Chrome and Firefox on Android, which enables native-app-like integrations without actually needing a native app.
+
+```YAML
+notify:
+  - platform: html5
+    name: NOTIFIER_NAME
+    vapid_pub_key: YOUR_PUBLIC_KEY
+    vapid_prv_key: YOUR_PRIVATE_KEY
+    vapid_email: YOUR_EMAIL
+```
+
+ * [Requirements](https://www.home-assistant.io/integrations/html5/#requirements)
+ 
+ 
+ * [Configuration](https://www.home-assistant.io/integrations/html5/#configuring-the-platform)
+
+    * Tip - When you come to domain validation in Google Cloud Platform and you are using your Naba Casa Address use this `URL - https://some-address.ui.nabu.casa/local/`
+    * Tip - Place the `google123456789abc.html` in the root of the www folder
+
+ * [Browser Configuration](https://www.home-assistant.io/integrations/html5/#setting-up-your-browser)
+
+
 Now that we have these we can build alerts to notify me when something needs an update and then remind me periodically if I haven’t updated yet. I have the reminder time set to 6 hours but you can set it however you want. 
 
 ```YAML
@@ -161,7 +209,8 @@ alert:
     title: 'Update for HA available'
     message: "New version is {{ state_attr('binary_sensor.updater', 'newest_version') }}. Currently on {{ states('sensor.current_version') }}"
     notifiers:
-    - 'me'
+    - firebase_home_assistant
+    - mobile_app_pixel_4_xl
     data:
       tag: 'ha-update-available'
       url: 'http://hassio.local/hassio/addon/core_check_config'
@@ -177,7 +226,8 @@ alert:
     title: 'Update for HA Supervisor available'
     message: "New version is {{ state_attr('sensor.supervisor_updates', 'newest_version') }}. Currently on {{ state_attr('sensor.supervisor_updates', 'current_version') }}"
     notifiers:
-    - 'me'
+    - firebase_home_assistant
+    - mobile_app_pixel_4_xl
     data:
       tag: 'supervisor-update-available'
       url: 'http://hassio.local/hassio/dashboard'
@@ -193,7 +243,8 @@ alert:
     title: "Updates available in {{ states('sensor.hacs') }} HACS repo{% if states('sensor.hacs') | int > 1 %}s{% endif %}"
     message: ""
     notifiers:
-      - 'me'
+    - firebase_home_assistant
+    - mobile_app_pixel_4_xl
     data:
       tag: 'hacs-update-available'
       url: 'http://hassio.local/hacs/installed'
@@ -209,12 +260,15 @@ alert:
     title: "Updates available for {{ states('sensor.supervisor_updates') }} HA addon{% if states('sensor.supervisor_updates') | int > 1 %}s{% endif %}"
     message: ""
     notifiers:
-    - 'me'
+    - firebase_home_assistant
+    - mobile_app_pixel_4_xl
     data:
       tag: 'addon-update-available'
       url: 'http://hassio.local/hassio/dashboard'
       ttl: 21600
 ```
+
+[Source](https://community.home-assistant.io/t/get-notified-of-available-hassio-addon-updates/176626)
 
 ## Home Assistant Core Addon Support
 
@@ -249,7 +303,7 @@ Further examples can be found in my configuration [here](https://github.com/nood
 
 The rest sensor may throw errors on startup if Home Assistant can’t pull the data on startup. I just ignore these as the sensor will continue to try to update and usually does on the second try.
 
-### Switch Template
+## Switch Template
 
 Create a switch to show/control the add-on state and an automation to turn the other automation on at startup.
 
@@ -269,36 +323,7 @@ Create a switch to show/control the add-on state and an automation to turn the o
 Further examples can be found in my configuration [here](https://github.com/noodlemctwoodle/homeassistant/blob/95830d15da5c52284cc1d9464f8a3111c66361ef/packages/ha-core/areas/cabinet/devices/home_assistant/ha_monitor.yaml#L240)
 
 
-[Source](https://community.home-assistant.io/t/get-notified-of-available-hassio-addon-updates/176626)
 
-
-### Automation Configuration
-
-This automation to delay some automation and get a notification when Home Assistant starts. There are other ways to delay an automation triggering via condition but this is how I do it.
-
-```yaml
-  - alias: Home Assistant Started
-    trigger:
-      platform: homeassistant
-      event: start
-    action:
-      - delay:
-          minutes: 1
-      - service: homeassistant.turn_on
-        entity_id: automation.addon_update_available
-```
-
-```yaml
-  - alias: "New Home Assitant Version"
-    trigger:
-      - platform: state
-        entity_id: sensor.hassio_version
-    action:
-      service: notify.notify
-      data:
-        title: "New Home Assistant Version"
-        message: "Version {{ states.sensor.latest_version.state }} is available!"
-```
 
 ## SNMP
 
