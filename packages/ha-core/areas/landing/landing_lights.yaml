@@ -35,3 +35,11 @@ automation:
       data:
         entity_id: light.landing
         transition: 10
+
+# Dwains Theme Group
+group:
+  landing_lights:
+    name: Hall Lights
+    entities:
+      - light.landing_spot_01
+      - light.loft_pendant_01

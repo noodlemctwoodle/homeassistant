@@ -22,7 +22,7 @@ Version 0.1
  - Added SNMP [config](https://github.com/noodlemctwoodle/homeassistant/blob/44ac457117f173fa1bf1e47ce832566b36ba5ddb/packages/ha-core/areas/cabinet/devices/unraid/unraid_monitoring.yaml#L34)
 
 
- Dwains-Theme UnRAID add-on can be found [here](https://github.com/noodlemctwoodle/homeassistant/blob/master/dwains-theme/addons/unraid_addon/unraid_monitoring.yaml)
+ Dwains-Theme UnRAID add-on can be found [here](https://github.com/noodlemctwoodle/homeassistant/blob/master/dwains-theme/addons/more_page/unraid_addon/unraid_monitoring.yaml)
 
 
  ```yaml

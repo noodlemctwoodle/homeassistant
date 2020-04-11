@@ -36,7 +36,7 @@ automation:
         minutes: 3
     condition:
     - condition: state
-      entity_id: binary_sensor.bathroom_door_open_close
+      entity_id: binary_sensor.bathroom_door
       state: 'on'
     action:
       service: light.turn_off
@@ -47,7 +47,7 @@ automation:
   - alias: 'Bathroom lights turn off when door open and no motion'
     trigger:
       platform: state
-      entity_id: binary_sensor.bathroom_door_open_close
+      entity_id: binary_sensor.bathroom_door
       to: 'on'
       for:
         seconds: 10

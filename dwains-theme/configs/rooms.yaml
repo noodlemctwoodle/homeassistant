@@ -52,7 +52,7 @@ rooms:
 
   - name: Landing
     icon: mdi:stairs
-    light: light.landing
+    light: group.landing_lights
     motion: binary_sensor.landing_motion
     temperature: sensor.landing_temperature
     more_entities:
