@@ -108,7 +108,7 @@ alert:
     state: 'on'
     can_acknowledge: false
     repeat: 360
-    title: "Updates available in {{ states('sensor.hacs') }} HACS repo{% if states('sensor.hacs') | int > 1 %}s{% endif %}"
+    title: "Updates available in {{ states('sensor.hacs') }} HACS repo{% if states('sensor.hacs') | int >= 1 %}s{% endif %}"
     message: ""
     notifiers:
       - firebase_home_assistant
@@ -125,7 +125,7 @@ alert:
     state: 'on'
     can_acknowledge: false
     repeat: 360
-    title: "Updates available for {{ states('sensor.supervisor_updates') }} HA addon{% if states('sensor.supervisor_updates') | int > 1 %}s{% endif %}"
+    title: "Updates available for {{ states('sensor.supervisor_updates') }} HA addon{% if states('sensor.supervisor_updates') | int >= 1 %}s{% endif %}"
     message: ""
     notifiers:
     - firebase_home_assistant
@@ -147,7 +147,7 @@ binary_sensor:
         entity_id:
         - sensor.supervisor_updates
         value_template: "{{ state_attr('sensor.supervisor_updates', 'current_version') != state_attr('sensor.supervisor_updates', 'newest_version') }}"
-        availability_template: "{{ (states('sensor.supervisor_updates') | int(-1)) > -1 }}"
+        availability_template: "{{ (states('sensor.supervisor_updates') | int(-1)) >= -1 }}"
 
       # True if there's updates available for any HACS components
       updater_hacs:
@@ -242,7 +242,7 @@ sensor:
     json_attributes_path: "$.data"
     json_attributes:
       - version
-      - last_version
+      - version_latest
 
 # VSCode Addon
   - platform: rest
@@ -256,7 +256,7 @@ sensor:
     json_attributes_path: "$.data"
     json_attributes:
       - version
-      - last_version
+      - version_latest
 
 # ESPHome Addon
   - platform: rest
@@ -270,7 +270,7 @@ sensor:
     json_attributes_path: "$.data"
     json_attributes:
       - version
-      - last_version
+      - version_latest
 
 # PHPMyAdmin Addon
   - platform: rest
@@ -284,7 +284,7 @@ sensor:
     json_attributes_path: "$.data"
     json_attributes:
       - version
-      - last_version
+      - version_latest
 
 # ADB Addon
   - platform: rest
@@ -298,12 +298,12 @@ sensor:
     json_attributes_path: "$.data"
     json_attributes:
       - version
-      - last_version
+      - version_latest
 
-# AdGaurd Addon
+# AdGuard Addon
   - platform: rest
     resource: !secret adgaurd_rest_url
-    name: AdGaurd Addon
+    name: AdGuard Addon
     value_template: '{{ value_json.data.state }}'
     scan_interval: 60
     headers:
@@ -312,7 +312,7 @@ sensor:
     json_attributes_path: "$.data"
     json_attributes:
       - version
-      - last_version
+      - version_latest
 
 # Deconz Addon
   - platform: rest
@@ -326,7 +326,7 @@ sensor:
     json_attributes_path: "$.data"
     json_attributes:
       - version
-      - last_version
+      - version_latest
 
 # Mosquitto Addon
   - platform: rest
@@ -340,7 +340,7 @@ sensor:
     json_attributes_path: "$.data"
     json_attributes:
       - version
-      - last_version
+      - version_latest
 
 # SSH & Terminal Addon
   - platform: rest
@@ -354,7 +354,7 @@ sensor:
     json_attributes_path: "$.data"
     json_attributes:
       - version
-      - last_version
+      - version_latest
 
 # MariaDB Addon
   - platform: rest
@@ -368,7 +368,7 @@ sensor:
     json_attributes_path: "$.data"
     json_attributes:
       - version
-      - last_version
+      - version_latest
 
 # Node-Red Addon
   - platform: rest
@@ -382,7 +382,7 @@ sensor:
     json_attributes_path: "$.data"
     json_attributes:
       - version
-      - last_version
+      - version_latest
 
   - platform: rest
     resource: !secret vscode_rest_url
@@ -395,7 +395,7 @@ sensor:
     json_attributes_path: "$.data"
     json_attributes:
       - version
-      - last_version
+      - version_latest
 
 
 switch:
