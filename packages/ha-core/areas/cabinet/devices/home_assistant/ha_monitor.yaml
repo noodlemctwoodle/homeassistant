@@ -242,7 +242,7 @@ sensor:
     json_attributes_path: "$.data"
     json_attributes:
       - version
-      - last_version
+      - version_latest
 
 # VSCode Addon
   - platform: rest
@@ -256,7 +256,7 @@ sensor:
     json_attributes_path: "$.data"
     json_attributes:
       - version
-      - last_version
+      - version_latest
 
 # ESPHome Addon
   - platform: rest
@@ -270,7 +270,7 @@ sensor:
     json_attributes_path: "$.data"
     json_attributes:
       - version
-      - last_version
+      - version_latest
 
 # PHPMyAdmin Addon
   - platform: rest
@@ -284,7 +284,7 @@ sensor:
     json_attributes_path: "$.data"
     json_attributes:
       - version
-      - last_version
+      - version_latest
 
 # ADB Addon
   - platform: rest
@@ -298,21 +298,7 @@ sensor:
     json_attributes_path: "$.data"
     json_attributes:
       - version
-      - last_version
-
-# AdGaurd Addon
-  - platform: rest
-    resource: !secret adgaurd_rest_url
-    name: AdGaurd Addon
-    value_template: '{{ value_json.data.state }}'
-    scan_interval: 60
-    headers:
-      Authorization: !secret access_token
-      Content-Type: application/json
-    json_attributes_path: "$.data"
-    json_attributes:
-      - version
-      - last_version
+      - version_latest
 
 # Deconz Addon
   - platform: rest
@@ -326,7 +312,7 @@ sensor:
     json_attributes_path: "$.data"
     json_attributes:
       - version
-      - last_version
+      - version_latest
 
 # Mosquitto Addon
   - platform: rest
@@ -340,7 +326,7 @@ sensor:
     json_attributes_path: "$.data"
     json_attributes:
       - version
-      - last_version
+      - version_latest
 
 # SSH & Terminal Addon
   - platform: rest
@@ -354,7 +340,7 @@ sensor:
     json_attributes_path: "$.data"
     json_attributes:
       - version
-      - last_version
+      - version_latest
 
 # MariaDB Addon
   - platform: rest
@@ -368,7 +354,7 @@ sensor:
     json_attributes_path: "$.data"
     json_attributes:
       - version
-      - last_version
+      - version_latest
 
 # Node-Red Addon
   - platform: rest
@@ -382,20 +368,7 @@ sensor:
     json_attributes_path: "$.data"
     json_attributes:
       - version
-      - last_version
-
-  - platform: rest
-    resource: !secret vscode_rest_url
-    name: VSCode Addon
-    value_template: '{{ value_json.data.state }}'
-    scan_interval: 60
-    headers:
-      Authorization: !secret access_token
-      Content-Type: application/json
-    json_attributes_path: "$.data"
-    json_attributes:
-      - version
-      - last_version
+      - version_latest
 
 
 switch:
@@ -462,18 +435,6 @@ switch:
           service: hassio.addon_stop
           data:
             addon: a0d7b954_adb
-
-# Adgaurd Switch Template
-      adguard_addon:
-        value_template: "{{ is_state('sensor.adguard_addon', 'started') }}"
-        turn_on:
-          service: hassio.addon_start
-          data:
-            addon: a0d7b954_adguard
-        turn_off:
-          service: hassio.addon_stop
-          data:
-            addon: a0d7b954_adguard
 
 # Deconz Switch Template
       deconz_addon:
