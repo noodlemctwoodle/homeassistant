@@ -31,6 +31,10 @@ automation:
       to: 'off'
       for:
         minutes: 30
+    condition:
+      - condition: state
+        entity_id: device_tracker.chsdt01
+        state: 'not_home'
     action:
       service: light.turn_off
       data:

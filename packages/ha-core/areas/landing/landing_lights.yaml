@@ -36,6 +36,31 @@ automation:
         entity_id: light.landing
         transition: 10
 
+  #  Loft - Contact Sensor Open
+  - alias: 'Loft lights turn-on'
+    trigger:
+      platform: state
+      entity_id: binary_sensor.loft_hatch
+      to: 'on'
+    action:
+      service: light.turn_on
+      data:
+        entity_id: light.loft_pendant_01
+        brightness: 100
+
+  #  Loft - Contact Sensor Closed
+  - alias: 'Loft lights turn-off'
+    trigger:
+      platform: state
+      entity_id: binary_sensor.loft_hatch
+      to: 'off'
+    action:
+      service: light.turn_off
+      data:
+        entity_id: light.loft_pendant_01
+
+
+
 # Dwains Theme Group
 group:
   landing_lights:

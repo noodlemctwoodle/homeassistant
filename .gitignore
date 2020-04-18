@@ -109,3 +109,11 @@ hassio.code-workspace
 home-assistant_v2.7z
 *.7z
 configuration.old
+
+# Zwave
+options.xml
+OZW_Log.txt
+pyozw.sqlite
+zwave_device_config.yaml
+zwcfg_0xd3782d31.xml
+zwscene.xml

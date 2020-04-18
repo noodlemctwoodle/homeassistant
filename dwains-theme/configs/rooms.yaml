@@ -54,6 +54,8 @@ rooms:
     icon: mdi:stairs
     light: group.landing_lights
     motion: binary_sensor.landing_motion
+    window: binary_sensor.landing_window
+    door: binary_sensor.loft_hatch
     temperature: sensor.landing_temperature
     more_entities:
       entities:
@@ -73,6 +75,7 @@ rooms:
     light: group.craft_room_lights
     temperature: sensor.craft_room_temperature
     motion: binary_sensor.craft_room_motion
+    window: binary_sensor.craft_rooom_window
     media_player: media_player.craft_room_speaker
 
   - name: Office
@@ -80,6 +83,7 @@ rooms:
     light: group.office_lights
     device: group.office_switches
     temperature: sensor.office_temperature
+    window: binary_sensor.office_window
     motion: binary_sensor.office_motion
     media_player: media_player.office_speaker
 
