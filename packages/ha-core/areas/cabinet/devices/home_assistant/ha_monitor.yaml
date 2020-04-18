@@ -108,7 +108,7 @@ alert:
     state: 'on'
     can_acknowledge: false
     repeat: 360
-    title: "Updates available in {{ states('sensor.hacs') }} HACS repo{% if states('sensor.hacs') | int >= 1 %}s{% endif %}"
+    title: "Updates available in {{ states('sensor.hacs') }} HACS repo{% if states('sensor.hacs') | int > 1 %}s{% endif %}"
     message: ""
     notifiers:
       - firebase_home_assistant
@@ -125,7 +125,7 @@ alert:
     state: 'on'
     can_acknowledge: false
     repeat: 360
-    title: "Updates available for {{ states('sensor.supervisor_updates') }} HA addon{% if states('sensor.supervisor_updates') | int >= 1 %}s{% endif %}"
+    title: "Updates available for {{ states('sensor.supervisor_updates') }} HA addon{% if states('sensor.supervisor_updates') | int > 1 %}s{% endif %}"
     message: ""
     notifiers:
     - firebase_home_assistant
@@ -147,7 +147,7 @@ binary_sensor:
         entity_id:
         - sensor.supervisor_updates
         value_template: "{{ state_attr('sensor.supervisor_updates', 'current_version') != state_attr('sensor.supervisor_updates', 'newest_version') }}"
-        availability_template: "{{ (states('sensor.supervisor_updates') | int(-1)) >= -1 }}"
+        availability_template: "{{ (states('sensor.supervisor_updates') | int(-1)) > -1 }}"
 
       # True if there's updates available for any HACS components
       updater_hacs:
@@ -300,20 +300,6 @@ sensor:
       - version
       - version_latest
 
-# AdGuard Addon
-  - platform: rest
-    resource: !secret adgaurd_rest_url
-    name: AdGuard Addon
-    value_template: '{{ value_json.data.state }}'
-    scan_interval: 60
-    headers:
-      Authorization: !secret access_token
-      Content-Type: application/json
-    json_attributes_path: "$.data"
-    json_attributes:
-      - version
-      - version_latest
-
 # Deconz Addon
   - platform: rest
     resource: !secret deconz_rest_url
@@ -374,19 +360,6 @@ sensor:
   - platform: rest
     resource: !secret node_red_rest_url
     name: Node-Red Addon
-    value_template: '{{ value_json.data.state }}'
-    scan_interval: 60
-    headers:
-      Authorization: !secret access_token
-      Content-Type: application/json
-    json_attributes_path: "$.data"
-    json_attributes:
-      - version
-      - version_latest
-
-  - platform: rest
-    resource: !secret vscode_rest_url
-    name: VSCode Addon
     value_template: '{{ value_json.data.state }}'
     scan_interval: 60
     headers:
@@ -462,18 +435,6 @@ switch:
           service: hassio.addon_stop
           data:
             addon: a0d7b954_adb
-
-# Adgaurd Switch Template
-      adguard_addon:
-        value_template: "{{ is_state('sensor.adguard_addon', 'started') }}"
-        turn_on:
-          service: hassio.addon_start
-          data:
-            addon: a0d7b954_adguard
-        turn_off:
-          service: hassio.addon_stop
-          data:
-            addon: a0d7b954_adguard
 
 # Deconz Switch Template
       deconz_addon:
