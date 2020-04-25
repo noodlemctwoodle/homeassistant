@@ -75,7 +75,7 @@ rooms:
     light: group.craft_room_lights
     temperature: sensor.craft_room_temperature
     motion: binary_sensor.craft_room_motion
-    window: binary_sensor.craft_rooom_window
+    window: binary_sensor.craft_room_window
     media_player: media_player.craft_room_speaker
 
   - name: Office
@@ -90,6 +90,8 @@ rooms:
   - name: Server Cabinet
     icon: mdi:server
     light: group.cabinet_lights
+    temperature: sensor.cabinet_temperature
+    humidity: sensor.cabinet_relative_humidity
     device: switch.home_server
     addons:
       - name: Unraid

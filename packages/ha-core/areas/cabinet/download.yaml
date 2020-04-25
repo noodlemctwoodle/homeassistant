@@ -9,20 +9,6 @@ nzbget:
 
 
 sensor:
-## RADARR - COMPONENT
-# https://www.home-assistant.io/integrations/radarr/
-
-  - platform: radarr
-    api_key: !secret radarr_api_key
-    host: !secret host_ip_address
-    port: !secret radarr_port
-    monitored_conditions:
-    - upcoming
-    - status
-    - diskspace
-    days: 7
-    unit: GB
-    ssl: false
 
   - platform: radarr_upcoming_media
     api_key: !secret radarr_api_key
@@ -33,26 +19,11 @@ sensor:
     theaters: false
     max: 10
 
-# SONARR - COMPONENT
-# https://www.home-assistant.io/integrations/sonarr/
-
-  - platform: sonarr
-    api_key: !secret sonarr_api_key
-    host: !secret host_ip_address
-    port: !secret sonarr_port
-    monitored_conditions:
-    - upcoming
-    - queue
-    - diskspace
-    days: 7
-    unit: GB
-    ssl: false
-
   - platform: sonarr_upcoming_media
     api_key: !secret sonarr_api_key
     host: !secret host_ip_address
     port: !secret sonarr_port
-    days: 2
+    days: 7
     ssl: false
     max: 10
 

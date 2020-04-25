@@ -1,5 +1,5 @@
 # UnRAID Server Montitoring for Dwains-Theme
-## Version 0.1 by noodlemctwoodle
+## Version 0.2 by noodlemctwoodle
 
 # Please view the set up guide for this view on GitHub
 ## https://github.com/noodlemctwoodle/homeassistant/tree/master/user_content
@@ -401,7 +401,7 @@
                       icon: mdi:harddisk-plus
                   show_icon: true
                   positions:
-                    title: inside
+                    name: inside
                     value: 'off'
                     icon: inside
                   severity:
@@ -442,7 +442,7 @@
                   icon: mdi:database-settings
                   show_icon: true
                   positions:
-                    title: inside
+                    name: inside
                     value: inside
                     icon: inside
                   severity:
@@ -476,167 +476,163 @@
                   min: 0
                   tap_action: none
 
-
-            - type: vertical-stack
-              cards:
-
         # Disk Space Used Card
 
-                - type: horizontal-stack
+            - type: horizontal-stack
+              cards:
+                - type: custom:swipe-card
+                  parameters:
+                    spaceBetween: 8
+                    touchEventsTarget: 'container'
+                    pagination:
+                      type: 'bullets'
+                      dynamicBullets: true
+
                   cards:
-                    - type: custom:swipe-card
-                      parameters:
-                        spaceBetween: 8
-                        touchEventsTarget: 'container'
-                        pagination:
-                          type: 'bullets'
-                          dynamicBullets: true
 
+                    - type: vertical-stack
                       cards:
+                        - type: horizontal-stack
+                          cards: 
 
-                        - type: vertical-stack
-                          cards:
-                            - type: horizontal-stack
-                              cards: 
+                        # Disk 1 Used %
+                            - type: custom:bar-card
+                              style: |
+                                :host {
+                                  --ha-card-background: var(--paper-card-background-color);
+                                  --ha-card-border-radius: 10px;
+                                  --ha-card-box-shadow: 10px;
+                                  --ha-card-font-weight: bold;
+                                  --ha-card-opacity: 0.8;
+                                }
+                                ha-card {
+                                  font-size: 10px;                 
+                                }
+                                bar-card-value {
+                                  font-size: 8px;
+                                }
+                              entities: 
+                                - entity: sensor.glances_unraid_mnt_disk1_used_percent
+                                  name: Disk 1 Usage
+                                - entity: sensor.glances_unraid_mnt_disk2_used_percent
+                                  name: Disk 2 Usage
+                                - entity: sensor.glances_unraid_mnt_disk3_used_percent
+                                  name: Disk 3 Usage
+                                - entity: sensor.glances_unraid_mnt_disk4_used_percent
+                                  name: Disk 4 Usage
+                                - entity: sensor.glances_unraid_mnt_disk5_used_percent
+                                  name: Disk 5 Usage
+                                - entity: sensor.glances_unraid_mnt_disk6_used_percent
+                                  name: Disk 6 Usage
+                              show_icon: true
+                              height: 200px
+                              stack: horizontal
+                              positions:
+                                name: inside
+                                value: inside
+                                icon: inside
+                              severity:
+                                - color: '#3cff00'
+                                  from: 0
+                                  to: 30
+                                - color: '#ccff00'
+                                  from: 30
+                                  to: 40
+                                - color: '#f1f505'
+                                  from: 40
+                                  to: 50
+                                - color: '#f7da00'
+                                  from: 50
+                                  to: 60
+                                - color: '#edac09'
+                                  from: 60
+                                  to: 70
+                                - color: '#ffa408'
+                                  from: 70
+                                  to: 80
+                                - color: '#ff5e08'
+                                  from: 80
+                                  to: 90
+                                - color: '#ed0909'
+                                  from: 90
+                                  to: 100
+                              direction: up
+                              columns: 1
+                              max: 100
+                              min: 0
+                              tap_action: none
 
-                            # Disk 1 Used %
-                                - type: custom:bar-card
-                                  style: |
-                                    :host {
-                                      --ha-card-background: var(--paper-card-background-color);
-                                      --ha-card-border-radius: 10px;
-                                      --ha-card-box-shadow: 10px;
-                                      --ha-card-font-weight: bold;
-                                      --ha-card-opacity: 0.8;
-                                    }
-                                    ha-card {
-                                      font-size: 10px;                 
-                                    }
-                                    bar-card-value {
-                                      font-size: 8px;
-                                    }
-                                  entities: 
-                                    - entity: sensor.glances_unraid_mnt_disk1_used_percent
-                                      name: Disk 1 Usage
-                                    - entity: sensor.glances_unraid_mnt_disk2_used_percent
-                                      name: Disk 2 Usage
-                                    - entity: sensor.glances_unraid_mnt_disk3_used_percent
-                                      name: Disk 3 Usage
-                                    - entity: sensor.glances_unraid_mnt_disk4_used_percent
-                                      name: Disk 4 Usage
-                                    - entity: sensor.glances_unraid_mnt_disk5_used_percent
-                                      name: Disk 5 Usage
-                                    - entity: sensor.glances_unraid_mnt_disk6_used_percent
-                                      name: Disk 6 Usage
-                                  show_icon: true
-                                  height: 200px
-                                  stack: horizontal
-                                  positions:
-                                    title: inside
-                                    value: inside
-                                    icon: inside
-                                  severity:
-                                    - color: '#3cff00'
-                                      from: 0
-                                      to: 30
-                                    - color: '#ccff00'
-                                      from: 30
-                                      to: 40
-                                    - color: '#f1f505'
-                                      from: 40
-                                      to: 50
-                                    - color: '#f7da00'
-                                      from: 50
-                                      to: 60
-                                    - color: '#edac09'
-                                      from: 60
-                                      to: 70
-                                    - color: '#ffa408'
-                                      from: 70
-                                      to: 80
-                                    - color: '#ff5e08'
-                                      from: 80
-                                      to: 90
-                                    - color: '#ed0909'
-                                      from: 90
-                                      to: 100
-                                  direction: up
-                                  columns: 1
-                                  max: 100
+                    - type: vertical-stack
+                      cards:
+                        - type: horizontal-stack
+                          cards: 
+
+                        # 6 TB Disks Free Space
+                            - type: custom:bar-card
+                              style: |
+                                :host {
+                                  --ha-card-background: var(--paper-card-background-color);
+                                  --ha-card-border-radius: 10px;
+                                  --ha-card-box-shadow: 10px;
+                                  --ha-card-font-weight: bold;
+                                  --ha-card-opacity: 0.8;
+                                }
+                                ha-card {
+                                  font-size: 10px;                 
+                                }
+                                bar-card-value {
+                                  font-size: 8px;
+                                }
+                              entities: 
+                                - entity: sensor.glances_unraid_mnt_disk1_free
+                                  name: Disk 1 Free
                                   min: 0
-                                  tap_action: none
-
-                        - type: vertical-stack
-                          cards:
-                            - type: horizontal-stack
-                              cards: 
-
-                            # 6 TB Disks Free Space
-                                - type: custom:bar-card
-                                  style: |
-                                    :host {
-                                      --ha-card-background: var(--paper-card-background-color);
-                                      --ha-card-border-radius: 10px;
-                                      --ha-card-box-shadow: 10px;
-                                      --ha-card-font-weight: bold;
-                                      --ha-card-opacity: 0.8;
-                                    }
-                                    ha-card {
-                                      font-size: 10px;                 
-                                    }
-                                    bar-card-value {
-                                      font-size: 8px;
-                                    }
-                                  entities: 
-                                    - entity: sensor.glances_unraid_mnt_disk1_free
-                                      name: Disk 1 Free
-                                      min: 0
-                                      max: 5460
-                                    - entity: sensor.glances_unraid_mnt_disk2_free
-                                      name: Disk 2 Free
-                                      min: 0
-                                      max: 5460
-                                    - entity: sensor.glances_unraid_mnt_disk3_free
-                                      name: Disk 3 Free
-                                      min: 0
-                                      max: 5460
-                                    - entity: sensor.glances_unraid_mnt_disk4_free # 3 TB Disk max: 2730mb 
-                                      name: Disk 4 Free
-                                      min: 0
-                                      max: 2730
-                                    - entity: sensor.glances_unraid_mnt_disk5_free
-                                      name: Disk 5 Free
-                                      min: 0
-                                      max: 5460
-                                    - entity: sensor.glances_unraid_mnt_disk6_free
-                                      name: Disk 6 Free
-                                      min: 0
-                                      max: 5460
-                                  show_icon: true
-                                  height: 200px
-                                  stack: horizontal
-                                  positions:
-                                    title: inside
-                                    value: inside
-                                    icon: inside
-                                  severity:
-                                    - color: '#fa0505'
-                                      from: 0
-                                      to: 700
-                                    - color: '#de4314'
-                                      from: 700
-                                      to: 800
-                                    - color: '#d1861d'
-                                      from: 800
-                                      to: 900
-                                    - color: '#d4c11c'
-                                      from: 900
-                                      to: 1000
-                                    - color: '#64c91c'
-                                      from: 1001
-                                      to: 5560
-                                  direction: up
-                                  tap_action: none
+                                  max: 5460
+                                - entity: sensor.glances_unraid_mnt_disk2_free
+                                  name: Disk 2 Free
+                                  min: 0
+                                  max: 5460
+                                - entity: sensor.glances_unraid_mnt_disk3_free
+                                  name: Disk 3 Free
+                                  min: 0
+                                  max: 5460
+                                - entity: sensor.glances_unraid_mnt_disk4_free # 3 TB Disk max: 2730mb 
+                                  name: Disk 4 Free
+                                  min: 0
+                                  max: 2730
+                                - entity: sensor.glances_unraid_mnt_disk5_free
+                                  name: Disk 5 Free
+                                  min: 0
+                                  max: 5460
+                                - entity: sensor.glances_unraid_mnt_disk6_free
+                                  name: Disk 6 Free
+                                  min: 0
+                                  max: 5460
+                              show_icon: true
+                              height: 200px
+                              stack: horizontal
+                              positions:
+                                name: inside
+                                value: inside
+                                icon: inside
+                              severity:
+                                - color: '#fa0505'
+                                  from: 0
+                                  to: 700
+                                - color: '#de4314'
+                                  from: 700
+                                  to: 800
+                                - color: '#d1861d'
+                                  from: 800
+                                  to: 900
+                                - color: '#d4c11c'
+                                  from: 900
+                                  to: 1000
+                                - color: '#64c91c'
+                                  from: 1001
+                                  to: 5560
+                              direction: up
+                              tap_action: none
 
 
         - type: vertical-stack
@@ -757,7 +753,7 @@
                         height: 86px
                         stack: horizontal
                         positions:
-                          title: inside
+                          name: inside
                           value: inside
                           icon: inside
                         severity:
@@ -788,7 +784,12 @@
                         direction: right
                         tap_action: none
 
-
+- type: vertical-stack
+  cards:
+    - type: custom:dwains-flexbox-card
+      padding: true
+      items_classes: 'col-lg-6 col-md-6 col-sm-12 col-xs-12'
+      cards:
         - type: horizontal-stack
           cards:
             - type: custom:swipe-card
