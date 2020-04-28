@@ -27,7 +27,9 @@
  - Removed picture entity card used for version and containers due to positioning issue on mobile devices
    - Added Button-Card for `containers` and `version`
  - Removed Swipe card for Home Assistant addons due issue with light theme
-
+ - Change layout of `CPU` and `RAM` usage
+ - Fixed spacing issues
+ - Adjusted font sizes
 
  Dwains-Theme UnRAID add-on can be found [here](https://github.com/noodlemctwoodle/homeassistant/blob/master/dwains-theme/addons/more_page/unraid_addon/unraid_monitoring.yaml)
 

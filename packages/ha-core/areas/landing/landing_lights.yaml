@@ -46,7 +46,7 @@ automation:
       service: light.turn_on
       data:
         entity_id: light.loft_pendant_01
-        brightness: 100
+        brightness: 254
 
   #  Loft - Contact Sensor Closed
   - alias: 'Loft lights turn-off'

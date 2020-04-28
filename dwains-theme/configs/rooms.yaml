@@ -100,6 +100,8 @@ rooms:
       - name: Home Assistant
         icon: mdi:home-assistant
         path: 'dwains-theme/addons/more_page/ha_view/ha_monitoring.yaml'
-
+      - name: Power
+        icon: mdi:server-network
+        path: 'dwains-theme/addons/more_page/power/power_usage.yaml'
 
 

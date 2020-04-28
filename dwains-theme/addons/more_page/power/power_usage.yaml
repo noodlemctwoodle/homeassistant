@@ -1,0 +1,13 @@
+- type: entities
+  entities:
+    - switch.office_computer_smart_plug_relay
+    - device_tracker.office_computer_smart_plug
+    - sensor.office_computer_smart_plug_amperage
+    - switch.office_computer_smart_plug_blue_led
+    - binary_sensor.office_computer_smart_plug_button
+    - binary_sensor.office_computer_smart_plug_status
+    - sensor.office_computer_smart_plug_total_daily_energy
+    - sensor.office_computer_smart_plug_uptime_sensor
+    - sensor.office_computer_smart_plug_voltage
+    - sensor.office_computer_smart_plug_wattage
+    - sensor.office_computer_smart_plug_wifi_signal
