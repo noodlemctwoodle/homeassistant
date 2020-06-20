@@ -14,4 +14,5 @@ logger:
     custom_components.plex_recently_added.sensor: error
     custom_components.sonarr_upcoming_media.sensor: error
     custom_components.radarr_upcoming_media.sensor: error
+    homeassistant.components.websocket_api.http.connection.140279281855760: critical
     #homeassistant.components.websocket_api: critical

@@ -101,6 +101,9 @@ rooms:
       - name: Home Assistant
         icon: mdi:home-assistant
         path: 'dwains-theme/addons/more_page/ha_view/ha_monitoring.yaml'
+      - name: Pi Hole 
+        icon: mdi:pi-hole
+        path: 'dwains-theme/addons/more_page/pi_hole/adblocker.yaml'
       - name: Power
         icon: mdi:server-network
         path: 'dwains-theme/addons/more_page/power/power_usage.yaml'
