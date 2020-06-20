@@ -2,7 +2,7 @@
 #### Version 0.1 by noodlemctwoodle
 
 
-![pihole-monitor](https://github.com/noodlemctwoodle/homeassistant/blob/master/.github/wiki/images/dwains-theme/addons/pi-hole/desktop_1.png)
+![pihole-monitor](https://github.com/noodlemctwoodle/homeassistant/blob/master/.github/wiki/images/dwains-theme/addons/pi_hole/desktop_1.png)
 
 ## Version 0.1
  - Initial view works for both Mobile and Desktop (Responsive)
