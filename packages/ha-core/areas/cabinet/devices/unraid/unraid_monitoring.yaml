@@ -1,3 +1,6 @@
+# UnRAID Server Montitoring for Dwains-Theme
+## Version 0.3 by noodlemctwoodle
+
 # UnRAID Sensors v1.2
 
 ## UnRAID Version Sensor URLs
@@ -5,7 +8,7 @@
 ### Beta URL: https://s3.amazonaws.com/dnld.lime-technology.com/next/unRAIDServer.plg
 sensor:
   - platform: command_line
-    name: Unraid Version (Next)
+    name: Unraid Version (Stable)
     command: /usr/bin/curl --insecure "https://s3.amazonaws.com/dnld.lime-technology.com/next/unRAIDServer.plg" 2>&1 | grep Version |awk '{print $3}'
 
 

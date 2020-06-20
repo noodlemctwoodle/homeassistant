@@ -2,8 +2,6 @@
 # Add here your own resources
 #
 
-
-
 ## HKI Resources
 
 # Search Card
@@ -117,8 +115,6 @@
 # GUI Sandbox Card (this plugin is AWESOME!)
   - url: /hacsfiles/lovelace-gui-sandbox/gui-sandbox.js
     type: module
-
-
 
 
 ## Custom Cards

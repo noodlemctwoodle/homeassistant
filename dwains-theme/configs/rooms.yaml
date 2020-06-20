@@ -4,6 +4,7 @@ rooms:
   - name: Kitchen
     icon: mdi:pot
     light: group.kitchen_lights
+    device: group.kitchen_light_switches
     temperature: sensor.kitchen_temperature
     motion: binary_sensor.kitchen_motion
     window: binary_sensor.kitchen_window

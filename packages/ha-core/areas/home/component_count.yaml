@@ -57,3 +57,4 @@ sensor:
       count_zones:
         entity_id: sensor.date
         value_template: "{{ states.zone | list | length }}"
+
