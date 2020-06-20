@@ -80,7 +80,7 @@ sensor:
 ```
 This sensor will check once an hour for new version. Adjust ‘scan_interval’ to change this time frame. The interval is in seconds. (3600 seconds = 60 minutes = 1 hour)
 
-You need to change "{{ value_json.info.default }}" to match your build type. The json output showing all the options is below.
+You need to change "{{ value_json.homeassistant.default }}" to match your build type. The json output showing all the options is below.
 
 
 ```JSON

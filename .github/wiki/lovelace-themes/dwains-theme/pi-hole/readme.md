@@ -10,6 +10,16 @@
  - Uses Home Assistant Pi-Hole Integration
 
 
+### Installation:
+
+ ```yaml
+    addons:
+      - name: Pi Hole 
+        icon: mdi:pi-hole
+        path: 'dwains-theme/addons/more_page/adblocker.yaml'
+```
+
+
 ### Donations
 
 If you like my work please feel free to buy me a coffee
