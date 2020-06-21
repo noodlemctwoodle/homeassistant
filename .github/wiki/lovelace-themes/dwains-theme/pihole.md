@@ -6,7 +6,7 @@
 
 ## Dwains Theme Addon:
 
-Dwains-Theme UnRAID add-on can be found [here](https://github.com/noodlemctwoodle/homeassistant/blob/master/dwains-theme/addons/more_page/adblocker.yaml)
+Dwains Theme `Pi-Hole` add-on can be found [here](https://github.com/noodlemctwoodle/homeassistant/blob/master/dwains-theme/addons/more_page/adblocker.yaml)
 
 ### Dwains Theme Configuration:
 

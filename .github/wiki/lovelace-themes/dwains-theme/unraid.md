@@ -5,7 +5,7 @@
 
 ## Dwains Theme Addon:
 
-Dwains-Theme UnRAID add-on can be found [here](https://github.com/noodlemctwoodle/homeassistant/blob/master/dwains-theme/addons/more_page/unraid_monitoring.yaml)
+Dwains-Theme `UnRAID` add-on can be found [here](https://github.com/noodlemctwoodle/homeassistant/blob/master/dwains-theme/addons/more_page/unraid_monitoring.yaml)
 
 ### Dwains Theme Configuration:
 

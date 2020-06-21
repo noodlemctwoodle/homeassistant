@@ -5,7 +5,7 @@
 
 ## Dwains Theme Addon:
 
-Dwains-Theme Addon can be found [here](https://github.com/noodlemctwoodle/homeassistant/blob/master/dwains-theme/addons/more_page/ha_monitoring.yaml)
+Dwains-Theme `Home Assistant Monitoring` Addon can be found [here](https://github.com/noodlemctwoodle/homeassistant/blob/master/dwains-theme/addons/more_page/ha_monitoring.yaml)
      
 Configuration instructions can be found [here](https://github.com/noodlemctwoodle/homeassistant/blob/master/.github/wiki/guides/ha-core/HomeAssistant_Monitoting.md)
 
