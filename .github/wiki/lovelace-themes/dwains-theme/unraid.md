@@ -1,5 +1,5 @@
 # UnRAID Monitoring Addon for Dwains-Theme
-#### Version 0.3
+#### Version 0.4
 
 ![unraid-monitor](https://github.com/noodlemctwoodle/homeassistant/blob/master/.github/wiki/images/dwains-theme/addons/unraid/desktop_1.png)
 
@@ -48,7 +48,10 @@
  - Works on Mobile
  
 ## Version 0.4
-  - Added disk temperatures
+  - Added disk temperatures (SNMP)
+  - Removed Download LAN Traffic
+
+### Dwains Theme Configuration:
 
  ```yaml
     addons:

@@ -10,7 +10,7 @@
  - Uses Home Assistant Pi-Hole Integration
 
 
-### Installation:
+### Dwains Theme Configuration:
 
  ```yaml
     addons:
