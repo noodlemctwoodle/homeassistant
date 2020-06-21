@@ -3,6 +3,19 @@
 
 ![unraid-monitor](https://github.com/noodlemctwoodle/homeassistant/blob/master/.github/wiki/images/dwains-theme/addons/unraid/desktop_1.png)
 
+## Dwains Theme Addon:
+
+Dwains-Theme UnRAID add-on can be found [here](https://github.com/noodlemctwoodle/homeassistant/blob/master/dwains-theme/addons/more_page/unraid_monitoring.yaml)
+
+### Dwains Theme Configuration:
+
+ ```yaml
+    addons:
+    - name: Unraid Monitoring
+        icon: mdi:server-network
+        path: 'dwains-theme/addons/more_page/unraid_monitoring.yaml'
+```
+
 ### UnRAID Data Monitoring Feeds
 
 | [UnRAID-API](https://github.com/noodlemctwoodle/homeassistant/tree/master/.github/wiki/guides/unraid#unraid-api-configuration) | [UnRAID-SNMP](https://github.com/noodlemctwoodle/homeassistant/tree/master/.github/wiki/guides/unraid#unraid-snmp-configuration) | [UnRAID Glances Container](https://github.com/hassio-addons/addon-glances/blob/v0.7.1/README.md) |
@@ -12,7 +25,9 @@
 | Total arrayDiskSpace  | Disk Space      | View CPU usage                 |
 | Start/Stop Containers | CPU Load        | View RAM usage                 |
 
-## Version 0.1
+## Release Notes:
+
+### Version 0.1
  - Initial view works for both Mobile and Desktop (Responsive)
  - Glances container support
  - Glances Home Assistant Integration
@@ -21,7 +36,7 @@
  - UnRAID-API added
  - Added SNMP [config](https://github.com/noodlemctwoodle/homeassistant/blob/44ac457117f173fa1bf1e47ce832566b36ba5ddb/packages/ha-core/areas/cabinet/devices/unraid/unraid_monitoring.yaml#L34)
 
-## Version 0.2
+### Version 0.2
  - Updated `title` to `name` for bar-card thanks @papy_329700
  - fixed `custom:dwains-flexbox-card` line spacing issue
  - Removed picture entity card used for version and containers due to positioning issue on mobile devices
@@ -31,9 +46,7 @@
  - Fixed spacing issues
  - Adjusted font sizes
 
- Dwains-Theme UnRAID add-on can be found [here](https://github.com/noodlemctwoodle/homeassistant/blob/master/dwains-theme/addons/more_page/unraid_monitoring.yaml)
-
-## Version 0.3
+### Version 0.3
  - Added new UnRAID API Beta content
    - Power Off Server
    - Reboot Server
@@ -47,18 +60,10 @@
  - Works with both light and dark theme
  - Works on Mobile
  
-## Version 0.4
+### Version 0.4
   - Added disk temperatures (SNMP)
   - Removed Download LAN Traffic
 
-### Dwains Theme Configuration:
-
- ```yaml
-    addons:
-    - name: Unraid Monitoring
-        icon: mdi:server-network
-        path: 'dwains-theme/addons/more_page/unraid_monitoring.yaml'
-```
 
  #### Credits
  - [Dwain](https://github.com/dwainscheeren/lovelace-dwains-theme) Thanks for your assistance and ideas on this :)
