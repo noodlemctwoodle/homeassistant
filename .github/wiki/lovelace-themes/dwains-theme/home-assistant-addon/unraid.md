@@ -31,7 +31,7 @@
  - Fixed spacing issues
  - Adjusted font sizes
 
- Dwains-Theme UnRAID add-on can be found [here](https://github.com/noodlemctwoodle/homeassistant/blob/master/dwains-theme/addons/more_page/unraid_addon/unraid_monitoring.yaml)
+ Dwains-Theme UnRAID add-on can be found [here](https://github.com/noodlemctwoodle/homeassistant/blob/master/dwains-theme/addons/more_page/unraid_monitoring.yaml)
 
 ## Version 0.3
  - Added new UnRAID API Beta content
@@ -47,7 +47,8 @@
  - Works with both light and dark theme
  - Works on Mobile
  
-Known bug with version. Will look at this in due course. 
+## Version 0.4
+  - Added disk temperatures
 
  ```yaml
     addons:
