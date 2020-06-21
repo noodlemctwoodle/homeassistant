@@ -1,0 +1,16 @@
+binary_sensor.motion_back_garden
+binary_sensor.motion_office
+sensor.motion_recording_back_garden
+sensor.motion_recording_office
+switch.record_motion_back_garden
+switch.record_motion_office
+switch.record_always_back_garden
+switch.record_always_office
+switch.ir_active_back_garden
+switch.ir_active_office
+camera.back_garden
+camera.office
+sensor.unifi_gateway_lan
+sensor.unifi_gateway_firmware_upgradable
+sensor.unifi_gateway_alerts
+sensor.unifi_gateway_wlan

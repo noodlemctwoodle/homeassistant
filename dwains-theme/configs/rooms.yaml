@@ -33,7 +33,7 @@ rooms:
     addons:
       - name: Media Control
         icon: mdi:television-classic
-        path: 'dwains-theme/addons/more_page/media_players/media.yaml'
+        path: 'dwains-theme/addons/more_page/media.yaml'
 
   - name: Hall
     icon: mdi:door
@@ -97,15 +97,18 @@ rooms:
     addons:
       - name: Unraid
         icon: mdi:server-network
-        path: 'dwains-theme/addons/more_page/unraid_addon/unraid_monitoring.yaml'
+        path: 'dwains-theme/addons/more_page/unraid_monitoring.yaml'
       - name: Home Assistant
         icon: mdi:home-assistant
-        path: 'dwains-theme/addons/more_page/ha_view/ha_monitoring.yaml'
+        path: 'dwains-theme/addons/more_page/ha_monitoring.yaml'
       - name: Pi Hole 
         icon: mdi:pi-hole
-        path: 'dwains-theme/addons/more_page/pi_hole/adblocker.yaml'
+        path: 'dwains-theme/addons/more_page/adblocker.yaml'
+      - name: Unifi
+        icon: mdi:folder-key-network-outline
+        path: 'dwains-theme/addons/more_page/unifi.yaml'
       - name: Power
         icon: mdi:server-network
-        path: 'dwains-theme/addons/more_page/power/power_usage.yaml'
+        path: 'dwains-theme/addons/more_page/power_usage.yaml'
 
 
