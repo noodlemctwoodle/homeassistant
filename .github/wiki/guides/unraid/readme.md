@@ -28,9 +28,9 @@ input_text:
 
 ### Picture Elements Card
 
-Both HKI and Dwains require this [image](https://github.com/noodlemctwoodle/homeassistant/blob/master/www/images/lovelace-themes/hardware/unraid_logo.png)
+HKI requires this [image](https://github.com/noodlemctwoodle/homeassistant/blob/master/www/images/lovelace-themes/dwains-theme/software/unraid_logo.png)
  
-![unraid](https://github.com/noodlemctwoodle/homeassistant/blob/master/www/images/lovelace-themes/hardware/unraid_logo.png
+![unraid](https://github.com/noodlemctwoodle/homeassistant/blob/master/www/images/lovelace-themes/dwains-theme/software/unraid_logo.png)
 
 
 ### Containers Swipe-Card
