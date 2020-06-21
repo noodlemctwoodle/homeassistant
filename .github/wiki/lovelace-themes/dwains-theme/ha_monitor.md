@@ -54,7 +54,7 @@ Configuration instructions can be found [here](https://github.com/noodlemctwoodl
     addons:
       - name: Home Assistant
         icon: mdi:home-assistant
-        path: 'dwains-theme/addons/more_page/ha_view/ha_monitoring.yaml'
+        path: 'dwains-theme/addons/more_page/ha_monitoring.yaml'
 ```
 
  #### Credits

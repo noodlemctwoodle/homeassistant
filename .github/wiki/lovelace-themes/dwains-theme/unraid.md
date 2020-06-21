@@ -54,7 +54,7 @@
     addons:
     - name: Unraid Monitoring
         icon: mdi:server-network
-        path: 'dwains-theme/addons/more_page/unraid_addon/unraid_monitoring.yaml'
+        path: 'dwains-theme/addons/more_page/unraid_monitoring.yaml'
 ```
 
  #### Credits

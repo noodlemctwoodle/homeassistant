@@ -10,7 +10,7 @@ Open source home automation that puts local control and privacy first. Powered b
 ## Addons for Dwains-Theme
 * Energy Monitoring View | (coming soon)
 * [Home Assistant View](https://github.com/noodlemctwoodle/homeassistant/tree/master/.github/wiki/lovelace-themes/dwains-theme/ha_monitor.md)
-* [Media Monitoring View (BETA)](https://github.com/noodlemctwoodle/homeassistant/blob/master/dwains-theme/addons/more_page/media_players/media.yaml)
+* [Media Monitoring View (BETA)](https://github.com/noodlemctwoodle/homeassistant/blob/master/dwains-theme/addons/more_page/media.yaml)
 * [UnRAID View](https://github.com/noodlemctwoodle/homeassistant/tree/master/.github/wiki/lovelace-themes/dwains-theme/unraid.md)
 * [Pi-Hole View](https://github.com/noodlemctwoodle/homeassistant/tree/master/.github/wiki/lovelace-themes/dwains-theme/pihole.md)
 
