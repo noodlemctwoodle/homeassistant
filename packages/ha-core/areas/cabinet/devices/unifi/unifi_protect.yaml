@@ -1,25 +1,4 @@
-binary_sensor:
-  # UniFI Protect - Custom Component
-  # https://github.com/briis/unifiprotect
-  - platform: unifiprotect
-
-
-sensor:
-# UniFI Protect - Custom Component
-# https://github.com/briis/unifiprotect
-  - platform: unifiprotect
-
 
 # Camera Streams
 stream:
 
-camera:
-  - platform: unifiprotect
-
-# UniFI Protect - Custom Component
-# https://github.com/briis/unifiprotect
-
-unifiprotect:
-  host: !secret cloud_key_ip
-  username: !secret unifi_protect_username
-  password: !secret unifi_protect_password
