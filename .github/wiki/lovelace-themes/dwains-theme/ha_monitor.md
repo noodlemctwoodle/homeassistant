@@ -18,6 +18,11 @@ Configuration instructions can be found [here](https://github.com/noodlemctwoodl
         path: 'dwains-theme/addons/more_page/ha_monitoring.yaml'
 ```
 
+### Credits
+ - [SilvrrGIT](https://github.com/SilvrrGIT/HomeAssistant) Excellent post on the community [forum](https://community.home-assistant.io/t/get-notified-of-available-hassio-addon-updates/176626) outlining how to create rest senosr to start/restart Home Assistant Core Addons, Create the switches used in my HKI System view and the post also describes how write automations for addon update available notifications.
+ - [Avi](https://github.com/abeksis/My-HomeAssistant-Config) Thanks for creating the awesome graphics used in v0.1 containers swipe-card and also providing code snips. 
+ - [CentralCommand](https://community.home-assistant.io/t/update-notifications-core-hacs-supervisor-and-addons/182295)
+
 ## Release Notes:
 
 ### Version 0.1 - Initial release
@@ -61,12 +66,8 @@ Configuration instructions can be found [here](https://github.com/noodlemctwoodl
 ## Version 0.5
  - Updated `title` to `name` for bar-card thanks @papy_329700
 
-#### Credits
- - [SilvrrGIT](https://github.com/SilvrrGIT/HomeAssistant) Excellent post on the community [forum](https://community.home-assistant.io/t/get-notified-of-available-hassio-addon-updates/176626) outlining how to create rest senosr to start/restart Home Assistant Core Addons, Create the switches used in my HKI System view and the post also describes how write automations for addon update available notifications.
- - [Avi](https://github.com/abeksis/My-HomeAssistant-Config) Thanks for creating the awesome graphics used in v0.1 containers swipe-card and also providing code snips. 
- - [CentralCommand](https://community.home-assistant.io/t/update-notifications-core-hacs-supervisor-and-addons/182295)
- 
- ### Donations
+
+### Donations
 
 If you like my work please feel free to buy me a coffee
 

@@ -25,6 +25,15 @@ Dwains-Theme `UnRAID` add-on can be found [here](https://github.com/noodlemctwoo
 | Total arrayDiskSpace  | Disk Space      | View CPU usage                 |
 | Start/Stop Containers | CPU Load        | View RAM usage                 |
 
+
+ ### Credits
+ - [Dwain](https://github.com/dwainscheeren/lovelace-dwains-theme) Thanks for your assistance and ideas on this :)
+ - [Stephan](https://github.com/Stephan296) Thanks for creating the version sensor curl request and exploring the correct configuration for the UnRAID-API.
+ - [ElectricBrainUK](https://github.com/ElectricBrainUK/UnraidAPI) Thanks for creating this API for us to use and making this dashboard possible
+ - [123](https://community.home-assistant.io/u/123/summary) Thanks for solving the problem with parenthesis
+ - [Avi](https://github.com/abeksis/My-HomeAssistant-Config) Thanks for creating the awesome graphics used in v0.1 containers swipe-card and also providing code snips. 
+
+
 ## Release Notes:
 
 ### Version 0.1
@@ -63,14 +72,6 @@ Dwains-Theme `UnRAID` add-on can be found [here](https://github.com/noodlemctwoo
 ### Version 0.4
   - Added disk temperatures (SNMP)
   - Removed Download LAN Traffic
-
-
- #### Credits
- - [Dwain](https://github.com/dwainscheeren/lovelace-dwains-theme) Thanks for your assistance and ideas on this :)
- - [Stephan](https://github.com/Stephan296) Thanks for creating the version sensor curl request and exploring the correct configuration for the UnRAID-API.
- - [ElectricBrainUK](https://github.com/ElectricBrainUK/UnraidAPI) Thanks for creating this API for us to use and making this dashboard possible
- - [123](https://community.home-assistant.io/u/123/summary) Thanks for solving the problem with parenthesis
- - [Avi](https://github.com/abeksis/My-HomeAssistant-Config) Thanks for creating the awesome graphics used in v0.1 containers swipe-card and also providing code snips. 
 
 
 ### Donations
