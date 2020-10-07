@@ -1,4 +1,4 @@
-## Welcome to GitHub Pages
+## Addons Documentation
 
 You can use the [editor on GitHub](https://github.com/noodlemctwoodle/homeassistant/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
 
