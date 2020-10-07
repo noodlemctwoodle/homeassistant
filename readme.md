@@ -4,52 +4,50 @@
 [![Fork](https://img.shields.io/github/forks/noodlemctwoodle/homeassistant?style=plastic)](https://github.com/noodlemctwoodle/homeassistant/network/members)
 [![Issues](https://img.shields.io/github/issues/noodlemctwoodle/homeassistant?style=plastic)](https://github.com/noodlemctwoodle/homeassistant/issues)
 
-Open source home automation that puts local control and privacy first. Powered by a worldwide community of tinkerers and DIY enthusiasts. 
+Open source home automation that puts local control and privacy first. Powered by a worldwide community of tinkerers and DIY enthusiasts.
 
+## Current Theme
+- [x] [Home Kit Infused](https://github.com/jimz011/homekit-infused)
+- [ ] [Dwains Theme](https://github.com/dwainscheeren/lovelace-dwains-theme)
 
-## Addons for Dwains-Theme
-* [Energy Monitoring (Very Alpha)](https://github.com/noodlemctwoodle/homeassistant/blob/master/dwains-theme/addons/more_page/power_usage.yaml)
-* [Home Assistant Monitoring](https://github.com/noodlemctwoodle/homeassistant/tree/master/.github/wiki/lovelace-themes/dwains-theme/ha_monitor.md)
-* [Media Monitoring (BETA)](https://github.com/noodlemctwoodle/homeassistant/blob/master/dwains-theme/addons/more_page/media.yaml)
-* [UnRAID Monitoring](https://github.com/noodlemctwoodle/homeassistant/tree/master/.github/wiki/lovelace-themes/dwains-theme/unraid.md)
-* [Pi-Hole Monitoring](https://github.com/noodlemctwoodle/homeassistant/tree/master/.github/wiki/lovelace-themes/dwains-theme/pihole.md)
-
-### Dwain-Theme
-[Documentation](https://github.com/dwainscheeren/lovelace-dwains-theme)
-
-<br/>
-
-## Views For Home Kit Infused 
-* Energy Monitoring View | (coming soon)
-* [Home Assistant View](https://github.com/noodlemctwoodle/homeassistant/tree/master/.github/wiki/lovelace-themes/homekit-infused/home-assistant-view)
-* [Media Monitoring View](https://github.com/noodlemctwoodle/homeassistant/tree/master/.github/wiki/lovelace-themes/homekit-infused/media-view)
-* [UnRAID View](https://github.com/noodlemctwoodle/homeassistant/tree/master/.github/wiki/lovelace-themes/homekit-infused/unraid-view)
-
-### HKI Documentation can be found here
-[Documentation](https://jimz011.github.io/homekit-infused/)
-
-<br/>
 
 ### Home Assistant Hardware Configuration
-- Intel NUC i3 Gen 7
-- Ubunbu Server 19.10
-- Docker CE
-- [Home Kit Infused](https://github.com/jimz011/homekit-infused)
+
+Sever infrastructure 
+
+- AMD Ryzen 3700X
+- 64GB Corsair 3200mhz
+- 33TB Rotational Drives
+- 8TB SSD Cache
+- NVIDIA Quadro P2000
+- Quad Port Intel NIC
+- Broadcom 9800i 16 port SAS Controler
+
+| Home Assistant Containers | | |
+|:---|:---|:---|
+| Home Assistant Core | Deconz | Maria dB | 
+| Influx dB | Mosquitto | Glances | ESPHome |
+
+<br/>
+
+| Devices | | | 
+|---|---|---|
+| Philips Hue Light Bulbs | Philips Hue LED Strips | Philips Hue Light Light Switches |
+| Philips Hue Indoor Sensors | Philips Hue Outdoor Sensors | Philips Hue Outdoor Lights |
+| WLED Strips | Aoyaccorr WiFi Plugs (ESPHome) | Teckin WiFi Plugs (ESPHome) | 
+| Ubiquiti UniFi Gen2 Switches | Ubiquiti UniFi Gen2 Cloud Key | Ubiquiti UniFi UAP Pro |
+| Ubiquiti UniFi UAP Nano HD | Ubiquiti UniFi HD Pro | Ubiquiti UniFi Bullet G3 Cameras
+| Ubiquiti UniFi G3 Flex | Nest Protect Smoke Alarms | Nest Hello Door Bell | 
+| Nest Thermostat Gen3 | Nest Hubs | Nest Minis
+| Google Homes | LG Web OS | NVIDIA Shield |
 
 
-### Home Assistant Core Installation on Ubuntu Server and Docker CE
-The [Home Assistant Core](https://github.com/noodlemctwoodle/hassio/wiki/Install-Hass.io) guide describes how to install Home Assistant Core (Hass.io) on Ubuntu Server running Docker CE, configure custom storage paths using the pre-created script from [Home Assistant](https://github.com/home-assistant/hassio-installer) and exposed to the internet using Nabu Casa
+<br/>
 
+### Home Assistant Add-ons Wiki
 
-### Check out my Wiki
-Further information and guides can be found on my [wiki](https://github.com/noodlemctwoodle/hassio/wiki)
+Please see the [documetaion](https://noodlemctwoodle.github.io/homeassistant/) page for all the addons for both Dwains theme and Hiome-Kit-Infused.
 
-
-
-
-
-
-### Donations are always welcome
+### Support my work
 
 <a href="https://www.buymeacoffee.com/noodlemctwoodle" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
-
