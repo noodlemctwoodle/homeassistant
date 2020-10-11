@@ -2,9 +2,10 @@
 
 ## Requirements 
 
-To get this view working correctly you will require many aspects of [ha_monitor.yaml](.././addons/hki/readme_ha_monitor.md)
+Detials and screenshots of this configuration can be found here:
 
-The Home Assistant Monoitoring Addon for Dwains-Theme can be found [here](.././addons/dwains/readme_ha_monitor.md)
+- [HKI](.././addons/hki/readme_ha_monitor.md)
+- [Dwains](.././addons/dwains/readme_ha_monitor.md)
 
 ## Contents
 

@@ -1,5 +1,10 @@
 # Addons Documentation
 
+## Guides
+
+- [Home Assistand Metrics Configuration](./guides/ha_core_metrics.md)
+- [UnRAID Metrics Configuration](./guides/unraid_metrics.md)
+- [Android Debug Bridge Configuration](./guides/android_adb.md)
 
 ## Home-Kit-Infused Addons
 

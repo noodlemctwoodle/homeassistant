@@ -1,22 +1,12 @@
-# Contents
-
-* [UnRAID API](https://github.com/noodlemctwoodle/homeassistant/tree/master/.github/wiki/guides/unraid#unraid-api-configuration)
-* [UnRAID SNMP](https://github.com/noodlemctwoodle/homeassistant/tree/master/.github/wiki/guides/unraid#unraid-snmp-configuration)
-
-<br />
-
-### Buy me a coffee?. 
-I don't expect anything for my work and if you are thinking of donating you should consider donating the main developers of HKI or UNRAID-API. 
-I don't drink beer, I don't like going outside because I might catch something and we cant buy toilet roll!!! If you want to buy me one I would greatly appreciate it. 
-
-<a href="https://www.buymeacoffee.com/noodlemctwoodle" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
-
-<br />
-<br />
-
 # UnRAID-API Configuration
 
-## Required Home Assistant Configuration
+## Contents
+
+* [UnRAID API](#unraid-api-configuration)
+* [UnRAID SNMP](#unraid-snmp-configuration)
+
+
+### Required Home Assistant Configuration
 
 ```yaml
 input_text:
@@ -28,17 +18,16 @@ input_text:
 
 ### Picture Elements Card
 
-HKI requires this [image](https://github.com/noodlemctwoodle/homeassistant/blob/master/www/images/lovelace-themes/dwains-theme/software/unraid_logo.png)
+HKI requires this [image](.././images/dwains-theme/software/unraid_logo.png)
  
-![unraid](https://github.com/noodlemctwoodle/homeassistant/blob/master/www/images/lovelace-themes/dwains-theme/software/unraid_logo.png)
+![unraid](.././images/dwains-theme/software/unraid_logo.png))
 
 
 ### Containers Swipe-Card
 
- * HKI - These [images](https://github.com/noodlemctwoodle/homeassistant/tree/master/www/images/lovelace-themes/homekit-infused/containers) can be used for the containers, please use bar.psd to create your own.
- * DWAINS -These [images](https://github.com/noodlemctwoodle/homeassistant/tree/master/www/images/lovelace-themes/dwains-theme/containers) can be used for the containers, please use bar.psd to create your own.
+ These [images](.././images/dwains-theme/containers) can be used for the containers, please use `template_dwains.psd` to create your own.
 
-![containers](https://github.com/noodlemctwoodle/homeassistant/blob/master/.github/wiki/images/unraid-api/containers.png)
+![containers](.././images/unraid-api/containers.png)
 
 ### Install Bar-Card > 3.0.5
 Bar-Card 3.0.5 and above is required to be installed from HACs and added to your resources file for either Dwains-Theme or Homekit-Infused
@@ -89,24 +78,24 @@ When you get to the configuration screen for the container following keys need t
 
 As an example this is the value for key 7, you will need to replicate it for key 8 found in the table above. 
 
-![Container Key](https://github.com/noodlemctwoodle/homeassistant/blob/master/.github/wiki/images/unraid-api/key-7.png)
+![Container Key](.././images/unraid-api/key-7.png)
 
 You will also need to configure your MQTT Broker, replacing the fields marked in Yellow.
 
-![Container MQTT](https://github.com/noodlemctwoodle/homeassistant/blob/master/.github/wiki/images/unraid-api/container-configuration.png)
+![Container MQTT](.././images/unraid-api/container-configuration.png)
 
 ### Starting The Container
 When you start the container for the first time you must browse to the login screen of the UnRAID-API Web-UI and login with your UnRAID credentials. If this step is missed the API will not work. 
 
-![Web-UI](https://github.com/noodlemctwoodle/homeassistant/blob/master/.github/wiki/images/unraid-api/web-ui.png)
+![Web-UI](.././images/unraid-api/web-ui.png)
 
 ### Check Home Assistant
 Once the UnRAID-API container is up and running check the mqtt integration, you should now have some UnRAID entities. If not please reboot your Home Assistant instance, once your Home Assistant instance has rebooted wait at least 3 minutes for entities to appear in the integration. 
 
-![mqtt-integration](https://github.com/noodlemctwoodle/homeassistant/blob/master/.github/wiki/images/unraid-api/mqtt.png)
+![mqtt-integration](.././images/unraid-api/mqtt.png)
 
 ### Setting Up Sensors
-You need the following [Sensors](https://github.com/noodlemctwoodle/homeassistant/blob/60178be33f0945e7d3ba9ca5afc58a201efae866/packages/ha-core/areas/cabinet/devices/unraid/unraid_monitoring.yaml#L12) to be configured in Home Assistant for the view to to collect:
+You need the following [Sensors](https://github.com/noodlemctwoodle/homeassistant/blob/4fc9a4634a3bf423a8cec746b7c5d4f542dd697a/packages/ha_core/areas/cabinet/devices/unraid_monitoring.yaml#L17) to be configured in Home Assistant for the view to to collect:
 
  - arrayStatus
  - arrayProtection
@@ -131,17 +120,17 @@ You need the following [Sensors](https://github.com/noodlemctwoodle/homeassistan
 
 Install NerdPack GUI from the UnRAID community store
 
-![nerd-pack-gui](https://github.com/noodlemctwoodle/homeassistant/blob/master/.github/wiki/images/unraid-snmp/nerdpack-gui.png)
+![nerd-pack-gui](.././images\unraid-snmp\nerdpack-gui.png)
 
 Next go to plugins and click on the NerdPack plugin icon, scroll down the list and enable 'perl-5.30.1-x86_64-1.txz'
 
-![nerd-pack-perl](https://github.com/noodlemctwoodle/homeassistant/blob/master/.github/wiki/images/unraid-snmp/enable-perl.png)
+![nerd-pack-perl](.././images\unraid-snmp\enable-perl.png)
 
 ## Install the UnRAID SNMP Plugin
 
 Install 'SNMP' from the community store
 
-![plugin-install](https://github.com/noodlemctwoodle/homeassistant/blob/master/.github/wiki/images/unraid-snmp/install-plugin.png)
+![plugin-install](.././images\unraid-snmp\install-plugin.png)
 
 ## Run a test query to confirm SNMP is working correctly
 
@@ -151,7 +140,7 @@ Make sure you run these queries to ensure the plugin is working correctly.
 
     snmpwalk -On -v 2c localhost -c public 'NET-SNMP-EXTEND-MIB::nsExtendOutLine."disktemp"'
 
-![test-query](https://github.com/noodlemctwoodle/homeassistant/blob/master/.github/wiki/images/unraid-snmp/test-query.png)
+![test-query](.././images\unraid-snmp\test-query.png)
 
 Make a note of the OID 
 
@@ -161,7 +150,7 @@ Make a note of the disk serial numbers and match it to the disk number in UnRAID
 
     STRING: **ST6000VN0033-2EE110_ZAD4BDGE**
 
-![disk-sn](https://github.com/noodlemctwoodle/homeassistant/blob/master/.github/wiki/images/unraid-snmp/disk-sn.png)
+![disk-sn](.././images\unraid-snmp\disk-sn.png)
 
 ## Create a SNMP sensor in your config
 
@@ -176,7 +165,7 @@ This Sensor will only show the numerical value of the output.
   baseoid: .1.3.6.1.4.1.8072.1.3.2.4.1.2.8.100.105.115.107.116.101.109.112.1
   accept_errors: true
   value_template: >
-     {{ value | regex_findall_index("(\d+)$") }}
+     {{ value | regex_findall_index("(/d+)$") }}
   unit_of_measurement: '°C'
 ```
 
@@ -188,7 +177,7 @@ All the SNMP Mib values can be found on your UnRAID sever in:
 
 You need to 'cat' the '.txt' file and locate the sensors
 
-![mib-txt](https://github.com/noodlemctwoodle/homeassistant/blob/master/.github/wiki/images/unraid-snmp/mib-file.png)
+![mib-txt](.././images\unraid-snmp\mib-file.png)
 
 You can then string together the 'snmpwalk' commad
 
@@ -196,7 +185,7 @@ You can then string together the 'snmpwalk' commad
 |---|---|---|
 |snmpwalk -v 2c -On -c public localhost | LM-SENSORS-MIB::|lmTempSensorsTable|
 
-![mib-query](https://github.com/noodlemctwoodle/homeassistant/blob/master/.github/wiki/images/unraid-snmp/sensor-query.png)
+![mib-query](.././images\unraid-snmp\sensor-query.png)
 
     snmpwalk -v 2c -On -c public localhost LM-SENSORS-MIB::lmTempSensorsTable
 
@@ -231,7 +220,7 @@ In this example they all belong to Core 0
     value_template: '{{((value | float) / 1000) | round(2) }}'
 ```
 
-Some of the sensor I have created can be found in my config [here](https://github.com/noodlemctwoodle/homeassistant/blob/60178be33f0945e7d3ba9ca5afc58a201efae866/packages/ha-core/areas/cabinet/devices/unraid/unraid_monitoring.yaml#L36).
+Some of the sensor I have created can be found in my config [here](https://github.com/noodlemctwoodle/homeassistant/blob/4fc9a4634a3bf423a8cec746b7c5d4f542dd697a/packages/ha_core/areas/cabinet/devices/unraid_monitoring.yaml#L59).
 
 ## Some of the sensors discovered to far...
 
