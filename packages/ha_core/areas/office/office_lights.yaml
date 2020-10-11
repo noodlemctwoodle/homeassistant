@@ -13,10 +13,10 @@ automation:
       - condition: or
         conditions:
         - condition: state
-          entity_id: person.abi
+          entity_id: !secret person_2
           state: 'home'
         - condition: state
-          entity_id: person.toby
+          entity_id: !secret person_1
           state: 'home'
     action:
       service: light.turn_on

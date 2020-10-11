@@ -9,21 +9,21 @@
     cards:
       - !include
         - '../../../base/templates/picture-elements/frontpage-photo.yaml'
-        - person: person.toby
+        - person: !secret person_1
           image_path: /local/images/users/user1.png
           navigation_path: person_1
           alignment: left
           text_color: white
           phone_battery_sensor: sensor.pixel_4_xl_battery_level
-          travel_time_to_home: sensor.travel_time_to_home_toby
-          travel_time_to_work: sensor.travel_time_to_work_toby
+          travel_time_to_home: sensor.tt_to_home_person_1
+          travel_time_to_work: sensor.tt_to_work_person_1
       - !include
         - '../../../base/templates/picture-elements/frontpage-photo.yaml'
-        - person: person.abi
+        - person: !secret person_2
           image_path: /local/images/users/user2.png
           navigation_path: person_2
           alignment: right
           text_color: white
           phone_battery_sensor: sensor.pixel_battery_level
-          travel_time_to_home: sensor.travel_time_to_home_abi
-          travel_time_to_work: sensor.travel_time_to_work_abi
+          travel_time_to_home: sensor.tt_to_home_person_2
+          travel_time_to_work: sensor.tt_to_work_person_2

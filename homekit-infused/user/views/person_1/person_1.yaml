@@ -35,12 +35,12 @@
             - icon
           header: 'false'
           destinations:
-            - entity: sensor.travel_time_to_home_toby
+            - entity: sensor.tt_to_home_person_1
               to: "Home"
-            - entity: sensor.travel_time_to_work_toby
+            - entity: sensor.tt_to_work_person_1
               to: "Work"
-            - entity: sensor.travel_time_toby_to_abi
-              to: "Abi"
+            - entity: sensor.tt_person_1_to_person_2
+              to: !secret user_2
 
               
 - type: conditional
@@ -73,7 +73,7 @@
           aspect_ratio: 4x5
           default_zoom: 15
           entities:
-            - person.toby
+            - !secret person_1
 
 - type: conditional
   conditions:
