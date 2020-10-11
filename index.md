@@ -1,5 +1,7 @@
 # Addons Documentation
 
+[GitHub Repository](https://github.com/noodlemctwoodle/homeassistant)
+
 ## Guides
 
 - [Home Assistant Metrics Configuration](./guides/ha_core_metrics.md)
