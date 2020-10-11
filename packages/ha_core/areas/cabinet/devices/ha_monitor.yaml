@@ -161,6 +161,25 @@ binary_sensor:
 
 sensor:
 
+## SYSTEM DETAILS
+# Version Sensor
+# https://www.home-assistant.io/integrations/version/
+
+  - platform: version
+
+# Time & Date
+# https://www.home-assistant.io/integrations/time_date/
+
+  - platform: time_date
+    display_options:
+      - time
+      - date
+      - date_time
+      - time_date
+      - time_utc
+      - beat
+
+
 # MariaDB Size Sensor
   - platform: sql
     db_url: !secret db_url
@@ -363,7 +382,6 @@ sensor:
     json_attributes:
       - version
       - version_latest
-
 
 switch:
 
