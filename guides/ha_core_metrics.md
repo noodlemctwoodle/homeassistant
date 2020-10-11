@@ -2,25 +2,25 @@
 
 ## Requirements 
 
-To get this view working correctly you will require many aspects of [ha_monitor.yaml](https://github.com/noodlemctwoodle/homeassistant/blob/master/packages/ha-core/areas/cabinet/devices/home_assistant/ha_monitor.yaml)
+To get this view working correctly you will require many aspects of [ha_monitor.yaml](../../addons/hki/readme_ha_monitor.md)
 
-The Home Assistant Monoitoring Addon for Dwains-Theme can be found [here](https://github.com/noodlemctwoodle/homeassistant/blob/master/dwains-theme/addons/more_page/ha_monitoring.yaml)
+The Home Assistant Monoitoring Addon for Dwains-Theme can be found [here](../../addons/dwains/readme_ha_monitor.md
 
 ## Contents
 
- * [Home Assistant Picture Entity Card](https://github.com/noodlemctwoodle/homeassistant/blob/master/.github/wiki/guides/ha-core/HomeAssistant_Monitoting.md#home-assistant-picture-entity-card)
- * [Install Check Home Assistant configuration](https://github.com/noodlemctwoodle/homeassistant/blob/master/.github/wiki/guides/ha-core/HomeAssistant_Monitoting.md#install-check-home-assistant-configuration)
- * [Setting Up Glances addon and Integration](https://github.com/noodlemctwoodle/homeassistant/blob/master/.github/wiki/guides/ha-core/HomeAssistant_Monitoting.md#setting-up-glances-addon-and-integration)
- * [Home Assistant Update Sensor](https://github.com/noodlemctwoodle/homeassistant/blob/master/.github/wiki/guides/ha-core/HomeAssistant_Monitoting.md#update-notifications-core-hacs-supervisor-and-addons)
- * [Update notifications! Core, HACS, Supervisor and Addons](https://github.com/noodlemctwoodle/homeassistant/blob/master/.github/wiki/guides/ha-core/HomeAssistant_Monitoting.md#update-notifications-core-hacs-supervisor-and-addons)
+ * [Home Assistant Picture Entity Card](#home-assistant-picture-entity-card)
+ * [Install Check Home Assistant configuration](#install-check-home-assistant-configuration)
+ * [Setting Up Glances addon and Integration](#setting-up-glances-addon-and-integration)
+ * [Home Assistant Update Sensor](#update-notifications-core-hacs-supervisor-and-addons)
+ * [Update notifications! Core, HACS, Supervisor and Addons](#update-notifications-core-hacs-supervisor-and-addons)
  * [Setting Up The HTML5 Notify Platform](#setting-up-the-html5-notify-platform)
- * [Home Assistant Core Addon Support](https://github.com/noodlemctwoodle/homeassistant/blob/master/.github/wiki/guides/ha-core/HomeAssistant_Monitoting.md#home-assistant-core-addon-suppport)
- * [SNMP](https://github.com/noodlemctwoodle/homeassistant/blob/master/.github/wiki/guides/ha-core/HomeAssistant_Monitoting.md#snmp)
+ * [Home Assistant Core Addon Support](#home-assistant-core-addon-suppport)
+ * [SNMP](#snmp)
 
 
 ## Home Assistant Picture Entity Card
 
-The Home Assistant [image](https://github.com/noodlemctwoodle/homeassistant/blob/master/www/images/lovelace-themes/dwains-theme/software/home_assistant_logo.png) is required for the containers card and you will also need the following input text in you configuration
+The Home Assistant [image](../../images/dwains-theme/software/home_assistant_logo.png) is required for the containers card and you will also need the following input text in you configuration
 
 ```YAML
 input_text:
@@ -57,11 +57,11 @@ automation:
 
 Install the [Glances](https://github.com/hassio-addons/addon-glances#adding-glances-as-a-sensor-into-home-assistant) Home Assistant Addon from `Supervisor > Add-on Store`
 
-  ![Glances-Configuration](https://github.com/noodlemctwoodle/homeassistant/blob/master/.github/wiki/images/ha-core/glances_config_1.png)
+  ![Glances-Configuration](../../images/ha-core/glances_config_1.png)
 
 Once Glances is configured and running setup the Home Assistant Integration
 
-  ![Glances-Integration](https://github.com/noodlemctwoodle/homeassistant/blob/master/.github/wiki/images/ha-core/glances_config.png)
+  ![Glances-Integration](../../images/ha-core/glances_config.png)
 
 Note: The port of 61209 is important as this is what is used by the addon.
 
@@ -305,7 +305,7 @@ The rest sensor pulls the state of the add-on (if its running or not) and then a
       - last_version
 ```
 
-Further examples can be found in my configuration [here](https://github.com/noodlemctwoodle/homeassistant/blob/95830d15da5c52284cc1d9464f8a3111c66361ef/packages/ha-core/areas/cabinet/devices/home_assistant/ha_monitor.yaml#L65)
+Further examples can be found in my configuration [here](https://github.com/noodlemctwoodle/homeassistant/blob/4fc9a4634a3bf423a8cec746b7c5d4f542dd697a/packages/ha_core/areas/cabinet/devices/ha_monitor.yaml#L35)
 
 The rest sensor may throw errors on startup if Home Assistant can’t pull the data on startup. I just ignore these as the sensor will continue to try to update and usually does on the second try.
 
@@ -326,11 +326,11 @@ Create a switch to show/control the add-on state and an automation to turn the o
             addon: a0d7b954_glances
 ```
 
-Further examples can be found in my configuration [here](https://github.com/noodlemctwoodle/homeassistant/blob/95830d15da5c52284cc1d9464f8a3111c66361ef/packages/ha-core/areas/cabinet/devices/home_assistant/ha_monitor.yaml#L240)
+Further examples can be found in my configuration [here](https://github.com/noodlemctwoodle/homeassistant/blob/4fc9a4634a3bf423a8cec746b7c5d4f542dd697a/packages/ha_core/areas/cabinet/devices/ha_monitor.yaml#L246)
 
 
 
 
 ## SNMP
 
-More information can be found [here](https://github.com/noodlemctwoodle/homeassistant/tree/master/.github/wiki/guides/unraid#some-of-the-sensors-discovered-to-far)
+More information can be found [here](../../guides/unraid_metrics.md#some-of-the-sensors-discovered-to-far)
