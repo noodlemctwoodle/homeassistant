@@ -1,11 +1,11 @@
 # UnRAID Monitoring View for HKI
 #### Version 0.4
 
-![unraid-monitor](./images/views/unraid.png)
+![unraid-monitor](../../images/views/unraid.png)
 
 ### UnRAID Data Monitoring Feeds
 
-| [UnRAID-API](./addons/hki/readme_unraid_monitor.md#unraid-api-configuration) | [UnRAID-SNMP](./addons/hki/readme_unraid_monitor.md#unraid-snmp-configuration) | [UnRAID Glances Container](https://github.com/hassio-addons/addon-glances/blob/v0.7.1/README.md) |
+| [UnRAID-API](../../guides/unraid_metrics.md#unraid-api-configuration) | [UnRAID-SNMP](../../guides/unraid_metrics.md#unraid-snmp-configuration) | [UnRAID Glances Container](https://github.com/hassio-addons/addon-glances/blob/v0.7.1/README.md) |
 |-----------------------|-----------------|--------------------------------|
 | View arrayStatus      | HDD Array Temps | View total per disk used space |
 | View arrayProtection  | LAN Throughput  | View total per disk free space |
@@ -23,7 +23,7 @@ Version 0.2
  - Container Support
 
 Version 0.3
- - Added SNMP [config](https://github.com/noodlemctwoodle/homeassistant/blob/44ac457117f173fa1bf1e47ce832566b36ba5ddb/packages/ha-core/areas/cabinet/devices/unraid/unraid_monitoring.yaml#L34)
+ - Added SNMP [config](https://github.com/noodlemctwoodle/homeassistant/blob/4fc9a4634a3bf423a8cec746b7c5d4f542dd697a/packages/ha_core/areas/cabinet/devices/unraid_monitoring.yaml#L59)
  - Moved temperature cards to swipe-card to reduce screen real estate
  - combined disk usage into swipe card
  - Added HDD temperatures to temperatures swipe-card
@@ -45,10 +45,10 @@ Version 0.5
  - Merged features from Dwains-Theme UnRAID Addon
     - Added disk usagew percentages for Cache, USB, Backups
  - Added Graph card for Cache & Backup usage
- - Added an additional [sensor](https://github.com/noodlemctwoodle/homeassistant/blob/91df874eefe97b9d5a7af42f193e986eba787b3d/packages/ha-core/areas/cabinet/devices/unraid/unraid_monitoring.yaml#L14) as a workaround for Bar-Card severity
+ - Added an additional [sensor](https://github.com/noodlemctwoodle/homeassistant/blob/4fc9a4634a3bf423a8cec746b7c5d4f542dd697a/packages/ha_core/areas/cabinet/devices/unraid_monitoring.yaml#L17) as a workaround for Bar-Card severity
 
 
- HKI UnRAID view can be found [here](https://github.com/noodlemctwoodle/homeassistant/blob/master/user_content/views/computers_user_content.yaml)
+ HKI UnRAID view can be found [here](https://github.com/noodlemctwoodle/homeassistant/blob/master/homekit-infused/user/views/system/unraid-docker.yaml)
 
  #### Credits
  - [Jimz011](https://github.com/jimz011) Thanks for your assistance and ideas on this :)
