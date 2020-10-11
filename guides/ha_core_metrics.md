@@ -1,12 +1,5 @@
 # Home Assistant Core - Configuration for Homekit-Infused and Dwains-Theme
 
-## Requirements 
-
-Detials and screenshots of this configuration can be found here:
-
-- [HKI](.././addons/hki/readme_ha_monitor.md)
-- [Dwains](.././addons/dwains/readme_ha_monitor.md)
-
 ## Contents
 
  * [Home Assistant Picture Entity Card](#home-assistant-picture-entity-card)
@@ -18,6 +11,13 @@ Detials and screenshots of this configuration can be found here:
  * [Home Assistant Core Addon Support](#home-assistant-core-addon-suppport)
  * [SNMP](#snmp)
 
+
+### Theme Requirements 
+
+Details and screenshots of this configuration can be found here:
+
+- [HKI](.././addons/hki/readme_ha_monitor.md)
+- [Dwains](.././addons/dwains/readme_ha_monitor.md)
 
 ## Home Assistant Picture Entity Card
 

@@ -1,8 +1,8 @@
-# UnRAID-API Configuration
+# UnRAID - Configuration for Homekit-Infused and Dwains-Theme
 
 ## Contents
 
-* [UnRAID API](#unraid-api-configuration)
+* [UnRAID API](#unraid-api-container-configuration)
 * [UnRAID SNMP](#unraid-snmp-configuration)
 
 

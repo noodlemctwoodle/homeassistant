@@ -1,4 +1,11 @@
-## Media view 
+# Home Assistant Media - Configuration for Homekit-Infused and Dwains-Theme
+
+## Contents
+- [Android ADB](#android-debug-bridge)
+- [Configure You Device](#configuring-android-tv)
+- [Connect to ADB](#connect-to-the-container-running-adb)
+- [Configuration in Home Assistant](#configuration-in-home-assistant)
+- [Android TV Scripts](#create-a-script)
 
 ### Requirements: 
 
@@ -21,7 +28,7 @@ Nvidia Shield ADB requires some scripts to be created which can be found [here](
 
 The scripts are used to open apps on your shield when the button is tapped on Mini-Media-Player and can also be used in automation. If you have an application that is not supported use the guide below to query ADB for any application you have on the shield. 
 
-# ADB - Android Debug Bridge
+## Android Debug Bridge
 
 Requirements: 
 
@@ -44,7 +51,7 @@ Initially you will need to install the add-on through the Home Assistant Supervi
 
 Once the configuration is in place start the add-on and check the logs for any errors. 
 
-## Configuring your Android TV 
+## Configuring Android TV 
 
 In this example I will be using the Shield TV to enable Network debugging. 
 
