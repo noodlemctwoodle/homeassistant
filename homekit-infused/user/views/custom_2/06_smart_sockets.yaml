@@ -1,0 +1,63 @@
+- type: vertical-stack
+  cards:
+    - type: custom:mod-card
+      style: |
+        ha-card {
+          margin-left: 20px;
+          margin-right: 20px;
+        }
+      card:
+        type: horizontal-stack
+        cards:
+          - !include
+            - '../../../base/templates/other/title-text.yaml'
+            - name: ESPHome Power Sockets
+
+    - type: horizontal-stack
+      cards:
+        - type: custom:mod-card
+          style: |
+            ha-card {
+              margin-left: 20px;
+              margin-right: 20px;
+            }
+          card:
+            type: custom:layout-card
+            column_num: 4
+            justify_content: start
+            layout: horizontal
+            cards:
+              - !include
+                - '../../../base/templates/button/button.yaml'
+                - entity: switch.living_room_av_receiver_smart_plug_relay
+                  name: AV Receiver
+                  label: Living Room
+                  icon: mdi:power-socket-uk
+                  tap_action: none
+                  double_tap_action: toggle
+                  hold_action: toggle
+              - !include
+                - '../../../base/templates/button/button.yaml'
+                - entity: switch.living_room_subwoofer_smart_socket
+                  name: Subwoofer
+                  label: Living Room
+                  icon: mdi:power-socket-uk
+                  tap_action: none
+                  double_tap_action: toggle
+                  hold_action: toggle
+              - !include
+                - '../../../base/templates/button/button.yaml'
+                - entity: switch.living_room_tv_smart_plug_relay
+                  name: Smart TV
+                  label: Living Room
+                  icon: mdi:power-socket-uk
+                  tap_action: none
+                  double_tap_action: toggle
+                  hold_action: toggle
+#              - !include
+#                - '../../../base/templates/button/button.yaml'
+#                - entity: automation.living_room_decrease_brightness_from_dimmer
+#                  name: '- Brightness'
+#                  label: Living Room
+#                  icon: mdi:power-socket-uk
+#                  hold_action: more-info

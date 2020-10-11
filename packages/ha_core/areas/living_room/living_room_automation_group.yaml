@@ -1,0 +1,17 @@
+group:
+  living_room_light_automations:
+    name: Living Room Light Automations
+    entities:
+    # Light Automations
+      - automation.living_rooom_lights_turn_on_day
+      - automation.living_rooom_lights_turn_on_night
+      - automation.living_room_turn_off_from_dimmer
+      - automation.living_room_lights_turn_off
+      - automation.living_rooom_lights_delay_turn_off_on_deconz_event
+      - automation.living_rooom_lights_enable_turn_off_on_deconz_event
+    # Remote Automations
+      - automation.living_room_turn_on_from_dimmer_bright
+      - automation.living_room_turn_on_from_dimmer_normal
+      - automation.living_room_stop_brightness_from_dimmer
+      - automation.living_room_decrease_brightness_from_dimmer
+      - automation.living_room_increase_brightness_from_dimmer

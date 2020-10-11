@@ -1,0 +1,3 @@
+withings:
+  client_id: !secret clientId
+  client_secret: !secret consumerSecret

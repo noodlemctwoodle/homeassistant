@@ -1,0 +1,77 @@
+- type: horizontal-stack
+  cards:
+    - type: custom:mod-card
+      style: |
+        ha-card {
+          margin-left: 7px;
+          margin-right: 7px;
+        }
+      card:
+        type: custom:layout-card
+        card:
+        style: |
+          ha-card {
+            border-radius: 10px;;
+            box-shadow: var(--box-shadow);
+          }
+        cards:
+        - type: entities
+          show_header_toggle: false
+          title: Bathroom
+          entities:
+            - automation.bathroom_lights_turn_off_when_door_open_and_no_motion
+            - automation.bathroom_lights_turn_off_when_no_motion_sensor
+            - automation.bathroom_lights_turn_on
+        - type: entities
+          show_header_toggle: false
+          title: Craft Room
+          entities:
+            - automation.craft_room_lights_turn_off
+            - automation.craft_room_lights_turn_on_day
+            - automation.craft_room_lights_turn_on_night
+        - type: entities
+          show_header_toggle: false
+          title: Hall
+          entities:
+            - automation.hall_lights_turn_off
+            - automation.hall_lights_turn_on
+        - type: entities
+          show_header_toggle: false
+          title: Kitchen
+          entities:
+            - automation.kitchen_lights_turn_off
+            - automation.kithen_lights_turn_on_day
+            - automation.kithen_lights_turn_on_evening
+            - automation.kithen_lights_turn_on_night
+        - type: entities
+          show_header_toggle: false
+          title: Landing
+          entities:
+            - automation.landing_lights_turn_off
+            - automation.landing_lights_turn_on
+        - type: entities
+          show_header_toggle: false
+          title: Living Room
+          entities:
+            - automation.living_room_lights_turn_off
+            - automation.living_rooom_lights_turn_on_day
+            - automation.living_rooom_lights_turn_on_night
+        - type: entities
+          show_header_toggle: false
+          title: Loft
+          entities:
+            - automation.loft_lights_turn_off
+            - automation.loft_lights_turn_on
+        - type: entities
+          show_header_toggle: false
+          title: Office
+          entities:
+            - automation.office_lights_turn_off
+            - automation.office_lights_turn_on
+          card:
+            type: entities
+            style: |
+              ha-card {
+                border-radius: var(--border-radius);
+                box-shadow: var(--box-shadow);
+              }

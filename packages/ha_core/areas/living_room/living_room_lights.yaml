@@ -1,0 +1,122 @@
+automation:
+
+  #  Living Room - Philips Hue Motion
+  - alias: 'Living Rooom lights turn-on day'
+    trigger:
+      platform: state
+      entity_id: binary_sensor.living_room_hue_motion
+      to: 'on'
+    condition:
+      - condition: numeric_state
+        entity_id: sensor.living_room_hue_sensor_lux
+        below: '2.5'
+      - condition: state
+        entity_id: media_player.living_room_nvidia_shield_adb
+        state: 'off'
+      - condition: or
+        conditions:
+        - condition: state
+          entity_id: person.abi
+          state: home
+        - condition: state
+          entity_id: person.toby
+          state: home
+    action:
+      service: light.turn_on
+      data:
+        brightness: 51
+        rgb_color: [134, 17, 255]
+        entity_id: 
+          - light.living_room_shadow
+
+
+  - alias: 'Living Rooom lights turn-on night'
+    trigger:
+      platform: state
+      entity_id: binary_sensor.living_room_hue_motion
+      to: 'on'
+    condition:
+      - condition: numeric_state
+        entity_id: sensor.living_room_hue_sensor_lux
+        below: '1.1'
+      - condition: state
+        entity_id: media_player.living_room_nvidia_shield_adb
+        state: 'off'
+      - condition: or
+        conditions:
+        - condition: state
+          entity_id: person.abi
+          state: home
+        - condition: state
+          entity_id: person.toby
+          state: home
+    action:
+      service: scene.turn_on
+      data:
+        entity_id: scene.living_room_lamps_bright
+
+
+  - alias: 'Living Rooom lights delay turn-off on deconz event'
+    trigger:
+      platform: event
+      event_type: deconz_event
+      event_data:
+        id: living_room_switch
+        event: 1002
+    action:
+      - service: automation.turn_off
+        data:
+          entity_id: automation.living_room_lights_turn_off
+      - delay: '04:30:00'
+      - service: automation.turn_on
+        data:
+          entity_id: automation.living_room_lights_turn_off
+
+
+  - alias: 'Living Rooom lights enable turn-off on deconz event'
+    trigger:
+      platform: event
+      event_type: deconz_event
+      event_data:
+        id: living_room_switch
+        event: 4000
+    action:
+      - service: automation.turn_on
+        data:
+          entity_id: automation.living_room_lights_turn_off
+
+
+  - alias: 'Living Room lights turn-off'
+    trigger:
+      platform: state
+      entity_id: binary_sensor.living_room_hue_motion
+      to: 'off'
+      for:
+        minutes: 10
+    condition:
+      - condition: state
+        entity_id: media_player.living_room_nvidia_shield_adb
+        state: 'off'
+    action:
+      service: light.turn_off
+      data:
+        entity_id: light.living_room
+        transition: 10
+
+
+group:
+  living_room_lights:
+    name: Living Room Lights
+    entities:
+      - light.living_room_pendant_01
+      - light.living_room_lamp_01
+      - light.living_room_shadow
+
+# Light Groups
+light:
+  - platform: group
+    name: Living Room
+    entities:
+      - light.living_room_pendant_01
+      - light.living_room_lamp_01
+      - light.living_room_shadow

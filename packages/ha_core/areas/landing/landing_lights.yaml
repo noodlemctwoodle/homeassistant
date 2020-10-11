@@ -1,0 +1,75 @@
+automation:
+  #  Landing - Philips Hue Motion
+  - alias: 'Landing lights turn-on'
+    trigger:
+      platform: state
+      entity_id: binary_sensor.landing_hue_motion
+      to: 'on'
+    condition:
+      - condition: numeric_state
+        entity_id: sensor.landing_hue_lux
+        below: '1.2'
+      - condition: or
+        conditions:
+        - condition: state
+          entity_id: person.abi
+          state: home
+        - condition: state
+          entity_id: person.toby
+          state: home
+    action:
+      service: light.turn_on
+      data:
+        entity_id: light.landing
+        brightness: 100
+
+  - alias: 'Landing lights turn-off'
+    trigger:
+      platform: state
+      entity_id: binary_sensor.landing_hue_motion
+      to: 'off'
+      for:
+        seconds: 50
+    action:
+      service: light.turn_off
+      data:
+        entity_id: light.landing
+        transition: 10
+
+  #  Loft - Contact Sensor Open
+  - alias: 'Loft lights turn-on'
+    trigger:
+      platform: state
+      entity_id: binary_sensor.loft_hatch
+      to: 'on'
+    action:
+      service: light.turn_on
+      data:
+        entity_id: light.loft_pendant_01
+        brightness: 254
+
+  #  Loft - Contact Sensor Closed
+  - alias: 'Loft lights turn-off'
+    trigger:
+      platform: state
+      entity_id: binary_sensor.loft_hatch
+      to: 'off'
+    action:
+      service: light.turn_off
+      data:
+        entity_id: light.loft_pendant_01
+
+
+
+group:
+  landing_lights:
+    name: Landing Lights
+    entities:
+      - light.landing_spot_01
+
+# Light Groups
+light:
+  - platform: group
+    name: Landing
+    entities:
+      - light.landing_spot_01
