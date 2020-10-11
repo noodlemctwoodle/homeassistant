@@ -1,0 +1,47 @@
+- type: vertical-stack
+  cards:
+    - type: custom:mod-card
+      style: |
+        ha-card {
+          margin-left: 20px;
+          margin-right: 20px;
+        }
+      card:
+        type: horizontal-stack
+        cards:
+          - !include
+            - '../../../base/templates/other/title-text.yaml'
+            - name: Garden Hue Sensor
+          - !include
+            - '../../../base/templates/other/title-text.yaml'
+            - name: "[[[ return `${states['sensor.garden_hue_sensor_battery_level'].state} %`; ]]]"
+              justify_self: end
+    - type: horizontal-stack
+      cards:
+        - type: custom:mod-card
+          style: |
+            ha-card {
+              margin-left: 20px;
+              margin-right: 20px;
+            }
+          card:
+            type: custom:layout-card
+            column_num: 4
+            justify_content: start
+            layout: horizontal
+            cards:
+
+              - !include
+                - '../../../base/templates/button/button.yaml'
+                - entity: binary_sensor.garden_hue_motion
+                  lock: false
+                  tap_action: more-info
+                  show_last_changed: true
+
+              - !include
+                - '../../../base/templates/button/button.yaml'
+                - entity: binary_sensor.motion_back_garden
+                  lock: false
+                  tap_action: more-info
+                  show_last_changed: true
+

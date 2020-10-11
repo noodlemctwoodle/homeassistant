@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ---
 ## Switch
 
@@ -228,3 +229,701 @@ light.cabinet:
 light.cabinet_strip:
   friendly_name: Server Cabinet Colour
   icon: mdi:led-strip-variant
+=======
+# Customize sample file, you MUST create your own!
+
+# To create customized entities, enter the entity you want to edit as follows, by setting
+# a customization for an entity it will persist everywhere in Home Assistant and not just in lovelace.
+# Do AT LEAST the basic steps as in the example below.
+
+# light.bedroom:
+#   icon: mdi:lamp
+#   friendly_name: Bedroom Lamp
+
+# Advanced Section
+# HKI 3.x addons use custom attributes to filter out what should go where. If you do not plan to use addons you can skip this section.
+# Currently there are three custom attributes that you can use. You can use `type:`, `room:` and `lock`. If you do not
+# plan to use any of the HKI auto filling addons you can skip the next part.
+
+# You MUST have the `room` and `type` attribute set up for each device you want to expose to HKI. `lock` is not a requirement, however
+# if you want to lock a button you can try to put the following attribute `lock: true` (note that this only work on buttons)
+
+# You can name the room any name you want as long as they correspond to what you have
+# setup in the global settings. Note that the room is lowercase!! You can also specify
+# a floor in the same way. Example below:
+
+# light.bedroom:
+#   icon: mdi:lamp
+#   friendly_name: Bedroom Lamp
+#   room: bedroom
+
+# The `type` attribute is the other required attribute and has a few options to it, see example:
+
+# light.bedroom:
+#   icon: mdi:lamp
+#   friendly_name: Bedroom Lamp
+#   room: bedroom
+#   type: light-standard
+
+# You can see a list of all the available options below, please add them to all the corresponding
+# entities. HKI will figure out where to put your entities based on what you fill inside this file!
+
+# light-standard                     (use this for a normal light with only dimming or no dimming capabilities)
+# light-rgb                          (use this for rgb lights)
+# light-color-temp                   (use this for color temperature lights)
+# switch                             (use this for devices you want to show on the devices view, ANY device you give this attribute will show up on that view and doesn't have to be a switch!)
+# xbox                               (use this if you have an xbox, it will be exposed on the devices view)
+# playstation                        (use this if you have a playstation)
+# thermostat                         (use this for thermostats only!!!)
+# non-climate-fan                    (use this for fans like exhaust fans or kitchen hoods, these will only be exposed on the devices view)
+# temperature                        (use this for temperature sensors)
+# humidity                           (use this for humidity sensors)
+# pressure                           (use this for air pressure sensors)
+# door                               (use this for door sensors)
+# window                             (use this for window sensors)
+# camera                             (use this for camera's)
+# motion                             (use this for motion sensors)
+# smoke                              (use this for smoke sensors)
+# gas                                (use this for gas sensors)
+# media-player                       (use this for media players)
+# scene                              (use this for scenes)
+
+# Any entity that does not have both room and type will not be found by HKI's autofill, but can ofcourse still be exposed manually by using cards in the user_content of the view.
+
+# Bathroom
+light.bathroom:
+  icon: mdi:lamp
+  friendly_name: Bathroom
+  room: bathroom
+  type: light-rgb
+
+binary_sensor.bathroom_window:
+  icon: mdi:window-open-variant
+  friendly_name: Window
+  room: bathroom
+  type: opening
+
+sensor.bathroom_window_battery_level:
+  icon: mdi:battery
+  friendly_name: Window
+  room: bathroom
+  type: opening
+
+binary_sensor.bathroom_door:
+  icon: mdi:door-closed
+  friendly_name: Door
+  room: bathroom
+  type: opening
+
+sensor.bathroom_door_battery_level:
+  icon: mdi:battery
+  friendly_name: Door
+  room: bathroom
+  type: opening
+
+# Bedroom
+light.bedroom_lamp_01:
+  icon: mdi:lightbulb
+  friendly_name: Bedroom Lamp
+  room: bedroom
+  type: light-rgb
+
+light.bedroom_pendant_01:
+  icon: mdi:lightbulb
+  friendly_name: Bedroom Lamp
+  room: bedroom
+  type: light-rgb
+
+light.bedroom_pendant_02:
+  icon: mdi:lightbulb
+  friendly_name: Bedroom Lamp
+  room: bedroom
+  type: light-rgb
+
+switch.bedroom_tv_smart_plug_relay:
+  icon: mdi:power-socket-uk
+  friendly_name: TV Plug
+  room: bedroom
+  type: switch
+
+# Cabinet
+light.cabinet:
+  icon: mdi:led-strip-variant
+  friendly_name: Cabinet
+  room: server_cabinet
+  type: light-rgb
+
+# Craft Room
+light.craft_room_shadow:
+  icon: mdi:led-strip-variant
+  friendly_name: Shadow
+  room: craft_room
+  type: light-rgb
+
+light.craft_room_spot_01:
+  icon: mdi:spotlight-beam
+  friendly_name: Spot 1
+  room: craft_room
+  type: light-rgb
+
+light.craft_room_spot_02:
+  icon: mdi:spotlight-beam
+  friendly_name: Spot 2
+  room: craft_room
+  type: light-rgb
+
+# Hall
+light.hall_spot_01:
+  icon: mdi:spotlight-beam
+  friendly_name: Spot 1
+  room: hall
+  type: light-rgb
+
+light.hall_spot_02:
+  icon: mdi:spotlight-beam
+  friendly_name: Spot 1
+  room: hall
+  type: light-rgb
+
+binary_sensor.front_door:
+  icon: mdi:door-open
+  friendly_name: Front Door
+  room: hall
+  type: opening
+
+sensor.front_door_battery_level:
+  icon: mdi:battery
+  friendly_name: Front Dooor
+  room: hall
+  type: battery
+
+binary_sensor.nest_aware:
+  icon: mdi:doorbell-video
+  friendly_name: Nest Aware
+  room: hall
+
+binary_sensor.nest_hello_online:
+  icon: mdi:console-network-outline
+  friendly_name: Online
+  room: hall
+  type: connectivity
+
+binary_sensor.nest_hello_motion_detected:
+  icon: mdi:motion-sensor
+  friendly_name: Motion
+  room: hall
+  type: motion
+
+binary_sensor.nest_hello_sound_detected:
+  icon: mdi:speaker
+  friendly_name: Sound
+  room: hall
+  type: sound
+
+binary_sensor.nest_hello_person_detected:
+  icon: mdi:motion-sensor
+  friendly_name: Person
+  room: hall
+  type: occupancy
+
+binary_sensor.nest_hello_garden_left_activity:
+  icon: mdi:motion-sensor
+  friendly_name: Garden Left
+  room: hall
+  type: motion
+
+binary_sensor.nest_hello_path_activity:
+  icon: mdi:motion-sensor
+  friendly_name: Path
+  room: hall
+  type: motion
+
+binary_sensor.nest_hello_garden_right_activity:
+  icon: mdi:motion-sensor
+  friendly_name: Garden Right
+  room: hall
+  type: motion
+
+binary_sensor.nest_hello_road_activity:
+  icon: mdi:motion-sensor
+  friendly_name: Road
+  room: hall
+  type: motion
+
+# Kitchen
+light.kitchen_spot_01:
+  icon: mdi:spotlight-beam
+  friendly_name: Spot 01
+  room: kitchen
+  type: light-rgb
+
+light.kitchen_spot_02:
+  icon: mdi:spotlight-beam
+  friendly_name: Spot 02
+  room: kitchen
+  type: light-rgb
+
+light.kitchen_spot_03:
+  icon: mdi:spotlight-beam
+  friendly_name: Spot 03
+  room: kitchen
+  type: light-rgb
+
+light.kitchen_spot_04:
+  icon: mdi:spotlight-beam
+  friendly_name: Spot 04
+  room: kitchen
+  type: light-rgb
+
+light.kitchen_spot_05:
+  icon: mdi:spotlight-beam
+  friendly_name: Spot 05
+  room: kitchen
+  type: light-rgb
+
+light.kitchen_spot_06:
+  icon: mdi:spotlight-beam
+  friendly_name: Spot 06
+  room: kitchen
+  type: light-rgb
+
+light.kitchen_spot_07:
+  icon: mdi:spotlight-beam
+  friendly_name: Spot 07
+  room: kitchen
+  type: light-rgb
+
+light.kitchen_spot_08:
+  icon: mdi:spotlight-beam
+  friendly_name: Spot 08
+  room: kitchen
+  type: light-rgb
+
+light.kitchen_spot_09:
+  icon: mdi:spotlight-beam
+  friendly_name: Spot 09
+  room: kitchen
+  type: light-rgb
+
+light.kitchen_spot_10:
+  icon: mdi:spotlight-beam
+  friendly_name: Spot 10
+  room: kitchen
+  type: light-rgb
+
+binary_sensor.kitchen_window:
+  icon: mdi:window-open-variant
+  friendly_name: Window
+  room: kitchen
+  type: opening
+
+sensor.kitchen_window_battery_level:
+  icon: mdi:battery
+  friendly_name: Window
+  room: kitchen
+  type: battery
+
+binary_sensor.patio_door:
+  icon: mdi:door-open
+  friendly_name: Patio Door
+  room: Utility
+  type: opening
+
+sensor.patio_door_battery_level:
+  icon: mdi:battery
+  friendly_name: Patio Dooor
+  room: utility
+  type: battery
+
+binary_sensor.protect_kitchen_online:
+  icon: mdi:smoke-detector
+  friendly_name: Protect Online
+  room: kitchen
+
+sensor.protect_kitchen_co_status:
+  icon: mdi:smoke-detector
+  friendly_name: CO Status
+  room: kitchen
+
+sensor.protect_kitchen_smoke_status:
+  icon: mdi:smoke-detector
+  friendly_name: Smoke Status
+  room: kitchen
+
+sensor.protect_kitchen_battery_health:
+  icon: mdi:battery
+  friendly_name: Battery Status
+  room: kitchen
+
+# Landing
+light.landing:
+  icon: mdi:spotlight-beam
+  friendly_name: Spot 01
+  room: landing
+  type: light-rgb
+
+binary_sensor.landing_window:
+  icon: mdi:window-open-variant
+  friendly_name: Window
+  room: landing
+  type: opening
+
+sensor.landing_window_battery_level:
+  icon: mdi:battery
+  friendly_name: Window
+  room: landing
+  type: battery
+
+binary_sensor.protect_landing_online:
+  icon: mdi:smoke-detector
+  friendly_name: Protect Online
+  room: landing
+
+sensor.protect_landing_co_status:
+  icon: mdi:smoke-detector
+  friendly_name: CO Status
+  room: landing
+
+sensor.protect_landing_smoke_status:
+  icon: mdi:smoke-detector
+  friendly_name: Smoke Status
+  room: landing
+
+sensor.protect_landing_battery_health:
+  icon: mdi:battery
+  friendly_name: Battery Status
+  room: landing
+
+binary_sensor.loft_hatch:
+  icon: mdi:door-closed
+  friendly_name: hatcvh
+  room: loft
+  type: opening
+
+sensor.loft_hatch_battery_level:
+  icon: mdi:battery
+  friendly_name: Loft Hatch
+  room: loft
+  type: battery
+
+# Living Room
+light.living_room_lamp_01:
+  icon: mdi:lamp
+  friendly_name: Lamp
+  room: living_room
+  type: light-rgb
+
+light.living_room_pendant_01:
+  icon: mdi:lightbulb
+  friendly_name: Pendant
+  room: living_room
+  type: light-rgb
+
+light.living_room_shadow:
+  icon: mdi:led-strip-variant
+  friendly_name: Shadow
+  room: living_room
+  type: light-rgb
+
+binary_sensor.living_room_window_left:
+  icon: mdi:window-open-variant
+  friendly_name: Left
+  room: living_room
+  type: opening
+
+sensor.living_room_window_left_battery_level:
+  icon: mdi:battery
+  friendly_name: Left
+  room: living_room
+  type: battery
+
+binary_sensor.living_room_window_right:
+  icon: mdi:window-open-variant
+  friendly_name: Right
+  room: living_room
+  type: opening
+
+sensor.living_room_window_right_battery_level:
+  icon: mdi:battery
+  friendly_name: Right
+  room: living_room
+  type: battery
+
+# Loft
+light.loft_pendant_01:
+  icon: mdi:lightbulb
+  friendly_name: Loft
+  room: loft
+  type: light-rgb
+
+# Office
+light.office_spot_01:
+  icon: mdi:spotlight-beam
+  friendly_name: Spot 01
+  room: office
+  type: light-rgb
+
+light.office_spot_02:
+  icon: mdi:spotlight-beam
+  friendly_name: Spot 01
+  room: office
+  type: light-rgb
+
+light.office_wled:
+  icon: mdi:led-strip-variant
+  friendly_name: Shadow
+  room: office
+  type: light-rgb
+
+light.sever_cabinet_rgbw:
+  icon: mdi:led-strip-variant
+  friendly_name: Shadow
+  room: server_cabinet
+  type: light-rgb
+
+light.utility_backdoor_spot_1:
+  icon: mdi:spotlight-beam
+  friendly_name: Backdoor
+  room: utility
+  type: light-rgb
+
+light.utility_cupboard_spot_01:
+  icon: mdi:spotlight-beam
+  friendly_name: Cupboard
+  room: utility
+  type: light-rgb
+
+
+
+switch.living_room_av_receiver_smart_plug_relay:
+  icon: mdi:power-socket-uk
+  friendly_name: AV Receiver Plug
+  room: living_room
+  type: switch
+
+switch.living_room_tv_smart_plug_relay:
+  icon: mdi:power-socket-uk
+  friendly_name: TV Plug
+  room: living_room
+  type: switch
+
+switch.living_room_subwoofer_smart_socket:
+  icon: mdi:power-socket-uk
+  friendly_name: Sub Socket
+  room: living_room
+  type: switch
+
+switch.office_computer_smart_plug_relay:
+  icon: mdi:power-socket-uk
+  friendly_name: Computer Plug
+  room: office
+  type: switch
+
+# Automations
+automation.bathroom_lights_turn_off_when_door_open_and_no_motion:
+  icon: mdi:robot
+  friendly_name: Lights Off Door Open
+  room: bathroom
+  type: automation
+
+automation.bathroom_lights_turn_off_when_no_motion_sensor:
+  icon: mdi:robot
+  friendly_name: Lights Off No Motion
+  room: bathroom
+  type: automation
+
+automation.bathroom_lights_turn_on:
+  icon: mdi:robot
+  friendly_name: Lights Turn On
+  room: bathroom
+  type: automation
+
+automation.craft_room_lights_turn_off:
+  icon: mdi:robot
+  friendly_name: Lights Turn On
+  room: craft_room
+  type: automation
+
+automation.craft_room_lights_turn_on_day:
+  icon: mdi:robot
+  friendly_name: Lights On Day
+  room: craft_room
+  type: automation
+
+automation.craft_room_lights_turn_on_night:
+  icon: mdi:robot
+  friendly_name: Lights On Night
+  room: craft_room
+  type: automation
+
+automation.hall_lights_turn_off:
+  icon: mdi:robot
+  friendly_name: Lights Off
+  room: hall
+  type: automation
+
+automation.hall_lights_turn_on:
+  icon: mdi:robot
+  friendly_name: Lights On
+  room: hall
+  type: automation
+
+automation.kitchen_lights_turn_off:
+  icon: mdi:robot
+  friendly_name: Lights Off
+  room: kitchen
+  type: automation
+
+automation.kithen_lights_turn_on_day:
+  icon: mdi:robot
+  friendly_name: Lights On Day
+  room: kitchen
+  type: automation
+
+automation.kithen_lights_turn_on_evening:
+  icon: mdi:robot
+  friendly_name: Lights On Evening
+  room: kitchen
+  type: automation
+
+automation.kithen_lights_turn_on_night:
+  icon: mdi:robot
+  friendly_name: Lights On Night
+  room: kitchen
+  type: automation
+
+automation.landing_lights_turn_off:
+  icon: mdi:robot
+  friendly_name: Lights Off
+  room: landing
+  type: automation
+
+automation.landing_lights_turn_on:
+  icon: mdi:robot
+  friendly_name: Lights On
+  room: landing
+  type: automation
+
+automation.living_room_lights_turn_off:
+  icon: mdi:robot
+  friendly_name: Lights Off
+  room: living_room
+  type: automation
+
+automation.living_rooom_lights_turn_on_day:
+  icon: mdi:robot
+  friendly_name: Lights On Day
+  room: living_room
+  type: automation
+
+automation.living_rooom_lights_turn_on_night:
+  icon: mdi:robot
+  friendly_name: Lights Off Night
+  room: living_room
+  type: automation
+
+automation.loft_lights_turn_off:
+  icon: mdi:robot
+  friendly_name: Lights Off
+  room: loft
+  type: automation
+
+automation.loft_lights_turn_on:
+  icon: mdi:robot
+  friendly_name: Lights On
+  room: loft
+  type: automation
+
+automation.office_lights_turn_off:
+  icon: mdi:robot
+  friendly_name: Lights Off
+  room: office
+  type: automation
+
+automation.office_lights_turn_on:
+  icon: mdi:robot
+  friendly_name: Lights On
+  room: office
+  type: automation
+
+# unRAID 
+
+sensor.glances_unraid_containers_active:
+  friendly_name: Containers
+sensor.unraid_version_stable:
+  friendly_name: Version
+  icon: mdi:cellphone-arrow-down
+
+switch.chsunr01_power_off:
+  friendly_name: Shutdown
+  icon: mdi:power
+switch.chsunr01_reboot:
+  friendly_name: Reboot
+  icon: mdi:power-cycle
+switch.chsunr01_mover:
+  friendly_name: Mover
+  icon: mdi:folder-move-outline
+switch.chsunr01_partitycheck:
+  friendly_name: Parity
+  icon: mdi:database-remove
+
+# Containers
+switch.chsunr01_docker_binhex_nzbhydra2:
+  friendly_name: NZBHydra
+  entity_picture: /local/images/unraid-container-images/nzbhydra2.png
+
+switch.chsunr01_docker_duplicacy:
+  friendly_name: Duplicacy
+  entity_picture: /local/images/unraid-container-images/duplicati.png
+
+switch.chsunr01_docker_glances:
+  friendly_name: Glances
+  entity_picture: /local/images/unraid-container-images/glances.png
+
+switch.chsunr01_docker_lidarr:
+  friendly_name: Lidarr
+  entity_picture: /local/images/unraid-container-images/lidarr.png
+
+switch.chsunr01_docker_netdata:
+  friendly_name: Netdata
+  entity_picture: /local/images/unraid-container-images/netdata.png
+
+switch.chsunr01_docker_nzbget:
+  friendly_name: NZBGet
+  entity_picture: /local/images/unraid-container-images/nzbget.png
+
+switch.chsunr01_docker_plex:
+  friendly_name: Plex
+  entity_picture: /local/images/unraid-container-images/plex.png
+
+switch.chsunr01_docker_radarr:
+  friendly_name: Radarr
+  entity_picture: /local/images/unraid-container-images/radarr.png
+
+switch.chsunr01_docker_sonarr:
+  friendly_name: Sonarr
+  entity_picture: /local/images/unraid-container-images/sonarr.png
+
+switch.chsunr01_docker_tautulli:
+  friendly_name: Tautulli
+  entity_picture: /local/images/unraid-container-images/tautulli.png
+
+switch.chsunr01_docker_unraid_api:
+  friendly_name: unRAID API
+  entity_picture: /local/images/unraid-container-images/unraid-api.png
+
+# Virtual Machines
+switch.chsunr01_vm_chskal01:
+  friendly_name: Kali
+  entity_picture: /local/images/unraid-vm-images/kali.png
+switch.chsunr01_vm_fivem_server:
+  friendly_name: FiveM
+  entity_picture: /local/images/unraid-vm-images/fivem.png
+switch.chsunr01_vm_home_assistant:
+  friendly_name: Hassio
+  entity_picture: /local/images/unraid-vm-images/ubuntu.png
+switch.chsunr01_vm_logstash:
+  friendly_name: LogStash
+  entity_picture: /local/images/unraid-vm-images/logstash.png
+
+>>>>>>> 5897cda... hki-init

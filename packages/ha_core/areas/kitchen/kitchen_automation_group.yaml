@@ -1,0 +1,15 @@
+group:
+  kitchen_light_automations:
+    name: Kitchen Light Automations
+    entities:
+    # Light Automations
+      - automation.kithen_lights_turn_on_day
+      - automation.kithen_lights_turn_on_night
+      - automation.kitchen_turn_off_from_dimmer
+      - automation.kitchen_lights_turn_off
+      - automation.kitchen_lights_delay_turn_off_on_deconz_event
+      - automation.kitchen_lights_enable_turn_off_on_deconz_event
+    # Remote Automations
+      - automation.kitchen_turn_on_from_dimmer_normal
+      - automation.kitchen_decrease_brightness_from_dimmer
+      - automation.kitchen_increase_brightness_from_dimmer

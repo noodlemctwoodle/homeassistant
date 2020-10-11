@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Ignore folders.
 .storage
 .cloud
@@ -117,3 +118,38 @@ pyozw.sqlite
 zwave_device_config.yaml
 zwcfg_0xd3782d31.xml
 zwscene.xml
+=======
+.cloud
+.storage
+.vscode
+.git
+.HA_VERSION
+
+custom_components
+deps
+esphome
+glances
+
+homekit-infused/base.yaml
+homekit-infused/base/custom_header
+homekit-infused/base/includes
+homekit-infused/base/templates
+homekit-infused/user/config
+image
+
+packages/homekit_infused
+
+themes
+
+tts
+
+www/images/users
+www/community
+
+
+
+home-assistant.log
+homekit-infused.yaml
+secrets.yaml
+webostv.conf
+>>>>>>> 5897cda... hki-init

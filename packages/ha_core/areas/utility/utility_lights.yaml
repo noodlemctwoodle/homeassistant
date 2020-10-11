@@ -1,0 +1,7 @@
+# Dwains Theme Group
+group:
+  utility_lights:
+    name: Utility Lights
+    entities:
+      - light.utility_backdoor_spot_1
+      - light.utility_cupboard_spot_01

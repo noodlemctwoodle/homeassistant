@@ -1,0 +1,151 @@
+- type: vertical-stack
+  cards:
+    - type: custom:mod-card
+      style: |
+        ha-card {
+          margin-left: 20px;
+          margin-right: 20px;
+        }
+      card:
+        type: horizontal-stack
+        cards:
+          - !include
+            - '../../../base/templates/other/title-text.yaml'
+            - name: Windows & Doors
+
+    - type: horizontal-stack
+      cards:
+        - type: custom:mod-card
+          style: |
+            ha-card {
+              margin-left: 20px;
+              margin-right: 20px;
+            }
+          card:
+            type: custom:layout-card
+            column_num: 4
+            justify_content: start
+            layout: horizontal
+            cards:
+
+              - !include
+                - '../../../base/templates/button/button.yaml'
+                - entity: binary_sensor.bathroom_window
+                  lock: false
+                  tap_action: more-info
+                  show_last_changed: true
+
+              - type: custom:button-card
+                template: 
+                  - style-default
+                  - default-hki-grid
+                show_entity_picture: 'true'
+                color: 'var(--paper-item-icon-active-color'
+                size: '25%'
+                aspect_ratio: '1/1'
+                entity: binary_sensor.bathroom_door
+                show_name: 'true'
+                show_icon: 'true'
+                show_state: 'true'
+                show_label: 'true'
+                show_last_changed: 'false'
+                tap_action: 
+                  action: more-info
+                  haptic: light
+                hold_action:
+                  action: 'call-service'
+                  service: browser_mod.popup
+                  service_data:
+                    title: ' '
+                    style:
+                      .: |
+                        :host {
+                          --mdc-theme-surface: rgba(0,0,0,0);
+                          --secondary-background-color: rgba(0,0,0,0);
+                          --ha-card-background: rgba(0,0,0,0);
+                          --mdc-dialog-scrim-color: rgba(0,0,0,0.9);
+                          --mdc-dialog-min-height: 100%;
+                          --mdc-dialog-min-width: 100%;
+                          --mdc-dialog-max-width: 100%;
+                          --paper-slider-knob-color: #FFFFFF !important;
+                          --paper-slider-active-color: #dedede !important;
+                          --switch-checked-button-color: #FFFFFF !important;
+                          --switch-unchecked-button-color: #FFFFFF !important;
+                          --switch-checked-track-color: green !important;
+                          --switch-unchecked-track-color: red !important;
+                          --primary-text-color: white !important;
+                          --paper-item-icon-color: white !important;
+                        }
+                        app-header, app-toolbar {
+                          background-color: rgba(0,0,0,0.0) !important;
+                        }
+                        mwc-icon-button {
+                          color: #FFF;
+                        }
+                    card:
+                      - entity: binary_sensor.bathroom_door
+                        slider_height: '410px'
+                        display_type: 'auto'
+                        slider_colored_by_light: 'true'
+                        color_1: '#ff8800'
+                        color_2: '#ff005f'
+                        color_3: '#28ff00'
+                        color_4: '#00a0ff'
+                        color_5: '#8300ff'
+                        color_6: '#0300ff'
+                        service_color_1: 255, 136, 0
+                        service_color_2: 255, 0, 95
+                        service_color_3: 40, 255, 0
+                        service_color_4: 0, 160, 255
+                        service_color_5: 131, 0, 255
+                        service_color_6: 3, 0, 255
+                        line_color: 'red'
+                    deviceID:
+                      - this
+                  haptic: heavy
+                double_tap_action:
+                  action: call-service
+                  service: browser_mod.popup
+                  service_data:
+                state:
+                  - value: "off" 
+                    styles:
+                      card:
+                        - --ha-card-background: var(--button-on-color)
+                        - opacity: var(--button-on-opacity)
+                        - -webkit-box-shadow: var(--button-on-box-shadow)
+                        - box-shadow: var(--button-on-box-shadow)
+                      name:
+                        - color: var(--button-on-name-color)
+                      state:
+                        - color: var(--button-on-state-color)
+                      label:
+                        - color: var(--button-on-label-color)
+                      icon:
+                        - color: var(--button-on-icon-color)
+                  - value: "on"
+                    styles:
+                      card:
+                        - opacity: '0.5'
+                      icon:
+                        - color: var(--paper-item-icon-color)
+                      name:
+                        - color: var(--primary-text-color)
+                      state:
+                        - color: var(--primary-text-color)
+                      label:
+                        - color: var(--primary-text-color)
+
+              - !include
+                - '../../../base/templates/button/button.yaml'
+                - entity: sensor.bathroom_window_battery_level
+                  lock: false
+                  tap_action: more-info
+                  show_last_changed: true
+
+              - !include
+                - '../../../base/templates/button/button.yaml'
+                - entity: sensor.bathroom_door_battery_level
+                  lock: false
+                  tap_action: more-info
+                  show_last_changed: true

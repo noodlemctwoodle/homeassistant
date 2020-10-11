@@ -1,0 +1,70 @@
+- type: vertical-stack
+  cards:
+    - type: custom:mod-card
+      style: |
+        ha-card {
+          margin-left: 20px;
+          margin-right: 20px;
+        }
+      card:
+        type: horizontal-stack
+        cards:
+          - !include
+            - '../../../base/templates/other/title-text.yaml'
+            - name: Automations
+  #        - !include
+  #          - '../../../base/templates/other/title-text.yaml'
+  #          - name: "[[[ return `${states['sensor.protect_kitchen_color_status'].state} `; ]]]"
+  #            justify_self: end
+
+    - type: horizontal-stack
+      cards:
+
+        - type: custom:layout-card
+          column_num: 4
+          justify_content: start
+          layout: horizontal
+          cards:
+            - type: vertical-stack
+              cards:
+
+                - type: custom:mod-card
+                  style: |
+                    ha-card {
+                      margin-left: 20px;
+                      margin-right: 20px;
+                    }
+                  card:
+                    type: custom:layout-card
+                    column_num: 4
+                    justify_content: start
+                    layout: horizontal
+                    cards:
+                      - !include
+                        - '../../../base/templates/button/button.yaml'
+                        - entity: automation.kitchen_lights_turn_off
+                          name: Light Off
+                          label: Automation
+                          icon: mdi:robot
+                          hold_action: more-info
+                      - !include
+                        - '../../../base/templates/button/button.yaml'
+                        - entity: automation.kithen_lights_turn_on_day
+                          name: Light On
+                          label: Day
+                          icon: mdi:robot
+                          hold_action: more-info
+                      - !include
+                        - '../../../base/templates/button/button.yaml'
+                        - entity: automation.kithen_lights_turn_on_evening
+                          name: Lights On
+                          label: Evening
+                          icon: mdi:robot
+                          hold_action: more-info
+                      - !include
+                        - '../../../base/templates/button/button.yaml'
+                        - entity: automation.kithen_lights_turn_on_night
+                          name: Lights On
+                          label: Night
+                          icon: mdi:robot
+                          hold_action: more-info

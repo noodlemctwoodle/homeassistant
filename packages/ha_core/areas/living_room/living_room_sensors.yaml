@@ -1,0 +1,7 @@
+# Dwains Theme Group
+group:
+  living_room_window_sensors:
+    name: Living Room Windows
+    entities:
+        - binary_sensor.living_room_window_left
+        - binary_sensor.living_room_window_right

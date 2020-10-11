@@ -1,0 +1,44 @@
+- type: vertical-stack
+  cards:
+    - type: custom:mod-card
+      style: |
+        ha-card {
+          margin-left: 20px;
+          margin-right: 20px;
+        }
+      card:
+        type: horizontal-stack
+        cards:
+          - !include
+            - '../../../base/templates/other/title-text.yaml'
+            - name: Bathroom Temperaature
+          - !include
+            - '../../../base/templates/other/title-text.yaml'
+            - name: "[[[ return `${states['sensor.kitchen_hue_sensor_temp'].state} °C`; ]]]"
+              justify_self: end
+    - type: horizontal-stack
+      cards:
+        - type: custom:mod-card
+          style: |
+            ha-card {
+              margin-left: 20px;
+              margin-right: 20px;
+            }
+          card:
+            type: custom:layout-card
+            column_num: 4
+            justify_content: start
+            layout: horizontal
+            cards:
+
+                - !include
+                  - '../../../base/templates/button/button.yaml'
+                  - entity: light.bathroom_pendant_01
+                    name: Bathroom
+                    label: !include ../../../base/includes/brightness-label.yaml
+                    lock: false
+                    template: '../popup-cards/light-color-temp.yaml'
+                    grid: light-devices-grid
+
+
+

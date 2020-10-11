@@ -1,0 +1,46 @@
+---
+
+#nzbget:
+#  host: !secret host_ip_address
+#  username: !secret nzbgetuser
+#  password: !secret nzbgetpass
+#  port: !secret nzbget_port
+#  name: NZBGet
+
+
+#sensor:
+#
+#  - platform: radarr_upcoming_media
+#    api_key: !secret radarr_api_key
+#    host: !secret host_ip_address
+#    port: !secret radarr_port
+#    days: 120
+#    ssl: false
+#    theaters: false
+#    max: 10
+#
+#  - platform: sonarr_upcoming_media
+#    api_key: !secret sonarr_api_key
+#    host: !secret host_ip_address
+#    port: !secret sonarr_port
+#    days: 7
+#    ssl: false
+#    max: 10
+#
+## PLEX RECENTLY ADDED - CUSTOM COMPONENT
+## https://github.com/custom-components/sensor.plex_recently_added
+#
+#  - platform: plex_recently_added
+#    host: !secret plex_host
+#    port: !secret plex_port
+#    token: !secret plex_token
+#    download_images: true
+#    img_dir: '/upcoming-media-card/images/plex/'
+#    max: 5
+#    section_types:
+#    - movie
+#    - show
+
+
+
+
