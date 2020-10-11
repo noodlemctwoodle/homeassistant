@@ -1,3 +1,4 @@
+```YAML
 # UnRAID Server Montitoring for Dwains-Theme
 ## Version 0.3 by noodlemctwoodle
 
@@ -1161,3 +1162,4 @@
                     to: 100
                 direction: up
                 tap_action: none
+```

@@ -1,3 +1,4 @@
+```YAML
 # Media Montitoring for Dwains-Theme. 
 ## Version 0.1 by noodlemctwoodle
 ### Please view the set up guide for this view on GitHub
@@ -598,3 +599,4 @@
                 hide_empty: false
                 icon: none
                 all_shadows: false
+```

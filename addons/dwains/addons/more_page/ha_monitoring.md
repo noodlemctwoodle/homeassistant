@@ -1,3 +1,4 @@
+```YAML
 # Home Assistant Montitoring for Dwains-Theme
 ## Version 0.5 by noodlemctwoodle
 ### Please view the set up guide for this view on GitHub
@@ -999,3 +1000,4 @@
                               - binary_sensor.updater_addons
                               - binary_sensor.updater_hacs
                               - binary_sensor.updater_supervisor
+```

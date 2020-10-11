@@ -1,3 +1,6 @@
+
+
+```YAML
 # Pi-Hole Montitoring for Dwains-Theme
 ## Version 0.1 by noodlemctwoodle
 
@@ -208,3 +211,4 @@
               average: true
               extrema: true
             tap_action: none
+```

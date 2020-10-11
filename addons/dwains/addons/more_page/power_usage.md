@@ -1,3 +1,4 @@
+```YAML
 # UnRAID Server Montitoring for Dwains-Theme
 ## Version 0.2 by noodlemctwoodle
 
@@ -1162,3 +1163,4 @@
                         average: true
                         extrema: true
                       tap_action: none
+```
