@@ -1,11 +1,11 @@
 # UnRAID Monitoring Addon for Dwains-Theme
 #### Version 0.4
 
-![unraid-monitor](./images/dwains-theme/addons/unraid/desktop_1.png)
+![unraid-monitor](../images/dwains-theme/addons/unraid/desktop_1.png)
 
 ## Dwains Theme Addon:
 
-Dwains-Theme `UnRAID` add-on can be found [here](./addons/dwains/addons/more_page/unraid_monitoring.md)
+Dwains-Theme `UnRAID` add-on can be found [here](../addons/dwains/addons/more_page/unraid_monitoring.md)
 
 ### Dwains Theme Configuration:
 
