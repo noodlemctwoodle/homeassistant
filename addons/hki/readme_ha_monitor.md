@@ -1,6 +1,6 @@
 # Home Assistant Monitoring View for HKI
 
-![hassio-monitor](https://github.com/noodlemctwoodle/homeassistant/blob/master/.github/wiki/images/views/ha-core.png)
+![hassio-monitor](./images/views/ha-core.png)
 
 ## Version 0.1 - Initial release
 

@@ -1,11 +1,11 @@
 # UnRAID Monitoring View for HKI
 #### Version 0.4
 
-![unraid-monitor](https://github.com/noodlemctwoodle/homeassistant/blob/master/.github/wiki/images/views/unraid.png)
+![unraid-monitor](./images/views/unraid.png)
 
 ### UnRAID Data Monitoring Feeds
 
-| [UnRAID-API](https://github.com/noodlemctwoodle/homeassistant/tree/master/.github/wiki/guides/unraid#unraid-api-configuration) | [UnRAID-SNMP](https://github.com/noodlemctwoodle/homeassistant/tree/master/.github/wiki/guides/unraid#unraid-snmp-configuration) | [UnRAID Glances Container](https://github.com/hassio-addons/addon-glances/blob/v0.7.1/README.md) |
+| [UnRAID-API](./addons/hki/readme_unraid_monitor.md#unraid-api-configuration) | [UnRAID-SNMP](./addons/hki/readme_unraid_monitor.md#unraid-snmp-configuration) | [UnRAID Glances Container](https://github.com/hassio-addons/addon-glances/blob/v0.7.1/README.md) |
 |-----------------------|-----------------|--------------------------------|
 | View arrayStatus      | HDD Array Temps | View total per disk used space |
 | View arrayProtection  | LAN Throughput  | View total per disk free space |

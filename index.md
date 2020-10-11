@@ -5,11 +5,11 @@
 
 [Home Kit Infused](https://github.com/jimz011/homekit-infused) Documentation
 
-### ### Readme
+### Readme
 - [Home Assistant View](./addons/hki/readme_ha_monitor.md)
 - [Media Monitoring View](./addons/hki/readme_media_view.md)
 - [UnRAID View](./addons/hki/readme_unraid_monitor.md)
-- [Energy Monitoring View](./addons/hki/coming_soon)
+- Energy Monitoring View (coming Soon)
 
 ### Code 
 - [Home Assistant View](./addons/hki/readme_ha_monitor.md)

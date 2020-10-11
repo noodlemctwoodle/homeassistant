@@ -2,11 +2,11 @@
 #### Version 0.1 by noodlemctwoodle
 
 
-![pihole-monitor](https://github.com/noodlemctwoodle/homeassistant/blob/master/.github/wiki/images/dwains-theme/addons/pi_hole/desktop_1.png)
+![pihole-monitor](./images/dwains-theme/addons/pi_hole/desktop_1.png)
 
 ## Dwains Theme Addon:
 
-Dwains Theme `Pi-Hole` add-on can be found [here](https://github.com/noodlemctwoodle/homeassistant/blob/master/dwains-theme/addons/more_page/adblocker.yaml)
+Dwains Theme `Pi-Hole` add-on can be found [here](./addons/dwains/addons/more_page/adblocker.md)
 
 ### Dwains Theme Configuration:
 

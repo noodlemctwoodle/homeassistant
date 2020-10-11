@@ -1,13 +1,13 @@
 # Home Assistant Monitoring Addon for Dwains-Theme
 #### Version 0.5
 
-![ha-monitor](https://github.com/noodlemctwoodle/homeassistant/blob/master/.github/wiki/images/dwains-theme/addons/ha-monitor/desktop_1.png)
+![ha-monitor](./images/dwains-theme/addons/ha-monitor/desktop_1.png)
 
 ## Dwains Theme Addon:
 
-Dwains-Theme `Home Assistant Monitoring` Addon can be found [here](https://github.com/noodlemctwoodle/homeassistant/blob/master/dwains-theme/addons/more_page/ha_monitoring.yaml)
+Dwains-Theme `Home Assistant Monitoring` Addon can be found [here](./addons/dwains/addons/more_page/ha_monitoring.md)
      
-Configuration instructions can be found [here](https://github.com/noodlemctwoodle/homeassistant/blob/master/.github/wiki/guides/ha-core/HomeAssistant_Monitoting.md)
+Configuration instructions can be found [here](./addons/hki/readme_ha_monitor.md)
 
 ### Dwains Theme Configuration:
 

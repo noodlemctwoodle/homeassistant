@@ -11,7 +11,7 @@
  - Monthly cost
  - Utility meter [support](https://www.home-assistant.io/integrations/utility_meter/)
 
-Configuration instructions can be found [here](https://github.com/noodlemctwoodle/homeassistant/blob/master/packages/ha-core/areas/home/energy/power_usage.yaml)
+Configuration instructions can be found [here](./addons/dwains/addons/more_page/power_usage.md)
 
 
 ### Donations
