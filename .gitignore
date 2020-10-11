@@ -29,5 +29,6 @@ www/community
 
 home-assistant.log
 homekit-infused.yaml
+customize.yaml
 secrets.yaml
 webostv.conf
