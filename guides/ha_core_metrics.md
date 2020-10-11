@@ -8,7 +8,7 @@
  * [Home Assistant Update Sensor](#update-notifications-core-hacs-supervisor-and-addons)
  * [Update notifications! Core, HACS, Supervisor and Addons](#update-notifications-core-hacs-supervisor-and-addons)
  * [Setting Up The HTML5 Notify Platform](#setting-up-the-html5-notify-platform)
- * [Home Assistant Core Addon Support](#home-assistant-core-addon-suppport)
+ * [Home Assistant Core Addon Support](#home-assistant-core-addon-support)
  * [SNMP](#snmp)
 
 
