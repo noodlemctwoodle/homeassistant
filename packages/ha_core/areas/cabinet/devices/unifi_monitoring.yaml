@@ -1,10 +1,21 @@
-  
----
+sensor:
+
+# UNIFI MONITORING - CUSTOM COMPONENT
+# https://github.com/custom-components/sensor.unifigateway
+#  - platform: unifigateway
+#    host: !secret unifi_host
+#    username: !secret unifi_username
+#    password: !secret unifi_password
+#    monitored_conditions:
+#      - lan
+#      - wlan
+#      - alerts
+#      - firmware
+
 # SNMP sensors
 # if you have more ap/switches you can copy paste the code.
 # change name and ip and you are ready to go
-#
-sensor:
+
   - platform: snmp
     host: !secret unifi_switch
     name: Unifi Switch Uptime
@@ -154,3 +165,6 @@ sensor:
 #    username: !secret unifi_username
 #    password: !secret unifi_password
 #    url: !secret unifi_host_port
+
+# Camera Streams
+stream:
