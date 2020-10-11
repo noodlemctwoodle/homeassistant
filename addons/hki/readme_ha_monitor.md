@@ -1,6 +1,6 @@
 # Home Assistant Monitoring View for HKI
 
-![hassio-monitor](./images/views/ha-core.png)
+![hassio-monitor](../../images/views/ha-core.png)
 
 ## Version 0.1 - Initial release
 
@@ -21,7 +21,7 @@
 
 HKI System view can be found [here](https://github.com/noodlemctwoodle/homeassistant/blob/master/user_content/views/system_user_content.yaml)
      
-Configuration instructions can be found [here](https://github.com/noodlemctwoodle/homeassistant/tree/master/.github/wiki/guides/ha-core)
+Configuration instructions can be found [here](../../guides/ha_core_metrics.md)
 
  #### Credits
  - [SilvrrGIT](https://github.com/SilvrrGIT/HomeAssistant) Excellent post on the community [forum](https://community.home-assistant.io/t/get-notified-of-available-hassio-addon-updates/176626) outlining how to create rest senosr to start/restart Home Assistant Core Addons, Create the switches used in my HKI System view and the post also describes how write automations for addon update available notifications.

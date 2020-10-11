@@ -1,11 +1,11 @@
 # UnRAID Monitoring Addon for Dwains-Theme
 #### Version 0.4
 
-![unraid-monitor](../images/dwains-theme/addons/unraid/desktop_1.png)
+![unraid-monitor](../../images/dwains-theme/addons/unraid/desktop_1.png)
 
 ## Dwains Theme Addon:
 
-Dwains-Theme `UnRAID` add-on can be found [here](../addons/dwains/addons/more_page/unraid_monitoring.md)
+Dwains-Theme `UnRAID` add-on can be found [here](../../addons/dwains/addons/more_page/unraid_monitoring.md)
 
 ### Dwains Theme Configuration:
 
@@ -18,7 +18,7 @@ Dwains-Theme `UnRAID` add-on can be found [here](../addons/dwains/addons/more_pa
 
 ### UnRAID Data Monitoring Feeds
 
-| [UnRAID-API](./addons/hki/readme_unraid_monitor.md#unraid-api-configuration) | [UnRAID-SNMP](./addons/hki/readme_unraid_monitor.md#unraid-snmp-configuration) | [UnRAID Glances Container](https://github.com/hassio-addons/addon-glances/blob/v0.7.1/README.md) |
+| [UnRAID-API](../../addons/hki/readme_unraid_monitor.md#unraid-api-configuration) | [UnRAID-SNMP](../../addons/hki/readme_unraid_monitor.md#unraid-snmp-configuration) | [UnRAID Glances Container](https://github.com/hassio-addons/addon-glances/blob/v0.7.1/README.md) |
 |-----------------------|-----------------|--------------------------------|
 | View arrayStatus      | HDD Array Temps | View total per disk used space |
 | View arrayProtection  | LAN Throughput  | View total per disk free space |
@@ -43,7 +43,7 @@ Dwains-Theme `UnRAID` add-on can be found [here](../addons/dwains/addons/more_pa
  - Container Support
     - Start/Stop Containers
  - UnRAID-API added
- - Added SNMP [config](./packages/ha_core/areas/cabinet/devices/unifi_monitoring.yaml#L19)
+ - Added SNMP [config](../../packages/ha_core/areas/cabinet/devices/unifi_monitoring.yaml#L19)
 
 ### Version 0.2
  - Updated `title` to `name` for bar-card thanks @papy_329700

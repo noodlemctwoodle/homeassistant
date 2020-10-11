@@ -2,11 +2,11 @@
 #### Version 0.1 by noodlemctwoodle
 
 
-![pihole-monitor](./images/dwains-theme/addons/pi_hole/desktop_1.png)
+![pihole-monitor](../../images/dwains-theme/addons/pi_hole/desktop_1.png)
 
 ## Dwains Theme Addon:
 
-Dwains Theme `Pi-Hole` add-on can be found [here](./addons/dwains/addons/more_page/adblocker.md)
+Dwains Theme `Pi-Hole` add-on can be found [here](../../addons/dwains/addons/more_page/adblocker.md)
 
 ### Dwains Theme Configuration:
 

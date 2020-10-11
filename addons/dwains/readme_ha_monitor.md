@@ -1,13 +1,13 @@
 # Home Assistant Monitoring Addon for Dwains-Theme
 #### Version 0.5
 
-![ha-monitor](./images/dwains-theme/addons/ha-monitor/desktop_1.png)
+![ha-monitor](../../images/dwains-theme/addons/ha-monitor/desktop_1.png)
 
 ## Dwains Theme Addon:
 
-Dwains-Theme `Home Assistant Monitoring` Addon can be found [here](./addons/dwains/addons/more_page/ha_monitoring.md)
+Dwains-Theme `Home Assistant Monitoring` Addon can be found [here](../../addons/dwains/addons/more_page/ha_monitoring.md)
      
-Configuration instructions can be found [here](./addons/hki/readme_ha_monitor.md)
+Configuration instructions can be found [here](../../addons/hki/readme_ha_monitor.md)
 
 ### Dwains Theme Configuration:
 
@@ -51,8 +51,8 @@ Configuration instructions can be found [here](./addons/hki/readme_ha_monitor.md
 ### Version 0.3
  - Added update sensors
     - package + audio, dns, cli and core
- - Added configuration guide for Configuration [Checker](https://github.com/noodlemctwoodle/homeassistant/blob/master/.github/wiki/guides/ha-core/HomeAssistant_Monitoting.md#install-check-home-assistant-configuration)
- - Added configuration guide for HTML5 [notifications](https://github.com/noodlemctwoodle/homeassistant/blob/master/.github/wiki/guides/ha-core/HomeAssistant_Monitoting.md#setting-up-the-html5-notify-platform)
+ - Added configuration guide for Configuration [Checker](../../addons/dwains/readme_ha_monitor.md#install-check-home-assistant-configuration)
+ - Added configuration guide for HTML5 [notifications](../../addons/dwains/readme_ha_monitor.md#setting-up-the-html5-notify-platform)
  - [AVI](https://github.com/abeksis/My-HomeAssistant-Config) added template.dwains.psd for you to make your own container images
 
 ### Version 0.4
