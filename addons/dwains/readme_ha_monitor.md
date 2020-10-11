@@ -59,7 +59,7 @@ Configuration instructions can be found [here](../../guides/ha_core_metrics.md)
  - Removed picture entity card used for version and containers due to positioning issue on mobile devices
    - Added Button-Card for `containers` and `version`
  - Removed Swipe card for Home Assistant addons due issue with light theme
-   - replaced addons with Button-Card. (double tap to toggle addon on/off), icon fades to grayscale when off
+   - replaced addons with Button-Card. (double tap to toggle addon on/off), icon fades to gray scale when off
  - Fixed issue with bard-card shadows
  - Added some new icons for addons, if you require more they can be downloaded from the addon git `repo`
 

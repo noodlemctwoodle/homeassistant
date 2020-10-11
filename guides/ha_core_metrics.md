@@ -120,7 +120,7 @@ You need to change "{{ value_json.homeassistant.default }}" to match your build 
 
 ## Update notifications! Core, HACS, Supervisor and Addons
 
-Thanks to [CentralCommand](https://community.home-assistant.io/t/update-notifications-core-hacs-supervisor-and-addons/182295) for the excellant write up. If you require any assistance or further configuration please refer back the the post on the Home Assistant Communiuty. I Take zero credit for any of this write up. 
+Thanks to [CentralCommand](https://community.home-assistant.io/t/update-notifications-core-hacs-supervisor-and-addons/182295) for the excellent write up. If you require any assistance or further configuration please refer back the the post on the Home Assistant Community. I Take zero credit for any of this write up. 
 
 To start we need sensors that tell us when updates are available. For Core and HACS we’re good to go since those come standard with binary_sensor.updater for Core and sensor.hacs for HACS. However there is no sensor for Supervisor and its addons so we need to make one.
 
@@ -203,7 +203,7 @@ Now that we have these we can build alerts to notify me when something needs an 
 ```YAML
 alert:
 
-# Update is available - un-acknowledgeble, auto-dismiss, me only
+# Update is available - un-acknowledgeable, auto-dismiss, me only
 # Wait 5 minutes before first to give core config check time to run
   ha_update_available:
     name: HA has an update
@@ -240,7 +240,7 @@ alert:
       url: 'http://hassio.local/hassio/dashboard'
       ttl: 21600
 
-  # HACS repos have updates available - unacknowledgeable, auto-dismiss, me only
+  # HACS repos have updates available - unknowledgeable, auto-dismiss, me only
   hacs_update_available:
     name: HACS repos have updates
     entity_id: binary_sensor.updater_hacs
@@ -257,7 +257,7 @@ alert:
       url: 'http://hassio.local/hacs/installed'
       ttl: 21600
 
-  # Addons have updates available - unacknowledgeable, auto-dismiss, me only
+  # Addons have updates available - unknowledgeable, auto-dismiss, me only
   addon_update_available:
     name: Addons have updates
     entity_id: binary_sensor.updater_addons

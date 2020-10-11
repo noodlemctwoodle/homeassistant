@@ -6,7 +6,7 @@
 
  - picture-entity energy-comany
  - Daily usage
- - Monthy usage
+ - Monthly usage
  - Daily cost
  - Monthly cost
  - Utility meter [support](https://www.home-assistant.io/integrations/utility_meter/)

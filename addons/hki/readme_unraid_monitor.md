@@ -43,7 +43,7 @@ Version 0.4
 Version 0.5
  - Fixed issue with Bar-Card 3.0.5
  - Merged features from Dwains-Theme UnRAID Addon
-    - Added disk usagew percentages for Cache, USB, Backups
+    - Added disk usage percentages for Cache, USB, Backups
  - Added Graph card for Cache & Backup usage
  - Added an additional [sensor](https://github.com/noodlemctwoodle/homeassistant/blob/4fc9a4634a3bf423a8cec746b7c5d4f542dd697a/packages/ha_core/areas/cabinet/devices/unraid_monitoring.yaml#L17) as a workaround for Bar-Card severity
 
