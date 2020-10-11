@@ -1,4 +1,4 @@
-# Home Assistant Core - Configuration for Homekit-Infused and Dwains-Theme
+# Home Assistant - Configuration
 
 ## Contents
 

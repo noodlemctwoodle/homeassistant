@@ -1,4 +1,4 @@
-# Home Assistant Media - Configuration for Homekit-Infused and Dwains-Theme
+# Media - Configuration
 
 ## Contents
 - [Android ADB](#android-debug-bridge)

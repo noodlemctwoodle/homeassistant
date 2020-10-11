@@ -1,4 +1,4 @@
-# UnRAID - Configuration for Homekit-Infused and Dwains-Theme
+# UnRAID - Configuration
 
 ## Contents
 
