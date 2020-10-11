@@ -20,7 +20,7 @@ The Home Assistant Monoitoring Addon for Dwains-Theme can be found [here](../../
 
 ## Home Assistant Picture Entity Card
 
-The Home Assistant [image](../../images/dwains-theme/software/home_assistant_logo.png) is required for the containers card and you will also need the following input text in you configuration
+The Home Assistant [image](.././images/dwains-theme/software/home_assistant_logo.png) is required for the containers card and you will also need the following input text in you configuration
 
 ```YAML
 input_text:
@@ -57,11 +57,11 @@ automation:
 
 Install the [Glances](https://github.com/hassio-addons/addon-glances#adding-glances-as-a-sensor-into-home-assistant) Home Assistant Addon from `Supervisor > Add-on Store`
 
-  ![Glances-Configuration](../../images/ha-core/glances_config_1.png)
+  ![Glances-Configuration](.././images/ha-core/glances_config_1.png)
 
 Once Glances is configured and running setup the Home Assistant Integration
 
-  ![Glances-Integration](../../images/ha-core/glances_config.png)
+  ![Glances-Integration](.././images/ha-core/glances_config.png)
 
 Note: The port of 61209 is important as this is what is used by the addon.
 
