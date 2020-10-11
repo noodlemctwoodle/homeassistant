@@ -1,7 +1,4 @@
-<<<<<<< HEAD
----
 ## Switch
-
 switch.downstairs_lights:
   friendly_name: Downstairs Lights
   icon: mdi:dip-switch
@@ -925,5 +922,3 @@ switch.chsunr01_vm_home_assistant:
 switch.chsunr01_vm_logstash:
   friendly_name: LogStash
   entity_picture: /local/images/unraid-vm-images/logstash.png
-
->>>>>>> 5897cda... hki-init

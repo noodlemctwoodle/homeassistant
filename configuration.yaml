@@ -1,14 +1,6 @@
-<<<<<<< HEAD
-
-homeassistant:
-
-  packages: !include_dir_named packages/
-
-
-=======
 homeassistant:
   customize: !include customize.yaml
   packages: !include_dir_named packages/
 
 default_config:
->>>>>>> 5897cda... hki-init
+

@@ -1,8 +1,0 @@
-group:
-  hall_light_automations:
-    name: Hall Light Automations
-    entities:
-    # Light Automations
-      - automation.hall_lights_turn_on
-      - automation.hall_lights_turn_off
-      - automation.hall_lights_delay_turn_off_rubbish_collection

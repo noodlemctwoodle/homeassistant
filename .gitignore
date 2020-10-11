@@ -1,128 +1,8 @@
-<<<<<<< HEAD
-# Ignore folders.
-.storage
-.cloud
-.google.token
-.google_maps_location_sharing.cookies
-.HA_VERSION
-.uuid
-.vscode
-.androidkeys
-deps
-tts
-assets
-appdaemon
-node-red
-tensorflow
-esphome
-glances
-custom_components
-CNAME
-
-# Dwains Theme
-www/dwains-theme
-packages/dwains-theme
-dwains-theme/plugins
-dwains-theme/translations
-dwains-theme/views
-dwains-theme/configs/persons.yaml
-dwains-theme/resources/main.yaml
-
-# Ignore Directories
-www/community
-www/upcoming-media-card
-www/images/afvalbeheer
-www/images/users
-www/images/wallpapers
-www/images/hki
-www/google04525c12b31112f4.html
-
-# Pictures Ignore
-upstairs.svg
-upstairs.png
-downstairs.png
-downstairs.svg
-floor_plan.svg
-floorplan.png
-background.jpg
-
-# Ignore yaml
-appdaemon.yaml
-google_calendars.yaml
-ip_bans.yaml
-known_devices.yaml
-secrets.yaml
-
-
-# Ignore HKI Structure
-packages/hki_languages
-packages/homekit_infused
-themes
-lovelace/custom_header
-lovelace/includes
-lovelace/templates
-lovelace/views
-global_config
-
-# Ignore Python
-#__pycache__
-#__init__.py
-*.py
-
-# Ignore Log Files
-*.log
-
-# Ignore Workspace
-homeassistant.code-workspace
-
-
-# Ignore Configs
-harmony_harmony_hub.conf
-plex.conf
-fcm_android_registrations.conf
-webostv.conf
-
-# Ignore Database
-home-assistant_v2.db
-home-assistant_v2.db-shm
-home-assistant_v2.db-wal
-appdaemon/access.log.1
-appdaemon/access.log.2
-appdaemon/access.log.3
-appdaemon/error.log
-
-# Ignore JS
-*.js
-
-# Ignore Configs
-*.conf
-
-# Ignore Zips 
-*.7z
-
-# Certificates
-rsa.pub
-rsa
-ssh.pub
-ssh
-unraid.pub
-hassio.code-workspace
-home-assistant_v2.7z
-*.7z
-configuration.old
-
-# Zwave
-options.xml
-OZW_Log.txt
-pyozw.sqlite
-zwave_device_config.yaml
-zwcfg_0xd3782d31.xml
-zwscene.xml
-=======
 .cloud
 .storage
 .vscode
 .git
+.vscode
 .HA_VERSION
 
 custom_components
@@ -150,6 +30,7 @@ www/community
 
 home-assistant.log
 homekit-infused.yaml
+customize.yaml
 secrets.yaml
 webostv.conf
->>>>>>> 5897cda... hki-init
+
