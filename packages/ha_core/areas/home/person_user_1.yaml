@@ -1,19 +1,19 @@
 ---
 sensor:
   - platform: waze_travel_time
-    name: Travel Time to Home Toby
-    origin: person.toby
+    name: tt_to_home_person_1
+    origin: !secret person_1
     destination: zone.home
     region: EU
 
   - platform: waze_travel_time
-    name: Travel Time to Work Toby
-    origin: person.toby
-    destination: zone.toby_work
+    name: tt_to_work_person_1
+    origin: !secret person_1
+    destination: !secret zone_work_person_1
     region: EU
 
   - platform: waze_travel_time
-    name: Travel Time Toby to Abi
-    origin: person.toby
-    destination: person.abi
+    name: tt_person_1_to_person_2
+    origin: !secret person_1
+    destination: !secret person_2
     region: EU

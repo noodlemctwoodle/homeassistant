@@ -35,12 +35,21 @@
             - icon
           header: 'false'
           destinations:
+<<<<<<< HEAD
             - entity: sensor.travel_time_to_home_abi
               to: "Home"
             - entity: sensor.travel_time_to_work_abi
               to: "Work"
             - entity: sensor.travel_time_abi_to_toby
               to: "Toby"
+=======
+            - entity: sensor.tt_to_home_person_2
+              to: "Home"
+            - entity: sensor.tt_to_work_person_2
+              to: "Work"
+            - entity: sensor.tt_person_2_to_person_1
+              to: !secret user_1
+>>>>>>> hki-release
 
               
 - type: conditional
@@ -73,7 +82,11 @@
           aspect_ratio: 4x5
           default_zoom: 15
           entities:
+<<<<<<< HEAD
             - person.abi
+=======
+            - !secret person_2
+>>>>>>> hki-release
 
 - type: conditional
   conditions:
