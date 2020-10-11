@@ -2,9 +2,9 @@
 
 ## Requirements 
 
-To get this view working correctly you will require many aspects of [ha_monitor.yaml](../../addons/hki/readme_ha_monitor.md)
+To get this view working correctly you will require many aspects of [ha_monitor.yaml](.././addons/hki/readme_ha_monitor.md)
 
-The Home Assistant Monoitoring Addon for Dwains-Theme can be found [here](../../addons/dwains/readme_ha_monitor.md
+The Home Assistant Monoitoring Addon for Dwains-Theme can be found [here](.././addons/dwains/readme_ha_monitor.md)
 
 ## Contents
 
@@ -333,4 +333,4 @@ Further examples can be found in my configuration [here](https://github.com/nood
 
 ## SNMP
 
-More information can be found [here](../../guides/unraid_metrics.md#some-of-the-sensors-discovered-to-far)
+More information can be found [here](.././guides/unraid_metrics.md#some-of-the-sensors-discovered-to-far)
