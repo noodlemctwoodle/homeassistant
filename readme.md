@@ -11,6 +11,10 @@ Open source home automation that puts local control and privacy first. Powered b
 - [ ] [Dwains Theme](https://github.com/dwainscheeren/lovelace-dwains-theme)
 
 
+### Home Assistant Add-ons Wiki
+
+Please see the [documetaion](https://noodlemctwoodle.github.io/homeassistant/) page for all the addons for both Dwains theme and Home-Kit-Infused.
+
 ### Home Assistant Hardware Configuration
 
 Sever infrastructure 
@@ -44,9 +48,6 @@ Sever infrastructure
 
 <br/>
 
-### Home Assistant Add-ons Wiki
-
-Please see the [documetaion](https://noodlemctwoodle.github.io/homeassistant/) page for all the addons for both Dwains theme and Hiome-Kit-Infused.
 
 ### Support my work
 
