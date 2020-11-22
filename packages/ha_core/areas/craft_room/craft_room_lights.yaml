@@ -3,7 +3,7 @@ automation:
   - alias: 'Craft Room lights turn-on day'
     trigger:
       platform: state
-      entity_id: sensor.craft_room_hue_motion
+      entity_id: binary_sensor.craft_room_hue_motion
       to: 'on'
     condition:
       - condition: numeric_state
@@ -26,7 +26,7 @@ automation:
   - alias: 'Craft Room lights turn-on night'
     trigger:
       platform: state
-      entity_id: sensor.craft_room_hue_motion
+      entity_id: binary_sensor.craft_room_hue_motion
       to: 'on'
     condition:
       - condition: numeric_state
@@ -50,7 +50,7 @@ automation:
   - alias: 'Craft room lights turn-off'
     trigger:
       platform: state
-      entity_id: sensor.craft_room_hue_motion
+      entity_id: binary_sensor.craft_room_hue_motion
       to: 'off'
       for:
         seconds: 50
@@ -61,9 +61,18 @@ automation:
         transition: 10
 
 
-# Light Groups
+# HKI Light Groups
 light:
   - platform: group
+    name: Craft Room
+    entities:
+      - light.craft_room_spot_01
+      - light.craft_room_spot_02
+      - light.craft_room_shadow
+
+# Dwains Theme Light Group
+group:
+  craft_room_lights:
     name: Craft Room
     entities:
       - light.craft_room_spot_01

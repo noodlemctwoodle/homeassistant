@@ -18,6 +18,7 @@ homekit-infused/user/config
 image
 
 packages/homekit_infused
+packages/ha_core/integrations/zwave.yaml
 
 themes
 
@@ -32,6 +33,10 @@ www/community
 home-assistant.log
 homekit-infused.yaml
 customize.yaml
+options.xml
+OZW_Log.txt
+pyozw.sqlite
 secrets.yaml
 webostv.conf
-
+zwcfg_0xd3782d31.xml
+zwscene.xml

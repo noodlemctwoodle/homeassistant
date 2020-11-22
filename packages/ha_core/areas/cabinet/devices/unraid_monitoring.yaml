@@ -6,11 +6,48 @@
 ## UnRAID Version Sensor URLs
 ### Stable URL: https://s3.amazonaws.com/dnld.lime-technology.com/stable/unRAIDServer.plg
 ### Beta URL: https://s3.amazonaws.com/dnld.lime-technology.com/next/unRAIDServer.plg
+
+camera:
+  - platform: generic
+    name: cpu_load
+    still_image_url: http://10.0.10.12:3000/render/d-solo/000130-PUB-falconexe/unraid-dashboard?orgId=1&refresh=1m&panelId=126&width=700&height=200
+    username: !secret grafanaUser
+    password: !secret grafanaPass
+
+  - platform: generic
+    name: docker_ram
+    still_image_url: http://10.0.10.12:3000/render/d-solo/000130-PUB-falconexe/unraid-dashboard?orgId=1&refresh=15m&panelId=114&width=1000&height=500
+    username: !secret grafanaUser
+    password: !secret grafanaPass
+
+  - platform: generic
+    name: disk_temps
+    still_image_url: http://10.0.10.12:3000/render/d-solo/000130-PUB-falconexe/unraid-dashboard?orgId=1&refresh=1m&panelId=83&width=7000&height=500
+    username: !secret grafanaUser
+    password: !secret grafanaPass
+
+
+
 sensor:
   - platform: command_line
     name: Unraid Version (Stable)
     command: /usr/bin/curl --insecure "https://s3.amazonaws.com/dnld.lime-technology.com/next/unRAIDServer.plg" 2>&1 | grep Version | awk '{print $3}' | head -n 1
 
+  - platform: influxdb
+    host: 10.0.10.5
+    port: 8086
+    database: home_metrics
+    queries:
+      - name: drive_temperatures
+        value_template: '{{ value | round(0) }}'
+        #group_function: last
+        where: "('serial_no' != '*') and time >= now() - 12h GROUP BY time(30s), 'serial_no'"
+        measurement: "'smart_device'"
+        field: "last('temp_c')"
+
+# SELECT last("temp_c") FROM "smart_device" WHERE ("serial_no" != '*') AND time >= now() - 12h GROUP BY time(30s), "serial_no"
+# Could not execute query 'select mean(last('temp_c')) as value from 'smart_device' where ('serial_no' != '*') and 'time >= now() - 12h' GROUP BY time(30s), 'serial_no'' due to '400: {"error":"error parsing query: found smart_device, expected identifier at line 1, char 42"}
+# Could not execute query 'select time(30s), 'serial_no'(last('temp_c')) as value from 'smart_device' where ('serial_no' != '*') and time >= now() - 12h'
 
 # API sensors
 
@@ -279,3 +316,4 @@ switch:
       server_off:
         command_on: switch.home_server
         command_off: !secret server_off_cmd
+
