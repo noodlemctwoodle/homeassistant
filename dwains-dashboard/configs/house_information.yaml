@@ -1,0 +1,21 @@
+# https://dwainscheeren.github.io/dwains-lovelace-dashboard/configuration/house_information.html
+
+#house_information:
+favorites:
+  - entity: binary_sensor.front_door
+    icon_on: fas:door-open
+    icon_off: fas:door-closed
+  - entity: binary_sensor.patio_door
+    icon_on: fas:door-open
+    icon_off: fas:door-closed
+
+  # addons:
+  #   - name: Calendar #This is an example addon see: https://github.com/dwainscheeren/dwains-dashboard-addons/tree/for-1.0/house_information/calendar
+  #     icon: mdi:calendar
+  #     path: 'dwains-dashboard/addons/house_information/calendar/page.yaml'
+  #     data:
+  #       calendars:
+  #         - calendar.gft
+  #         - calendar.oud_papier
+  #         - calendar.pmd_afval
+  #         - calendar.restafval

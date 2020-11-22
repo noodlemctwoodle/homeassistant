@@ -73,3 +73,8 @@ light:
     name: Landing
     entities:
       - light.landing_spot_01
+
+  - platform: group
+    name: Loft
+    entities:
+      - light.loft_pendant_01

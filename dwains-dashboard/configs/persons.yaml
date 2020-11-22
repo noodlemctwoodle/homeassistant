@@ -1,0 +1,11 @@
+# https://dwainscheeren.github.io/dwains-lovelace-dashboard/configuration/persons.html
+
+persons: 
+  - name: !secret user_1
+    track: !secret person_1
+    #picture_path: 'www/images/users/user1.png'
+    show_map: true
+  - name: !secret user_2
+    track: !secret person_2
+    #picture_path: 'www/images/users/user2.png'
+    show_map: true

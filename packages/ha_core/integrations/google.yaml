@@ -1,0 +1,59 @@
+cloud:
+  google_actions:
+    filter:
+      include_entities:
+        - light.bathroom
+        - light.bedroom_pendant_01
+        - light.bedroom_pendant_02
+        - light.bedroom_lamp_01
+        - light.sever_cabinet_rgbw
+        - light.craft_room_spot_01
+        - light.craft_room_spot_02
+        - light.craft_room_shadow
+        - light.hall
+        - light.kitchen_spot_01
+        - light.kitchen_spot_02
+        - light.kitchen_spot_03
+        - light.kitchen_spot_04
+        - light.kitchen_spot_05
+        - light.kitchen_spot_06
+        - light.kitchen_spot_07
+        - light.kitchen_spot_08
+        - light.kitchen_spot_09
+        - light.kitchen_spot_10
+        - light.landing
+        - light.loft
+        - light.living_room_pendant_01
+        - light.living_room_lamp_01
+        - light.living_room_shadow
+        - light.office_spot_01
+        - light.office_spot_02
+        - light.office_wled
+        - light.utility_backdoor_spot_1
+        - light.utility_cupboard_spot_01
+        - switch.bedroom_tv_smart_plug_relay
+        - switch.living_room_av_receiver_smart_plug_relay
+        - switch.living_room_tv_smart_plug_relay
+        - switch.office_computer_smart_plug_relay
+        - switch.living_room_subwoofer_smart_socket
+        - switch.kitchen_left
+        - switch.utility_switch
+        - sensor.bathroom_hue_temp
+        - sensor.bedroom_hue_temp
+        - sensor.craft_room_hue_temp
+        - sensor.garden_hue_temp
+        - sensor.hall_hue_temp
+        - sensor.kitchen_hue_temp
+        - sensor.landing_hue_temp
+        - sensor.office_hue_temp
+#      include_domains:
+#        - switch
+#        - light
+#      exclude_entities:
+#        - switch.outside
+#    entity_config:
+#      switch.kitchen:
+#        name: Light Switch
+#        aliases:
+#         - switch.kitchen_left
+#        room: Kitchen

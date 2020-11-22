@@ -275,7 +275,7 @@
                                 box-shadow: var(--box-shadow);
                               }
                           entities:
-                            - entity: switch.chsunr01_docker_binhex_nzbhydra2
+                            - entity: switch.chsunr01_fivem
                               double_tap_action:
                                 action: toggle
                             - entity: switch.chsunr01_docker_duplicacy
@@ -805,3 +805,52 @@
                     to: 100
                 direction: up
                 tap_action: none
+
+- type: vertical-stack
+  cards:
+    - type: custom:mod-card
+      style: |
+        ha-card {
+          margin-left: 20px;
+          margin-right: 20px;
+        }
+      card:
+        type: picture-entity
+        style: |
+          ha-card {
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+          }
+        entity: camera.cpu_load
+        name: CPU Load
+        camera_view: auto
+        show_name: false
+        show_state: false
+
+
+    - type: picture-entity
+      style: |
+        ha-card {
+          border-radius: var(--border-radius);
+          box-shadow: var(--box-shadow);
+          overflow: hidden;
+        }
+      entity: camera.docker_ram
+      name: Docker RAM
+      camera_view: auto
+      show_name: false
+      show_state: false
+
+    - type: picture-entity
+      style: |
+        ha-card {
+          border-radius: var(--border-radius);
+          box-shadow: var(--box-shadow);
+          overflow: hidden;
+        }
+      entity: camera.disk_temps
+      name: Disk Temps
+      camera_view: auto
+      show_name: false
+      show_state: false

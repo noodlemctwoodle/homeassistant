@@ -20,26 +20,3 @@ logger:
 #    homeassistant.components.ipp: critical
 #    homeassistant.components.websocket_api: critical
 
-influxdb:
-  host: !secret influx_host
-  port: !secret influx_port
-  database: !secret influx_db
-#  username: !secret influx_username
-#  password: !secret influx_password
-  ssl: false
-  verify_ssl: false
-  max_retries: 3
-  default_measurement: state
-  exclude:
-    entities:
-       - entity.id1
-       - entity.id2
-    domains:
-       - automation
-  include:
-    entities:
-       - entity.id3
-       - entity.id4
-  tags:
-    instance: prod
-    source: hass
