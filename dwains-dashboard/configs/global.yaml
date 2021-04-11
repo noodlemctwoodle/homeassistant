@@ -6,7 +6,7 @@
   # alarm: alarm_control_panel.alarm_system #Alarm panel entity.
   # inside_temperature: climate.living_room #Can be 'climate.' or an 'sensor.' entity.
 
-  # favorites_homepage: 'true' #Uncomment this line if you want the house information favorites on your homepage.
+favorites_homepage: 'true' #Uncomment this line if you want the house information favorites on your homepage.
 
   # custom_popups: #Create custom popups for a whole domain. See popup addons in the docs
   #   - domain: cover
@@ -19,5 +19,6 @@ global:
   outside_humidity: sensor.dark_sky_humidity # Configure a sensor here!
 #  alarm: alarm_control_panel.alarm_system #Alarm panel entity
   inside_temperature: climate.living_room #Can be climate. or sensor. entity
-
+  battery_empty_strings:
+    - 'unavailable'
 

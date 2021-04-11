@@ -42,6 +42,30 @@ automation:
         transition: 10
 
 
+  - alias: 'Tag office_desk is scanned'
+    trigger:
+      platform: tag
+      tag_id: d08086f0-835d-48ce-ae5e-047db07a9572
+    condition: []
+    action:
+      service: light.toggle
+      data: 
+        entity_id: light.office
+        brightness: 249
+      #mode: single
+
+  - alias: 'Notify when office lights turned on or off'
+    trigger:
+      platform: state
+      entity_id: light.office
+    condition: []
+    action:
+      service: notify.discord
+      data: 
+        message: Someone just turned {{states ('light.office') }} the Office Lights
+        target:
+          - !secret ha_channel
+
 
 group:
   office_lights:
@@ -49,7 +73,7 @@ group:
     entities:
       - light.office_spot_01
       - light.office_spot_02
-      - light.office_desk
+      - light.office_wled
 
 # Light Groups
 light:
@@ -58,4 +82,4 @@ light:
     entities:
       - light.office_spot_01
       - light.office_spot_02
-      - light.office_desk
+      - light.office_wled

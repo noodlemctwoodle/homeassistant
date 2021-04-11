@@ -1,0 +1,34 @@
+sensor:
+
+# Downstairs Average LUX
+  - platform: min_max
+    type: mean
+    name: downstairs_average_lux
+    entity_ids:
+      - sensor.kitchen_hue_lux
+      - sensor.living_room_hue_lux
+      - sensor.bathroom_lux
+      - sensor.hall_hue_lux
+
+# Upstairs Average LUX
+  - platform: min_max
+    type: mean
+    name: upstairs_average_lux
+    entity_ids:
+      - sensor.landing_hue_lux
+      - sensor.office_hue_lux
+      - sensor.bedroom_hue_lux
+      - sensor.craft_room_hue_lux
+
+group:
+  home_average_lux:
+    name: Average Light Level
+    entities:
+        - sensor.kitchen_hue_lux
+        - sensor.living_room_hue_lux
+        - sensor.bathroom_lux
+        - sensor.hall_hue_lux
+        - sensor.landing_hue_lux
+        - sensor.office_hue_lux
+        - sensor.bedroom_hue_lux
+        - sensor.craft_room_hue_lux

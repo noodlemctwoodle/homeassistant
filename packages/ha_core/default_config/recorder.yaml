@@ -13,22 +13,49 @@ recorder:
     event_types:
       - call_service # Don't record service calls
 
-influxdb:
-  host: !secret influx_host
-  port: !secret influx_port
-  database: !secret influx_db
-  ssl: false
-  verify_ssl: false
-  max_retries: 3
-  default_measurement: state
-  include:
-    domains:
-       - sensor
-       - light
-       - switch
+#influxdb:
+#  host: !secret influx_host
+#  port: !secret influx_port
+#  database: !secret influx_db
+#  ssl: false
+#  verify_ssl: false
+#  max_retries: 3
+#  default_measurement: state
+#  include:
+#    domains:
+#       - sensor
+#       - light
+#       - switch
+##    entities:
+##       - entity.id1
+##       - entity.id2
+#  tags:
+#    instance: prod
+#    source: hass
+
+#influxdb:
+#  api_version: 2
+#  ssl: false
+#  host: !secret influx_host
+#  port: !secret influx_port
+#  token: !secret influx_token
+#  organization: !secret influx_organisation
+#  bucket: home_assistant
+#  tags:
+#    source: HA
+#  tags_attributes:
+#    - friendly_name
+#  default_measurement: units
+#  exclude:
 #    entities:
-#       - entity.id1
-#       - entity.id2
-  tags:
-    instance: prod
-    source: hass
+#      - zone.home
+#    domains:
+#      - persistent_notification
+#      - person
+#  include:
+#    domains:
+#      - sensor
+#      - binary_sensor
+#      - sun
+#    entities:
+#      - weather.home

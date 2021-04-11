@@ -1,7 +1,74 @@
 # Energy Monitoring Sensros for HKI Energy Monitoring
+sensor:
+  - platform: mqtt
+    name: "Home Instant Electricity"
+    state_topic: "SMART/HILD/F008D1ECE298"
+    unit_of_measurement: 'W'
+    value_template: "{{ value_json['elecMtr']['0702']['04']['00']|int(base=16) }}"
+    icon: 'mdi:flash'
+    device_class: power
 
-#sensor:
-#
+  - platform: mqtt
+    name: "Home Electricity"
+    state_topic: "SMART/HILD/F008D1ECE298"
+    unit_of_measurement: 'kWh'
+    value_template: "{{ value_json['elecMtr']['0702']['00']['00']|int(base=16) * value_json['elecMtr']['0702']['03']['01']|int(base=16) / value_json['elecMtr']['0702']['03']['02']|int(base=16) }}"
+    icon: 'mdi:flash'
+    device_class: power
+
+  - platform: mqtt
+    name: "Home Daily Electricity"
+    state_topic: "SMART/HILD/F008D1ECE298"
+    unit_of_measurement: 'kWh'
+    value_template: "{{ value_json['elecMtr']['0702']['04']['01']|int(base=16) * value_json['elecMtr']['0702']['03']['01']|int(base=16) / value_json['elecMtr']['0702']['03']['02']|int(base=16) }}"
+    icon: 'mdi:flash'
+    device_class: power
+
+  - platform: mqtt
+    name: "Home Weekly Electricity"
+    state_topic: "SMART/HILD/F008D1ECE298"
+    unit_of_measurement: 'kWh'
+    value_template: "{{ value_json['elecMtr']['0702']['04']['30']|int(base=16) * value_json['elecMtr']['0702']['03']['01']|int(base=16) / value_json['elecMtr']['0702']['03']['02']|int(base=16) }}"
+    icon: 'mdi:flash'
+    device_class: power
+
+  - platform: mqtt
+    name: "Home Monthly Electricity"
+    state_topic: "SMART/HILD/F008D1ECE298"
+    unit_of_measurement: 'kWh'
+    value_template: "{{ value_json['elecMtr']['0702']['04']['40']|int(base=16) * value_json['elecMtr']['0702']['03']['01']|int(base=16) / value_json['elecMtr']['0702']['03']['02']|int(base=16) }}"
+    icon: 'mdi:flash'
+    device_class: power
+
+  - platform: mqtt
+    name: "Home Gas"
+    state_topic: "SMART/HILD/F008D1ECE298"
+    unit_of_measurement: 'm3'
+    value_template: "{{ value_json['gasMtr']['0702']['00']['00']|int(base=16) * value_json['gasMtr']['0702']['03']['01']|int(base=16) / value_json['gasMtr']['0702']['03']['02']|int(base=16) }}"
+    icon: 'mdi:flash'
+
+  - platform: mqtt
+    name: "Home Daily Gas"
+    state_topic: "SMART/HILD/F008D1ECE298"
+    unit_of_measurement: 'kWh'
+    value_template: "{{ value_json['gasMtr']['0702']['0C']['01']|int(base=16)  * value_json['gasMtr']['0702']['03']['01']|int(base=16) / value_json['gasMtr']['0702']['03']['02']|int(base=16) }}"
+    icon: 'mdi:flash'
+
+  - platform: mqtt
+    name: "Home Weekly Gas"
+    state_topic: "SMART/HILD/F008D1ECE298"
+    unit_of_measurement: 'kWh'
+    value_template: "{{ value_json['gasMtr']['0702']['0C']['30']|int(base=16)  * value_json['gasMtr']['0702']['03']['01']|int(base=16) / value_json['gasMtr']['0702']['03']['02']|int(base=16) }}"
+    icon: 'mdi:flash'
+
+  - platform: mqtt
+    name: "Home Monthly Gas"
+    state_topic: "SMART/HILD/F008D1ECE298"
+    unit_of_measurement: 'kWh'
+    value_template: "{{ value_json['gasMtr']['0702']['0C']['40']|int(base=16)  * value_json['gasMtr']['0702']['03']['01']|int(base=16) / value_json['gasMtr']['0702']['03']['02']|int(base=16) }}"
+    icon: 'mdi:flash'
+
+
 #  - platform: template
 #    sensors: 
 #    # All monnitored devices KwH  
@@ -32,45 +99,82 @@
 #            (states.sensor.cabinet_smart_plug_power.state | float) +
 #            (states.sensor.living_room_tv_smart_plug_wattage.state | float)
 #          }}
-#
+
+
+  - platform: template
+    sensors: 
+
 #    # Energy Cost Now
-#      now_energy_cost:
-#        entity_id: sensor.energy_total_usage
-#        friendly_name: 'Now Cost'
-#        value_template: >-
-#          {% if (states.sensor.power_total_usage.state | float > 0) %}
-#            {{ ((states.sensor.power_total_usage.state) | float) / 1000 * (states('input_number.electricity_rate') | float ) + (states('input_number.daily_service_charge') | float | round(2)) }}
-#          {% endif %}
-#
-#    # Daily Energy Cost
-#      daily_energy_cost:
-#        entity_id: sensor.daily_energy_kwh
-#        friendly_name: 'Daily Cost'
-#        value_template: >-
-#          {% if (states.sensor.daily_energy_kwh.state | float > 0) %}
-#            {{ ((states.sensor.daily_energy_kwh.state) | float) * (states('input_number.electricity_rate') | float ) + (states('input_number.daily_service_charge') | float | round(2)) }}
-#          {% endif %}
-#
-#
-#    # Monthly Energy Cost
-#      monthly_energy_cost:
-#        entity_id: sensor.monthly_energy_kwh
-#        friendly_name: 'Daily Cost'
-#        value_template: >-
-#          {% if (states.sensor.monthly_energy_kwh.state | float > 0) %}
-#            {{ ((states.sensor.monthly_energy_kwh.state) | float) * (states('input_number.electricity_rate') | float ) + (states('input_number.daily_service_charge') | float | round(2)) }}
-#          {% endif %}
+      now_energy_cost:
+        unique_id: sensor.home_instant_electricity
+        friendly_name: 'Now Cost'
+        value_template: >-
+          {% if (states.sensor.home_instant_electricity.state | float > 0) %}
+            {{ ((states.sensor.home_instant_electricity.state) | float) / 1000 * (states('input_number.electricity_rate') | float ) + (states('input_number.elec_daily_service_charge') | float | round(2)) }}
+          {% endif %}
 
+    # Daily Energy Cost
+      daily_energy_cost:
+        unique_id: sensor.home_daily_electricity
+        friendly_name: 'Daily Cost'
+        value_template: >-
+          {% if (states.sensor.home_daily_electricity.state | float > 0) %}
+            {{ ((states.sensor.home_daily_electricity.state) | float) * (states('input_number.electricity_rate') | float ) + (states('input_number.elec_daily_service_charge') | float | round(2)) }}
+          {% endif %}
 
+    # Weekly Energy Cost
+      monthly_energy_cost:
+        unique_id: sensor.home_weekly_electricity
+        friendly_name: 'Monthly Cost'
+        value_template: >-
+          {% if (states.sensor.home_weekly_electricity.state | float > 0) %}
+            {{ ((states.sensor.home_weekly_electricity.state) | float) * (states('input_number.electricity_rate') | float ) + (states('input_number.elec_daily_service_charge') | float | round(2)) }}
+          {% endif %}
 
-# Python Script to pull previous day energy usage from supplier
-#  - platform: command_line
-#    name: Power Usage
-#    command: "python3 /config/shell-energy.py electricity"
+    # Monthly Energy Cost
+      monthly_energy_cost:
+        unique_id: sensor.home_monthly_electricity
+        friendly_name: 'Monthly Cost'
+        value_template: >-
+          {% if (states.sensor.home_monthly_electricity.state | float > 0) %}
+            {{ ((states.sensor.home_monthly_electricity.state) | float) * (states('input_number.electricity_rate') | float ) + (states('input_number.elec_daily_service_charge') | float | round(2)) }}
+          {% endif %}
 
-#  - platform: command_line
-#    name: Gas Usage
-#    command: "python3 /config/shell-energy.py gas"
+#    # Gas Cost Now
+      now_energy_cost:
+        unique_id: sensor.home_gas
+        friendly_name: 'Now Cost'
+        value_template: >-
+          {% if (states.sensor.home_gas.state | float > 0) %}
+            {{ ((states.sensor.home_gas.state) | float) / 1000 * (states('input_number.gas_rate') | float ) + (states('input_number.gas_daily_service_charge') | float | round(2)) }}
+          {% endif %}
+
+    # Daily Gas Cost
+      daily_energy_cost:
+        unique_id: sensor.home_daily_gas
+        friendly_name: 'Daily Cost'
+        value_template: >-
+          {% if (states.sensor.home_daily_gas.state | float > 0) %}
+            {{ ((states.sensor.home_daily_gas.state) | float) * (states('input_number.gas_rate') | float ) + (states('input_number.gas_daily_service_charge') | float | round(2)) }}
+          {% endif %}
+
+    # Weekly Gas Cost
+      monthly_energy_cost:
+        unique_id: sensor.home_weekly_gas
+        friendly_name: 'Monthly Cost'
+        value_template: >-
+          {% if (states.sensor.home_weekly_gas.state | float > 0) %}
+            {{ ((states.sensor.home_weekly_gas.state) | float) * (states('input_number.gas_rate') | float ) + (states('input_number.gas_daily_service_charge') | float | round(2)) }}
+          {% endif %}
+
+    # Monthly Gas Cost
+      monthly_energy_cost:
+        unique_id: sensor.home_monthly_gas
+        friendly_name: 'Monthly Cost'
+        value_template: >-
+          {% if (states.sensor.home_monthly_gas.state | float > 0) %}
+            {{ ((states.sensor.home_monthly_gas.state) | float) * (states('input_number.gas_rate') | float ) + (states('input_number.gas_daily_service_charge') | float | round(2)) }}
+          {% endif %}
 
 
 
@@ -78,16 +182,29 @@ input_number:
 # Input on view for power costs per KwH
   electricity_rate:
     name: "Electricity Rate per kWh"
-    min: 0.0000
-    max: 5.0000
+    min: 0.000
+    max: 50.000
     mode: box
     step: 0.001
-  daily_service_charge:
-    name: "Daily Service Charge"
-    min: 0.0000
-    max: 5.0000
+  elec_daily_service_charge:
+    name: "Electricity Daily Service Charge"
+    min: 0.00
+    max: 50.00
+    mode: box
+    step: 0.01
+  gas_rate:
+    name: "Gas Rate per kWh"
+    min: 0.000
+    max: 50.000
     mode: box
     step: 0.001
+  gas_daily_service_charge:
+    name: "Gas Daily Service Charge"
+    min: 0.00
+    max: 20.00
+    mode: box
+    step: 0.01
+
 
 group:
   smart_plugs:
@@ -98,3 +215,4 @@ group:
       - switch.office_computer_smart_plug_relay
       - switch.living_room_subwoofer_smart_socket_relay
       - switch.sp_of_cab_relay
+

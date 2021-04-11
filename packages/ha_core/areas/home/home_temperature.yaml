@@ -1,0 +1,41 @@
+---
+sensor:
+
+## Min/max Sensor
+# https://www.home-assistant.io/integrations/min_max/
+
+# Downstairs Average Temperature
+
+  - platform: min_max
+    type: mean
+    name: downstairs_average_temp
+    entity_ids:
+      - sensor.kitchen_hue_temp
+      - sensor.living_room_hue_temp
+      - sensor.living_room_thermostat_temperature
+      - sensor.bathroom_hue_temp
+      - sensor.hall_hue_temp
+
+# Upstairs Average Temperature
+  - platform: min_max
+    type: mean
+    name: upstairs_average_temp
+    entity_ids:
+      - sensor.landing_hue_temp
+      - sensor.office_hue_temp
+      - sensor.bedroom_hue_temp
+      - sensor.craft_room_hue_temp
+
+  - platform: min_max
+    type: mean
+    name: Home Average Temp
+    entity_ids:
+        - sensor.kitchen_hue_temp
+        - sensor.living_room_hue_temp
+        - sensor.living_room_thermostat_temperature
+        - sensor.bathroom_hue_temp
+        - sensor.hall_hue_temp
+        - sensor.landing_hue_temp
+        - sensor.office_hue_temp
+        - sensor.bedroom_hue_temp
+        - sensor.craft_room_hue_temp

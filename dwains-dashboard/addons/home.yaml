@@ -1,0 +1,276 @@
+
+- type: custom:dwains-flexbox-card
+  padding: true
+  items_classes: 'col-lg-6 col-md-6 col-sm-12 col-xs-12'
+  cards:
+    - type: vertical-stack
+      cards:
+        - type: custom:mod-card
+          style: |
+            :host {
+              --ha-card-background: var(--paper-card-background-color);
+              --ha-card-border-radius: 10px;
+              --ha-card-box-shadow: 10px;
+              --ha-card-font-weight: bold;
+              --ha-card-opacity: 0.8;
+              --mini-media-player-background-opacity: 0.4;
+              --mini-media-player-media-cover-info-color: white;
+              --mini-media-player-artwork-opacity: 0.4;
+              --mini-media-player-base-color: white;
+            }
+          card: 
+
+            # YouTube Music Player
+            type: vertical-stack
+            cards:
+
+              - type: 'custom:mini-media-player'
+                entity: media_player.ytube_music_player
+                artwork: cover
+                hide:
+                  shuffle: false
+                  icon_state: false
+                shortcuts:
+                  columns: 3
+                  buttons:
+                    - name: Kitchen
+                      type: source
+                      id: media_player.kitchen_display
+                    - name: Office
+                      type: source
+                      id: media_player.office_speaker
+                    - name: Living Room
+                      type: source
+                      id: media_player.living_room_display
+                    - name: Gnarly DnB
+                      type: playlist
+                      id: PLKO0h8g2WhRzIdZIXc2l_0b6v0mk-zJUs
+                    - name: Psy Live Sets
+                      type: playlist
+                      id: PLKO0h8g2WhRze1NOS0UDRkfAKENIo-geQ
+                    - name: Prog Psy Live Sets
+                      type: playlist
+                      id: PLKO0h8g2WhRyUdOZfi5LhUGUmUmQUd-rx
+
+- type: custom:dwains-flexbox-card
+  padding: true
+  items_classes: 'col-lg-6 col-md-6 col-sm-12 col-xs-12'
+  cards:
+
+# Google Home Swipe Card
+
+    - type: horizontal-stack
+      cards:
+        - type: custom:swipe-card
+          parameters:
+            spaceBetween: 8
+            touchEventsTarget: 'container'
+            pagination:
+              type: 'bullets'
+              dynamicBullets: false
+
+          cards:
+
+            - type: custom:mod-card
+              style: |
+                :host {
+                  --ha-card-background: var(--paper-card-background-color);
+                  --ha-card-border-radius: 10px;
+                  --ha-card-box-shadow: 10px;
+                  --ha-card-font-weight: bold;
+                  --ha-card-opacity: 0.8;
+                  --mini-media-player-background-opacity: 0.4;
+                  --mini-media-player-media-cover-info-color: white;
+                  --mini-media-player-artwork-opacity: 0.4;
+                  --mini-media-player-base-color: white;
+                }
+              card:
+                type: vertical-stack
+                cards:
+
+    # Google Home Living Room
+                  - type: custom:mini-media-player
+                    entity: media_player.living_room_display
+                    name: Living Room Google Home
+                    icon: mdi:google-home
+                    artwork: cover
+                    tap_action: none
+                    hide:
+                      source: true
+                    tts:
+                      platform: google
+                      entity_id: media_player.living_room_display
+
+            - type: custom:mod-card
+              style: |
+                :host {
+                  --ha-card-background: var(--paper-card-background-color);
+                  --ha-card-border-radius: 10px;
+                  --ha-card-box-shadow: 10px;
+                  --ha-card-font-weight: bold;
+                  --ha-card-opacity: 0.8;
+                  --mini-media-player-background-opacity: 0.4;
+                  --mini-media-player-media-cover-info-color: white;
+                  --mini-media-player-artwork-opacity: 0.4;
+                  --mini-media-player-base-color: white;
+                }
+              card:
+                type: vertical-stack
+                cards:
+
+    # Google Home Kitchen
+                  - type: custom:mini-media-player
+                    entity: media_player.kitchen_display
+                    name: Kitchen Google Home
+                    icon: mdi:google-home
+                    artwork: cover
+                    tap_action: none
+                    hide:
+                      source: true
+                    tts:
+                      platform: google
+                      entity_id: media_player.kitchen_display
+
+    - type: vertical-stack
+      cards:
+# Google Home Swipe Card
+        - type: horizontal-stack
+          cards:
+            - type: custom:swipe-card
+              parameters:
+                spaceBetween: 8
+                touchEventsTarget: 'container'
+                pagination:
+                  type: 'bullets'
+                  dynamicBullets: false
+
+              cards:
+
+                - type: custom:mod-card
+                  style: |
+                    :host {
+                      --ha-card-background: var(--paper-card-background-color);
+                      --ha-card-border-radius: 10px;
+                      --ha-card-box-shadow: 10px;
+                      --ha-card-font-weight: bold;
+                      --ha-card-opacity: 0.8;
+                      --mini-media-player-background-opacity: 0.4;
+                      --mini-media-player-media-cover-info-color: white;
+                      --mini-media-player-artwork-opacity: 0.4;
+                      --mini-media-player-base-color: white;
+                    }
+                  card:
+
+        # Google Home Office
+                    type: vertical-stack
+                    cards:
+                      - type: custom:mini-media-player
+                        entity: media_player.office_speaker
+                        name: Office Google Home
+                        icon: mdi:google-home
+                        artwork: cover
+                        tap_action: none
+                        hide:
+                          source: true
+                        tts:
+                          platform: google
+                          entity_id: media_player.office_speaker
+
+                - type: custom:mod-card
+                  style: |
+                    :host {
+                      --ha-card-background: var(--paper-card-background-color);
+                      --ha-card-border-radius: 10px;
+                      --ha-card-box-shadow: 10px;
+                      --ha-card-font-weight: bold;
+                      --ha-card-opacity: 0.8;
+                      --mini-media-player-background-opacity: 0.4;
+                      --mini-media-player-media-cover-info-color: white;
+                      --mini-media-player-artwork-opacity: 0.4;
+                      --mini-media-player-base-color: white;
+                    }
+                  card:
+                    type: vertical-stack
+                    cards:
+
+        # Google Home Craft Room
+                      - type: custom:mini-media-player
+                        entity: media_player.craft_room_speaker
+                        name: Craft Room Google Home
+                        icon: mdi:google-home
+                        artwork: cover
+                        tap_action: none
+                        hide:
+                          source: true
+                        tts:
+                          platform: google
+                          entity_id: media_player.craft_room_speaker
+
+                - type: custom:mod-card
+                  style: |
+                    :host {
+                      --ha-card-background: var(--paper-card-background-color);
+                      --ha-card-border-radius: 10px;
+                      --ha-card-box-shadow: 10px;
+                      --ha-card-font-weight: bold;
+                      --ha-card-opacity: 0.8;
+                      --mini-media-player-background-opacity: 0.4;
+                      --mini-media-player-media-cover-info-color: white;
+                      --mini-media-player-artwork-opacity: 0.4;
+                      --mini-media-player-base-color: white;
+                    }
+                  card:
+                    type: vertical-stack
+                    cards:
+
+        # Google Home Bedroom
+                      - type: custom:mini-media-player
+                        entity: media_player.bedroom_speaker
+                        name: Bedroom Google Home
+                        icon: mdi:google-home
+                        artwork: cover
+                        tap_action: none
+                        hide:
+                          source: true
+                        tts:
+                          platform: google
+                          entity_id: media_player.bedroom_speaker
+
+
+#              - type: horizontal-stack
+#                cards:
+#
+#                  - type: custom:mini-graph-card
+#                    entities:
+#                      - entity: sensor.kitchen_hue_temp
+#                        name: Kitchen
+#                        color: '#14ff8d' # Light Green
+#                      - entity: sensor.living_room_hue_temp
+#                        name: Living Room
+#                        color: '#0293fa' # Sky Blue
+#                    name: Room Temps
+#                    height: 200
+#                    hours_to_show: 7
+#                    points_per_hour: 60
+#                    update_interval: 10
+#                    aggregate_func: max
+#                    line_width: 2
+#                    smoothing: false
+#                    font_size: 65
+#                    font_size_header: 9
+#                    show:
+#                      average: true
+#                      extrema: true
+#                    tap_action: none
+
+
+
+
+
+#        - sensor.living_room_thermostat_temperature
+#        - sensor.bathroom_hue_temp
+#        - sensor.hall_hue_temp
+#        - sensor.landing_hue_temp
+#        - sensor.office_hue_temp
+#        - sensor.bedroom_hue_temp
+#        - sensor.craft_room_hue_temp

@@ -4,14 +4,14 @@ automation:
   - alias: 'Bathroom lights turn-on'
     trigger:
       platform: state
-      entity_id: binary_sensor.bathroom_hue_motion
+      entity_id: binary_sensor.bathroom_motion
       to: 'on'
     condition:
       - condition: state
         entity_id: light.bathroom
         state: 'off'
       - condition: numeric_state
-        entity_id: sensor.bathroom_hue_sensor_lux
+        entity_id: sensor.bathroom_lux
         below: '1.2'
       - condition: or
         conditions:
@@ -30,7 +30,7 @@ automation:
   - alias: 'Bathroom lights turn off when no motion sensor'
     trigger:
       platform: state
-      entity_id: binary_sensor.bathroom_hue_motion
+      entity_id: binary_sensor.bathroom_motion
       to: 'off'
       for:
         minutes: 3
@@ -53,7 +53,7 @@ automation:
         seconds: 10
     condition:
     - condition: state
-      entity_id: binary_sensor.bathroom_hue_motion
+      entity_id: binary_sensor.bathroom_motion
       state: 'off'
       for:
         seconds: 10

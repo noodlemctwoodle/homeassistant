@@ -6,9 +6,38 @@ automation:
       entity_id: binary_sensor.landing_hue_motion
       to: 'on'
     condition:
+      condition: and
+      conditions:
+        - condition: numeric_state
+          entity_id: sensor.landing_hue_lux
+          below: '2'
+        - condition: time
+          before: '23:00:00'
+          after: '17:00:00'
+        - condition: or
+          conditions:
+            - condition: state
+              entity_id: !secret person_2
+              state: home
+            - condition: state
+              entity_id: !secret person_1
+              state: home       
+    action:
+      service: light.turn_on
+      data:
+        entity_id: light.landing_spot_01
+        brightness: 150
+
+  #  Landing - Philips Hue Motion
+  - alias: 'Stairs lights turn-on'
+    trigger:
+      platform: state
+      entity_id: binary_sensor.stairs_hue_motion
+      to: 'on'
+    condition:
       - condition: numeric_state
-        entity_id: sensor.landing_hue_lux
-        below: '1.2'
+        entity_id: sensor.stairs_hue_lux
+        below: '2'
       - condition: or
         conditions:
         - condition: state
@@ -20,8 +49,9 @@ automation:
     action:
       service: light.turn_on
       data:
-        entity_id: light.landing
-        brightness: 100
+        entity_id: light.stairs_spot_01
+        brightness: 150
+
 
   - alias: 'Landing lights turn-off'
     trigger:
@@ -29,11 +59,24 @@ automation:
       entity_id: binary_sensor.landing_hue_motion
       to: 'off'
       for:
-        seconds: 50
+        seconds: 30
     action:
       service: light.turn_off
       data:
-        entity_id: light.landing
+        entity_id: light.landing_spot_01
+        transition: 10
+
+  - alias: 'Stairs lights turn-off'
+    trigger:
+      platform: state
+      entity_id: binary_sensor.stairs_hue_motion
+      to: 'off'
+      for:
+        seconds: 30
+    action:
+      service: light.turn_off
+      data:
+        entity_id: light.stairs_spot_01
         transition: 10
 
   #  Loft - Contact Sensor Open
@@ -65,13 +108,20 @@ group:
   landing_lights:
     name: Landing Lights
     entities:
+      - light.stairs_spot_01
       - light.landing_spot_01
+
+  loft_lights:
+    name: Loft
+    entities:
+      - light.loft_pendant_01
 
 # Light Groups
 light:
   - platform: group
     name: Landing
     entities:
+      - light.stairs_spot_01
       - light.landing_spot_01
 
   - platform: group
