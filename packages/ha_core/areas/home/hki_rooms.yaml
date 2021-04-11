@@ -53,7 +53,7 @@ automation:
         value_template: >
           {{ trigger.event.data.entity_id in state_attr('group.living_room_lights','entity_id') }}
 
-      # HallLights
+      # Hall Lights
       - condition: template
         value_template: >
           {{ trigger.event.data.entity_id in state_attr('group.hall_lights','entity_id') }}
@@ -63,7 +63,7 @@ automation:
         value_template: >
           {{ trigger.event.data.entity_id in state_attr('group.bathroom_lights','entity_id') }}
 
-      # Bathroom
+      # Landing
       - condition: template
         value_template: >
           {{ trigger.event.data.entity_id in state_attr('group.landing_lights','entity_id') }}

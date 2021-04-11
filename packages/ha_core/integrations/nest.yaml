@@ -1,4 +1,12 @@
 # NEST SMART HOME - Intergration
+#nest:
+#  client_id: !secret nest_client_id
+#  client_secret: !secret nest_client_secret
+
 nest:
-  client_id: !secret nest_client_id
-  client_secret: !secret nest_client_secret
+  client_id: !secret client_id
+  client_secret: !secret client_secret
+  # "Project ID" in the Device Access Console
+  project_id: !secret project_id
+  # Provide the full path exactly as shown under "Subscription name" in Google Cloud Console
+  subscriber_id: !secret subscriber_id

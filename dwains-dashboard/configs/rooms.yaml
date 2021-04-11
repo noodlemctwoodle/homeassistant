@@ -3,18 +3,60 @@
 # https://dwainscheeren.github.io/lovelace-dwains-theme/configuration/rooms.html
 
 rooms:
+  - name: Home
+    icon: mdi:home-circle
+    temperature: sensor.home_average_temp
+    addons:
+      - name: Media
+        icon: mdi:server-network
+        path: 'dwains-dashboard/addons/home.yaml'
+      - name: Power
+        icon: mdi:server-network
+        path: 'dwains-dashboard/addons/power_usage.yaml'
+    more_entities:
+      entities:
+        - entity: group.home_av_Lux
+        - entity: sensor.bathroom_door_battery_level
+        - entity: sensor.bathroom_hue_sensor_battery_level
+        - entity: sensor.bathroom_switch_battery_level
+        - entity: sensor.bathroom_window_battery_level
+        - entity: sensor.bedroom_hue_sensor_battery_level
+        - entity: sensor.bedroom_switch_battery_level
+        - entity: sensor.cabinet_switch_battery_level
+        - entity: sensor.craft_room_hue_sensor_battery_level
+        - entity: sensor.craft_room_switch_battery_level
+        - entity: sensor.craft_room_window_battery_level
+        - entity: sensor.front_door_battery_level
+        - entity: sensor.garden_hue_sensor_battery_level
+        - entity: sensor.hall_hue_sensor_battery_level
+        - entity: sensor.kitchen_hue_sensor_battery_level
+        - entity: sensor.kitchen_window_battery_level
+        - entity: sensor.landing_hue_sensor_battery_level
+        - entity: sensor.landing_window_battery_level
+        - entity: sensor.living_room_hue_sensor_battery_level
+        - entity: sensor.living_room_switch_battery_level 
+        - entity: sensor.living_room_window_left_battery_level
+        - entity: sensor.living_room_window_right_battery_level
+        - entity: sensor.loft_hatch_battery_level
+        - entity: sensor.office_hue_sensor_battery_level
+        - entity: sensor.office_switch_battery_level
+        - entity: sensor.office_window_battery_level
+        - entity: sensor.patio_door_battery_level
+        - entity: sensor.stairs_hue_sensor_battery_level
+
+
   - name: Kitchen
     icon: mdi:pot
     light: group.kitchen_lights
-    device: group.kitchen_light_switches
+    device: switch.kitchen_light_switch_left
     temperature: sensor.kitchen_hue_temp
     motion: binary_sensor.kitchen_hue_motion
     window: binary_sensor.kitchen_window
     media_player: media_player.kitchen_display
-    more_entities:
-      entities:
-        - entity: sensor.kitchen_nest_protect_co_status
-        - entity: sensor.kitchen_nest_protect_smoke_status
+#    more_entities:
+#      entities:
+#        - entity: sensor.kitchen_nest_protect_co_status
+#        - entity: sensor.kitchen_nest_protect_smoke_status
 
   - name: Utility Room
     icon: mdi:washing-machine
@@ -32,10 +74,10 @@ rooms:
     motion: binary_sensor.living_room_hue_sensor
     window: group.living_room_window_sensors
     media_player: group.living_room_media
-    addons:
-      - name: Media Control
-        icon: mdi:television-classic
-        path: 'dwains-dashboard/addons/media.yaml'
+#    addons:
+#      - name: Media Control
+#        icon: mdi:television-classic
+#        path: 'dwains-dashboard/addons/media.yaml'
 
   - name: Hall
     icon: mdi:door
@@ -60,17 +102,22 @@ rooms:
     window: binary_sensor.landing_window
     door: binary_sensor.loft_hatch
     temperature: sensor.landing_hue_temp
-    more_entities:
-      entities:
-        - entity: sensor.upstairs_nest_protect_landing_co_status
-        - entity: sensor.upstairs_nest_protect_landing_smoke_status
+#    more_entities:
+#      entities:
+#        - entity: sensor.upstairs_nest_protect_landing_co_status
+#        - entity: sensor.upstairs_nest_protect_landing_smoke_status
+
+  - name: Loft
+    icon: mdi:home-floor-l
+    light: group.loft_lights
+    window: binary_sensor.loft_hatch
 
   - name: Bedroom
     icon: mdi:bed-double
     light: group.bedroom_lights
     device: group.bedroom_switches
     temperature: sensor.bedroom_hue_temp
-    motion: binary_sensor.bedroom_hue_sensor
+    motion: binary_sensor.bedroom_hue_motion
     media_player: group.bedroom_media
 
   - name: Craft Room
@@ -96,21 +143,17 @@ rooms:
     temperature: sensor.office_hue_temp
     humidity: sensor.cabinet_relative_humidity
     device: switch.home_server
-    addons:
-      - name: Unraid
-        icon: mdi:server-network
-        path: 'dwains-dashboard/addons/unraid_monitoring.yaml'
-      - name: Home Assistant
-        icon: mdi:home-assistant
-        path: 'dwains-dashboard/addons/ha_monitoring.yaml'
-      - name: Pi Hole 
-        icon: mdi:pi-hole
-        path: 'dwains-dashboard/addons/adblocker.yaml'
-      - name: Ubiquiti UniFi
-        icon: 'mdi:router-network'
-        path: 'dwains-dashboard/addons/unifi.yaml'
-      - name: Power
-        icon: mdi:server-network
-        path: 'dwains-dashboard/addons/power_usage.yaml'
-
-
+#    addons:
+#      - name: Unraid
+#        icon: mdi:server-network
+#        path: 'dwains-dashboard/addons/unraid_monitoring.yaml'
+#      - name: Home Assistant
+#        icon: mdi:home-assistant
+#        path: 'dwains-dashboard/addons/ha_monitoring.yaml'
+#      - name: Pi Hole 
+#        icon: mdi:pi-hole
+#        path: 'dwains-dashboard/addons/adblocker.yaml'
+#      - name: Ubiquiti UniFi
+#        icon: 'mdi:router-network'
+#        path: 'dwains-dashboard/addons/unifi.yaml'
+#

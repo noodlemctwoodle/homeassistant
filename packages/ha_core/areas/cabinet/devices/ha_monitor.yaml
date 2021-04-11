@@ -7,6 +7,10 @@ notify:
     vapid_prv_key: !secret gcp_prv_key
     vapid_email: !secret gcp_email
 
+  - platform: discord
+    name: discord
+    token: !secret bot_token
+
 
 alert:
 

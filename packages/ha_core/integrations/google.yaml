@@ -21,7 +21,8 @@ cloud:
         - light.kitchen_spot_08
         - light.kitchen_spot_09
         - light.kitchen_spot_10
-        - light.landing
+        - light.landing_spot_01
+        - light.stairs_spot_01
         - light.loft
         - light.living_room_pendant_01
         - light.living_room_lamp_01
@@ -45,6 +46,7 @@ cloud:
         - sensor.hall_hue_temp
         - sensor.kitchen_hue_temp
         - sensor.landing_hue_temp
+        - sensor.stairs_hue_temp
         - sensor.office_hue_temp
 #      include_domains:
 #        - switch

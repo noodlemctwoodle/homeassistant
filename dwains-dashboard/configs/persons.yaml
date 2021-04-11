@@ -1,11 +1,33 @@
 # https://dwainscheeren.github.io/dwains-lovelace-dashboard/configuration/persons.html
 
-persons: 
-  - name: !secret user_1
-    track: !secret person_1
-    #picture_path: 'www/images/users/user1.png'
-    show_map: true
-  - name: !secret user_2
-    track: !secret person_2
-    #picture_path: 'www/images/users/user2.png'
-    show_map: true
+#persons: 
+#  - name: !secret user_1
+#    track: !secret person_1
+#    #picture_path: 'www/images/users/user1.png'
+#    show_map: true
+#    page_entities:
+#      columns: 1 #optional
+#      entities:
+#        - entity: sensor.pixel_4_xl_battery_level
+#        - entity: sensor.pixel_4_xl_charger_type
+#        - entity: sensor.pixel_4_xl_battery_state
+#        - entity: sensor.pixel_4_xl_steps_sensor
+#        - entity: sensor.pixel_4_xl_ringer_mode
+#        - entity: sensor.pixel_4_xl_wifi_ip_address
+#        - entity: sensor.pixel_4_xl_wifi_link_speed
+#        - entity: sensor.pixel_4_xl_geocoded_location
+#  - name: !secret user_2
+#    track: !secret person_2
+#    #picture_path: 'www/images/users/user2.png'
+#    show_map: true
+#    page_entities:
+#      columns: 1 #optional
+#      entities:
+#        - entity: sensor.pixel_battery_level
+#        - entity: sensor.pixel_charger_type
+#        - entity: sensor.pixel_battery_state
+#        - entity: sensor.pixel_steps_sensor
+#        - entity: sensor.pixel_ringer_mode
+#        - entity: sensor.pixel_wifi_ip_address
+#        - entity: sensor.pixel_wifi_link_speed
+#        - entity: sensor.pixel_geocoded_location
