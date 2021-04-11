@@ -33,29 +33,29 @@ recorder:
 #    instance: prod
 #    source: hass
 
-influxdb:
-  api_version: 2
-  ssl: false
-  host: !secret influx_host
-  port: !secret influx_port
-  token: !secret influx_token
-  organization: !secret influx_organisation
-  bucket: home_assistant
-  tags:
-    source: HA
-  tags_attributes:
-    - friendly_name
-  default_measurement: units
-  exclude:
-    entities:
-      - zone.home
-    domains:
-      - persistent_notification
-      - person
-  include:
-    domains:
-      - sensor
-      - binary_sensor
-      - sun
-    entities:
-      - weather.home
+#influxdb:
+#  api_version: 2
+#  ssl: false
+#  host: !secret influx_host
+#  port: !secret influx_port
+#  token: !secret influx_token
+#  organization: !secret influx_organisation
+#  bucket: home_assistant
+#  tags:
+#    source: HA
+#  tags_attributes:
+#    - friendly_name
+#  default_measurement: units
+#  exclude:
+#    entities:
+#      - zone.home
+#    domains:
+#      - persistent_notification
+#      - person
+#  include:
+#    domains:
+#      - sensor
+#      - binary_sensor
+#      - sun
+#    entities:
+#      - weather.home
