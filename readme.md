@@ -7,8 +7,7 @@
 Open source home automation that puts local control and privacy first. Powered by a worldwide community of tinkerers and DIY enthusiasts.
 
 ## Current Theme
-- [x] [Home Kit Infused](https://github.com/jimz011/homekit-infused)
-- [ ] [Dwains Theme](https://github.com/dwainscheeren/lovelace-dwains-theme)
+- [x] [Dwains Theme](https://github.com/dwainscheeren/lovelace-dwains-theme)
 
 
 ### Home Assistant Add-ons Wiki
