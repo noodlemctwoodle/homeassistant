@@ -20,7 +20,7 @@ Sever infrastructure
 
 - AMD Ryzen 3700X
 - 64GB Corsair 3200mhz
-- 33TB Rotational Drives
+- 50TB Rotational Drives
 - 8TB SSD Cache
 - NVIDIA Quadro P2000
 - Quad Port Intel NIC
