@@ -1356,6 +1356,20 @@
                         extrema: true
                       tap_action: none
 
+- type: vertical-stack
+  cards:
+    - type: custom:dwains-flexbox-card
+      padding: true
+      items_classes: 'col-lg-6 col-md-6 col-sm-12 col-xs-12'
+      cards:
+
+        - type: 'custom:flex-table-card'
+          entities:
+            include: 'sensor.agile_upcoming_rates'
+#          columns: 4
+#          mediumlimit: 9
+#          highlimit: 15
+
 
 
 
@@ -1979,3 +1993,5 @@
 #                            average: true
 #                            extrema: true
 #                          tap_action: none
+
+
