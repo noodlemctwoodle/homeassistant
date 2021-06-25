@@ -1,4 +1,5 @@
 # Energy Monitoring Sensros for HKI Energy Monitoring
+
 sensor:
   - platform: mqtt
     name: "Home Instant Electricity"
@@ -68,6 +69,87 @@ sensor:
     value_template: "{{ value_json['gasMtr']['0702']['0C']['40']|int(base=16)  * value_json['gasMtr']['0702']['03']['01']|int(base=16) / value_json['gasMtr']['0702']['03']['02']|int(base=16) }}"
     icon: 'mdi:flash'
 
+#  - platform: rest
+#    name: Octopus
+#    resource_template: >-
+#      https://api.octopus.energy/v1/products/AGILE-18-02-21/electricity-tariffs/E-1R-AGILE-18-02-21-N/standard-unit-rates/?period_from=
+#      {% set ts_now = ((as_timestamp(now())/1800)|round(0,'floor')|int * 1800) %}
+#      {{ ts_now |timestamp_custom ('%Y-%m-%dT%H:%M:%SZ') }}&period_to=
+#      {{ (ts_now + 24*60*60) |timestamp_custom ('%Y-%m-%dT%H:%M:%SZ') }}
+#    value_template: 'OK'
+#    json_attributes:
+#      - "results"
+#
+
+  - platform: mqtt
+    name: "Home Electricity"
+    state_topic: "SMART/HILD/F008D1ECE298"
+    unit_of_measurement: 'kWh'
+    value_template: "{{ value_json['elecMtr']['0702']['00']['00']|int(base=16) * value_json['elecMtr']['0702']['03']['01']|int(base=16) / value_json['elecMtr']['0702']['03']['02']|int(base=16) }}"
+    icon: 'mdi:flash'
+    device_class: power
+
+  - platform: mqtt
+    name: "Home Daily Electricity"
+    state_topic: "SMART/HILD/F008D1ECE298"
+    unit_of_measurement: 'kWh'
+    value_template: "{{ value_json['elecMtr']['0702']['04']['01']|int(base=16) * value_json['elecMtr']['0702']['03']['01']|int(base=16) / value_json['elecMtr']['0702']['03']['02']|int(base=16) }}"
+    icon: 'mdi:flash'
+    device_class: power
+
+  - platform: mqtt
+    name: "Home Weekly Electricity"
+    state_topic: "SMART/HILD/F008D1ECE298"
+    unit_of_measurement: 'kWh'
+    value_template: "{{ value_json['elecMtr']['0702']['04']['30']|int(base=16) * value_json['elecMtr']['0702']['03']['01']|int(base=16) / value_json['elecMtr']['0702']['03']['02']|int(base=16) }}"
+    icon: 'mdi:flash'
+    device_class: power
+
+  - platform: mqtt
+    name: "Home Monthly Electricity"
+    state_topic: "SMART/HILD/F008D1ECE298"
+    unit_of_measurement: 'kWh'
+    value_template: "{{ value_json['elecMtr']['0702']['04']['40']|int(base=16) * value_json['elecMtr']['0702']['03']['01']|int(base=16) / value_json['elecMtr']['0702']['03']['02']|int(base=16) }}"
+    icon: 'mdi:flash'
+    device_class: power
+
+  - platform: mqtt
+    name: "Home Gas"
+    state_topic: "SMART/HILD/F008D1ECE298"
+    unit_of_measurement: 'm3'
+    value_template: "{{ value_json['gasMtr']['0702']['00']['00']|int(base=16) * value_json['gasMtr']['0702']['03']['01']|int(base=16) / value_json['gasMtr']['0702']['03']['02']|int(base=16) }}"
+    icon: 'mdi:flash'
+
+  - platform: mqtt
+    name: "Home Daily Gas"
+    state_topic: "SMART/HILD/F008D1ECE298"
+    unit_of_measurement: 'kWh'
+    value_template: "{{ value_json['gasMtr']['0702']['0C']['01']|int(base=16)  * value_json['gasMtr']['0702']['03']['01']|int(base=16) / value_json['gasMtr']['0702']['03']['02']|int(base=16) }}"
+    icon: 'mdi:flash'
+
+  - platform: mqtt
+    name: "Home Weekly Gas"
+    state_topic: "SMART/HILD/F008D1ECE298"
+    unit_of_measurement: 'kWh'
+    value_template: "{{ value_json['gasMtr']['0702']['0C']['30']|int(base=16)  * value_json['gasMtr']['0702']['03']['01']|int(base=16) / value_json['gasMtr']['0702']['03']['02']|int(base=16) }}"
+    icon: 'mdi:flash'
+
+  - platform: mqtt
+    name: "Home Monthly Gas"
+    state_topic: "SMART/HILD/F008D1ECE298"
+    unit_of_measurement: 'kWh'
+    value_template: "{{ value_json['gasMtr']['0702']['0C']['40']|int(base=16)  * value_json['gasMtr']['0702']['03']['01']|int(base=16) / value_json['gasMtr']['0702']['03']['02']|int(base=16) }}"
+    icon: 'mdi:flash'
+
+#  - platform: template
+#    sensors:
+#      octopus_current_price: 
+#        unit_of_measurement: 'p/kWh'
+#        value_template: "{{ states.sensor.octopus.attributes.results|map(attribute='value_inc_vat')|list|last|round(2) }}"
+#      octopus_min_price: 
+#        unit_of_measurement: 'p/kWh'
+#        value_template: "{{ states.sensor.octopus.attributes.results|map(attribute='value_inc_vat')|list|min|round(2) }}"
+
 
 #  - platform: template
 #    sensors: 
@@ -105,7 +187,7 @@ sensor:
     sensors: 
 
 #    # Energy Cost Now
-      now_energy_cost:
+      electricity_now_energy_cost:
         unique_id: sensor.home_instant_electricity
         friendly_name: 'Now Cost'
         value_template: >-
@@ -114,7 +196,7 @@ sensor:
           {% endif %}
 
     # Daily Energy Cost
-      daily_energy_cost:
+      electricity_daily_energy_cost:
         unique_id: sensor.home_daily_electricity
         friendly_name: 'Daily Cost'
         value_template: >-
@@ -123,7 +205,7 @@ sensor:
           {% endif %}
 
     # Weekly Energy Cost
-      monthly_energy_cost:
+      electricity_weekly_energy_cost:
         unique_id: sensor.home_weekly_electricity
         friendly_name: 'Monthly Cost'
         value_template: >-
@@ -132,7 +214,7 @@ sensor:
           {% endif %}
 
     # Monthly Energy Cost
-      monthly_energy_cost:
+      electricity_monthly_energy_cost:
         unique_id: sensor.home_monthly_electricity
         friendly_name: 'Monthly Cost'
         value_template: >-
@@ -141,7 +223,7 @@ sensor:
           {% endif %}
 
 #    # Gas Cost Now
-      now_energy_cost:
+      gas_now_energy_cost:
         unique_id: sensor.home_gas
         friendly_name: 'Now Cost'
         value_template: >-
@@ -150,7 +232,7 @@ sensor:
           {% endif %}
 
     # Daily Gas Cost
-      daily_energy_cost:
+      gas_daily_energy_cost:
         unique_id: sensor.home_daily_gas
         friendly_name: 'Daily Cost'
         value_template: >-
@@ -159,7 +241,7 @@ sensor:
           {% endif %}
 
     # Weekly Gas Cost
-      monthly_energy_cost:
+      gas_weekly_energy_cost:
         unique_id: sensor.home_weekly_gas
         friendly_name: 'Monthly Cost'
         value_template: >-
@@ -168,7 +250,7 @@ sensor:
           {% endif %}
 
     # Monthly Gas Cost
-      monthly_energy_cost:
+      gas_monthly_energy_cost:
         unique_id: sensor.home_monthly_gas
         friendly_name: 'Monthly Cost'
         value_template: >-
@@ -215,4 +297,3 @@ group:
       - switch.office_computer_smart_plug_relay
       - switch.living_room_subwoofer_smart_socket_relay
       - switch.sp_of_cab_relay
-

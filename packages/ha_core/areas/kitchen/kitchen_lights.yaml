@@ -1,164 +1,195 @@
 automation:
 
-  #  Kitchen - Philips Hue Motion
-  - alias: 'Kithen lights turn-on day'
+  # Kitchen Xiaomi Switch
+  - alias: 'deconz kitchen left'
+    initial_state: true
     trigger:
-      platform: state
-      entity_id: binary_sensor.kitchen_hue_motion
-      to: 'on'
-    condition:
-      - condition: numeric_state
-        entity_id: sensor.kitchen_hue_lux
-        below: '9.5'
-      - condition: or
-        conditions:
-        - condition: state
-          entity_id: !secret person_2
-          state: 'home'
-        - condition: state
-          entity_id: !secret person_1
-          state: 'home'
-    action:       
-      - service: switch.turn_on
-        data:
-          entity_id: switch.kitchen_light_switch_left
+      platform: event
+      event_type: deconz_event
+      event_data:
+        id: kitchen_switch
+        event: 1002
+    action:
       - service: light.turn_on
         data:
-          entity_id: 
-            - light.kitchen_spot_03
-            - light.kitchen_spot_10
-          brightness: 249
+          entity_id:
+            - light.kitchen_lights
+          brightness_pct: 100
 
-  - alias: 'Kithen lights turn-on evening'
+  - alias: 'deconz kitchen right'
+    initial_state: true
     trigger:
-      platform: state
-      entity_id: binary_sensor.kitchen_hue_motion
-      to: 'on'
-    condition:
-      - condition: numeric_state
-        entity_id: sensor.kitchen_hue_lux
-        below: '2.0'
-      - condition: or
-        conditions:
-        - condition: state
-          entity_id: !secret person_2
-          state: 'home'
-        - condition: state
-          entity_id: !secret person_1
-          state: 'home'
+      platform: event
+      event_type: deconz_event
+      event_data:
+        id: kitchen_switch
+        event: 2002
     action:
-      - service: switch.turn_on
-        data:
-          entity_id: switch.kitchen_light_switch_left
       - service: light.turn_on
         data:
-          entity_id: 
-            - light.kitchen
-          brightness: 249
+          entity_id:
+            - light.kitchen_lights
+          brightness_pct: 100
 
-  - alias: 'Kithen lights turn-on night'
-    trigger:
-      platform: state
-      entity_id: binary_sensor.kitchen_hue_motion
-      to: 'on'
-    condition:
-      - condition: numeric_state
-        entity_id: sensor.kitchen_hue_lux
-        below: '2.0'
-      - condition: time
-        after: '00:30:00'
-        before: '05:00:00'
-    action:
-      - service: switch.turn_on
-        data:
-          entity_id: switch.kitchen_light_switch_left
-      - service: light.turn_on
-        data:
-          entity_id: 
-            - light.kitchen_spot_01
-          brightness: 100
-
-  - alias: 'Kitchen lights turn-off'
-    trigger:
-      platform: state
-      entity_id: binary_sensor.kitchen_hue_motion
-      to: 'off'
-      for:
-        minutes: 5
-    condition:
-      - condition: state
-        entity_id: media_player.living_room_nvidia_shield_adb
-        state: 'off'
-    action:
-      service: light.turn_off
-      data:
-        entity_id: light.kitchen
-        transition: 10
-
-# Kitchen Light Switch Right
-  - alias: 'Kitchen lights left toggle'
-    trigger:
-      platform: state
-      entity_id: switch.kitchen_light_switch_right
+#  #  Kitchen - Philips Hue Motion
+#  - alias: 'Kithen lights turn-on day'
+#    trigger:
+#      platform: state
+#      entity_id: binary_sensor.kitchen_motion
 #      to: 'on'
-    condition:
-      - condition: state
-        entity_id: light.kitchen
-        state: 'on'
-      - condition: or
-        conditions:
-        - condition: state
-          entity_id: light.kitchen_lights_left
-          state: 'on'
-        - condition: state
-          entity_id: light.kitchen_lights_right
-          state: 'off'
-    action:
-      - service: light.toggle
-        data:
-          entity_id: light.kitchen_lights_left
-          brightness: 249
-      - service: light.turn_off
-        data:
-          entity_id: 
-            - light.kitchen_lights_right
-
-  - alias: 'Kitchen lights right toggle'
-    trigger:
-      platform: state
-      entity_id: switch.kitchen_light_switch_right
+#    condition:
+#      - condition: numeric_state
+#        entity_id: sensor.kitchen_lux
+#        below: '9.5'
+#      - condition: or
+#        conditions:
+#        - condition: state
+#          entity_id: !secret person_2
+#          state: 'home'
+#        - condition: state
+#          entity_id: !secret person_1
+#          state: 'home'
+#    action:       
+#      - service: switch.turn_on
+#        data:
+#          entity_id: switch.kitchen_light_switch_left
+#      - service: light.turn_on
+#        data:
+#          entity_id: 
+#            - light.kitchen_spot_03
+#            - light.kitchen_spot_10
+#          brightness: 249
+#
+#  - alias: 'Kithen lights turn-on evening'
+#    trigger:
+#      platform: state
+#      entity_id: binary_sensor.kitchen_motion
 #      to: 'on'
-    condition:
-      - condition: state
-        entity_id: light.kitchen
-        state: 'on'
-      - condition: or
-        conditions:
-        - condition: state
-          entity_id: light.kitchen_lights_left
-          state: 'off'
-        - condition: state
-          entity_id: light.kitchen_lights_right
-          state: 'on'
-    action:
-      - service: light.toggle
-        data:
-          entity_id: light.kitchen_lights_right
-          brightness: 249
-      - service: light.turn_off
-        data:
-          entity_id: 
-            - light.kitchen_lights_left
-
-  - alias: 'Kitchen light switch turn-on'
-    trigger:
-      platform: state
-      entity_id: switch.kitchen_light_switch_right
-      to: 'off'
-    action:
-      service: light.turn_on
-      data:
-        entity_id: light.kitchen_lights_right
+#    condition:
+#      - condition: numeric_state
+#        entity_id: sensor.kitchen_lux
+#        below: '2.0'
+#      - condition: or
+#        conditions:
+#        - condition: state
+#          entity_id: !secret person_2
+#          state: 'home'
+#        - condition: state
+#          entity_id: !secret person_1
+#          state: 'home'
+#    action:
+#      - service: switch.turn_on
+#        data:
+#          entity_id: switch.kitchen_light_switch_left
+#      - service: light.turn_on
+#        data:
+#          entity_id: 
+#            - light.kitchen
+#          brightness: 249
+#
+#  - alias: 'Kithen lights turn-on night'
+#    trigger:
+#      platform: state
+#      entity_id: binary_sensor.kitchen_motion
+#      to: 'on'
+#    condition:
+#      - condition: numeric_state
+#        entity_id: sensor.kitchen_lux
+#        below: '2.0'
+#      - condition: time
+#        after: '00:30:00'
+#        before: '05:00:00'
+#    action:
+#      - service: switch.turn_on
+#        data:
+#          entity_id: switch.kitchen_light_switch_left
+#      - service: light.turn_on
+#        data:
+#          entity_id: 
+#            - light.kitchen_spot_01
+#          brightness: 100
+#
+#  - alias: 'Kitchen lights turn-off'
+#    trigger:
+#      platform: state
+#      entity_id: binary_sensor.kitchen_motion
+#      to: 'off'
+#      for:
+#        minutes: 5
+#    condition:
+#      - condition: state
+#        entity_id: media_player.living_room_nvidia_shield_adb
+#        state: 'off'
+#    action:
+#      service: light.turn_off
+#      data:
+#        entity_id: light.kitchen
+#        transition: 10
+#
+## Kitchen Light Switch Right
+#  - alias: 'Kitchen lights left toggle'
+#    trigger:
+#      platform: state
+#      entity_id: switch.kitchen_light_switch_right
+##      to: 'on'
+#    condition:
+#      - condition: state
+#        entity_id: light.kitchen
+#        state: 'on'
+#      - condition: or
+#        conditions:
+#        - condition: state
+#          entity_id: light.kitchen_lights_left
+#          state: 'on'
+#        - condition: state
+#          entity_id: light.kitchen_lights_right
+#          state: 'off'
+#    action:
+#      - service: light.toggle
+#        data:
+#          entity_id: light.kitchen_lights_left
+#          brightness: 249
+#      - service: light.turn_off
+#        data:
+#          entity_id: 
+#            - light.kitchen_lights_right
+#
+#  - alias: 'Kitchen lights right toggle'
+#    trigger:
+#      platform: state
+#      entity_id: switch.kitchen_light_switch_right
+##      to: 'on'
+#    condition:
+#      - condition: state
+#        entity_id: light.kitchen
+#        state: 'on'
+#      - condition: or
+#        conditions:
+#        - condition: state
+#          entity_id: light.kitchen_lights_left
+#          state: 'off'
+#        - condition: state
+#          entity_id: light.kitchen_lights_right
+#          state: 'on'
+#    action:
+#      - service: light.toggle
+#        data:
+#          entity_id: light.kitchen_lights_right
+#          brightness: 249
+#      - service: light.turn_off
+#        data:
+#          entity_id: 
+#            - light.kitchen_lights_left
+#
+#  - alias: 'Kitchen light switch turn-on'
+#    trigger:
+#      platform: state
+#      entity_id: switch.kitchen_light_switch_right
+#      to: 'off'
+#    action:
+#      service: light.turn_on
+#      data:
+#        entity_id: light.kitchen_lights_right
 
 
 group:
@@ -176,11 +207,11 @@ group:
       - light.kitchen_spot_09
       - light.kitchen_spot_10
 
-  kitchen_light_switches:
-    name: Kitchen Light Switches
-    entities:
-      - switch.kitchen_light_switch_left
-      - switch.kitchen_light_switch_right
+#  kitchen_light_switches:
+#    name: Kitchen Light Switches
+#    entities:
+#      - switch.kitchen_light_switch_left
+#      - switch.kitchen_light_switch_right
 
 # Light Groups
 light:
@@ -217,19 +248,19 @@ light:
       - light.kitchen_spot_09
       - light.kitchen_spot_10
 
-switch:
-  - platform: template
-    switches:
-      kitchen_left:
-        value_template: "{{ is_state('light.kitchen_spot_10', 'on') }}"
-        turn_on:
-          service: switch.turn_on
-          data:
-            entity_id: switch.kitchen_light_switch_left
-        turn_off:
-          service: switch.turn_off
-          data:
-            entity_id: switch.kitchen_light_switch_left
+#switch:
+#  - platform: template
+#    switches:
+#      kitchen_left:
+#        value_template: "{{ is_state('light.kitchen_spot_10', 'on') }}"
+#        turn_on:
+#          service: switch.turn_on
+#          data:
+#            entity_id: switch.kitchen_light_switch_left
+#        turn_off:
+#          service: switch.turn_off
+#          data:
+#            entity_id: switch.kitchen_light_switch_left
 
 #      kitchen_right:
 #        value_template: "{{ is_state('light.kitchen_spot_10', 'on') }}"
@@ -241,3 +272,4 @@ switch:
 #          service: switch.turn_off
 #          data:
 #            entity_id: switch.kitchen_light_switch_right
+

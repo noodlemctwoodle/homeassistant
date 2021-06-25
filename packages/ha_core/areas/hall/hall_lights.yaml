@@ -4,11 +4,11 @@ automation:
   - alias: 'Hall lights turn-on'
     trigger:
       platform: state
-      entity_id: binary_sensor.hall_hue_motion
+      entity_id: binary_sensor.hall_motion
       to: 'on'
     condition:
       - condition: numeric_state
-        entity_id: sensor.hall_hue_lux
+        entity_id: sensor.hall_lux
         below: '1.2'
       - condition: or
         conditions:
@@ -36,16 +36,16 @@ automation:
         weekday:
         - wed
       - condition: state
-        entity_id: binary_sensor.hall_hue_motion
+        entity_id: binary_sensor.hall_motion
         state: 'on'
       - condition: state
-        entity_id: binary_sensor.garden_hue_motion
+        entity_id: binary_sensor.garden_motion
         state: 'on'
       - condition: numeric_state
-        entity_id: sensor.hall_hue_lux
+        entity_id: sensor.hall_lux
         below: '1.2'
       - condition: numeric_state
-        entity_id: sensor.garden_hue_lux
+        entity_id: sensor.garden_lux
         below: '10'
     action:
       - service: automation.turn_off
@@ -60,7 +60,7 @@ automation:
   - alias: 'Hall lights turn-off'
     trigger:
       platform: state
-      entity_id: binary_sensor.hall_hue_motion
+      entity_id: binary_sensor.hall_motion
       to: 'off'
       for:
         seconds: 30

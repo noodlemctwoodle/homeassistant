@@ -3,11 +3,11 @@ automation:
   - alias: 'Craft Room lights turn-on day'
     trigger:
       platform: state
-      entity_id: binary_sensor.craft_room_hue_motion
+      entity_id: binary_sensor.craft_room_motion
       to: 'on'
     condition:
       - condition: numeric_state
-        entity_id: sensor.craft_room_hue_lux
+        entity_id: sensor.craft_room_lux
         below: '3.0'
       - condition: or
         conditions:
@@ -26,11 +26,11 @@ automation:
   - alias: 'Craft Room lights turn-on night'
     trigger:
       platform: state
-      entity_id: binary_sensor.craft_room_hue_motion
+      entity_id: binary_sensor.craft_room_motion
       to: 'on'
     condition:
       - condition: numeric_state
-        entity_id: sensor.craft_room_hue_lux
+        entity_id: sensor.craft_room_lux
         below: '1.5'
       - condition: or
         conditions:
@@ -50,7 +50,7 @@ automation:
   - alias: 'Craft room lights turn-off'
     trigger:
       platform: state
-      entity_id: binary_sensor.craft_room_hue_motion
+      entity_id: binary_sensor.craft_room_motion
       to: 'off'
       for:
         seconds: 50

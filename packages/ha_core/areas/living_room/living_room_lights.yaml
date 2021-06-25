@@ -4,11 +4,11 @@ automation:
   - alias: 'Living Rooom lights turn-on day'
     trigger:
       platform: state
-      entity_id: binary_sensor.living_room_hue_motion
+      entity_id: binary_sensor.living_room_motion
       to: 'on'
     condition:
       - condition: numeric_state
-        entity_id: sensor.living_room_hue_sensor_lux
+        entity_id: sensor.living_room_lux
         below: '2.5'
       - condition: state
         entity_id: media_player.living_room_nvidia_shield_adb
@@ -33,11 +33,11 @@ automation:
   - alias: 'Living Rooom lights turn-on night'
     trigger:
       platform: state
-      entity_id: binary_sensor.living_room_hue_motion
+      entity_id: binary_sensor.living_room_motion
       to: 'on'
     condition:
       - condition: numeric_state
-        entity_id: sensor.living_room_hue_sensor_lux
+        entity_id: sensor.living_room_lux
         below: '1.1'
       - condition: state
         entity_id: media_player.living_room_nvidia_shield_adb
@@ -89,7 +89,7 @@ automation:
   - alias: 'Living Room lights turn-off'
     trigger:
       platform: state
-      entity_id: binary_sensor.living_room_hue_motion
+      entity_id: binary_sensor.living_room_motion
       to: 'off'
       for:
         minutes: 10

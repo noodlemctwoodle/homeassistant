@@ -1,0 +1,35 @@
+automation:
+
+  #  Hall - Philips Hue Motion
+  - alias: Doorbell Announce
+    description: ''
+    trigger:
+    - entity_id: binary_sensor.doorbell_front_door
+      platform: state
+      to: 'on'
+    condition: []
+    action:
+    - service: tts.google_say
+      data:
+        entity_id: media_player.announce_group
+        message: There's someone at the door.   
+    - service: camera.play_stream
+      data:
+        entity_id: camera.front_door
+        media_player: media_player.living_room_display
+    mode: single
+      
+
+  - alias: Doorbell Person
+    description: ''
+    trigger:
+    - entity_id: binary_sensor.doorbell_front_door
+      platform: state
+      to: 'person'
+      attribute: event_object
+    condition: []
+    action:
+    - service: camera.play_stream
+      data:
+        entity_id: camera.front_door
+        media_player: media_player.living_room_tv

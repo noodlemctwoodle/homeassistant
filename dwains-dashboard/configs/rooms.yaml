@@ -1,5 +1,3 @@
-# https://dwainscheeren.github.io/dwains-lovelace-dashboard/configuration/rooms.html
-
 # https://dwainscheeren.github.io/lovelace-dwains-theme/configuration/rooms.html
 
 rooms:
@@ -17,40 +15,40 @@ rooms:
       entities:
         - entity: group.home_av_Lux
         - entity: sensor.bathroom_door_battery_level
-        - entity: sensor.bathroom_hue_sensor_battery_level
+        - entity: sensor.bathroom_battery_level
         - entity: sensor.bathroom_switch_battery_level
         - entity: sensor.bathroom_window_battery_level
-        - entity: sensor.bedroom_hue_sensor_battery_level
+        - entity: sensor.bedroom_battery_level
         - entity: sensor.bedroom_switch_battery_level
         - entity: sensor.cabinet_switch_battery_level
-        - entity: sensor.craft_room_hue_sensor_battery_level
+        - entity: sensor.craft_room_battery_level
         - entity: sensor.craft_room_switch_battery_level
         - entity: sensor.craft_room_window_battery_level
         - entity: sensor.front_door_battery_level
-        - entity: sensor.garden_hue_sensor_battery_level
-        - entity: sensor.hall_hue_sensor_battery_level
-        - entity: sensor.kitchen_hue_sensor_battery_level
+        - entity: sensor.garden_battery_level
+        - entity: sensor.hall_battery_level
+        - entity: sensor.kitchen_battery_level
         - entity: sensor.kitchen_window_battery_level
-        - entity: sensor.landing_hue_sensor_battery_level
+        - entity: sensor.landing_battery_level
         - entity: sensor.landing_window_battery_level
-        - entity: sensor.living_room_hue_sensor_battery_level
+        - entity: sensor.living_room_battery_level
         - entity: sensor.living_room_switch_battery_level 
         - entity: sensor.living_room_window_left_battery_level
         - entity: sensor.living_room_window_right_battery_level
         - entity: sensor.loft_hatch_battery_level
-        - entity: sensor.office_hue_sensor_battery_level
+        - entity: sensor.office_battery_level
         - entity: sensor.office_switch_battery_level
         - entity: sensor.office_window_battery_level
         - entity: sensor.patio_door_battery_level
-        - entity: sensor.stairs_hue_sensor_battery_level
+        - entity: sensor.stairs_battery_level
 
 
   - name: Kitchen
     icon: mdi:pot
     light: group.kitchen_lights
-    device: switch.kitchen_light_switch_left
-    temperature: sensor.kitchen_hue_temp
-    motion: binary_sensor.kitchen_hue_motion
+    #device: switch.kitchen_light_switch_left
+    temperature: sensor.kitchen_temp
+    motion: binary_sensor.kitchen_motion
     window: binary_sensor.kitchen_window
     media_player: media_player.kitchen_display
 #    more_entities:
@@ -68,10 +66,10 @@ rooms:
     icon: mdi:sofa
     light: group.living_room_lights
     device: group.living_room_switches
-    temperature: sensor.living_room_hue_sensor
+    temperature: sensor.living_room_temp
     climate: climate.living_room
     humidity: sensor.living_room_thermostat_humidity
-    motion: binary_sensor.living_room_hue_sensor
+    motion: binary_sensor.living_room_motion
     window: group.living_room_window_sensors
     media_player: group.living_room_media
 #    addons:
@@ -82,8 +80,8 @@ rooms:
   - name: Hall
     icon: mdi:door
     light: group.hall_lights
-    temperature: sensor.hall_hue_temp
-    motion: binary_sensor.hall_hue_motion
+    temperature: sensor.hall_temp
+    motion: binary_sensor.hall_motion
     door: binary_sensor.front_door
 
 
@@ -92,16 +90,16 @@ rooms:
     light: light.bathroom
     door: binary_sensor.bathroom_door
     window: binary_sensor.bathroom_window
-    motion: binary_sensor.bathroom_hue_motion
-    temperature: sensor.bathroom_hue_temp
+    motion: binary_sensor.bathroom_motion
+    temperature: sensor.bathroom_temp
 
   - name: Landing
     icon: mdi:stairs
     light: group.landing_lights
-    motion: binary_sensor.landing_hue_motion
+    motion: binary_sensor.landing_motion
     window: binary_sensor.landing_window
     door: binary_sensor.loft_hatch
-    temperature: sensor.landing_hue_temp
+    temperature: sensor.landing_temp
 #    more_entities:
 #      entities:
 #        - entity: sensor.upstairs_nest_protect_landing_co_status
@@ -116,15 +114,14 @@ rooms:
     icon: mdi:bed-double
     light: group.bedroom_lights
     device: group.bedroom_switches
-    temperature: sensor.bedroom_hue_temp
-    motion: binary_sensor.bedroom_hue_motion
-    media_player: group.bedroom_media
+    temperature: sensor.bedroom_temp
+    motion: binary_sensor.bedroom_motion
 
   - name: Craft Room
     icon: mdi:format-color-fill
     light: group.craft_room_lights
-    temperature: sensor.craft_room_hue_temp
-    motion: binary_sensor.craft_room_hue_motion
+    temperature: sensor.craft_room_temp
+    motion: binary_sensor.craft_room_motion
     window: binary_sensor.craft_room_window
     media_player: media_player.craft_room_speaker
 
@@ -132,28 +129,27 @@ rooms:
     icon: mdi:desktop-classic
     light: group.office_lights
     device: group.office_switches
-    temperature: sensor.office_hue_temp
+    temperature: sensor.office_temp
     window: binary_sensor.office_window
-    motion: binary_sensor.office_hue_motion
+    motion: binary_sensor.office_motion
     media_player: media_player.office_speaker
 
   - name: Server Cabinet
     icon: mdi:server
     light: group.cabinet_lights
-    temperature: sensor.office_hue_temp
+    temperature: sensor.office_temp
     humidity: sensor.cabinet_relative_humidity
     device: switch.home_server
-#    addons:
-#      - name: Unraid
-#        icon: mdi:server-network
-#        path: 'dwains-dashboard/addons/unraid_monitoring.yaml'
-#      - name: Home Assistant
-#        icon: mdi:home-assistant
-#        path: 'dwains-dashboard/addons/ha_monitoring.yaml'
-#      - name: Pi Hole 
-#        icon: mdi:pi-hole
-#        path: 'dwains-dashboard/addons/adblocker.yaml'
-#      - name: Ubiquiti UniFi
-#        icon: 'mdi:router-network'
-#        path: 'dwains-dashboard/addons/unifi.yaml'
-#
+    addons:
+      - name: Unraid
+        icon: mdi:server-network
+        path: 'dwains-dashboard/addons/unraid_monitoring.yaml'
+      - name: Home Assistant
+        icon: mdi:home-assistant
+        path: 'dwains-dashboard/addons/ha_monitoring.yaml'
+      - name: Pi Hole 
+        icon: mdi:pi-hole
+        path: 'dwains-dashboard/addons/adblocker.yaml'
+      - name: Ubiquiti UniFi
+        icon: 'mdi:router-network'
+        path: 'dwains-dashboard/addons/unifi.yaml'

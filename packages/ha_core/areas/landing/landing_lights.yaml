@@ -3,7 +3,36 @@ automation:
   - alias: 'Landing lights turn-on'
     trigger:
       platform: state
-      entity_id: binary_sensor.landing_hue_motion
+      entity_id: binary_sensor.landing_motion
+      to: 'on'
+    condition:
+      condition: and
+      conditions:
+        - condition: numeric_state
+          entity_id: sensor.landing_lux
+          below: '2'
+        - condition: time
+          before: '23:00:00'
+          after: '17:00:00'
+        - condition: or
+          conditions:
+            - condition: state
+              entity_id: !secret person_2
+              state: home
+            - condition: state
+              entity_id: !secret person_1
+              state: home       
+    action:
+      service: light.turn_on
+      data:
+        entity_id: light.landing_spot_01
+        brightness: 150
+
+  #  Landing - Philips Hue Motion
+  - alias: 'Stairs lights turn-on'
+    trigger:
+      platform: state
+      entity_id: binary_sensor.stairs_motion
       to: 'on'
     condition:
       condition: and
@@ -36,7 +65,7 @@ automation:
       to: 'on'
     condition:
       - condition: numeric_state
-        entity_id: sensor.stairs_hue_lux
+        entity_id: sensor.stairs_lux
         below: '2'
       - condition: or
         conditions:
@@ -56,7 +85,7 @@ automation:
   - alias: 'Landing lights turn-off'
     trigger:
       platform: state
-      entity_id: binary_sensor.landing_hue_motion
+      entity_id: binary_sensor.landing_motion
       to: 'off'
       for:
         seconds: 30
@@ -69,7 +98,7 @@ automation:
   - alias: 'Stairs lights turn-off'
     trigger:
       platform: state
-      entity_id: binary_sensor.stairs_hue_motion
+      entity_id: binary_sensor.stairs_motion
       to: 'off'
       for:
         seconds: 30
