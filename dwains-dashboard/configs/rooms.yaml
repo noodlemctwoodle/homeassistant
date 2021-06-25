@@ -1,5 +1,3 @@
-# https://dwainscheeren.github.io/dwains-lovelace-dashboard/configuration/rooms.html
-
 # https://dwainscheeren.github.io/lovelace-dwains-theme/configuration/rooms.html
 
 rooms:
@@ -118,7 +116,6 @@ rooms:
     device: group.bedroom_switches
     temperature: sensor.bedroom_temp
     motion: binary_sensor.bedroom_motion
-    media_player: group.bedroom_media
 
   - name: Craft Room
     icon: mdi:format-color-fill
@@ -156,4 +153,3 @@ rooms:
       - name: Ubiquiti UniFi
         icon: 'mdi:router-network'
         path: 'dwains-dashboard/addons/unifi.yaml'
-

@@ -1,4 +1,5 @@
 # Energy Monitoring Sensros for HKI Energy Monitoring
+
 sensor:
   - platform: mqtt
     name: "Home Instant Electricity"
@@ -68,8 +69,6 @@ sensor:
     value_template: "{{ value_json['gasMtr']['0702']['0C']['40']|int(base=16)  * value_json['gasMtr']['0702']['03']['01']|int(base=16) / value_json['gasMtr']['0702']['03']['02']|int(base=16) }}"
     icon: 'mdi:flash'
 
-
-
 #  - platform: rest
 #    name: Octopus
 #    resource_template: >-
@@ -81,6 +80,67 @@ sensor:
 #    json_attributes:
 #      - "results"
 #
+
+  - platform: mqtt
+    name: "Home Electricity"
+    state_topic: "SMART/HILD/F008D1ECE298"
+    unit_of_measurement: 'kWh'
+    value_template: "{{ value_json['elecMtr']['0702']['00']['00']|int(base=16) * value_json['elecMtr']['0702']['03']['01']|int(base=16) / value_json['elecMtr']['0702']['03']['02']|int(base=16) }}"
+    icon: 'mdi:flash'
+    device_class: power
+
+  - platform: mqtt
+    name: "Home Daily Electricity"
+    state_topic: "SMART/HILD/F008D1ECE298"
+    unit_of_measurement: 'kWh'
+    value_template: "{{ value_json['elecMtr']['0702']['04']['01']|int(base=16) * value_json['elecMtr']['0702']['03']['01']|int(base=16) / value_json['elecMtr']['0702']['03']['02']|int(base=16) }}"
+    icon: 'mdi:flash'
+    device_class: power
+
+  - platform: mqtt
+    name: "Home Weekly Electricity"
+    state_topic: "SMART/HILD/F008D1ECE298"
+    unit_of_measurement: 'kWh'
+    value_template: "{{ value_json['elecMtr']['0702']['04']['30']|int(base=16) * value_json['elecMtr']['0702']['03']['01']|int(base=16) / value_json['elecMtr']['0702']['03']['02']|int(base=16) }}"
+    icon: 'mdi:flash'
+    device_class: power
+
+  - platform: mqtt
+    name: "Home Monthly Electricity"
+    state_topic: "SMART/HILD/F008D1ECE298"
+    unit_of_measurement: 'kWh'
+    value_template: "{{ value_json['elecMtr']['0702']['04']['40']|int(base=16) * value_json['elecMtr']['0702']['03']['01']|int(base=16) / value_json['elecMtr']['0702']['03']['02']|int(base=16) }}"
+    icon: 'mdi:flash'
+    device_class: power
+
+  - platform: mqtt
+    name: "Home Gas"
+    state_topic: "SMART/HILD/F008D1ECE298"
+    unit_of_measurement: 'm3'
+    value_template: "{{ value_json['gasMtr']['0702']['00']['00']|int(base=16) * value_json['gasMtr']['0702']['03']['01']|int(base=16) / value_json['gasMtr']['0702']['03']['02']|int(base=16) }}"
+    icon: 'mdi:flash'
+
+  - platform: mqtt
+    name: "Home Daily Gas"
+    state_topic: "SMART/HILD/F008D1ECE298"
+    unit_of_measurement: 'kWh'
+    value_template: "{{ value_json['gasMtr']['0702']['0C']['01']|int(base=16)  * value_json['gasMtr']['0702']['03']['01']|int(base=16) / value_json['gasMtr']['0702']['03']['02']|int(base=16) }}"
+    icon: 'mdi:flash'
+
+  - platform: mqtt
+    name: "Home Weekly Gas"
+    state_topic: "SMART/HILD/F008D1ECE298"
+    unit_of_measurement: 'kWh'
+    value_template: "{{ value_json['gasMtr']['0702']['0C']['30']|int(base=16)  * value_json['gasMtr']['0702']['03']['01']|int(base=16) / value_json['gasMtr']['0702']['03']['02']|int(base=16) }}"
+    icon: 'mdi:flash'
+
+  - platform: mqtt
+    name: "Home Monthly Gas"
+    state_topic: "SMART/HILD/F008D1ECE298"
+    unit_of_measurement: 'kWh'
+    value_template: "{{ value_json['gasMtr']['0702']['0C']['40']|int(base=16)  * value_json['gasMtr']['0702']['03']['01']|int(base=16) / value_json['gasMtr']['0702']['03']['02']|int(base=16) }}"
+    icon: 'mdi:flash'
+
 #  - platform: template
 #    sensors:
 #      octopus_current_price: 
@@ -237,4 +297,3 @@ group:
       - switch.office_computer_smart_plug_relay
       - switch.living_room_subwoofer_smart_socket_relay
       - switch.sp_of_cab_relay
-

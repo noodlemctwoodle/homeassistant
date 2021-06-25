@@ -1369,11 +1369,6 @@
 #          columns: 4
 #          mediumlimit: 9
 #          highlimit: 15
-
-
-
-
-
 #            # UnRAID Array Status
 #                - type: custom:bar-card
 #                  item_classes: 'col-lg-3 col-md-3'
