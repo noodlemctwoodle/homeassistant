@@ -26,10 +26,13 @@ Sever infrastructure
 - Quad Port Intel NIC
 - Broadcom 9800i 16 port SAS Controler
 
-| HassOS UnRAID Virtual Appliance | | |
-|:---|:---|:---|
-| Home Assistant | ZHA | Maria dB | 
-| Influx dB | Mosquitto | Glances | ESPHome |
+##  HassOS UnRAID Virtual Appliance 
+| Containers | Addons |
+|:---|:---|
+| Maria dB | ESPHome |
+| Influx dB | NodeRed |
+| Mosquitto | | VS Code |
+| Android ADB | ZHA |
 
 <br/>
 
