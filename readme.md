@@ -43,10 +43,10 @@ Sever infrastructure
 | WLED Strips | Aoyaccorr WiFi Plugs (ESPHome) | Teckin WiFi Plugs (ESPHome) | 
 | Ubiquiti UniFI Gen2 Switches | Ubiquiti UniFI Gen2 Cloud Key | Ubiquiti UniFI UAP Pro |
 | Ubiquiti UniFI UAP Nano HD | Ubiquiti UniFI HD Pro | Ubiquiti UniFI Bullet G3 Cameras
-| Ubiquiti UniFI G3 Flex | Ubiquiti UniFI G4 Doorbell | Nest Protect Smoke Alarms |
-| Nest Thermostat Gen3 | Nest Hubs | Nest Minis
-| Google Homes | LG Web OS | NVIDIA Shields |
-| Aqara Swithes | NFC Tags | Discord Bot |
+| Ubiquiti UniFI G3 Flex | Ubiquiti UniFI G4 Doorbell | Ubiquiti UniFI Floodlights |
+| Nest Protect Smoke Alarms | Nest Thermostat Gen3 | Nest Hubs | 
+| Nest Minis | Google Homes | LG Web OS | 
+| NVIDIA Shields | Aqara Swithes | NFC Tags |
 
 
 <br/>
