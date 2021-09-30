@@ -41,12 +41,12 @@ Sever infrastructure
 | Philips Hue Light Bulbs | Philips Hue LED Strips | Philips Hue Light Light Switches |
 | Philips Hue Indoor Sensors | Philips Hue Outdoor Sensors | Philips Hue Outdoor Lights |
 | WLED Strips | Aoyaccorr WiFi Plugs (ESPHome) | Teckin WiFi Plugs (ESPHome) | 
-| Ubiquiti UniFi Gen2 Switches | Ubiquiti UniFi Gen2 Cloud Key | Ubiquiti UniFi UAP Pro |
-| Ubiquiti UniFi UAP Nano HD | Ubiquiti UniFi HD Pro | Ubiquiti UniFi Bullet G3 Cameras
-| Ubiquiti UniFi G3 Flex | Nest Protect Smoke Alarms | Nest Hello Door Bell | 
+| Ubiquiti UniFI Gen2 Switches | Ubiquiti UniFI Gen2 Cloud Key | Ubiquiti UniFI UAP Pro |
+| Ubiquiti UniFI UAP Nano HD | Ubiquiti UniFI HD Pro | Ubiquiti UniFI Bullet G3 Cameras
+| Ubiquiti UniFI G3 Flex | Nest Protect Smoke Alarms | Ubiquiti UniFI G4 Doorbell | 
 | Nest Thermostat Gen3 | Nest Hubs | Nest Minis
-| Google Homes | LG Web OS | NVIDIA Shield |
-| Aqara Swithes | |
+| Google Homes | LG Web OS | NVIDIA Shields |
+| Aqara Swithes | NFC Tags | Discord Bot |
 
 
 <br/>
