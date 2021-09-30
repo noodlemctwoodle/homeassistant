@@ -1,0 +1,13 @@
+group:
+
+# Server Cabinet - Lights
+  cabinet_lights:
+    name: Cabinet Lights
+    entities:
+      - light.sever_cabinet_rgbw
+
+# Server Cabinet - Smart Plug
+  cabinet_switches:
+    name: Cabinet Switches
+    entities:
+      - switch.sp_of_cab_relay

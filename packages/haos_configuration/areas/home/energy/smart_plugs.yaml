@@ -1,0 +1,27 @@
+sensor:
+  - platform: integration
+    source: sensor.living_room_av_receiver_smart_plug_total_daily_energy
+    name: AV Receiver Plug
+    unit: kWh
+    round: 2
+
+  - platform: integration
+    source: sensor.bedroom_tv_smart_plug_total_daily_energy
+    name: Bedroom TV Plug
+    unit: kWh
+    round: 2
+
+  - platform: integration
+    source: sensor.living_room_tv_smart_plug_total_daily_energy
+    name: Living Room TV Plug
+    unit: kWh
+    round: 2
+
+# Living Room Switch Relays
+group:
+  living_room_switches:
+    name: Living Room Switches
+    entities:
+      - switch.living_room_av_receiver_smart_plug_relay
+      - switch.living_room_subwoofer_smart_socket
+      - switch.living_room_tv_smart_plug_relay

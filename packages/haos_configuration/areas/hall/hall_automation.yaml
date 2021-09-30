@@ -1,0 +1,105 @@
+automation:
+
+#  Hall - Philips Hue Motion
+  - alias: 'Hall lights turn-on'
+    trigger:
+      platform: state
+      entity_id: binary_sensor.hall_occupancy
+      to: 'on'
+    condition:
+      - condition: numeric_state
+        entity_id: sensor.hall_illuminance
+        below: '1.2'
+      - condition: or
+        conditions:
+        - condition: state
+          entity_id: !secret person_2
+          state: home
+        - condition: state
+          entity_id: !secret person_1
+          state: home
+    action:
+      service: light.turn_on
+      data:
+        entity_id: light.hall
+        brightness: 249
+
+  - alias: 'Hall lights delay turn-off Rubbish collection'
+    trigger:
+      platform: state
+      entity_id: binary_sensor.front_door
+      to: 'on'
+    condition:
+      - condition: time
+        after: '18:30:00'
+        before: '23:00:00'
+        weekday:
+        - wed
+      - condition: state
+        entity_id: binary_sensor.hall_occupancy
+        state: 'on'
+      - condition: state
+        entity_id: binary_sensor.front_door_occupancy
+        state: 'on'
+      - condition: numeric_state
+        entity_id: sensor.hall_illuminance
+        below: '1.2'
+      - condition: numeric_state
+        entity_id: sensor.front_door_illuminance
+        below: '10'
+    action:
+      - service: automation.turn_off
+        data:
+          entity_id: automation.hall_lights_turn_off
+      - delay: '00:10:00'
+      - service: automation.turn_on
+        data:
+          entity_id: automation.hall_lights_turn_off
+          
+
+  - alias: 'Hall lights turn-off'
+    trigger:
+      platform: state
+      entity_id: binary_sensor.hall_occupancy
+      to: 'off'
+      for:
+        seconds: 30
+    action:
+      service: light.turn_off
+      data:
+        entity_id: light.hall
+        transition: 10
+
+#  Hall - Ubiquiti UniFI G4 Doorbell
+  - alias: Doorbell Announce
+    description: ''
+    trigger:
+    - entity_id: binary_sensor.doorbell_front_door
+      platform: state
+      to: 'on'
+    condition: []
+    action:
+    - service: tts.google_say
+      data:
+        entity_id: media_player.announce_group
+        message: There's someone at the door.   
+    - service: camera.play_stream
+      data:
+        entity_id: camera.front_door
+        media_player: media_player.living_room_display
+    mode: single
+      
+
+  - alias: Doorbell Person
+    description: ''
+    trigger:
+    - entity_id: binary_sensor.doorbell_front_door
+      platform: state
+      to: 'person'
+      attribute: event_object
+    condition: []
+    action:
+    - service: camera.play_stream
+      data:
+        entity_id: camera.front_door
+        media_player: media_player.living_room_tv

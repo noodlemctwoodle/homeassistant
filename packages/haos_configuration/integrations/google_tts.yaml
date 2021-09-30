@@ -1,0 +1,9 @@
+tts:
+
+# Google - Text to Speach
+  - platform: google_translate
+    cache: true
+    cache_dir: /config/tts
+    time_memory: 300
+    base_url: !secret homeassistant_url
+    service_name: google_say

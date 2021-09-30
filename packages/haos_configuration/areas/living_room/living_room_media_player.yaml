@@ -1,0 +1,18 @@
+media_player:
+
+# Living Room - Shield TV
+  - platform: androidtv
+    host: !secret living_room_shield_tv_ip
+    name: "Living Room Shield"
+    adb_server_ip: 127.0.0.1
+    adb_server_port: 5037
+    apps:
+      "com.google.android.tvlauncher": "Home"
+      "com.netflix.ninja": "Netflix"
+      "com.google.android.youtube.tv": "Youtube"
+      "com.google.android.tv": "Live Channels"
+      "com.amazon.amazonvideo.livingroom": "Amazon Video"
+      "com.plexapp.android": "Plex"
+      "com.nvidia.bbciplayer": "iPlayer"
+      "com.nvidia.bbciplayer.launch": "BBC News"
+      "com.silicondust.view": "HD HomeRun"

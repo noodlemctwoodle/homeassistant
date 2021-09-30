@@ -1,0 +1,8 @@
+light:
+
+# Utility - Lights
+  - platform: group
+    name: Utility Lights
+    entities:
+      - light.utility_backdoor_spot_1
+      - light.utility_cupboard_spot_01

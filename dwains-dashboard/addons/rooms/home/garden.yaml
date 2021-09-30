@@ -1,0 +1,80 @@
+- type: vertical-stack
+  cards:
+    - type: custom:dwains-flexbox-card
+      padding: true
+      items_classes: 'col-lg-6 col-md-6 col-sm-12 col-xs-12'
+      cards:
+
+        - type: picture-entity
+          style: |
+            ha-card {
+              border-radius: 10px }};
+              box-shadow: 10px;
+              font-weight: bold;
+              opacity: 0.8;
+            }
+          entity: camera.front_door
+          camera_view: live
+          tap_action:
+            action: call-service
+            service: camera.snapshot
+            service_data:
+              entity_id: camera.front_door
+              filename: '/shared/backdoor-{{ now().strftime("%Y-%m-%d-%H%M%S") }}.jpg'
+
+        - type: picture-entity
+          style: |
+            ha-card {
+              border-radius: 10px }};
+              box-shadow: 10px;
+              font-weight: bold;
+              opacity: 0.8;
+            }
+          entity: camera.back_garden
+          camera_view: live
+          tap_action:
+            action: call-service
+            service: camera.snapshot
+            service_data:
+              entity_id: camera.back_garden
+              filename: '/shared/backdoor-{{ now().strftime("%Y-%m-%d-%H%M%S") }}.jpg'
+
+- type: vertical-stack
+  cards:
+    - type: custom:dwains-flexbox-card
+      padding: true
+      items_classes: 'col-lg-6 col-md-6 col-sm-12 col-xs-12'
+      cards:
+
+        - type: entities
+          title: Door Bell
+          style: |
+            ha-card {
+              border-radius: 10px }};
+              box-shadow: 10px;
+              font-weight: bold;
+              opacity: 0.8;
+            }
+          entities:
+          - entity: binary_sensor.motion_front_door
+            icon: mdi:account-alert
+          - entity: binary_sensor.doorbell_front_door
+          - entity: sensor.motion_recording_front_door
+          - entity: switch.high_fps_front_door
+          - entity: switch.ir_active_front_door
+          - entity: switch.record_always_front_door
+          - entity: switch.record_motion_front_door
+          - entity: switch.record_smart_front_door
+          - entity: switch.status_light_on_front_door
+
+        - type: entities
+          style: |
+            ha-card {
+              border-radius: 10px }};
+              box-shadow: 10px;
+              font-weight: bold;
+              opacity: 0.8;
+            }
+          entities:
+          - entity: light.back_garden
+            icon: mdi:floor-lamp-dual

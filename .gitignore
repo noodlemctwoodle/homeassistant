@@ -8,6 +8,7 @@
 custom_components
 deps
 esphome
+image
 glances
 
 homekit-infused/base.yaml
@@ -29,6 +30,8 @@ www/images/hardware-images
 www/community
 www/tileboard
 
+home-assistant.log
+home-assistant.log.1
 
 home-assistant.log
 homekit-infused.yaml
@@ -40,3 +43,4 @@ secrets.yaml
 webostv.conf
 zwcfg_0xd3782d31.xml
 zwscene.xml
+zigbee.db

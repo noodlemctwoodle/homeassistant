@@ -1,0 +1,16 @@
+sensor:
+
+# Ping Sensor Template
+  - platform: template
+    sensors:
+      cloudflare_dns_ping:
+        friendly_name: 'Cloudflare'
+        value_template: "{{ state_attr('binary_sensor.cloudflare_dns',
+        'round_trip_time_avg') | round(2) }}"
+        unit_of_measurement: "ms"
+
+      google_dns_ping:
+        friendly_name: 'Google'
+        value_template: "{{ state_attr('binary_sensor.google_dns',
+        'round_trip_time_avg') | round(2) }}"
+        unit_of_measurement: "ms"

@@ -1,0 +1,7 @@
+light:
+
+# Server Cabinet - Door Lights
+  - platform: group
+    name: Cabinet Lights
+    entities:
+      - light.sever_cabinet_rgbw

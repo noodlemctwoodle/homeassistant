@@ -1,0 +1,9 @@
+light:
+
+# Bedroom - Lights
+  - platform: group
+    name: Bedroom
+    entities:
+      - light.bedroom_pendant_01
+      - light.bedroom_pendant_02
+      - light.bedroom_lamp_01

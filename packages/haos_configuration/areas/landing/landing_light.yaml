@@ -1,0 +1,14 @@
+light:
+
+# Landing - Lights
+  - platform: group
+    name: Landing
+    entities:
+      - light.stairs_spot_01
+      - light.landing_spot_01
+
+# Loft - Lights
+  - platform: group
+    name: Loft
+    entities:
+      - light.loft_pendant_01

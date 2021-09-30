@@ -1,0 +1,9 @@
+light:
+
+# Office - Lights
+  - platform: group
+    name: Office
+    entities:
+      - light.office_spot_01
+      - light.office_spot_02
+      - light.office_wled

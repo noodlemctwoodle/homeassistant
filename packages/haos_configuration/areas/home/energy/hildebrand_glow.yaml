@@ -1,0 +1,93 @@
+# Hildebrand Glow MQTT Sensors - Electricity & Gas
+sensor:
+  - platform: mqtt
+    name: "Home Instant Electricity"
+    state_topic: !secret glow_topic
+    unit_of_measurement: 'W'
+    value_template: "{{ value_json['elecMtr']['0702']['04']['00']|int(base=16) }}"
+    icon: 'mdi:flash'
+    device_class: power
+
+  - platform: mqtt
+    name: "Electricity Today"
+    state_topic: !secret glow_topic
+    unit_of_measurement: 'kWh'
+    value_template: "{{ value_json['elecMtr']['0702']['00']['00']|int(base=16) * value_json['elecMtr']['0702']['03']['01']|int(base=16) / value_json['elecMtr']['0702']['03']['02']|int(base=16) }}"
+    icon: 'mdi:flash'
+    device_class: energy
+
+  - platform: mqtt
+    name: "Home Daily Electricity"
+    state_topic: !secret glow_topic
+    unit_of_measurement: 'kWh'
+    value_template: "{{ value_json['elecMtr']['0702']['04']['01']|int(base=16) * value_json['elecMtr']['0702']['03']['01']|int(base=16) / value_json['elecMtr']['0702']['03']['02']|int(base=16) }}"
+    icon: 'mdi:flash'
+    device_class: energy
+
+  - platform: mqtt
+    name: "Home Weekly Electricity"
+    state_topic: !secret glow_topic
+    unit_of_measurement: 'kWh'
+    value_template: "{{ value_json['elecMtr']['0702']['04']['30']|int(base=16) * value_json['elecMtr']['0702']['03']['01']|int(base=16) / value_json['elecMtr']['0702']['03']['02']|int(base=16) }}"
+    icon: 'mdi:flash'
+    device_class: energy
+
+  - platform: mqtt
+    name: "Home Monthly Electricity"
+    state_topic: !secret glow_topic
+    unit_of_measurement: 'kWh'
+    value_template: "{{ value_json['elecMtr']['0702']['04']['40']|int(base=16) * value_json['elecMtr']['0702']['03']['01']|int(base=16) / value_json['elecMtr']['0702']['03']['02']|int(base=16) }}"
+    icon: 'mdi:flash'
+    device_class: energy
+
+  - platform: mqtt
+    name: "Gas Today"
+    state_topic: !secret glow_topic
+    unit_of_measurement: 'm³'
+    value_template: "{{ value_json['gasMtr']['0702']['00']['00']|int(base=16) * value_json['gasMtr']['0702']['03']['01']|int(base=16) / value_json['gasMtr']['0702']['03']['02']|int(base=16) }}"
+    icon: 'mdi:fire'
+
+  - platform: mqtt
+    name: "Home Daily Gas"
+    state_topic: !secret glow_topic
+    unit_of_measurement: 'kWh'
+    value_template: "{{ value_json['gasMtr']['0702']['0C']['01']|int(base=16)  * value_json['gasMtr']['0702']['03']['01']|int(base=16) / value_json['gasMtr']['0702']['03']['02']|int(base=16) }}"
+    icon: 'mdi:fire'
+    device_class: energy
+
+  - platform: mqtt
+    name: "Home Weekly Gas"
+    state_topic: !secret glow_topic
+    unit_of_measurement: 'kWh'
+    value_template: "{{ value_json['gasMtr']['0702']['0C']['30']|int(base=16)  * value_json['gasMtr']['0702']['03']['01']|int(base=16) / value_json['gasMtr']['0702']['03']['02']|int(base=16) }}"
+    icon: 'mdi:fire'
+    device_class: energy
+
+  - platform: mqtt
+    name: "Home Monthly Gas"
+    state_topic: !secret glow_topic
+    unit_of_measurement: 'kWh'
+    value_template: "{{ value_json['gasMtr']['0702']['0C']['40']|int(base=16)  * value_json['gasMtr']['0702']['03']['01']|int(base=16) / value_json['gasMtr']['0702']['03']['02']|int(base=16) }}"
+    icon: 'mdi:fire'
+    device_class: energy
+
+
+# Template Sensors for Energy Dashboard
+template:
+  sensor:
+    - name: Gas Consumption
+      unit_of_measurement: 'm³'
+      state: "{{ states('sensor.gas_consumption_today') | float * 3.6 / 40 / 1.02264 }}"
+      icon: 'mdi:fire'
+      state_class: total_increasing
+      device_class: gas
+
+    - name: Gas Cost
+      icon: mdi:home-import-outline
+      unit_of_measurement: 'GBP/m³'
+      state: "{{ (states('sensor.sensor.gas_consumption_today') | float * 0.2940 + 0.1964) | round(2) }}"
+
+    - name: Electricity Cost
+      icon: mdi:home-import-outline
+      unit_of_measurement: 'GBP/kWh'
+      state: "{{ (states('sensor.electric_consumption_today') | float * 0.1570 + 0.2500) | round(2) }}"

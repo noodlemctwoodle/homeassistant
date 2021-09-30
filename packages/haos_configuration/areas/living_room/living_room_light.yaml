@@ -1,0 +1,9 @@
+light:
+
+# Living Room - Lights
+  - platform: group
+    name: Living Room
+    entities:
+      - light.living_room_pendant_01
+      - light.living_room_lamp_01
+      - light.living_room_shadow

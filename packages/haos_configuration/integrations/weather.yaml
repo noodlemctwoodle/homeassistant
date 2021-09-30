@@ -1,0 +1,20 @@
+weather:
+
+# Dark Sky - API
+  - platform: darksky
+    api_key: !secret dark_sky_api
+    mode: daily
+
+sensor:
+
+# Dark Sky - Sensor
+  - platform: darksky
+    api_key: !secret dark_sky_api
+    forecast:
+      - 0
+    hourly_forecast:
+      - 0
+      - 1
+    monitored_conditions:
+      - humidity
+      - temperature

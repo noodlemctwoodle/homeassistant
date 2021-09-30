@@ -1,0 +1,15 @@
+group:
+
+# Office - Lights
+  office_lights:
+    name: Office Lights
+    entities:
+      - light.office_spot_01
+      - light.office_spot_02
+      - light.office_wled
+
+# Office - Smart Plugs
+  office_switches:
+    name: Office Switches
+    entities:
+      - switch.office_computer_smart_plug_relay

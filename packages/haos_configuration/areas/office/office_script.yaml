@@ -1,0 +1,56 @@
+script:
+
+# Office - Azure Sentinel Lighting Scripts
+  sentinel_high:
+    sequence:
+      # Turn on Office WLED Red
+      - alias: "OHHHH SHIT"
+        service: light.turn_on
+        data:
+          entity_id: light.office_wled
+          rgb_color: [255, 0, 0]
+          effect: Running
+          brightness: 156
+      # Send Notification to Discord
+      - alias: "Notify Discord High Severity Incident"
+        service: notify.discord
+        data:
+          message: "High Alert Raised in Sentinel!!!"
+          target:
+            - !secret sentinel_channel
+
+  sentinel_medium:
+    sequence:
+      # Turn on Office WLED Orange
+      - alias: "Sound the Alarm"
+        service: light.turn_on
+        data:
+          entity_id: light.office_wled
+          rgb_color: [255, 190, 0]
+          effect: Running
+          brightness: 156
+      # Send Notification to Discord          
+      - alias: "Notify Discord Medium Severity Incident"
+        service: notify.discord
+        data:
+          message: "Medium Alert Raised in Sentinel!!!"
+          target:
+            - !secret sentinel_channel
+
+  sentinel_low:
+    sequence:
+      # Turn on Office WLED Yellow
+      - alias: "Another false positive"
+        service: light.turn_on
+        data:
+          entity_id: light.office_wled
+          rgb_color: [255, 255, 0]
+          effect: Running
+          brightness: 156
+      # Send Notification to Discord          
+      - alias: "Notify Discord Low Severity Incident"
+        service: notify.discord
+        data:
+          message: "Low Alert Raised in Sentinel!!!"
+          target:
+            - !secret sentinel_channel

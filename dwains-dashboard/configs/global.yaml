@@ -17,8 +17,7 @@ global:
   weather: weather.dark_sky # Configure a weather entity!
   outside_temperature: sensor.dark_sky_temperature # Configure a sensor here!
   outside_humidity: sensor.dark_sky_humidity # Configure a sensor here!
-#  alarm: alarm_control_panel.alarm_system #Alarm panel entity
-  inside_temperature: climate.living_room #Can be climate. or sensor. entity
+  inside_temperature: climate.living_room_thermostat #Can be climate. or sensor. entity
   battery_empty_strings:
     - 'unavailable'
 

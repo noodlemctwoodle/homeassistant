@@ -1,0 +1,23 @@
+group:
+
+# Bedroom - Lights
+  bedroom_lights:
+    name: Bedroom Lights
+    entities:
+      - light.bedroom_pendant_01
+      - light.bedroom_pendant_02
+      - light.bedroom_lamp_01
+
+# Bedroom - Smart Plugs
+  bedroom_switches:
+    name: Bedroom Switches
+    entities:
+      - switch.bedroom_tv_smart_plug_relay
+
+# Bedroom - Media
+  bedroom_media:
+    name: Bedroom Media Players
+    entities:
+      - media_player.bedroom_speaker
+      - media_player.bedroom_tv
+      - media_player.bedroom_shield_adb

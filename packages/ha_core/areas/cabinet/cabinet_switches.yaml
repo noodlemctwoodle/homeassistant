@@ -1,6 +1,0 @@
-# Dwains Theme Group
-group:
-  cabinet_switches:
-    name: Cabinet Switches
-    entities:
-      - switch.sp_of_cab_relay

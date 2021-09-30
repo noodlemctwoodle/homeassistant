@@ -1,0 +1,8 @@
+light:
+
+# Hall - Lights
+  - platform: group
+    name: Hall
+    entities:
+      - light.hall_spot_01
+      - light.hall_spot_02

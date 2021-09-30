@@ -11,5 +11,5 @@ cameras:
   live_view: 'false' #If you want to disable live view then enable this line
   entities:
     - camera.back_garden
-    - camera.office
+    - camera.office_cam
     - camera.front_door

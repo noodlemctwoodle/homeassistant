@@ -1,0 +1,636 @@
+- type: vertical-stack
+  cards:
+    - type: custom:dwains-flexbox-card
+      padding: true
+      items_classes: 'col-lg-3 col-md-3 col-sm-6 col-xs-6'
+      cards:
+
+        # Living Room TV Smart Plug                
+        - type: custom:button-card
+          entity: 'switch.living_room_tv_smart_plug_relay'
+          icon: 'mdi:power-socket-uk'
+          aspect_ratio: 1/1
+          name: Living Room TV
+          styles:
+            card:
+          #    - background-color: '#000044'
+              - border-radius: 10%
+              - padding: 10%
+          #    - color: ivory
+              - font-size: 10px
+              - text-shadow: 0px 0px 5px black
+              - text-transform: capitalize
+            grid:
+              - grid-template-areas: '"i state" "n n" "kwh kwh" "amps amps" "watts watts"'
+              - grid-template-columns: 1fr 1fr
+              - grid-template-rows: 1fr min-content min-content min-content min-content
+            name:
+              - font-weight: bold
+              - font-size: 13px
+              - color: white
+              - align-self: middle
+              - justify-self: start
+              - padding-bottom: 4px
+            img_cell:
+              - justify-content: start
+              - align-items: start
+              - margin: none
+            icon:
+              - color: >
+                  [[[
+                    if (entity.state === 'on') return 'red';
+                    else return 'lime';
+                  ]]]
+              - width: 70%
+              - margin-top: -10%
+            custom_fields:
+              kwh:
+                - padding-bottom: 2px
+                - align-self: middle
+                - justify-self: start
+                - --text-color-sensor: '[[[ if (states["sensor.living_room_tv_smart_plug_total_daily_energy"].state > "0.300") return "red"; ]]]'
+              amps:
+                - padding-bottom: 2px
+                - align-self: middle
+                - justify-self: start
+                - --text-color-sensor: '[[[ if (states["sensor.living_room_tv_smart_plug_amperage"].state > "9.00") return "yellow"; ]]]'
+              watts:
+                - align-self: middle
+                - justify-self: start
+                - --text-color-sensor: '[[[ if (states["sensor.living_room_tv_smart_plug_wattage"].state > "50") return "red"; ]]]'
+          custom_fields:
+            kwh: >
+              [[[
+                return `<ha-icon
+                  icon="mdi:lightning-bolt"
+                  style="width: 12px; height: 12px; color: deepskyblue;">
+                  </ha-icon><span>KwH: <span style="color: var(--text-color-sensor);">${states['sensor.living_room_tv_smart_plug_total_daily_energy'].state}KwH</span></span>`
+              ]]]
+            amps: >
+              [[[
+                return `<ha-icon
+                  icon="mdi:lightning-bolt"
+                  style="width: 12px; height: 12px; color: deepskyblue;">
+                  </ha-icon><span>Amps: <span style="color: var(--text-color-sensor);">${states['sensor.living_room_tv_smart_plug_amperage'].state}V</span></span>`
+              ]]]
+            watts: >
+              [[[
+                return `<ha-icon
+                  icon="mdi:lightning-bolt"
+                  style="width: 12px; height: 12px; color: deepskyblue;">
+                  </ha-icon><span>Watts: <span style="color: var(--text-color-sensor);">${states['sensor.living_room_tv_smart_plug_wattage'].state}W</span></span>`
+              ]]]
+
+        # Living Room AV Smart Plug
+        - type: custom:button-card
+          entity: 'switch.living_room_av_receiver_smart_plug_relay'
+          icon: 'mdi:power-socket-uk'
+          aspect_ratio: 1/1
+          name: Living Room AV
+          styles:
+            card:
+          #    - background-color: '#000044'
+              - border-radius: 10%
+              - padding: 10%
+          #    - color: ivory
+              - font-size: 10px
+              - text-shadow: 0px 0px 5px black
+              - text-transform: capitalize
+            grid:
+              - grid-template-areas: '"i temp" "n n" "kwh kwh" "amps amps" "watts watts"'
+              - grid-template-columns: 1fr 1fr
+              - grid-template-rows: 1fr min-content min-content min-content min-content
+            name:
+              - font-weight: bold
+              - font-size: 13px
+              - color: white
+              - align-self: middle
+              - justify-self: start
+              - padding-bottom: 4px
+            img_cell:
+              - justify-content: start
+              - align-items: start
+              - margin: none
+            icon:
+              - color: >
+                  [[[
+                    if (entity.state === 'on') return 'red';
+                    else return 'lime';
+                  ]]]
+              - width: 70%
+              - margin-top: -10%
+            custom_fields:
+              kwh:
+                - padding-bottom: 2px
+                - align-self: middle
+                - justify-self: start
+                - --text-color-sensor: '[[[ if (states["sensor.living_room_av_receiver_smart_plug_total_daily_energy"].state > "0.100") return "red"; ]]]'
+              amps:
+                - padding-bottom: 2px
+                - align-self: middle
+                - justify-self: start
+                - --text-color-sensor: '[[[ if (states["sensor.living_room_av_receiver_smart_plug_amperage"].state > "9.00") return "yellow"; ]]]'
+              watts:
+                - align-self: middle
+                - justify-self: start
+                - --text-color-sensor: '[[[ if (states["sensor.living_room_av_receiver_smart_plug_wattage"].state > "70") return "red"; ]]]'
+          custom_fields:
+            kwh: >
+              [[[
+                return `<ha-icon
+                  icon="mdi:lightning-bolt"
+                  style="width: 12px; height: 12px; color: deepskyblue;">
+                  </ha-icon><span>KwH: <span style="color: var(--text-color-sensor);">${states['sensor.living_room_av_receiver_smart_plug_total_daily_energy'].state}KwH</span></span>`
+              ]]]
+            amps: >
+              [[[
+                return `<ha-icon
+                  icon="mdi:lightning-bolt"
+                  style="width: 12px; height: 12px; color: deepskyblue;">
+                  </ha-icon><span>Amps: <span style="color: var(--text-color-sensor);">${states['sensor.living_room_av_receiver_smart_plug_amperage'].state}A</span></span>`
+              ]]]
+            watts: >
+              [[[
+                return `<ha-icon
+                  icon="mdi:lightning-bolt"
+                  style="width: 12px; height: 12px; color: deepskyblue;">
+                  </ha-icon><span>Watts: <span style="color: var(--text-color-sensor);">${states['sensor.living_room_av_receiver_smart_plug_wattage'].state}W</span></span>`
+              ]]]
+
+        # Living Room Sub Smart Socket
+        - type: custom:button-card
+          entity: 'switch.living_room_subwoofer_smart_socket'
+          icon: 'mdi:power-socket-uk'
+          aspect_ratio: 1/1
+          name: Living Room Sub
+          styles:
+            card:
+          #    - background-color: '#000044'
+              - border-radius: 10%
+              - padding: 10%
+          #    - color: ivory
+              - font-size: 10px
+              - text-shadow: 0px 0px 5px black
+              - text-transform: capitalize
+            grid:
+              - grid-template-areas: '"i temp" "n n" "kwh kwh" "volts volts" "watts watts"'
+              - grid-template-columns: 1fr 1fr
+              - grid-template-rows: 1fr min-content min-content min-content min-content
+            name:
+              - font-weight: bold
+              - font-size: 13px
+              - color: white
+              - align-self: middle
+              - justify-self: start
+              - padding-bottom: 4px
+            img_cell:
+              - justify-content: start
+              - align-items: start
+              - margin: none
+            icon:
+              - color: >
+                  [[[
+                    if (entity.state === 'on') return 'red';
+                    else return 'lime';
+                  ]]]
+              - width: 70%
+              - margin-top: -10%
+            custom_fields:
+              kwh:
+                - padding-bottom: 2px
+                - align-self: middle
+                - justify-self: start
+                - --text-color-sensor: '[[[ if (states["sensor.bedroom_tv_smart_plug_total_daily_energy"].state > 80) return "red"; ]]]'
+              volts:
+                - padding-bottom: 2px
+                - align-self: middle
+                - justify-self: start
+                - --text-color-sensor: '[[[ if (states["sensor.bedroom_tv_smart_plug_voltage"].state > 80) return "red"; ]]]'
+              watts:
+                - align-self: middle
+                - justify-self: start
+                - --text-color-sensor: '[[[ if (states["sensor.bedroom_tv_smart_plug_wattage"].state > 80) return "red"; ]]]'
+          custom_fields:
+            kwh: >
+              [[[
+                return `<ha-icon
+                  icon="mdi:lightning-bolt"
+                  style="width: 12px; height: 12px; color: deepskyblue;">
+                  </ha-icon><span>KwH: <span style="color: var(--text-color-sensor);">${states['sensor.bedroom_tv_smart_plug_total_daily_energy'].state}KwH</span></span>`
+              ]]]
+            volts: >
+              [[[
+                return `<ha-icon
+                  icon="mdi:lightning-bolt"
+                  style="width: 12px; height: 12px; color: deepskyblue;">
+                  </ha-icon><span>Volts: <span style="color: var(--text-color-sensor);">${states['sensor.bedroom_tv_smart_plug_voltage'].state}V</span></span>`
+              ]]]
+            watts: >
+              [[[
+                return `<ha-icon
+                  icon="mdi:lightning-bolt"
+                  style="width: 12px; height: 12px; color: deepskyblue;">
+                  </ha-icon><span>Watts: <span style="color: var(--text-color-sensor);">${states['sensor.bedroom_tv_smart_plug_wattage'].state}W</span></span>`
+              ]]]
+
+        # Bedroom TV Smart Plug                
+        - type: custom:button-card
+          entity: 'switch.bedroom_tv_smart_plug_relay'
+          icon: 'mdi:power-socket-uk'
+          aspect_ratio: 1/1
+          name: Bedroom TV
+          styles:
+            card:
+          #    - background-color: '#000044'
+              - border-radius: 10%
+              - padding: 10%
+          #    - color: ivory
+              - font-size: 10px
+              - text-shadow: 0px 0px 5px black
+              - text-transform: capitalize
+            grid:
+              - grid-template-areas: '"i temp" "n n" "kwh kwh" "amps amps" "watts watts"'
+              - grid-template-columns: 1fr 1fr
+              - grid-template-rows: 1fr min-content min-content min-content min-content
+            name:
+              - font-weight: bold
+              - font-size: 13px
+              - color: white
+              - align-self: middle
+              - justify-self: start
+              - padding-bottom: 4px
+            img_cell:
+              - justify-content: start
+              - align-items: start
+              - margin: none
+            icon:
+              - color: >
+                  [[[
+                    if (entity.state === 'on') return 'red';
+                    else return 'lime';
+                  ]]]
+              - width: 70%
+              - margin-top: -10%
+            custom_fields:
+              kwh:
+                - padding-bottom: 2px
+                - align-self: middle
+                - justify-self: start
+                - --text-color-sensor: '[[[ if (states["sensor.bedroom_tv_smart_plug_total_daily_energy"].state > "0.100") return "red"; ]]]'
+              amps:
+                - padding-bottom: 2px
+                - align-self: middle
+                - justify-self: start
+                - --text-color-sensor: '[[[ if (states["sensor.bedroom_tv_smart_plug_amperage"].state > "9") return "yellow"; ]]]'
+              watts:
+                - align-self: middle
+                - justify-self: start
+                - --text-color-sensor: '[[[ if (states["sensor.bedroom_tv_smart_plug_wattage"].state > "50") return "red"; ]]]'
+          custom_fields:
+            kwh: >
+              [[[
+                return `<ha-icon
+                  icon="mdi:lightning-bolt"
+                  style="width: 12px; height: 12px; color: deepskyblue;">
+                  </ha-icon><span>KwH: <span style="color: var(--text-color-sensor);">${states['sensor.bedroom_tv_smart_plug_total_daily_energy'].state}KwH</span></span>`
+              ]]]
+            amps: >
+              [[[
+                return `<ha-icon
+                  icon="mdi:lightning-bolt"
+                  style="width: 12px; height: 12px; color: deepskyblue;">
+                  </ha-icon><span>Amps: <span style="color: var(--text-color-sensor);">${states['sensor.bedroom_tv_smart_plug_amperage'].state}V</span></span>`
+              ]]]
+            watts: >
+              [[[
+                return `<ha-icon
+                  icon="mdi:lightning-bolt"
+                  style="width: 12px; height: 12px; color: deepskyblue;">
+                  </ha-icon><span>Watts: <span style="color: var(--text-color-sensor);">${states['sensor.bedroom_tv_smart_plug_wattage'].state}W</span></span>`
+              ]]]
+
+        # Office Smart Plug
+        - type: custom:button-card
+          entity: 'switch.office_computer_smart_plug_relay'
+          icon: 'mdi:power-socket-uk'
+          aspect_ratio: 1/1
+          name: Office Desk
+          styles:
+            card:
+          #    - background-color: '#000044'
+              - border-radius: 10%
+              - padding: 10%
+          #    - color: ivory
+              - font-size: 10px
+              - text-shadow: 0px 0px 5px black
+              - text-transform: capitalize
+            grid:
+              - grid-template-areas: '"i temp" "n n" "kwh kwh" "amps amps" "watts watts"'
+              - grid-template-columns: 1fr 1fr
+              - grid-template-rows: 1fr min-content min-content min-content min-content
+            name:
+              - font-weight: bold
+              - font-size: 13px
+              - color: white
+              - align-self: middle
+              - justify-self: start
+              - padding-bottom: 4px
+            img_cell:
+              - justify-content: start
+              - align-items: start
+              - margin: none
+            icon:
+              - color: >
+                  [[[
+                    if (entity.state === 'on') return 'red';
+                    else return 'lime';
+                  ]]]
+              - width: 70%
+              - margin-top: -10%
+            custom_fields:
+              kwh:
+                - padding-bottom: 2px
+                - align-self: middle
+                - justify-self: start
+                - --text-color-sensor: '[[[ if (states["sensor.office_computer_smart_plug_total_daily_energy"].state > 80) return "red"; ]]]'
+              amps:
+                - padding-bottom: 2px
+                - align-self: middle
+                - justify-self: start
+                - --text-color-sensor: '[[[ if (states["sensor.office_computer_smart_plug_amperage"].state > 80) return "red"; ]]]'
+              watts:
+                - align-self: middle
+                - justify-self: start
+                - --text-color-sensor: |
+                    '[[[ if (states["sensor.office_computer_smart_plug_wattage"].state > 80) return "red"; 
+                      if (states["sensor.office_computer_smart_plug_wattage"].state === '0.0') return "lime"; ]]]'
+          custom_fields:
+            kwh: >
+              [[[
+                return `<ha-icon
+                  icon="mdi:lightning-bolt"
+                  style="width: 12px; height: 12px; color: deepskyblue;">
+                  </ha-icon><span>KwH: <span style="color: var(--text-color-sensor);">${states['sensor.office_computer_smart_plug_total_daily_energy'].state}KwH</span></span>`
+              ]]]
+            amps: >
+              [[[
+                return `<ha-icon
+                  icon="mdi:lightning-bolt"
+                  style="width: 12px; height: 12px; color: deepskyblue;">
+                  </ha-icon><span>Amps: <span style="color: var(--text-color-sensor);">${states['sensor.office_computer_smart_plug_amperage'].state}V</span></span>`
+              ]]]
+            watts: >
+              [[[
+                return `<ha-icon
+                  icon="mdi:lightning-bolt"
+                  style="width: 12px; height: 12px; color: deepskyblue;">
+                  </ha-icon><span>Watts: <span style="color: var(--text-color-sensor);">${states['sensor.office_computer_smart_plug_wattage'].state}W</span></span>`
+              ]]]
+
+        # Server Cabinet Smart Plug
+        - type: custom:button-card
+          entity: 'switch.office_computer_smart_plug_relay'
+          icon: 'mdi:power-socket-uk'
+          aspect_ratio: 1/1
+          name: Server Cabinet
+          styles:
+            card:
+          #    - background-color: '#000044'
+              - border-radius: 10%
+              - padding: 10%
+          #    - color: ivory
+              - font-size: 10px
+              - text-shadow: 0px 0px 5px black
+              - text-transform: capitalize
+            grid:
+              - grid-template-areas: '"i temp" "n n" "kwh kwh" "amps amps" "watts watts"'
+              - grid-template-columns: 1fr 1fr
+              - grid-template-rows: 1fr min-content min-content min-content min-content
+            name:
+              - font-weight: bold
+              - font-size: 13px
+              - color: white
+              - align-self: middle
+              - justify-self: start
+              - padding-bottom: 4px
+            img_cell:
+              - justify-content: start
+              - align-items: start
+              - margin: none
+            icon:
+              - color: >
+                  [[[
+                    if (entity.state === 'on') return 'red';
+                    else return 'lime';
+                  ]]]
+              - width: 70%
+              - margin-top: -10%
+            custom_fields:
+              kwh:
+                - padding-bottom: 2px
+                - align-self: middle
+                - justify-self: start
+                - --text-color-sensor: '[[[ if (states["sensor.office_computer_smart_plug_total_daily_energy"].state > 80) return "red"; ]]]'
+              amps:
+                - padding-bottom: 2px
+                - align-self: middle
+                - justify-self: start
+                - --text-color-sensor: '[[[ if (states["sensor.office_computer_smart_plug_amperage"].state > 80) return "red"; ]]]'
+              watts:
+                - align-self: middle
+                - justify-self: start
+                - --text-color-sensor: '[[[ if (states["sensor.office_computer_smart_plug_wattage"].state > 80) return "red"; ]]]'
+          custom_fields:
+            kwh: >
+              [[[
+                return `<ha-icon
+                  icon="mdi:lightning-bolt"
+                  style="width: 12px; height: 12px; color: deepskyblue;">
+                  </ha-icon><span>KwH: <span style="color: var(--text-color-sensor);">${states['sensor.office_computer_smart_plug_total_daily_energy'].state}KwH</span></span>`
+              ]]]
+            amps: >
+              [[[
+                return `<ha-icon
+                  icon="mdi:lightning-bolt"
+                  style="width: 12px; height: 12px; color: deepskyblue;">
+                  </ha-icon><span>Amps: <span style="color: var(--text-color-sensor);">${states['sensor.office_computer_smart_plug_amperage'].state}V</span></span>`
+              ]]]
+            watts: >
+              [[[
+                return `<ha-icon
+                  icon="mdi:lightning-bolt"
+                  style="width: 12px; height: 12px; color: deepskyblue;">
+                  </ha-icon><span>Watts: <span style="color: var(--text-color-sensor);">${states['sensor.office_computer_smart_plug_wattage'].state}W</span></span>`
+              ]]]
+
+# Sensor Battery Status
+- type: vertical-stack
+  cards:
+    - type: custom:dwains-flexbox-card
+      padding: true
+      items_classes: 'col-lg-3 col-md-3 col-sm-12 col-xs-12'
+      cards:
+
+        - type: vertical-stack
+          cards:
+
+            - type: custom:battery-state-card
+              style: |
+                ha-card {
+                  background: var(--paper-card-background-color);
+                  border-radius: 10px;
+                  box-shadow: 10px;
+                  font-weight: bold;
+                  opacity: 0.8;
+                }
+              title: "Bathroom Batteries"
+              entities:
+                - entity: sensor.bathroom_door_power
+                  name: "Door Magentic Sensor"
+                - entity: sensor.bathroom_window_power
+                  name: "Window Magnetic Sensor"
+                - entity: sensor.bathroom_remote_power
+                  name: "Hue Dimmer Switch"
+                - entity: sensor.bathroom_hue_power
+                  name: "Hue Motion Sensor"
+
+            - type: custom:battery-state-card
+              style: |
+                ha-card {
+                  background: var(--paper-card-background-color);
+                  border-radius: 10px;
+                  box-shadow: 10px;
+                  font-weight: bold;
+                  opacity: 0.8;
+                }
+              title: "Bedroom Batteries"
+              entities:
+                - entity: sensor.bedroom_remote_power
+                  name: "Hue Dimmer Switch"
+                - entity: sensor.bedroom_hue_power
+                  name: "Hue Motion Sensor"
+
+        - type: vertical-stack
+          cards:
+
+            - type: custom:battery-state-card
+              style: |
+                ha-card {
+                  background: var(--paper-card-background-color);
+                  border-radius: 10px;
+                  box-shadow: 10px;
+                  font-weight: bold;
+                  opacity: 0.8;
+                }
+              title: "Bedroom Batteries"
+              entities:
+                - entity: sensor.craft_room_window_power
+                  name: "Window Magnetic Sensor"
+                - entity: sensor.craft_room_remote_power
+                  name: "Hue Dimmer Switch"
+                - entity: sensor.craft_room_hue_power
+                  name: "Hue Motion Sensor"
+
+            - type: custom:battery-state-card
+              style: |
+                ha-card {
+                  background: var(--paper-card-background-color);
+                  border-radius: 10px;
+                  box-shadow: 10px;
+                  font-weight: bold;
+                  opacity: 0.8;
+                }
+              title: "Hall Batteries"
+              entities:
+                - entity: sensor.front_door_power
+                  name: "Door Magentic Sensor"
+                - entity: sensor.front_door_hue_power
+                  name: "Hue Motion Sensor (Outdoor)"
+                - entity: sensor.hall_power
+                  name: "Hue Motion Sensor"
+
+        - type: vertical-stack
+          cards:
+
+            - type: custom:battery-state-card
+              style: |
+                ha-card {
+                  background: var(--paper-card-background-color);
+                  border-radius: 10px;
+                  box-shadow: 10px;
+                  font-weight: bold;
+                  opacity: 0.8;
+                }
+              title: "Kitchen & Utility Batteries"
+              entities:
+                - entity: sensor.kitchen_window_power
+                  name: "Window Magnetic Sensor"
+                - entity: sensor.kitchen_hue_power
+                  name: "Hue Motion Sensor"
+                - entity: sensor.patio_door_power
+                  name: "Door Magentic Sensor"
+
+
+            - type: custom:battery-state-card
+              style: |
+                ha-card {
+                  background: var(--paper-card-background-color);
+                  border-radius: 10px;
+                  box-shadow: 10px;
+                  font-weight: bold;
+                  opacity: 0.8;
+                }
+              title: "Landing Batteries"
+              entities:
+                - entity: sensor.landing_window_power
+                  name: "Window Magentic Sensor"
+                - entity: sensor.landing_hue_power
+                  name: "Landing Hue Motion Sensor"
+                - entity: sensor.stairs_hue_power
+                  name: "Stairs Hue Motion Sensor"
+                - entity: sensor.loft_hatch_power
+                  name: "Hatch Magnetic Sensor"
+
+        - type: vertical-stack
+          cards:
+
+            - type: custom:battery-state-card
+              style: |
+                ha-card {
+                  background: var(--paper-card-background-color);
+                  border-radius: 10px;
+                  box-shadow: 10px;
+                  font-weight: bold;
+                  opacity: 0.8;
+                }
+              title: "Living Room Batteries"
+              entities:
+                - entity: sensor.living_room_l_power
+                  name: "Left Window Magnetic Sensor"
+                - entity: sensor.living_room_r_power
+                  name: "Right Window Magnetic Sensor"
+                - entity: sensor.living_room_remote_power
+                  name: "Hue Dimmer Switch"
+                - entity: sensor.living_room_hue_power
+                  name: "Hue Motion Sensor"
+
+
+            - type: custom:battery-state-card
+              style: |
+                ha-card {
+                  background: var(--paper-card-background-color);
+                  border-radius: 10px;
+                  box-shadow: 10px;
+                  font-weight: bold;
+                  opacity: 0.8;
+                }
+              title: "Office & Cabinet Batteries"
+              entities:
+                - entity: sensor.office_window_power
+                  name: "Window Magnetic Sensor"
+                - entity: sensor.office_remote_power
+                  name: "Office Hue Dimmer Switch"
+                - entity: sensor.office_hue_power
+                  name: "Hue Motion Sensor"
+                - entity: sensor.server_cabinet_remote_power
+                  name: "Cabinet Hue Dimmer Switch"

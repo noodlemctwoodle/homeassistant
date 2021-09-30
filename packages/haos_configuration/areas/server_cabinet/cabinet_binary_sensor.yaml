@@ -1,0 +1,16 @@
+binary_sensor:
+
+# Ping (ICMP)
+## https://www.home-assistant.io/integrations/ping/
+
+  - platform: ping
+    name: Cloudflare DNS
+    host: 1.1.1.1
+    count: 5
+    scan_interval: 600
+
+  - platform: ping
+    name: Google DNS
+    host: 8.8.8.8
+    count: 5
+    scan_interval: 800

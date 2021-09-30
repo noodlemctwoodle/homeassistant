@@ -1,0 +1,143 @@
+automation:
+
+#  Craft Room - Philips Hue Motion
+  - alias: 'Craft Room lights turn-on day'
+    trigger:
+      platform: state
+      entity_id: binary_sensor.craft_room_occupancy
+      to: 'on'
+    condition:
+      - condition: numeric_state
+        entity_id: sensor.craft_room_illuminance
+        below: '3.0'
+      - condition: or
+        conditions:
+        - condition: state
+          entity_id: !secret person_2
+          state: home
+        - condition: state
+          entity_id: !secret person_1
+          state: home
+    action:
+      service: light.turn_on
+      data:
+        entity_id: light.craft_room_shadow
+        brightness: 249
+
+  - alias: 'Craft Room lights turn-on night'
+    trigger:
+      platform: state
+      entity_id: binary_sensor.craft_room_occupancy
+      to: 'on'
+    condition:
+      - condition: numeric_state
+        entity_id: sensor.craft_room_illuminance
+        below: '1.5'
+      - condition: or
+        conditions:
+        - condition: state
+          entity_id: !secret person_2
+          state: home
+        - condition: state
+          entity_id: !secret person_1
+          state: home
+    action:
+      service: light.turn_on
+      data:
+        entity_id: light.craft_room_shadow
+        brightness: 249
+
+
+  - alias: 'Craft room lights turn-off'
+    trigger:
+      platform: state
+      entity_id: binary_sensor.craft_room_occupancy
+      to: 'off'
+      for:
+        seconds: 50
+    action:
+      service: light.turn_off
+      data:
+        entity_id: light.craft_room_shadow
+        transition: 10
+
+# Craft Room - Philips Hue Dimmer
+  - alias: 'Craft Room turn-on from dimmer normal'
+    initial_state: true
+    trigger:
+      platform: event
+      event_type: zha_event
+      event_data:
+        device_id: 7afef7a5593a5af984cc0530d97b8abf
+        command: on_press
+    action:
+      - service: light.turn_on
+        data:
+          entity_id:
+            - light.craft_room_shadow
+          brightness_pct: 50
+
+  - alias: 'Craft Room turn-on from dimmer bright'
+    initial_state: true
+    trigger:
+      platform: event
+      event_type: zha_event
+      event_data:
+        device_id: 7afef7a5593a5af984cc0530d97b8abf
+        command: on_long_release
+    action:
+      - service: light.turn_on
+        data:
+          entity_id:
+            - light.craft_room
+          brightness_pct: 100
+
+  - alias: 'Craft Room increase brightness from dimmer'
+    initial_state: true
+    trigger:
+      platform: event
+      event_type: zha_event
+      event_data:
+        device_id: 7afef7a5593a5af984cc0530d97b8abf
+        command: up_press
+    action:
+      - service: light.turn_on
+        data_template:
+          entity_id: light.craft_room_shadow
+          brightness: >
+            {% set bri = state_attr
+            ('light.craft_room_shadow', 'brightness') | int %}
+            {{ [bri+30, 249] | min }}
+
+  - alias: 'Craft Room decrease brightness from dimmer'
+    initial_state: true
+    trigger:
+      platform: event
+      event_type: zha_event
+      event_data:
+        device_id: 7afef7a5593a5af984cc0530d97b8abf
+        command: down_press
+    action:
+      - service: light.turn_off
+        data_template:
+          entity_id: light.craft_room_spots
+      - service: light.turn_on
+        data_template:
+          entity_id: light.craft_room_shadow
+          brightness: >
+            {% set bri = state_attr
+            ('light.craft_room_shadow', 'brightness') | int %}
+            {{ [bri-30, 10] | max }}
+
+  - alias: 'Craft Room turn-off from dimmer'
+    initial_state: true
+    trigger:
+      platform: event
+      event_type: zha_event
+      event_data:
+        device_id: 7afef7a5593a5af984cc0530d97b8abf
+        command: off_press
+    action:
+      - service: light.turn_off
+        data_template:
+          entity_id: light.craft_room

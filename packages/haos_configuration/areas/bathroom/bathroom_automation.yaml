@@ -1,0 +1,126 @@
+automation:
+
+  # Bathroom - Philips Hue Dimmer
+  - alias: 'Bathroom turn-on from dimmer normal'
+    initial_state: true
+    trigger:
+      platform: event
+      event_type: zha_event
+      event_data:
+        device_id: 017fa6e0d294bcae747960a645322081
+        command: on_press
+    action:
+      - service: light.turn_on
+        data_template:
+          entity_id: light.bathroom
+          brightness: 249
+
+  - alias: 'Bathroom increase brightness from dimmer'
+    initial_state: true
+    trigger:
+      platform: event
+      event_type: zha_event
+      event_data:
+        device_id: 017fa6e0d294bcae747960a645322081
+        command: up_press
+    action:
+      - service: light.turn_on
+        data_template:
+          entity_id: light.bathroom
+          brightness: >
+            {% set bri = state_attr
+            ('light.bathroom', 'brightness') | int %}
+            {{ [bri+30, 249] | min }}
+
+  - alias: 'Bathroom decrease brightness from dimmer'
+    initial_state: true
+    trigger:
+      platform: event
+      event_type: zha_event
+      event_data:
+        device_id: 017fa6e0d294bcae747960a645322081
+        command: down_press
+    action:
+      - service: light.turn_on
+        data_template:
+          entity_id: light.bathroom
+          brightness: >
+            {% set bri = state_attr
+            ('light.bathroom', 'brightness') | int %}
+            {{ [bri-30, 10] | max }}
+
+  - alias: 'Bathroom turn-off from dimmer'
+    initial_state: true
+    trigger:
+      platform: event
+      event_type: zha_event
+      event_data:
+        device_id: 017fa6e0d294bcae747960a645322081
+        command: off_press
+    action:
+      - service: light.turn_off
+        data_template:
+          entity_id: light.bathroom
+
+#  Bathroom - Philips Hue Motion
+  - alias: 'Bathroom lights turn-on'
+    trigger:
+      platform: state
+      entity_id: binary_sensor.bathroom_occupancy
+      to: 'on'
+    condition:
+      - condition: state
+        entity_id: light.bathroom
+        state: 'off'
+      - condition: numeric_state
+        entity_id: sensor.bathroom_illuminance
+        below: '1.2'
+      - condition: or
+        conditions:
+        - condition: state
+          entity_id: !secret person_2
+          state: home
+        - condition: state
+          entity_id: !secret person_1
+          state: home
+    action:
+      service: light.turn_on
+      data:
+        entity_id: light.bathroom
+        brightness: 249
+
+  - alias: 'Bathroom lights turn off when no motion sensor'
+    trigger:
+      platform: state
+      entity_id: binary_sensor.bathroom_occupancy
+      to: 'off'
+      for:
+        minutes: 3
+    condition:
+    - condition: state
+      entity_id: binary_sensor.bathroom_door
+      state: 'on'
+    action:
+      service: light.turn_off
+      data:
+        entity_id: light.bathroom
+        transition : 10
+
+  - alias: 'Bathroom lights turn off when door open and no motion'
+    trigger:
+      platform: state
+      entity_id: binary_sensor.bathroom_door
+      to: 'on'
+      for:
+        seconds: 10
+    condition:
+    - condition: state
+      entity_id: binary_sensor.bathroom_occupancy
+      state: 'off'
+      for:
+        seconds: 10
+    action:
+      service: light.turn_off
+      data:
+        entity_id: light.bathroom
+        transition : 10

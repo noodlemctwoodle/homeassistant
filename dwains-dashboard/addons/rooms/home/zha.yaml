@@ -1,0 +1,46 @@
+- type: horizontal-stack
+  cards:
+    - type: custom:dwains-flexbox-card
+      padding: true
+      items_classes: 'col-lg-12 col-md-12 col-sm-12 col-xs-12'
+      cards:
+
+        - type: horizontal-stack
+          cards:
+
+            - type: custom:zha-network-card
+              style: |
+                ha-card {
+                  background: var(--paper-card-background-color);
+                  border-radius: 10px;
+                  box-shadow: 10px;
+                  font-weight: bold;
+                  opacity: 0.8;
+                }
+              clickable: true
+              columns:
+                - name: Name
+                  prop: name
+                - attr: available
+                  id: available
+                  modify: x || "false"
+                  name: Online
+                - attr: manufacturer
+                  name: Manufacturer
+                - attr: model
+                  name: Model
+                - attr: ieee
+                  name: IEEE
+                - name: NWK
+                  prop: nwk
+                - attr: rssi
+                  name: RSSI
+                - attr: lqi
+                  name: LQI
+                - attr: last_seen
+                  name: Last Seen
+                - attr: power_source
+                  name: Power Source
+                - attr: quirk_class
+                  name: Quirk
+              sort_by: available

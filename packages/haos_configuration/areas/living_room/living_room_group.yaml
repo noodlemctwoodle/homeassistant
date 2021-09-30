@@ -1,0 +1,43 @@
+group:
+
+# Living Room - Lights
+  living_room_lights:
+    name: Living Room Lights
+    entities:
+      - light.living_room_pendant_01
+      - light.living_room_lamp_01
+      - light.living_room_shadow
+
+# Living Room - Window Sensors
+  living_room_window_sensors:
+    name: Living Room Windows
+    entities:
+        - binary_sensor.living_room_window_left
+        - binary_sensor.living_room_window_right
+
+# Living Room - Automations Group
+  living_room_light_automations:
+    name: Living Room Light Automations
+    entities:
+    # Light Automations
+      - automation.living_rooom_lights_turn_on_day
+      - automation.living_rooom_lights_turn_on_night
+      - automation.living_room_turn_off_from_dimmer
+      - automation.living_room_lights_turn_off
+      - automation.living_rooom_lights_delay_turn_off_on_deconz_event
+      - automation.living_rooom_lights_enable_turn_off_on_deconz_event
+    # Remote Automations
+      - automation.living_room_turn_on_from_dimmer_bright
+      - automation.living_room_turn_on_from_dimmer_normal
+      - automation.living_room_stop_brightness_from_dimmer
+      - automation.living_room_decrease_brightness_from_dimmer
+      - automation.living_room_increase_brightness_from_dimmer
+
+# Living Room - Media
+  living_room_media:
+    name: Living Room Media Players
+    entities:
+      - media_player.living_room_display
+      - media_player.living_room_tv
+      - media_player.denon_avrx2300w
+      - media_player.living_room_shield_adb

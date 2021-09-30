@@ -1,0 +1,26 @@
+- type: custom:dwains-flexbox-card
+  padding: true
+  items_classes: 'col-lg-6 col-md-6 col-sm-12 col-xs-12'
+  cards:
+    - type: horizontal-stack
+      cards:
+
+      # Kitchen Switches
+        - type: entities
+          style: |
+            ha-card {
+              border-radius: 10px }};
+              box-shadow: 10px;
+              font-weight: bold;
+              opacity: 0.8;
+            }
+          head:
+            type: section
+            label: Power Rate Costs (Pence)
+          entities:
+          - entity: switch.kitchen_light_mains
+            icon: mdi:light-switch
+          - entity: switch.kitchen_light_function_01
+            icon: mdi:light-switch
+          - entity: switch.kitchen_light_function_02
+            icon: mdi:light-switch

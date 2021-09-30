@@ -1,60 +1,37 @@
+# https://dwainscheeren.github.io/dwains-lovelace-dashboard/configuration/rooms.html
+
 # https://dwainscheeren.github.io/lovelace-dwains-theme/configuration/rooms.html
 
 rooms:
   - name: Home
     icon: mdi:home-circle
-    temperature: sensor.home_average_temp
+    #temperature: sensor.home_average_temp
     addons:
-      - name: Media
-        icon: mdi:server-network
-        path: 'dwains-dashboard/addons/home.yaml'
-      - name: Power
-        icon: mdi:server-network
-        path: 'dwains-dashboard/addons/power_usage.yaml'
-    more_entities:
-      entities:
-        - entity: group.home_av_Lux
-        - entity: sensor.bathroom_door_battery_level
-        - entity: sensor.bathroom_battery_level
-        - entity: sensor.bathroom_switch_battery_level
-        - entity: sensor.bathroom_window_battery_level
-        - entity: sensor.bedroom_battery_level
-        - entity: sensor.bedroom_switch_battery_level
-        - entity: sensor.cabinet_switch_battery_level
-        - entity: sensor.craft_room_battery_level
-        - entity: sensor.craft_room_switch_battery_level
-        - entity: sensor.craft_room_window_battery_level
-        - entity: sensor.front_door_battery_level
-        - entity: sensor.garden_battery_level
-        - entity: sensor.hall_battery_level
-        - entity: sensor.kitchen_battery_level
-        - entity: sensor.kitchen_window_battery_level
-        - entity: sensor.landing_battery_level
-        - entity: sensor.landing_window_battery_level
-        - entity: sensor.living_room_battery_level
-        - entity: sensor.living_room_switch_battery_level 
-        - entity: sensor.living_room_window_left_battery_level
-        - entity: sensor.living_room_window_right_battery_level
-        - entity: sensor.loft_hatch_battery_level
-        - entity: sensor.office_battery_level
-        - entity: sensor.office_switch_battery_level
-        - entity: sensor.office_window_battery_level
-        - entity: sensor.patio_door_battery_level
-        - entity: sensor.stairs_battery_level
-
+      - name: Temperature Stats
+        icon: mdi:thermometer
+        path: 'dwains-dashboard/addons/rooms/home/temperature.yaml'
+      - name: Power Stats
+        icon:  mdi:power
+        path: 'dwains-dashboard/addons/rooms/home/power_usage.yaml'
+      - name: ZHA Connections
+        icon:  mdi:zigbee
+        path: 'dwains-dashboard/addons/rooms/home/zha.yaml'
+      - name: Garden
+        icon:  mdi:flower
+        path: 'dwains-dashboard/addons/rooms/home/garden.yaml'
 
   - name: Kitchen
     icon: mdi:pot
     light: group.kitchen_lights
     #device: switch.kitchen_light_switch_left
-    temperature: sensor.kitchen_temp
-    motion: binary_sensor.kitchen_motion
+    temperature: sensor.kitchen_temperature
+    motion: binary_sensor.kitchen_occupancy
     window: binary_sensor.kitchen_window
     media_player: media_player.kitchen_display
-#    more_entities:
-#      entities:
-#        - entity: sensor.kitchen_nest_protect_co_status
-#        - entity: sensor.kitchen_nest_protect_smoke_status
+    addons:
+      - name: Light Switches
+        icon: mdi:light-switch
+        path: 'dwains-dashboard/addons/rooms/kitchen/kitchen_switches.yaml'
 
   - name: Utility Room
     icon: mdi:washing-machine
@@ -66,22 +43,22 @@ rooms:
     icon: mdi:sofa
     light: group.living_room_lights
     device: group.living_room_switches
-    temperature: sensor.living_room_temp
+    temperature: sensor.living_room_temperature
     climate: climate.living_room
     humidity: sensor.living_room_thermostat_humidity
-    motion: binary_sensor.living_room_motion
+    motion: binary_sensor.living_room_occupancy
     window: group.living_room_window_sensors
     media_player: group.living_room_media
-#    addons:
-#      - name: Media Control
-#        icon: mdi:television-classic
-#        path: 'dwains-dashboard/addons/media.yaml'
+    addons:
+      - name: Climate
+        icon: mdi:thermostat
+        path: 'dwains-dashboard/addons/rooms/living_room/climate.yaml'
 
   - name: Hall
     icon: mdi:door
     light: group.hall_lights
-    temperature: sensor.hall_temp
-    motion: binary_sensor.hall_motion
+    temperature: sensor.hall_temperature
+    motion: binary_sensor.hall_occupancy
     door: binary_sensor.front_door
 
 
@@ -90,16 +67,16 @@ rooms:
     light: light.bathroom
     door: binary_sensor.bathroom_door
     window: binary_sensor.bathroom_window
-    motion: binary_sensor.bathroom_motion
-    temperature: sensor.bathroom_temp
+    motion: binary_sensor.bathroom_occupancy
+    temperature: sensor.bathroom_temperature
 
   - name: Landing
     icon: mdi:stairs
     light: group.landing_lights
-    motion: binary_sensor.landing_motion
+    motion: binary_sensor.landing_occupancy
     window: binary_sensor.landing_window
     door: binary_sensor.loft_hatch
-    temperature: sensor.landing_temp
+    temperature: sensor.landing_temperature
 #    more_entities:
 #      entities:
 #        - entity: sensor.upstairs_nest_protect_landing_co_status
@@ -114,14 +91,15 @@ rooms:
     icon: mdi:bed-double
     light: group.bedroom_lights
     device: group.bedroom_switches
-    temperature: sensor.bedroom_temp
-    motion: binary_sensor.bedroom_motion
+    temperature: sensor.bedroom_temperature
+    motion: binary_sensor.bedroom_occupancy
+    media_player: group.bedroom_media
 
   - name: Craft Room
     icon: mdi:format-color-fill
     light: group.craft_room_lights
-    temperature: sensor.craft_room_temp
-    motion: binary_sensor.craft_room_motion
+    temperature: sensor.craft_room_temperature
+    motion: binary_sensor.craft_room_occupancy
     window: binary_sensor.craft_room_window
     media_player: media_player.craft_room_speaker
 
@@ -129,15 +107,15 @@ rooms:
     icon: mdi:desktop-classic
     light: group.office_lights
     device: group.office_switches
-    temperature: sensor.office_temp
+    temperature: sensor.office_temperature
     window: binary_sensor.office_window
-    motion: binary_sensor.office_motion
+    motion: binary_sensor.office_occupancy
     media_player: media_player.office_speaker
 
   - name: Server Cabinet
     icon: mdi:server
     light: group.cabinet_lights
-    temperature: sensor.office_temp
+    temperature: sensor.office_temperature
     humidity: sensor.cabinet_relative_humidity
     device: switch.home_server
     addons:
@@ -147,9 +125,7 @@ rooms:
       - name: Home Assistant
         icon: mdi:home-assistant
         path: 'dwains-dashboard/addons/ha_monitoring.yaml'
-      - name: Pi Hole 
-        icon: mdi:pi-hole
-        path: 'dwains-dashboard/addons/adblocker.yaml'
       - name: Ubiquiti UniFi
         icon: 'mdi:router-network'
         path: 'dwains-dashboard/addons/unifi.yaml'
+

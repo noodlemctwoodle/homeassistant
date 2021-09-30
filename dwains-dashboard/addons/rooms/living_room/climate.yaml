@@ -1,0 +1,24 @@
+- type: vertical-stack
+  cards:
+    - type: custom:dwains-flexbox-card
+      padding: true
+      items_classes: 'col-lg-3 col-md-3 col-sm-12 col-xs-12'
+      cards:
+
+        - type: custom:thermostat-dark-card
+          style: |
+            ha-card {
+              border-radius: 10px }};
+              box-shadow: 10px;
+              font-weight: bold;
+              opacity: 0.8;
+            }
+          title: Living Room
+          entity: climate.living_room_thermostat
+          chevron_size: 100
+          hvac:
+            states:
+              'Off': 'idle'
+              'Heating': 'heat'
+            sensor:
+              sensor: sensor.living_room_thermostat_temperature

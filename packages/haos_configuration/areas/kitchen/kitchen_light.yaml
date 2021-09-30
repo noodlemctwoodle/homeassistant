@@ -1,0 +1,34 @@
+light:
+
+# Kitchen - Lights
+  - platform: group
+    name: Kitchen Area
+    entities:
+      - light.kitchen_spot_01
+      - light.kitchen_spot_02
+      - light.kitchen_spot_03
+      - light.kitchen_spot_08
+      - light.kitchen_spot_09
+
+  - platform: group
+    name: Dining Area
+    entities:
+      - light.kitchen_spot_04
+      - light.kitchen_spot_05
+      - light.kitchen_spot_06
+      - light.kitchen_spot_07
+      - light.kitchen_spot_10
+
+  - platform: group
+    name: Kitchen
+    entities:
+      - light.kitchen_spot_01
+      - light.kitchen_spot_02
+      - light.kitchen_spot_03
+      - light.kitchen_spot_04
+      - light.kitchen_spot_05
+      - light.kitchen_spot_06
+      - light.kitchen_spot_07
+      - light.kitchen_spot_08
+      - light.kitchen_spot_09
+      - light.kitchen_spot_10

@@ -1,0 +1,9 @@
+light:
+
+# Craft Room - Lights
+  - platform: group
+    name: Craft Room
+    entities:
+      - light.craft_room_spot_01
+      - light.craft_room_spot_02
+      - light.craft_room_shadow

@@ -1,0 +1,7 @@
+light:
+
+# Bathroom - Lights
+  - platform: group
+    name: Bathroom
+    entities:
+      - light.bathroom_pendant

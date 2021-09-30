@@ -1,0 +1,364 @@
+- type: vertical-stack
+  cards:
+    - type: custom:dwains-flexbox-card
+      padding: true
+      items_classes: 'col-lg-3 col-md-3 col-sm-6 col-xs-6'
+      cards:
+
+        # Average Home Temp
+        - type: custom:mini-graph-card
+          icon: mdi:chart-bar-stacked
+          name: Average
+          style: |
+            ha-card {
+              background: var(--paper-card-background-color);
+              border-radius: 10px;
+              box-shadow: 10px;
+              font-weight: bold;
+              opacity: 0.8;
+            }
+          entities:
+            - entity: sensor.home_average_temp
+              name: Home
+              color: '#FAE60C' # Yellow
+              icon: mdi:home
+            - entity: sensor.downstairs_average_temp
+              name: Downstairs
+              color: '#0293fa' # Sky Blue
+              icon: mdi:room-service
+            - entity: sensor.upstairs_average_temp
+              name: Upstairs
+              color: '#E634F2' # Hot Pink
+              icon: mdi:stairs
+          height: 200
+          hours_to_show: 7
+          points_per_hour: 30
+          update_interval: 10
+          aggregate_func: max
+          line_width: 1
+          smoothing: false
+          font_size: 65
+          font_size_header: 9
+          show:
+            average: true
+            extrema: true
+          tap_action: none
+
+        # Front Door
+        - type: custom:mini-graph-card
+          icon: mdi:door-closed
+          name: Outside Front Door Sensor
+          style: |
+            ha-card {
+              background: var(--paper-card-background-color);
+              border-radius: 10px;
+              box-shadow: 10px;
+              font-weight: bold;
+              opacity: 0.8;
+            }
+          entities:
+            - entity: sensor.front_door_temperature
+              color: '#14ff8d' # Light Green
+          height: 200
+          hours_to_show: 7
+          points_per_hour: 30
+          update_interval: 10
+          aggregate_func: max
+          line_width: 1
+          smoothing: false
+          font_size: 65
+          font_size_header: 9
+          show:
+            average: true
+            extrema: true
+          tap_action: none
+
+        # Toilet
+        - type: custom:mini-graph-card
+          icon: mdi:toilet
+          name: Bathroom Sensor
+          style: |
+            ha-card {
+              background: var(--paper-card-background-color);
+              border-radius: 10px;
+              box-shadow: 10px;
+              font-weight: bold;
+              opacity: 0.8;
+            }
+          entities:
+            - entity: sensor.bathroom_temperature
+              color: '#14ff8d' # Light Green
+          height: 200
+          hours_to_show: 7
+          points_per_hour: 30
+          update_interval: 10
+          aggregate_func: max
+          line_width: 1
+          smoothing: false
+          font_size: 65
+          font_size_header: 9
+          show:
+            average: true
+            extrema: true
+          tap_action: none
+
+        # Hall
+        - type: custom:mini-graph-card
+          icon: mdi:door
+          name: Hall Sensor
+          style: |
+            ha-card {
+              background: var(--paper-card-background-color);
+              border-radius: 10px;
+              box-shadow: 10px;
+              font-weight: bold;
+              opacity: 0.8;
+            }
+          entities:
+            - entity: sensor.hall_temperature
+              color: '#14ff8d' # Light Green
+          height: 200
+          hours_to_show: 7
+          points_per_hour: 30
+          update_interval: 10
+          aggregate_func: max
+          line_width: 1
+          smoothing: false
+          font_size: 65
+          font_size_header: 9
+          show:
+            average: true
+            extrema: true
+          tap_action: none
+
+        # Living Room
+        - type: custom:mini-graph-card
+          icon: mdi:sofa
+          name: Living Room Sensor
+          style: |
+            ha-card {
+              background: var(--paper-card-background-color);
+              border-radius: 10px;
+              box-shadow: 10px;
+              font-weight: bold;
+              opacity: 0.8;
+            }
+          entities:
+            - entity: sensor.living_room_temperature
+              color: '#14ff8d' # Light Green
+          height: 200
+          hours_to_show: 7
+          points_per_hour: 30
+          update_interval: 10
+          aggregate_func: max
+          line_width: 1
+          smoothing: false
+          font_size: 65
+          font_size_header: 9
+          show:
+            average: true
+            extrema: true
+          tap_action: none
+
+        # Living Room Thermostat
+        - type: custom:mini-graph-card
+          icon: mdi:thermostat
+          name: Living Room Thermostat
+          style: |
+            ha-card {
+              background: var(--paper-card-background-color);
+              border-radius: 10px;
+              box-shadow: 10px;
+              font-weight: bold;
+              opacity: 0.8;
+            }
+          entities:
+            - entity: sensor.living_room_thermostat_temperature
+              color: '#14ff8d' # Light Green
+          height: 200
+          hours_to_show: 7
+          points_per_hour: 30
+          update_interval: 10
+          aggregate_func: max
+          line_width: 1
+          smoothing: false
+          font_size: 65
+          font_size_header: 9
+          show:
+            average: true
+            extrema: true
+          tap_action: none
+
+        # Kitchen
+        - type: custom:mini-graph-card
+          icon: mdi:pot
+          name: Kitchen Sensor
+          style: |
+            ha-card {
+              background: var(--paper-card-background-color);
+              border-radius: 10px;
+              box-shadow: 10px;
+              font-weight: bold;
+              opacity: 0.8;
+            }
+          entities:
+            - entity: sensor.kitchen_temperature
+              color: '#14ff8d' # Light Green
+          height: 200
+          hours_to_show: 7
+          points_per_hour: 30
+          update_interval: 10
+          aggregate_func: max
+          line_width: 1
+          smoothing: false
+          font_size: 65
+          font_size_header: 9
+          show:
+            average: true
+            extrema: true
+          tap_action: none
+
+        # Stairs
+        - type: custom:mini-graph-card
+          icon: mdi:stairs
+          name: Stairs Sensor
+          style: |
+            ha-card {
+              background: var(--paper-card-background-color);
+              border-radius: 10px;
+              box-shadow: 10px;
+              font-weight: bold;
+              opacity: 0.8;
+            }
+          entities:
+            - entity: sensor.stairs_temperature
+              color: '#14ff8d' # Light Green
+          height: 200
+          hours_to_show: 7
+          points_per_hour: 30
+          update_interval: 10
+          aggregate_func: max
+          line_width: 1
+          smoothing: false
+          font_size: 65
+          font_size_header: 9
+          show:
+            average: true
+            extrema: true
+          tap_action: none
+
+        # Landing
+        - type: custom:mini-graph-card
+          icon: mdi:stairs
+          name: Landing Sensor
+          style: |
+            ha-card {
+              background: var(--paper-card-background-color);
+              border-radius: 10px;
+              box-shadow: 10px;
+              font-weight: bold;
+              opacity: 0.8;
+            }
+          entities:
+            - entity: sensor.landing_temperature
+              color: '#14ff8d' # Light Green
+          height: 200
+          hours_to_show: 7
+          points_per_hour: 30
+          update_interval: 10
+          aggregate_func: max
+          line_width: 1
+          smoothing: false
+          font_size: 65
+          font_size_header: 9
+          show:
+            average: true
+            extrema: true
+          tap_action: none
+
+        # Bedroom
+        - type: custom:mini-graph-card
+          icon: mdi:bed-double
+          name: Bedroom Sensor
+          style: |
+            ha-card {
+              background: var(--paper-card-background-color);
+              border-radius: 10px;
+              box-shadow: 10px;
+              font-weight: bold;
+              opacity: 0.8;
+            }
+          entities:
+            - entity: sensor.bedroom_temperature
+              color: '#14ff8d' # Light Green
+          height: 200
+          hours_to_show: 7
+          points_per_hour: 30
+          update_interval: 10
+          aggregate_func: max
+          line_width: 1
+          smoothing: false
+          font_size: 65
+          font_size_header: 9
+          show:
+            average: true
+            extrema: true
+          tap_action: none
+
+        # Craft Room
+        - type: custom:mini-graph-card
+          icon: mdi:palette
+          name: Craft Rooom Sensor
+          style: |
+            ha-card {
+              background: var(--paper-card-background-color);
+              border-radius: 10px;
+              box-shadow: 10px;
+              font-weight: bold;
+              opacity: 0.8;
+            }
+          entities:
+            - entity: sensor.craft_room_temperature
+              color: '#14ff8d' # Light Green
+          height: 200
+          hours_to_show: 7
+          points_per_hour: 30
+          update_interval: 10
+          aggregate_func: max
+          line_width: 1
+          smoothing: false
+          font_size: 65
+          font_size_header: 9
+          show:
+            average: true
+            extrema: true
+          tap_action: none
+
+        # Office
+        - type: custom:mini-graph-card
+          icon: mdi:desktop-classic
+          name: Office Sensor
+          style: |
+            ha-card {
+              background: var(--paper-card-background-color);
+              border-radius: 10px;
+              box-shadow: 10px;
+              font-weight: bold;
+              opacity: 0.8;
+            }
+          entities:
+            - entity: sensor.office_temperature
+              color: '#14ff8d' # Light Green
+          height: 200
+          hours_to_show: 7
+          points_per_hour: 30
+          update_interval: 10
+          aggregate_func: max
+          line_width: 1
+          smoothing: false
+          font_size: 65
+          font_size_header: 9
+          show:
+            average: true
+            extrema: true
+          tap_action: none
