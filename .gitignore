@@ -35,6 +35,7 @@ home-assistant.log.1
 
 home-assistant.log
 homekit-infused.yaml
+automations.yaml
 customize.yaml
 options.xml
 OZW_Log.txt
