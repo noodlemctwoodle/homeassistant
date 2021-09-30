@@ -31,7 +31,7 @@ Sever infrastructure
 |:---|:---|
 | Maria dB | ESPHome |
 | Influx dB | NodeRed |
-| Mosquitto | | VS Code |
+| Mosquitto | VS Code |
 | Android ADB | ZHA |
 
 <br/>
