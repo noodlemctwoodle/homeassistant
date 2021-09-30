@@ -26,9 +26,9 @@ Sever infrastructure
 - Quad Port Intel NIC
 - Broadcom 9800i 16 port SAS Controler
 
-| Home Assistant Containers | | |
+| HassOS UnRAID Virtual Appliance | | |
 |:---|:---|:---|
-| Home Assistant Core | Deconz | Maria dB | 
+| Home Assistant | ZHA | Maria dB | 
 | Influx dB | Mosquitto | Glances | ESPHome |
 
 <br/>
@@ -43,6 +43,7 @@ Sever infrastructure
 | Ubiquiti UniFi G3 Flex | Nest Protect Smoke Alarms | Nest Hello Door Bell | 
 | Nest Thermostat Gen3 | Nest Hubs | Nest Minis
 | Google Homes | LG Web OS | NVIDIA Shield |
+| Aqara Swithes | |
 
 
 <br/>
